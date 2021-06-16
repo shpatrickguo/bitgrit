@@ -3,7 +3,7 @@ Author: Patrick Guo
 
 Clear and unambiguous instructions on how to reproduce the predictions from start to finish including data pre-processing, feature extraction, model training and predictions generation
 
-Environment details regarding where the model was developed and trained, including OS, memory (RAM), disk space, CPU/GPU used, and any required environment configurations required to execute the code  
+## Environment details 
 **OS:** macOS Big Sur 11.4  
 **Memory:** 16 GB 2133 MHz LPDDR3  
 **Disk Space:** 1 TB Flask Stroage  
