@@ -26,6 +26,6 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 - Cyclical encoding for hour
 
 ### What is the algorithm used and what are its main hyperparameters?
-Used Lightgbm model
+Used Lightgbm Classifier:  
 ``` lgb.LGBMClassifier() ```
 ### Any other comments considered relevant to understanding and using the model
