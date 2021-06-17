@@ -29,3 +29,15 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 Used Lightgbm Classifier:  
 ``` lgb.LGBMClassifier() ```
 ### Any other comments considered relevant to understanding and using the model
+
+
+## Summary
+Platform: macOS Big Sur 11.4  (4 Cores + 16 GB)
+Language(s) Used: Python
+Major LIbraries Used: pandas, numpy, lightgbm
+Number of Features Used: 2944 
+Validation Strategy
+Validation Accuracy
+Final Model
+Single KFold Model Runtime: 
+
