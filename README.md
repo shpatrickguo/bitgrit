@@ -1,4 +1,4 @@
-# [bitgrit](https://bitgrit.net/) + [Kaggle](https://www.kaggle.com/)
+# [bitgrit](https://bitgrit.net/)
 Code for competitions on bitgrit
 
 ## [Viral Tweets Prediction Challenge](https://bitgrit.net/competition/12)
