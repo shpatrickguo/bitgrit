@@ -1,6 +1,9 @@
 pandas
 numpy
+warnings
 seaborn
 matplotlib
 scikit-learn
 lightgbm
+bayesian-optimization
+scikit-optimize
