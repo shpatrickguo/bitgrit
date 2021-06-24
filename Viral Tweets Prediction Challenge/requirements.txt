@@ -5,6 +5,4 @@ seaborn
 matplotlib
 scikit-learn
 lightgbm
-bayesian-optimization
-scikit-optimize
 shap
