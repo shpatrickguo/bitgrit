@@ -3,6 +3,14 @@ Author: Patrick Guo
 
 Clear and unambiguous instructions on how to reproduce the predictions from start to finish including data pre-processing, feature extraction, model training and predictions generation in notebook.
 
+## In this notebook:
+- Data processing: one-hot encoding + cyclical encoding for categorical features. Normalization.
+- LASSO regression for feature selection
+- Memory footprint reduction of data
+- Hyperparmeter tuning with RandomizedSearchCV
+- Building LightGBM classifier model for prediction
+- Feature importance visualization
+
 ## Environment details 
 **OS:** macOS Big Sur 11.4  
 **Memory:** 16 GB 2133 MHz LPDDR3  

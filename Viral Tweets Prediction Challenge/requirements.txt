@@ -6,7 +6,5 @@ collections
 warnings
 matplotlib
 seaborn
-scikit-learn ==0.23.2
-Scikit-optimize
+scikit-learn 
 lightgbm
-shap
