@@ -5,7 +5,7 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 
 ## In this notebook:
 - Data processing: one-hot encoding + cyclical encoding for categorical features. Normalization.
-- Feature selection using embedded method: L1 regularization
+- Feature selection using embedded method: L1 regularization. Helps reduce our compute resources.
 - Memory footprint reduction of data
 - Hyperparmeter tuning with RandomizedSearchCV
 - Building LightGBM classifier model for prediction
@@ -48,4 +48,3 @@ Validation Strategy
 Validation Accuracy
 Final Model
 Single KFold Model Runtime: 
-
