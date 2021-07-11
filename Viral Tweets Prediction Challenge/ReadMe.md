@@ -35,8 +35,7 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 
 ### What is the algorithm used and what are its main hyperparameters?
 Used Lightgbm Classifier:  
-``` LGBMClassifier(colsample_bytree=0.7076074093370144, min_child_samples=105,
-               min_child_weight=1e-05, num_leaves=26, reg_alpha=5, reg_lambda=5,
-               subsample=0.7468773130235173) ```
-
+``` 
+LGBMClassifier(colsample_bytree=0.7076074093370144, min_child_samples=105, min_child_weight=1e-05, num_leaves=26, reg_alpha=5, reg_lambda=5, subsample=0.7468773130235173)
+```
 
