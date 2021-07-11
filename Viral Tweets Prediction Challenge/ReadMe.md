@@ -35,17 +35,8 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 
 ### What is the algorithm used and what are its main hyperparameters?
 Used Lightgbm Classifier:  
-``` lgb.LGBMClassifier() ```
-### Any other comments considered relevant to understanding and using the model
+``` LGBMClassifier(colsample_bytree=0.7076074093370144, min_child_samples=105,
+               min_child_weight=1e-05, num_leaves=26, reg_alpha=5, reg_lambda=5,
+               subsample=0.7468773130235173) ```
 
-
-## Summary
-Platform: macOS Big Sur 11.4  (4 Cores + 16 GB)
-Language(s) Used: Python
-Major LIbraries Used: pandas, numpy, lightgbm
-Number of Features Used: 2944 
-Validation Strategy
-Validation Accuracy
-Final Model
-Single KFold Model Runtime: 
 
