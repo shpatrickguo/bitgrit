@@ -30,3 +30,11 @@ Historical customer data: Customer data such as usage, sign up date, forecasted 
 Historical pricing data: variable and fixed pricing data etc
 Churn indicator: whether each customer has churned or not
 These datasets are otherwise identical and have historical price data and customer data (including churn status for the customers in the training data).
+
+## 3: Feature Engineering
+**Objectives:**
+- What key drivers of churn could be for our client
+- Build the features in order to get ready to model
+
+Feature engineering is one of the keys to unlocking predictive insight through mathematical modeling. Based on the data that is available and was cleaned, identify what  could be drivers of churn for our client and build those features to later use in your model.
+
