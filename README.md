@@ -2,7 +2,7 @@
 
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)]( https://shpatrickguo.github.io/shpg-dsproject/)
 
-![build](https://github.com/shpatrickguo/meeting-agendas/workflows/deploy/badge.svg?branch=master)
+![build](https://github.com/shpatrickguo/dsprojects/workflows/deploy/badge.svg?branch=master)
 
 Portfolio of Data Science projects.
 
