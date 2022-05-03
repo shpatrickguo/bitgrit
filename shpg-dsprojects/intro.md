@@ -1,4 +1,6 @@
-# Data Science Projects
+# About Me
+
+Hello, my name is Patrick Guo.
 
 ## [BCG Data Science & Advanced Analytics Virtual Experience](https://www.theforage.com/virtual-internships/Tcz8gTtprzAS4xSoK?ref=sdTWCZYMLpp9k5w7g)
 
