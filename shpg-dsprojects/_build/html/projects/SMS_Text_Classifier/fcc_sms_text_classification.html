@@ -474,6 +474,11 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1">#  !pip install tf-nightly</span>
 <span class="c1">#except Exception:</span>
 <span class="c1">#  pass</span>
+<span class="c1">#!pip install tensorflow-datasets</span>
+<span class="c1">#!pip install wordcloud</span>
+
+<span class="c1">#!pip install --upgrade numpy</span>
+<span class="c1">#!pip install --upgrade pandas</span>
 </pre></div>
 </div>
 </div>
@@ -481,10 +486,12 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TF_CPP_MIN_LOG_LEVEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
-<span class="c1">#!pip install tensorflow-datasets</span>
 <span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -499,14 +506,14 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1"># Modeling </span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">GlobalAveragePooling1D</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Bidirectional</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">GlobalAveragePooling1D</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Bidirectional</span><span class="p">,</span> <span class="n">Flatten</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.7.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.10.0-dev20220508
 </pre></div>
 </div>
 </div>
@@ -514,56 +521,11 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get data files</span>
-<span class="o">!</span>wget https://cdn.freecodecamp.org/project-data/sms/train-data.tsv
-<span class="o">!</span>wget https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv
+<span class="c1">#!wget https://cdn.freecodecamp.org/project-data/sms/train-data.tsv</span>
+<span class="c1">#!wget https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv</span>
 
 <span class="n">train_file_path</span> <span class="o">=</span> <span class="s2">&quot;data/train-data.tsv&quot;</span>
 <span class="n">test_file_path</span> <span class="o">=</span> <span class="s2">&quot;data/valid-data.tsv&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-05-08 08:37:52--  https://cdn.freecodecamp.org/project-data/sms/train-data.tsv
-Resolving cdn.freecodecamp.org (cdn.freecodecamp.org)... 104.26.2.33, 172.67.70.149, 104.26.3.33
-Connecting to cdn.freecodecamp.org (cdn.freecodecamp.org)|104.26.2.33|:443... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>connected.
-HTTP request sent, awaiting response... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
-Length: 358233 (350K) [text/tab-separated-values]
-Saving to: ‘train-data.tsv’
-
-
-train-data.tsv        0%[                    ]       0  --.-KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>train-data.tsv      100%[===================&gt;] 349.84K  --.-KB/s    in 0.1s    
-
-2022-05-08 08:37:53 (2.31 MB/s) - ‘train-data.tsv’ saved [358233/358233]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--2022-05-08 08:37:53--  https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv
-Resolving cdn.freecodecamp.org (cdn.freecodecamp.org)... 104.26.2.33, 172.67.70.149, 104.26.3.33
-Connecting to cdn.freecodecamp.org (cdn.freecodecamp.org)|104.26.2.33|:443... connected.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HTTP request sent, awaiting response... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>200 OK
-Length: 118774 (116K) [text/tab-separated-values]
-Saving to: ‘valid-data.tsv’
-
-
-valid-data.tsv        0%[                    ]       0  --.-KB/s               
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>valid-data.tsv      100%[===================&gt;] 115.99K  --.-KB/s    in 0.08s   
-
-2022-05-08 08:37:54 (1.51 MB/s) - ‘valid-data.tsv’ saved [118774/118774]
 </pre></div>
 </div>
 </div>
@@ -776,7 +738,7 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="n">train_ham_df</span> <span class="o">=</span> <span class="n">train_ham</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_spam</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">44</span><span class="p">)</span>
 <span class="n">train_spam_df</span> <span class="o">=</span> <span class="n">train_spam</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">train_ham_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_spam_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">train_df</span> <span class="o">=</span> <span class="n">train_ham_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_spam_df</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_ham_df</span><span class="p">,</span> <span class="n">train_spam_df</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -796,7 +758,7 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="n">test_ham_df</span> <span class="o">=</span> <span class="n">test_ham</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_spam</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">44</span><span class="p">)</span>
 <span class="n">test_spam_df</span> <span class="o">=</span> <span class="n">test_spam</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">test_ham_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_spam_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">test_df</span> <span class="o">=</span> <span class="n">test_ham_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_spam_df</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">test_ham_df</span><span class="p">,</span> <span class="n">test_spam_df</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -930,12 +892,6 @@ Shape of testing tensor:  (374, 50)
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-05-08 08:37:56.608051: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -959,161 +915,181 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 1s - loss: 0.6828 - accuracy: 0.5393 - val_loss: 0.6716 - val_accuracy: 0.5936 - 1s/epoch - 36ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 1s - loss: 0.6886 - accuracy: 0.5911 - val_loss: 0.6815 - val_accuracy: 0.8476 - 631ms/epoch - 18ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/30
-35/35 - 0s - loss: 0.6549 - accuracy: 0.7268 - val_loss: 0.6319 - val_accuracy: 0.8235 - 76ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6717 - accuracy: 0.8500 - val_loss: 0.6551 - val_accuracy: 0.8717 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/30
-35/35 - 0s - loss: 0.6041 - accuracy: 0.8259 - val_loss: 0.5692 - val_accuracy: 0.8663 - 50ms/epoch - 1ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6288 - accuracy: 0.8830 - val_loss: 0.5953 - val_accuracy: 0.8690 - 64ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5290 - accuracy: 0.8670 - val_loss: 0.4882 - val_accuracy: 0.8743 - 84ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5559 - accuracy: 0.8938 - val_loss: 0.5089 - val_accuracy: 0.8743 - 62ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.4464 - accuracy: 0.8839 - val_loss: 0.4110 - val_accuracy: 0.8850 - 120ms/epoch - 3ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.4633 - accuracy: 0.8902 - val_loss: 0.4187 - val_accuracy: 0.8797 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6/30
-35/35 - 0s - loss: 0.3661 - accuracy: 0.8964 - val_loss: 0.3470 - val_accuracy: 0.8904 - 63ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3761 - accuracy: 0.8982 - val_loss: 0.3440 - val_accuracy: 0.8930 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 7/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3062 - accuracy: 0.9116 - val_loss: 0.2968 - val_accuracy: 0.8930 - 51ms/epoch - 1ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3058 - accuracy: 0.9152 - val_loss: 0.2911 - val_accuracy: 0.9064 - 56ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 8/30
-35/35 - 0s - loss: 0.2581 - accuracy: 0.9205 - val_loss: 0.2575 - val_accuracy: 0.9064 - 71ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2533 - accuracy: 0.9277 - val_loss: 0.2483 - val_accuracy: 0.9037 - 62ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 9/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2163 - accuracy: 0.9357 - val_loss: 0.2247 - val_accuracy: 0.9091 - 67ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2196 - accuracy: 0.9339 - val_loss: 0.2177 - val_accuracy: 0.9144 - 59ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 10/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1929 - accuracy: 0.9464 - val_loss: 0.1973 - val_accuracy: 0.9198 - 60ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1838 - accuracy: 0.9446 - val_loss: 0.1919 - val_accuracy: 0.9198 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 11/30
-35/35 - 0s - loss: 0.1689 - accuracy: 0.9536 - val_loss: 0.1770 - val_accuracy: 0.9278 - 61ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1597 - accuracy: 0.9536 - val_loss: 0.1744 - val_accuracy: 0.9225 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 12/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1549 - accuracy: 0.9571 - val_loss: 0.1609 - val_accuracy: 0.9332 - 52ms/epoch - 1ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1473 - accuracy: 0.9598 - val_loss: 0.1621 - val_accuracy: 0.9305 - 61ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 13/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1351 - accuracy: 0.9625 - val_loss: 0.1494 - val_accuracy: 0.9358 - 67ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1296 - accuracy: 0.9679 - val_loss: 0.1484 - val_accuracy: 0.9358 - 62ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1229 - accuracy: 0.9652 - val_loss: 0.1394 - val_accuracy: 0.9439 - 56ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1236 - accuracy: 0.9652 - val_loss: 0.1364 - val_accuracy: 0.9439 - 57ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1138 - accuracy: 0.9643 - val_loss: 0.1328 - val_accuracy: 0.9465 - 63ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1109 - accuracy: 0.9661 - val_loss: 0.1283 - val_accuracy: 0.9465 - 52ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1036 - accuracy: 0.9679 - val_loss: 0.1276 - val_accuracy: 0.9439 - 59ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0978 - accuracy: 0.9696 - val_loss: 0.1243 - val_accuracy: 0.9492 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0958 - accuracy: 0.9652 - val_loss: 0.1226 - val_accuracy: 0.9545 - 81ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0987 - accuracy: 0.9696 - val_loss: 0.1164 - val_accuracy: 0.9572 - 64ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0914 - accuracy: 0.9723 - val_loss: 0.1179 - val_accuracy: 0.9545 - 177ms/epoch - 5ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0876 - accuracy: 0.9723 - val_loss: 0.1134 - val_accuracy: 0.9572 - 63ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0807 - accuracy: 0.9741 - val_loss: 0.1160 - val_accuracy: 0.9599 - 74ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0819 - accuracy: 0.9732 - val_loss: 0.1129 - val_accuracy: 0.9599 - 52ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0783 - accuracy: 0.9741 - val_loss: 0.1101 - val_accuracy: 0.9626 - 280ms/epoch - 8ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0735 - accuracy: 0.9768 - val_loss: 0.1076 - val_accuracy: 0.9599 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 21/30
-35/35 - 0s - loss: 0.0709 - accuracy: 0.9777 - val_loss: 0.1082 - val_accuracy: 0.9626 - 194ms/epoch - 6ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0765 - accuracy: 0.9741 - val_loss: 0.1048 - val_accuracy: 0.9626 - 67ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 22/30
-35/35 - 0s - loss: 0.0717 - accuracy: 0.9750 - val_loss: 0.1066 - val_accuracy: 0.9572 - 105ms/epoch - 3ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0692 - accuracy: 0.9804 - val_loss: 0.1051 - val_accuracy: 0.9679 - 62ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 23/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0656 - accuracy: 0.9804 - val_loss: 0.1051 - val_accuracy: 0.9599 - 225ms/epoch - 6ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0679 - accuracy: 0.9830 - val_loss: 0.1081 - val_accuracy: 0.9599 - 59ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 24/30
-35/35 - 0s - loss: 0.0627 - accuracy: 0.9821 - val_loss: 0.1037 - val_accuracy: 0.9599 - 120ms/epoch - 3ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0606 - accuracy: 0.9804 - val_loss: 0.1037 - val_accuracy: 0.9679 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 25/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0590 - accuracy: 0.9821 - val_loss: 0.1021 - val_accuracy: 0.9626 - 107ms/epoch - 3ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0575 - accuracy: 0.9830 - val_loss: 0.1019 - val_accuracy: 0.9626 - 52ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 26/30
-35/35 - 0s - loss: 0.0523 - accuracy: 0.9857 - val_loss: 0.1019 - val_accuracy: 0.9599 - 57ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0555 - accuracy: 0.9830 - val_loss: 0.1014 - val_accuracy: 0.9679 - 61ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 27/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0544 - accuracy: 0.9848 - val_loss: 0.1017 - val_accuracy: 0.9599 - 55ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0547 - accuracy: 0.9821 - val_loss: 0.0997 - val_accuracy: 0.9626 - 63ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 28/30
-35/35 - 0s - loss: 0.0501 - accuracy: 0.9857 - val_loss: 0.1021 - val_accuracy: 0.9652 - 64ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0505 - accuracy: 0.9830 - val_loss: 0.0981 - val_accuracy: 0.9679 - 55ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 29/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0471 - accuracy: 0.9848 - val_loss: 0.1021 - val_accuracy: 0.9679 - 72ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0485 - accuracy: 0.9839 - val_loss: 0.0982 - val_accuracy: 0.9679 - 54ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 30/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0490 - accuracy: 0.9839 - val_loss: 0.1014 - val_accuracy: 0.9652 - 86ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0474 - accuracy: 0.9866 - val_loss: 0.0995 - val_accuracy: 0.9599 - 53ms/epoch - 2ms/step
 </pre></div>
 </div>
 </div>
@@ -1126,18 +1102,14 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1380 - accuracy: 0.9375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1071 - accuracy: 0.9375
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 7/12 [================&gt;.............] - ETA: 0s - loss: 0.1017 - accuracy: 0.9688
+12/12 [==============================] - 0s 1ms/step - loss: 0.0995 - accuracy: 0.9599
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 7ms/step - loss: 0.1014 - accuracy: 0.9652
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.10142679512500763, 0.9652406573295593]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.09945357590913773, 0.9598930478096008]
 </pre></div>
 </div>
 </div>
@@ -1186,6 +1158,8 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
+<span class="c1">#LSTM_model.add(Flatten())</span>
 </pre></div>
 </div>
 </div>
@@ -1201,57 +1175,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">LSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span><span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/30
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>---------------------------------------------------------------------------
-ValueError                                Traceback (most recent call last)
-/var/folders/6d/prnzxhkn7tj95jgrjcvd1j5r0000gn/T/ipykernel_73687/2211669581.py in &lt;module&gt;
-      1 num_epochs = 30
-      2 early_stop = EarlyStopping(monitor=&#39;val_loss&#39;, patience=2)
-----&gt; 3 history = LSTM_model.fit(training_padded, train_labels, epochs=num_epochs, validation_data=(testing_padded, test_labels),callbacks =[early_stop], verbose=2)
-
-~/.local/lib/python3.8/site-packages/keras/utils/traceback_utils.py in error_handler(*args, **kwargs)
-     65     except Exception as e:  # pylint: disable=broad-except
-     66       filtered_tb = _process_traceback_frames(e.__traceback__)
----&gt; 67       raise e.with_traceback(filtered_tb) from None
-     68     finally:
-     69       del filtered_tb
-
-~/.local/lib/python3.8/site-packages/tensorflow/python/framework/func_graph.py in autograph_handler(*args, **kwargs)
-   1127           except Exception as e:  # pylint:disable=broad-except
-   1128             if hasattr(e, &quot;ag_error_metadata&quot;):
--&gt; 1129               raise e.ag_error_metadata.to_exception(e)
-   1130             else:
-   1131               raise
-
-ValueError: in user code:
-
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/engine/training.py&quot;, line 878, in train_function  *
-        return step_function(self, iterator)
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/engine/training.py&quot;, line 867, in step_function  **
-        outputs = model.distribute_strategy.run(run_step, args=(data,))
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/engine/training.py&quot;, line 860, in run_step  **
-        outputs = model.train_step(data)
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/engine/training.py&quot;, line 809, in train_step
-        loss = self.compiled_loss(
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/engine/compile_utils.py&quot;, line 201, in __call__
-        loss_value = loss_obj(y_t, y_p, sample_weight=sw)
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/losses.py&quot;, line 141, in __call__
-        losses = call_fn(y_true, y_pred)
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/losses.py&quot;, line 245, in call  **
-        return ag_fn(y_true, y_pred, **self._fn_kwargs)
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/losses.py&quot;, line 1807, in binary_crossentropy
-        backend.binary_crossentropy(y_true, y_pred, from_logits=from_logits),
-    File &quot;/Users/simplypatrickg/.local/lib/python3.8/site-packages/keras/backend.py&quot;, line 5158, in binary_crossentropy
-        return tf.nn.sigmoid_cross_entropy_with_logits(labels=target, logits=output)
-
-    ValueError: `logits` and `labels` must have the same shape, received ((32, 50, 1) vs (32,)).
+<span class="n">history</span> <span class="o">=</span> <span class="n">LSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1290,6 +1214,8 @@ ValueError: in user code:
 <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embeding_dim</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
 <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Bidirectional</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
 <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
+<span class="c1">#biLSTM_model.add(Flatten())</span>
 </pre></div>
 </div>
 </div>
@@ -1307,31 +1233,7 @@ ValueError: in user code:
 <span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">history</span> <span class="o">=</span> <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> 
-                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span><span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/30
-35/35 - 4s - loss: 0.6803 - accuracy: 0.6187 - val_loss: 0.6435 - val_accuracy: 0.6728
-Epoch 2/30
-35/35 - 1s - loss: 0.4753 - accuracy: 0.8128 - val_loss: 0.3273 - val_accuracy: 0.8950
-Epoch 3/30
-35/35 - 1s - loss: 0.2314 - accuracy: 0.9363 - val_loss: 0.2391 - val_accuracy: 0.9226
-Epoch 4/30
-35/35 - 1s - loss: 0.1634 - accuracy: 0.9526 - val_loss: 0.1641 - val_accuracy: 0.9502
-Epoch 5/30
-35/35 - 1s - loss: 0.1339 - accuracy: 0.9631 - val_loss: 0.1405 - val_accuracy: 0.9593
-Epoch 6/30
-35/35 - 1s - loss: 0.1075 - accuracy: 0.9722 - val_loss: 0.1463 - val_accuracy: 0.9569
-Epoch 7/30
-35/35 - 1s - loss: 0.0946 - accuracy: 0.9747 - val_loss: 0.1300 - val_accuracy: 0.9618
-Epoch 8/30
-35/35 - 0s - loss: 0.0850 - accuracy: 0.9768 - val_loss: 0.1157 - val_accuracy: 0.9648
-Epoch 9/30
-35/35 - 0s - loss: 0.0746 - accuracy: 0.9819 - val_loss: 0.1226 - val_accuracy: 0.9645
-Epoch 10/30
-35/35 - 1s - loss: 0.0760 - accuracy: 0.9783 - val_loss: 0.1277 - val_accuracy: 0.9630
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span><span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1373,12 +1275,36 @@ Epoch 10/30
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12/12 [==============================] - 0s 1ms/step - loss: 0.1004 - accuracy: 0.9679
-Dense architecture loss and accuracy: [0.10039439797401428, 0.9679144620895386] 
-12/12 [==============================] - 0s 7ms/step - loss: 0.2207 - accuracy: 0.9261
-LSTM architecture loss and accuracy: [0.22065313160419464, 0.9261497259140015] 
-12/12 [==============================] - 0s 5ms/step - loss: 0.1277 - accuracy: 0.9630
-Bi-LSTM architecture loss and accuracy: [0.12772788107395172, 0.9629946351051331] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1071 - accuracy: 0.9375
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+12/12 [==============================] - 0s 1ms/step - loss: 0.0995 - accuracy: 0.9599
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dense architecture loss and accuracy: [0.09945357590913773, 0.9598930478096008] 
+
+ 1/12 [=&gt;............................] - ETA: 0s - loss: 0.3829 - accuracy: 0.8750
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+12/12 [==============================] - ETA: 0s - loss: 0.1751 - accuracy: 0.9545
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+12/12 [==============================] - 0s 5ms/step - loss: 0.1751 - accuracy: 0.9545
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LSTM architecture loss and accuracy: [0.17510974407196045, 0.9545454382896423] 
+
+ 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1279 - accuracy: 0.9062
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+12/12 [==============================] - 0s 4ms/step - loss: 0.1129 - accuracy: 0.9679
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bi-LSTM architecture loss and accuracy: [0.11285251379013062, 0.9679144620895386] 
 </pre></div>
 </div>
 </div>
@@ -1410,7 +1336,14 @@ Bi-LSTM architecture loss and accuracy: [0.12772788107395172, 0.9629946351051331
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0045603514, &#39;ham&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+1/1 [==============================] - 0s 90ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.004468304, &#39;ham&#39;]
 </pre></div>
 </div>
 </div>
@@ -1446,7 +1379,56 @@ Bi-LSTM architecture loss and accuracy: [0.12772788107395172, 0.9629946351051331
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You passed the challenge. Great job!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+1/1 [==============================] - 0s 14ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+1/1 [==============================] - 0s 13ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+1/1 [==============================] - 0s 14ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+1/1 [==============================] - 0s 17ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+1/1 [==============================] - 0s 18ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+1/1 [==============================] - 0s 18ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+1/1 [==============================] - 0s 14ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You haven&#39;t passed yet. Keep trying.
 </pre></div>
 </div>
 </div>

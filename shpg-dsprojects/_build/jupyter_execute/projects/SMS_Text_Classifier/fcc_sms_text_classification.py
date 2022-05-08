@@ -18,16 +18,23 @@
 #  !pip install tf-nightly
 #except Exception:
 #  pass
+#!pip install tensorflow-datasets
+#!pip install wordcloud
+
+#!pip install --upgrade numpy
+#!pip install --upgrade pandas
 
 
 # In[2]:
 
 
 # import libraries
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 import tensorflow as tf
 import pandas as pd
 from tensorflow import keras
-#!pip install tensorflow-datasets
 import tensorflow_datasets as tfds
 import numpy as np
 import matplotlib.pyplot as plt
@@ -42,7 +49,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 # Modeling 
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, GlobalAveragePooling1D, Dense, Dropout, LSTM, Bidirectional
+from tensorflow.keras.layers import Embedding, GlobalAveragePooling1D, Dense, Dropout, LSTM, Bidirectional, Flatten
 
 print(tf.__version__)
 
@@ -51,8 +58,8 @@ print(tf.__version__)
 
 
 # get data files
-get_ipython().system('wget https://cdn.freecodecamp.org/project-data/sms/train-data.tsv')
-get_ipython().system('wget https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv')
+#!wget https://cdn.freecodecamp.org/project-data/sms/train-data.tsv
+#!wget https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv
 
 train_file_path = "data/train-data.tsv"
 test_file_path = "data/valid-data.tsv"
@@ -158,7 +165,7 @@ plt.show()
 train_ham_df = train_ham.sample(n = len(train_spam), random_state = 44)
 train_spam_df = train_spam
 print(train_ham_df.shape, train_spam_df.shape)
-train_df = train_ham_df.append(train_spam_df).reset_index(drop=True)
+train_df = pd.concat([train_ham_df, train_spam_df]).reset_index(drop=True)
 
 
 # In[12]:
@@ -172,7 +179,7 @@ test_spam = test_file[test_file.Class =='spam']
 test_ham_df = test_ham.sample(n = len(test_spam), random_state = 44)
 test_spam_df = test_spam
 print(test_ham_df.shape, test_spam_df.shape)
-test_df = test_ham_df.append(test_spam_df).reset_index(drop=True)
+test_df = pd.concat([test_ham_df, test_spam_df]).reset_index(drop=True)
 
 
 # ## Test train split
@@ -337,6 +344,8 @@ LSTM_model.add(Embedding(vocab_size, embeding_dim, input_length=max_len))
 LSTM_model.add(LSTM(n_lstm, dropout=drop_lstm, return_sequences=True))
 LSTM_model.add(LSTM(n_lstm, dropout=drop_lstm, return_sequences=True))
 LSTM_model.add(Dense(1, activation='sigmoid'))
+LSTM_model.add(GlobalAveragePooling1D())
+#LSTM_model.add(Flatten())
 
 
 # In[27]:
@@ -350,10 +359,10 @@ LSTM_model.compile(loss = 'binary_crossentropy', optimizer = 'adam', metrics=['a
 
 num_epochs = 30
 early_stop = EarlyStopping(monitor='val_loss', patience=2)
-history = LSTM_model.fit(training_padded, train_labels, epochs=num_epochs, validation_data=(testing_padded, test_labels),callbacks =[early_stop], verbose=2)
+history = LSTM_model.fit(training_padded, train_labels, epochs=num_epochs, validation_data=(testing_padded, test_labels), callbacks =[early_stop], verbose=0)
 
 
-# In[79]:
+# In[29]:
 
 
 # Create a dataframe
@@ -374,7 +383,7 @@ plot_LSTM('Training_Accuracy', 'Validation_Accuracy', 'accuracy')
 # # Bi-directional Long Short Term Memory (BiLSTM) Model
 # Bi-LSTM learns patterns from before and after a given token. 
 
-# In[80]:
+# In[30]:
 
 
 # Biderectional LSTM Spam detection architecture
@@ -382,25 +391,27 @@ biLSTM_model = Sequential()
 biLSTM_model.add(Embedding(vocab_size, embeding_dim, input_length=max_len))
 biLSTM_model.add(Bidirectional(LSTM(n_lstm, dropout=drop_lstm, return_sequences=True)))
 biLSTM_model.add(Dense(1, activation='sigmoid'))
+biLSTM_model.add(GlobalAveragePooling1D())
+#biLSTM_model.add(Flatten())
 
 
-# In[81]:
+# In[31]:
 
 
 biLSTM_model.compile(loss = 'binary_crossentropy', optimizer = 'adam', metrics=['accuracy'])
 
 
-# In[82]:
+# In[32]:
 
 
 # Training
 num_epochs = 30
 early_stop = EarlyStopping(monitor='val_loss', patience=2)
 history = biLSTM_model.fit(training_padded, train_labels, epochs=num_epochs, 
-                    validation_data=(testing_padded, test_labels),callbacks =[early_stop], verbose=2)
+                    validation_data=(testing_padded, test_labels),callbacks =[early_stop], verbose=0)
 
 
-# In[83]:
+# In[33]:
 
 
 # Create a dataframe
@@ -421,7 +432,7 @@ plot_biLSTM('Training_Accuracy', 'Validation_Accuracy', 'accuracy')
 
 # # Choose Model
 
-# In[84]:
+# In[34]:
 
 
 # Comparing three different models
@@ -434,7 +445,7 @@ print(f"Bi-LSTM architecture loss and accuracy: {biLSTM_model.evaluate(testing_p
 
 # # Prediction
 
-# In[85]:
+# In[35]:
 
 
 # function to predict messages based on model
@@ -456,7 +467,7 @@ prediction = predict_message(pred_text)
 print(prediction)
 
 
-# In[86]:
+# In[36]:
 
 
 # Run this cell to test your function and model. 

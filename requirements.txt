@@ -7,5 +7,7 @@ seaborn
 missingno
 scipy
 wordcloud
+sklearn
 tensorflow
 tensorflow-datasets
+tf-nightly
