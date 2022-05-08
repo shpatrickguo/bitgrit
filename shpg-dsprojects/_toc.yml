@@ -6,5 +6,8 @@ root: intro
 parts:
   - caption: Projects
     chapters:
-    - file: projects/BCG/PowerCo.ipynb
-      title: Power Co - Test whether churn is driven by price sensitivity.
+      sections:
+      - file: projects/BCG/PowerCo_email.md
+        title: Power Co - Proposal
+      - file: projects/BCG/PowerCo_EDA.ipynb
+        title: Power Co - EDA
