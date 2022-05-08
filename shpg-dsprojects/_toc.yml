@@ -15,10 +15,6 @@ parts:
         title: PowerCo - EDA
     - file: projects/SMS_Text_Classifier/README.md
       title: SMS Text Classifier
-
-        
-#    - file: projects/SMS_Text_Classifier/README.md
-#      - caption: SMS Text Classifier
-#        sections:
-#        - file: projects/SMS_Text_Classifier/fcc_sms_text_classification.ipynb
-#          title: Neural Network - SMS Text Classifier
+      sections:
+      - file: projects/SMS_Text_Classifier/fcc_sms_text_classification.ipynb
+        title: Neural Network - SMS Text Classifier
