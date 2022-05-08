@@ -8,9 +8,6 @@ parts:
     chapters:
     - file: projects/viral_tweets/README.md
       title: Viral Tweets
-      sections:
-      - file: projects/viral_tweets/tweet-virality-prediction.ipynb
-        title: Viral Tweets - Notebook
     - file: projects/BCG/README.md
       title: PowerCo - Churn is driven by price sensitivity
       sections:

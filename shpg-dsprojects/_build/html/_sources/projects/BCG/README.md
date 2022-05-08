@@ -14,7 +14,7 @@ The Lead Data Scientist (LDS) held an initial team meeting to discuss various hy
 
 Your LDS wants an email with your thoughts on how the team should go about to test this hypothesis.
 
-## 2: [Exploratory Data Analysis & Data Cleaning](PowerCo_EDA.ipynb)
+## 2: [Exploratory Data Analysis & Data Cleaning](PowerCo_eda.ipynb)
 
 **Objective**
 Clean the data – address missing values, duplicates, data type conversions, transformations, and multi-co-linearity, as well as outliers.
