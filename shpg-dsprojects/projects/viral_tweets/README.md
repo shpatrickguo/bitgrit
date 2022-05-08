@@ -1,4 +1,4 @@
-# Viral Tweet Prediction Challenge Submission
+# [Viral Tweet Prediction](tweet-virality-prediction.ipynb)
 
 Clear and unambiguous instructions on how to reproduce the predictions from start to finish including data pre-processing, feature extraction, model training and predictions generation in notebook.
 
@@ -7,7 +7,7 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 - Data processing: one-hot encoding + cyclical encoding for categorical features. Normalization.
 - LASSO regression for feature selection
 - Memory footprint reduction of data
-- Hyper-parmeter tuning with RandomizedSearchCV
+- Hyper-parameter tuning with RandomizedSearchCV
 - Building LightGBM classifier model for prediction
 - Feature importance visualization
 
@@ -38,7 +38,7 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 
 ### What is the algorithm used and what are its main hyper-parameters?
 
-Used Lightgbm Classifier:  
+Used LightGBM Classifier:  
 
 ``` {code}
 LGBMClassifier(colsample_bytree=0.7076074093370144, min_child_samples=105, min_child_weight=1e-05, num_leaves=26, reg_alpha=5, reg_lambda=5, subsample=0.7468773130235173)
