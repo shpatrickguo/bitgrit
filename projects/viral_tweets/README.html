@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neural Network SMS Text Classifier &#8212; shpg-dsprojects</title>
+    <title>Viral Tweet Prediction &#8212; shpg-dsprojects</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -88,8 +88,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="SMS Text Classification" href="fcc_sms_text_classification.html" />
-    <link rel="prev" title="Power Co - EDA" href="../BCG/PowerCo_EDA.html" />
+    <link rel="next" title="Tasks" href="../BCG/README.html" />
+    <link rel="prev" title="About Me" href="../../intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -139,6 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Viral Tweets
+  </a>
+ </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../BCG/README.html">
    PowerCo - Churn is driven by price sensitivity
@@ -152,28 +157,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../BCG/PowerCo_email.html">
      PowerCo - Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/PowerCo_EDA.html">
-     PowerCo - EDA
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
-   SMS Text Classifier
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="fcc_sms_text_classification.html">
-     SMS Text Classification
     </a>
    </li>
   </ul>
@@ -219,7 +202,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/projects/SMS_Text_Classifier/README.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/projects/viral_tweets/README.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -239,7 +222,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/SMS_Text_Classifier/README.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/viral_tweets/README.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -280,6 +263,16 @@ const thebe_selector_output = ".output, .cell_output"
      Which data files are being used?
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-are-these-files-processed">
+     How are these files processed?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-algorithm-used-and-what-are-its-main-hyper-parameters">
+     What is the algorithm used and what are its main hyper-parameters?
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -292,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Neural Network SMS Text Classifier</h1>
+                <h1>Viral Tweet Prediction</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -317,6 +310,16 @@ const thebe_selector_output = ".output, .cell_output"
      Which data files are being used?
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-are-these-files-processed">
+     How are these files processed?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-the-algorithm-used-and-what-are-its-main-hyper-parameters">
+     What is the algorithm used and what are its main hyper-parameters?
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -328,31 +331,55 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="neural-network-sms-text-classifier">
-<h1>Neural Network SMS Text Classifier<a class="headerlink" href="#neural-network-sms-text-classifier" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="viral-tweet-prediction">
+<h1><a class="reference external" href="https://www.kaggle.com/code/shpatrickguo/tweet-virality-prediction-with-light-gbm">Viral Tweet Prediction</a><a class="headerlink" href="#viral-tweet-prediction" title="Permalink to this headline">¶</a></h1>
+<p>Clear and unambiguous instructions on how to reproduce the predictions from start to finish including data pre-processing, feature extraction, model training and predictions generation in notebook.</p>
 <div class="section" id="in-this-notebook">
 <h2>In this notebook<a class="headerlink" href="#in-this-notebook" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Downsampling to address data imbalance</p></li>
-<li><p>Tokenization, Sequencing, and padding of text messages</p></li>
-<li><p>Compare between Dense, LSTM, BiLSTM models</p></li>
+<li><p>Data processing: one-hot encoding + cyclical encoding for categorical features. Normalization.</p></li>
+<li><p>LASSO regression for feature selection</p></li>
+<li><p>Memory footprint reduction of data</p></li>
+<li><p>Hyper-parameter tuning with RandomizedSearchCV</p></li>
+<li><p>Building LightGBM classifier model for prediction</p></li>
+<li><p>Feature importance visualization</p></li>
 </ul>
 </div>
 <div class="section" id="environment-details">
 <h2>Environment details<a class="headerlink" href="#environment-details" title="Permalink to this headline">¶</a></h2>
-<p><strong>OS:</strong> macOS Big Sur 11.4
+<p><strong>OS:</strong> macOS Big Sur 11.4<br />
 <strong>Memory:</strong> 16 GB 2133 MHz LPDDR3<br />
-<strong>Disk Space:</strong> 1 TB Flask Stroage<br />
+<strong>Disk Space:</strong> 1 TB Flask Storage<br />
 <strong>CPU/GPU:</strong> Intel HD Graphics 530 1536 MB</p>
 <div class="section" id="which-data-files-are-being-used">
 <h3>Which data files are being used?<a class="headerlink" href="#which-data-files-are-being-used" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p><a class="reference external" href="https://cdn.freecodecamp.org/project-data/sms/train-data.tsv">https://cdn.freecodecamp.org/project-data/sms/train-data.tsv</a></p></li>
-<li><p><a class="reference external" href="https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv">https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv</a></p></li>
+<li><p>train_tweets.csv</p></li>
+<li><p>train_tweets_vectorized_media.csv</p></li>
+<li><p>train_tweets_vectorized_text.csv</p></li>
+<li><p>users.csv</p></li>
+<li><p>user_vectorized_descriptions.csv</p></li>
+<li><p>user_vectorized_profile_images.csv</p></li>
+<li><p>test_tweets.csv</p></li>
+<li><p>test_tweets_vectorized_media.csv</p></li>
+<li><p>test_tweets_vectorized_text.csv</p></li>
 </ul>
 </div>
+<div class="section" id="how-are-these-files-processed">
+<h3>How are these files processed?<a class="headerlink" href="#how-are-these-files-processed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Filling missing topic_ids with [‘0’]</p></li>
+<li><p>One hot encoding for categorical variables</p></li>
+<li><p>Cyclical encoding for hour</p></li>
+</ul>
 </div>
-<div class="toctree-wrapper compound">
+<div class="section" id="what-is-the-algorithm-used-and-what-are-its-main-hyper-parameters">
+<h3>What is the algorithm used and what are its main hyper-parameters?<a class="headerlink" href="#what-is-the-algorithm-used-and-what-are-its-main-hyper-parameters" title="Permalink to this headline">¶</a></h3>
+<p>Used LightGBM Classifier:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LGBMClassifier</span><span class="p">(</span><span class="n">colsample_bytree</span><span class="o">=</span><span class="mf">0.7076074093370144</span><span class="p">,</span> <span class="n">min_child_samples</span><span class="o">=</span><span class="mi">105</span><span class="p">,</span> <span class="n">min_child_weight</span><span class="o">=</span><span class="mf">1e-05</span><span class="p">,</span> <span class="n">num_leaves</span><span class="o">=</span><span class="mi">26</span><span class="p">,</span> <span class="n">reg_alpha</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">reg_lambda</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">subsample</span><span class="o">=</span><span class="mf">0.7468773130235173</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -369,7 +396,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./projects/SMS_Text_Classifier"
+            path: "./projects/viral_tweets"
         },
         predefinedOutput: true
     }
@@ -381,17 +408,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../BCG/PowerCo_EDA.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Power Co - EDA</p>
+            <p class="prev-next-title">About Me</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="fcc_sms_text_classification.html" title="next page">
+    <a class='right-next' id="next-link" href="../BCG/README.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SMS Text Classification</p>
+        <p class="prev-next-title">Tasks</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
