@@ -7,7 +7,7 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 - Data processing: one-hot encoding + cyclical encoding for categorical features. Normalization.
 - LASSO regression for feature selection
 - Memory footprint reduction of data
-- Hyperparmeter tuning with RandomizedSearchCV
+- Hyper-parmeter tuning with RandomizedSearchCV
 - Building LightGBM classifier model for prediction
 - Feature importance visualization
 
@@ -15,7 +15,7 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 
 **OS:** macOS Big Sur 11.4  
 **Memory:** 16 GB 2133 MHz LPDDR3  
-**Disk Space:** 1 TB Flask Stroage  
+**Disk Space:** 1 TB Flask Storage  
 **CPU/GPU:** Intel HD Graphics 530 1536 MB  
 
 ### Which data files are being used?
@@ -36,7 +36,7 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 - One hot encoding for categorical variables
 - Cyclical encoding for hour
 
-### What is the algorithm used and what are its main hyperparameters?
+### What is the algorithm used and what are its main hyper-parameters?
 
 Used Lightgbm Classifier:  
 

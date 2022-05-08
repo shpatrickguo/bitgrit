@@ -8,8 +8,8 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 
 ### [IBM Data Science Professional Certificate](https://github.com/shpatrickguo/datascience-projects/tree/main/IBM%20Data%20Science%20Professional%20Certificate)
 
-- [BCG Data Science & Advanced Analytics Virtual Experience](projects/BCG/README.md)
-- [Neural Network SMS Text Classifier](projects/SMS_Text_Classifier/README.md)
+- [BCG Data Science & Advanced Analytics Virtual Experience](projects/bcg/README.md)
+- [Neural Network SMS Text Classifier](projects/sms_text_classifier/README.md)
 
 ### [Viral Tweets Prediction Challenge](https://github.com/shpatrickguo/bitgrit/tree/main/Viral%20Tweets%20Prediction%20Challenge) ($3000 prize data science competition)
 

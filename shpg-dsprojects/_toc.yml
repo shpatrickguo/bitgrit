@@ -6,15 +6,15 @@ root: intro
 parts:
   - caption: Projects
     chapters:
-    - file: projects/BCG/README.md
+    - file: projects/bcg/README.md
       title: PowerCo - Churn is driven by price sensitivity
       sections:
-      - file: projects/BCG/PowerCo_email.md
+      - file: projects/bcg/PowerCo_email.md
         title: PowerCo - Proposal
-      - file: projects/BCG/PowerCo_EDA.ipynb
+      - file: projects/bcg/PowerCo_EDA.ipynb
         title: PowerCo - EDA
-    - file: projects/SMS_Text_Classifier/README.md
+    - file: projects/sms_text_classifier/README.md
       title: SMS Text Classifier
       sections:
-      - file: projects/SMS_Text_Classifier/fcc_sms_text_classification.ipynb
+      - file: projects/sms_text_classifier/fcc_sms_text_classification.ipynb
         title: Neural Network - SMS Text Classifier
