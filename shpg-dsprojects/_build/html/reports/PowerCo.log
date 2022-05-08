@@ -17,29 +17,16 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Demonstrate why the date_activ column cannot replace completely date_first_activ
-activity = ['date_activ','date_first_activ']
+# Most popular electricty campaign
+ele_nm = pco_main_cc_merged.loc[(pco_main_cc_merged['churn']>='Stayed') & (pco_main_cc_merged['net_margin']>0),['id', 'origin_up','net_margin']]
 
-# Filter the columns of interest
-pco_activity = pco_main[activity]
-
-# Obtain only the complete cases
-pco_activity_cc = pco_activity.dropna(subset=['date_first_activ'],how='any',inplace=False)
-
-# Test whether two objects contain the same elements.
-pco_activity_cc.date_activ.equals(pco_activity_cc.date_first_activ)
-
-# Describe it
-pco_activity_cc.describe(datetime_is_numeric=True)
+ele_nm.groupby('origin_up')['net_margin'].count().sort_values(ascending=False))
 ------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mTypeError[0m                                 Traceback (most recent call last)
-[0;32m/var/folders/6d/prnzxhkn7tj95jgrjcvd1j5r0000gn/T/ipykernel_66077/1267575529.py[0m in [0;36m<module>[0;34m[0m
-[1;32m     12[0m [0;34m[0m[0m
-[1;32m     13[0m [0;31m# Describe it[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 14[0;31m [0mpco_activity_cc[0m[0;34m.[0m[0mdescribe[0m[0;34m([0m[0mdatetime_is_numeric[0m[0;34m=[0m[0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m
-[0;31mTypeError[0m: describe() got an unexpected keyword argument 'datetime_is_numeric'
-TypeError: describe() got an unexpected keyword argument 'datetime_is_numeric'
+[0;36m  File [0;32m"/var/folders/6d/prnzxhkn7tj95jgrjcvd1j5r0000gn/T/ipykernel_67430/950758773.py"[0;36m, line [0;32m4[0m
+[0;31m    ele_nm.groupby('origin_up')['net_margin'].count().sort_values(ascending=False))[0m
+[0m                                                                                  ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m unmatched ')'
+
+SyntaxError: unmatched ')' (950758773.py, line 4)
 

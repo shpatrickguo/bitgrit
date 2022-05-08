@@ -1,6 +1,6 @@
 # shpg-dsprojects
 
-[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)]( https://shpatrickguo.github.io/shpg-dsproject/)
+[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://shpatrickguo.github.io/shpg-dsproject/)
 
 Portfolio of Data Science projects.
 

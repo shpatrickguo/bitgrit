@@ -418,7 +418,7 @@ pco_activity_cc = pco_activity.dropna(subset=['date_first_activ'],how='any',inpl
 pco_activity_cc.date_activ.equals(pco_activity_cc.date_first_activ)
 
 # Describe it
-pco_activity_cc.describe(datetime_is_numeric=True)
+pco_activity_cc.describe()
 
 
 # In[27]:
@@ -542,10 +542,10 @@ plt.show()
 # In[33]:
 
 
-# Most popular electricty campaign
+# Most popular electricity campaign in the dataset
 ele_nm = pco_main_cc_merged.loc[(pco_main_cc_merged['churn']>='Stayed') & (pco_main_cc_merged['net_margin']>0),['id', 'origin_up','net_margin']]
 
-ele_nm.value_counts(subset=['origin_up'])
+ele_nm.groupby('origin_up')['net_margin'].count().sort_values(ascending=False)
 
 
 # In[34]:
