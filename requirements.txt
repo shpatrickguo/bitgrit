@@ -11,3 +11,9 @@ sklearn
 tensorflow
 tensorflow-datasets
 tf-nightly
+time
+timeit
+collections
+warnings
+scikit-learn 
+lightgbm
