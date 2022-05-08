@@ -1,6 +1,8 @@
 # About Me
 
-Hello, my name is Patrick Guo.
+Hello, my name is Patrick Guo. Welcome to my Data Science portfolio!
+
+Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.com?subject=Mail from dsprojects) or comment it in each page (comments are linked to my github via [utteranc.es](https://utteranc.es/).
 
 ## [BCG Data Science & Advanced Analytics Virtual Experience](https://www.theforage.com/virtual-internships/Tcz8gTtprzAS4xSoK?ref=sdTWCZYMLpp9k5w7g)
 
