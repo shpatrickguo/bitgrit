@@ -6,3 +6,6 @@ matplotlib
 seaborn
 missingno
 scipy
+wordcloud
+tensorflow
+tensorflow-datasets
