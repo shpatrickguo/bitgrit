@@ -1,4 +1,8 @@
 jupyter-book
-matplotlib
-numpy
 ghp-import
+pandas
+numpy
+matplotlib
+seaborn
+missingno
+scipy
