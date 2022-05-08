@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Power Co - EDA
+# # PowerCo - EDA
 
 # ## The Datasets
 

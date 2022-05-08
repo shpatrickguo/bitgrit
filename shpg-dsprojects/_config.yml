@@ -12,7 +12,6 @@ logo                        : logo.jpg  # A path to the book logo
 only_build_toc_files: true  # Only build the TOC files, don't build the book
 exclude_patterns: [_build, .DS_Store, "**.ipynb_checkpoints", .venv, .github] # Exclude files from the book
 
-# Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
   execute_notebooks: auto
