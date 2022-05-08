@@ -1,8 +1,8 @@
-# Neural Network SMS Text Classifier
+# [Neural Network SMS Text Classifier](fcc_sms_text_classification.ipynb)
 
 ## In this notebook
 
-- Downsampling to address data imbalance
+- Down-sampling to address data imbalance
 - Tokenization, Sequencing, and padding of text messages
 - Compare between Dense, LSTM, BiLSTM models
 
