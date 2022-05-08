@@ -11,7 +11,7 @@ Clear and unambiguous instructions on how to reproduce the predictions from star
 - Building LightGBM classifier model for prediction
 - Feature importance visualization
 
-## Environment details 
+## Environment details
 
 **OS:** macOS Big Sur 11.4  
 **Memory:** 16 GB 2133 MHz LPDDR3  
