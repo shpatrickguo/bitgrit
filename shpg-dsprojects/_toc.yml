@@ -6,8 +6,10 @@ root: intro
 parts:
   - caption: Projects
     chapters:
+      - file: projects/BCG/README.md
+      - caption: PowerCo - Churn is driven by price sensitivity.
       sections:
       - file: projects/BCG/PowerCo_email.md
-        title: Power Co - Proposal
+        title: PowerCo - Proposal
       - file: projects/BCG/PowerCo_EDA.ipynb
-        title: Power Co - EDA
+        title: PowerCo - EDA
