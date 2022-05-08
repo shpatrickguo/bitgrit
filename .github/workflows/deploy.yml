@@ -29,12 +29,12 @@ jobs:
     #  Remove any existing builds
     - name: Clean the book
       run: |
-        jupyter-book clean shpg-dsprojects/
+        jupyter-book clean shpg-dsprojects
 
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build shpg-dsprojects/
+        jupyter-book build shpg-dsprojects
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action
