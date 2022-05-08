@@ -8,11 +8,9 @@ missingno
 scipy
 wordcloud
 sklearn
+scikit-learn
 tensorflow
 tensorflow-datasets
-collections
-warnings
-scikit-learn 
 lightgbm
 geopy
 sodapy
