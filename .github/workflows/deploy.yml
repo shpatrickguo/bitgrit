@@ -29,17 +29,17 @@ jobs:
     #  Remove any existing builds
     - name: Clean the book
       run: |
-        jupyter-book clean meetings
+        jupyter-book clean shpg-dsprojects
 
     # Build the book
     - name: Build the book
       run: |
-        jupyter-book build meetings
+        jupyter-book build shpg-dsprojects
 
     # Deploy the book's HTML to gh-pages branch
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3.8.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: meetings/_build/html
+        publish_dir: shpg-dsprojects/_build/html
         
