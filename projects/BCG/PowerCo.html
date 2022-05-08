@@ -1094,40 +1094,38 @@ These datasets are otherwise identical and have historical price data and custom
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 16096 entries, 0 to 16095
 Data columns (total 32 columns):
- #   Column                    Non-Null Count  Dtype         
----  ------                    --------------  -----         
- 0   id                        16096 non-null  object        
- 1   activity_new              6551 non-null   object        
- 2   campaign_disc_ele         0 non-null      float64       
- 3   channel_sales             11878 non-null  object        
- 4   cons_12m                  16096 non-null  int64         
- 5   cons_gas_12m              16096 non-null  int64         
- 6   cons_last_month           16096 non-null  int64         
- 7   date_activ                16096 non-null  datetime64[ns]
- 8   date_end                  16094 non-null  datetime64[ns]
- 9   date_first_activ          3508 non-null   datetime64[ns]
- 10  date_modif_prod           15939 non-null  datetime64[ns]
- 11  date_renewal              16056 non-null  datetime64[ns]
- 12  forecast_base_bill_ele    3508 non-null   float64       
- 13  forecast_base_bill_year   3508 non-null   float64       
- 14  forecast_bill_12m         3508 non-null   float64       
- 15  forecast_cons             3508 non-null   float64       
- 16  forecast_cons_12m         16096 non-null  float64       
- 17  forecast_cons_year        16096 non-null  int64         
- 18  forecast_discount_energy  15970 non-null  float64       
- 19  forecast_meter_rent_12m   16096 non-null  float64       
- 20  forecast_price_energy_p1  15970 non-null  float64       
- 21  forecast_price_energy_p2  15970 non-null  float64       
- 22  forecast_price_pow_p1     15970 non-null  float64       
- 23  has_gas                   16096 non-null  object        
- 24  imp_cons                  16096 non-null  float64       
- 25  margin_gross_pow_ele      16083 non-null  float64       
- 26  margin_net_pow_ele        16083 non-null  float64       
- 27  nb_prod_act               16096 non-null  int64         
- 28  net_margin                16081 non-null  float64       
- 29  num_years_antig           16096 non-null  int64         
- 30  origin_up                 16009 non-null  object        
- 31  pow_max                   16093 non-null  float64       
+id                          16096 non-null object
+activity_new                6551 non-null object
+campaign_disc_ele           0 non-null float64
+channel_sales               11878 non-null object
+cons_12m                    16096 non-null int64
+cons_gas_12m                16096 non-null int64
+cons_last_month             16096 non-null int64
+date_activ                  16096 non-null datetime64[ns]
+date_end                    16094 non-null datetime64[ns]
+date_first_activ            3508 non-null datetime64[ns]
+date_modif_prod             15939 non-null datetime64[ns]
+date_renewal                16056 non-null datetime64[ns]
+forecast_base_bill_ele      3508 non-null float64
+forecast_base_bill_year     3508 non-null float64
+forecast_bill_12m           3508 non-null float64
+forecast_cons               3508 non-null float64
+forecast_cons_12m           16096 non-null float64
+forecast_cons_year          16096 non-null int64
+forecast_discount_energy    15970 non-null float64
+forecast_meter_rent_12m     16096 non-null float64
+forecast_price_energy_p1    15970 non-null float64
+forecast_price_energy_p2    15970 non-null float64
+forecast_price_pow_p1       15970 non-null float64
+has_gas                     16096 non-null object
+imp_cons                    16096 non-null float64
+margin_gross_pow_ele        16083 non-null float64
+margin_net_pow_ele          16083 non-null float64
+nb_prod_act                 16096 non-null int64
+net_margin                  16081 non-null float64
+num_years_antig             16096 non-null int64
+origin_up                   16009 non-null object
+pow_max                     16093 non-null float64
 dtypes: datetime64[ns](5), float64(16), int64(6), object(5)
 memory usage: 3.9+ MB
 </pre></div>
@@ -1553,16 +1551,14 @@ dtype: float64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 193002 entries, 0 to 193001
 Data columns (total 8 columns):
- #   Column        Non-Null Count   Dtype         
----  ------        --------------   -----         
- 0   id            193002 non-null  object        
- 1   price_date    193002 non-null  datetime64[ns]
- 2   price_p1_var  191643 non-null  float64       
- 3   price_p2_var  191643 non-null  float64       
- 4   price_p3_var  191643 non-null  float64       
- 5   price_p1_fix  191643 non-null  float64       
- 6   price_p2_fix  191643 non-null  float64       
- 7   price_p3_fix  191643 non-null  float64       
+id              193002 non-null object
+price_date      193002 non-null datetime64[ns]
+price_p1_var    191643 non-null float64
+price_p2_var    191643 non-null float64
+price_p3_var    191643 non-null float64
+price_p1_fix    191643 non-null float64
+price_p2_fix    191643 non-null float64
+price_p3_fix    191643 non-null float64
 dtypes: datetime64[ns](1), float64(6), object(1)
 memory usage: 11.8+ MB
 </pre></div>
@@ -1782,10 +1778,8 @@ dtype: float64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 16096 entries, 0 to 16095
 Data columns (total 2 columns):
- #   Column  Non-Null Count  Dtype 
----  ------  --------------  ----- 
- 0   id      16096 non-null  object
- 1   churn   16096 non-null  int64 
+id       16096 non-null object
+churn    16096 non-null int64
 dtypes: int64(1), object(1)
 memory usage: 251.6+ KB
 </pre></div>
@@ -2489,7 +2483,7 @@ There is a relationship between missingness and its values, missing or non-missi
 <span class="n">pco_activity_cc</span><span class="o">.</span><span class="n">date_activ</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">pco_activity_cc</span><span class="o">.</span><span class="n">date_first_activ</span><span class="p">)</span>
 
 <span class="c1"># Describe it</span>
-<span class="n">pco_activity_cc</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">datetime_is_numeric</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">pco_activity_cc</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2523,32 +2517,27 @@ There is a relationship between missingness and its values, missing or non-missi
       <td>3508</td>
     </tr>
     <tr>
-      <th>mean</th>
-      <td>2011-09-03 07:45:05.131128832</td>
-      <td>2011-06-19 20:20:23.261117440</td>
+      <th>unique</th>
+      <td>1097</td>
+      <td>1133</td>
     </tr>
     <tr>
-      <th>min</th>
+      <th>top</th>
+      <td>2012-02-01 00:00:00</td>
+      <td>2009-07-14 00:00:00</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>31</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <th>first</th>
       <td>2003-09-23 00:00:00</td>
       <td>2001-01-10 00:00:00</td>
     </tr>
     <tr>
-      <th>25%</th>
-      <td>2010-10-26 00:00:00</td>
-      <td>2010-08-04 18:00:00</td>
-    </tr>
-    <tr>
-      <th>50%</th>
-      <td>2012-01-03 00:00:00</td>
-      <td>2011-10-28 00:00:00</td>
-    </tr>
-    <tr>
-      <th>75%</th>
-      <td>2012-08-08 00:00:00</td>
-      <td>2012-06-22 06:00:00</td>
-    </tr>
-    <tr>
-      <th>max</th>
+      <th>last</th>
       <td>2014-09-01 00:00:00</td>
       <td>2014-09-01 00:00:00</td>
     </tr>
@@ -3088,24 +3077,63 @@ There is a relationship between missingness and its values, missing or non-missi
 <h3>The Main Dataset<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Most popular electricty campaign</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Most popular electricity campaign in the dataset</span>
 <span class="n">ele_nm</span> <span class="o">=</span> <span class="n">pco_main_cc_merged</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;churn&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="s1">&#39;Stayed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;origin_up&#39;</span><span class="p">,</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]]</span>
 
-<span class="n">ele_nm</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;origin_up&#39;</span><span class="p">])</span>
+<span class="n">ele_nm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;origin_up&#39;</span><span class="p">)[</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>origin_up                       
-lxidpiddsbxsbosboudacockeimpuepw    6584
-kamkkxfxxuwbdslkwifmmcsiusiuosws    4188
-ldkssxwpmemidmecebumciepifcamkci    3201
-usapbepcfoloekilkwsdiboslwaxobdp       2
-ewxeelcelemmiwuafmddpobolfuxioce       1
-dtype: int64
-</pre></div>
-</div>
-</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>net_margin</th>
+    </tr>
+    <tr>
+      <th>origin_up</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ewxeelcelemmiwuafmddpobolfuxioce</th>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>kamkkxfxxuwbdslkwifmmcsiusiuosws</th>
+      <td>4188</td>
+    </tr>
+    <tr>
+      <th>ldkssxwpmemidmecebumciepifcamkci</th>
+      <td>3201</td>
+    </tr>
+    <tr>
+      <th>lxidpiddsbxsbosboudacockeimpuepw</th>
+      <td>6584</td>
+    </tr>
+    <tr>
+      <th>usapbepcfoloekilkwsdiboslwaxobdp</th>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3234,12 +3262,6 @@ Name: net_margin, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!jupyter-nbconvert --to PDFviaHTML BCG.ipynb</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[NbConvertApp] Converting notebook Task_2.ipynb to PDFviaHTML
-[NbConvertApp] Writing 1469246 bytes to Task_2.pdf
 </pre></div>
 </div>
 </div>
