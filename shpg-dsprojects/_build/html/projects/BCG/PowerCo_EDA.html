@@ -88,7 +88,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Neural Network SMS Text Classifier" href="../SMS_Text_Classifier/README.html" />
+    <link rel="next" title="Neural Network SMS Text Classifier" href="../sms_text_classifier/README.html" />
     <link rel="prev" title="Email" href="PowerCo_email.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -162,7 +162,7 @@ const thebe_selector_output = ".output, .cell_output"
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../SMS_Text_Classifier/README.html">
+  <a class="reference internal" href="../sms_text_classifier/README.html">
    SMS Text Classifier
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -172,8 +172,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../SMS_Text_Classifier/fcc_sms_text_classification.html">
-     SMS Text Classification
+    <a class="reference internal" href="../sms_text_classifier/fcc_sms_text_classification.html">
+     Neural Network - SMS Text Classification
     </a>
    </li>
   </ul>
@@ -219,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/projects/BCG/PowerCo_EDA.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/projects/bcg/PowerCo_EDA.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -239,7 +239,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/BCG/PowerCo_EDA.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/bcg/PowerCo_EDA.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -260,7 +260,7 @@ const thebe_selector_output = ".output, .cell_output"
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=tree/docs/projects/BCG/PowerCo_EDA.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=tree/docs/projects/bcg/PowerCo_EDA.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -905,38 +905,40 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 16096 entries, 0 to 16095
 Data columns (total 32 columns):
-id                          16096 non-null object
-activity_new                6551 non-null object
-campaign_disc_ele           0 non-null float64
-channel_sales               11878 non-null object
-cons_12m                    16096 non-null int64
-cons_gas_12m                16096 non-null int64
-cons_last_month             16096 non-null int64
-date_activ                  16096 non-null datetime64[ns]
-date_end                    16094 non-null datetime64[ns]
-date_first_activ            3508 non-null datetime64[ns]
-date_modif_prod             15939 non-null datetime64[ns]
-date_renewal                16056 non-null datetime64[ns]
-forecast_base_bill_ele      3508 non-null float64
-forecast_base_bill_year     3508 non-null float64
-forecast_bill_12m           3508 non-null float64
-forecast_cons               3508 non-null float64
-forecast_cons_12m           16096 non-null float64
-forecast_cons_year          16096 non-null int64
-forecast_discount_energy    15970 non-null float64
-forecast_meter_rent_12m     16096 non-null float64
-forecast_price_energy_p1    15970 non-null float64
-forecast_price_energy_p2    15970 non-null float64
-forecast_price_pow_p1       15970 non-null float64
-has_gas                     16096 non-null object
-imp_cons                    16096 non-null float64
-margin_gross_pow_ele        16083 non-null float64
-margin_net_pow_ele          16083 non-null float64
-nb_prod_act                 16096 non-null int64
-net_margin                  16081 non-null float64
-num_years_antig             16096 non-null int64
-origin_up                   16009 non-null object
-pow_max                     16093 non-null float64
+ #   Column                    Non-Null Count  Dtype         
+---  ------                    --------------  -----         
+ 0   id                        16096 non-null  object        
+ 1   activity_new              6551 non-null   object        
+ 2   campaign_disc_ele         0 non-null      float64       
+ 3   channel_sales             11878 non-null  object        
+ 4   cons_12m                  16096 non-null  int64         
+ 5   cons_gas_12m              16096 non-null  int64         
+ 6   cons_last_month           16096 non-null  int64         
+ 7   date_activ                16096 non-null  datetime64[ns]
+ 8   date_end                  16094 non-null  datetime64[ns]
+ 9   date_first_activ          3508 non-null   datetime64[ns]
+ 10  date_modif_prod           15939 non-null  datetime64[ns]
+ 11  date_renewal              16056 non-null  datetime64[ns]
+ 12  forecast_base_bill_ele    3508 non-null   float64       
+ 13  forecast_base_bill_year   3508 non-null   float64       
+ 14  forecast_bill_12m         3508 non-null   float64       
+ 15  forecast_cons             3508 non-null   float64       
+ 16  forecast_cons_12m         16096 non-null  float64       
+ 17  forecast_cons_year        16096 non-null  int64         
+ 18  forecast_discount_energy  15970 non-null  float64       
+ 19  forecast_meter_rent_12m   16096 non-null  float64       
+ 20  forecast_price_energy_p1  15970 non-null  float64       
+ 21  forecast_price_energy_p2  15970 non-null  float64       
+ 22  forecast_price_pow_p1     15970 non-null  float64       
+ 23  has_gas                   16096 non-null  object        
+ 24  imp_cons                  16096 non-null  float64       
+ 25  margin_gross_pow_ele      16083 non-null  float64       
+ 26  margin_net_pow_ele        16083 non-null  float64       
+ 27  nb_prod_act               16096 non-null  int64         
+ 28  net_margin                16081 non-null  float64       
+ 29  num_years_antig           16096 non-null  int64         
+ 30  origin_up                 16009 non-null  object        
+ 31  pow_max                   16093 non-null  float64       
 dtypes: datetime64[ns](5), float64(16), int64(6), object(5)
 memory usage: 3.9+ MB
 </pre></div>
@@ -1362,14 +1364,16 @@ dtype: float64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 193002 entries, 0 to 193001
 Data columns (total 8 columns):
-id              193002 non-null object
-price_date      193002 non-null datetime64[ns]
-price_p1_var    191643 non-null float64
-price_p2_var    191643 non-null float64
-price_p3_var    191643 non-null float64
-price_p1_fix    191643 non-null float64
-price_p2_fix    191643 non-null float64
-price_p3_fix    191643 non-null float64
+ #   Column        Non-Null Count   Dtype         
+---  ------        --------------   -----         
+ 0   id            193002 non-null  object        
+ 1   price_date    193002 non-null  datetime64[ns]
+ 2   price_p1_var  191643 non-null  float64       
+ 3   price_p2_var  191643 non-null  float64       
+ 4   price_p3_var  191643 non-null  float64       
+ 5   price_p1_fix  191643 non-null  float64       
+ 6   price_p2_fix  191643 non-null  float64       
+ 7   price_p3_fix  191643 non-null  float64       
 dtypes: datetime64[ns](1), float64(6), object(1)
 memory usage: 11.8+ MB
 </pre></div>
@@ -1589,8 +1593,10 @@ dtype: float64
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 16096 entries, 0 to 16095
 Data columns (total 2 columns):
-id       16096 non-null object
-churn    16096 non-null int64
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   id      16096 non-null  object
+ 1   churn   16096 non-null  int64 
 dtypes: int64(1), object(1)
 memory usage: 251.6+ KB
 </pre></div>
@@ -3056,7 +3062,7 @@ Name: net_margin, dtype: float64
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./projects/BCG"
+            path: "./projects/bcg"
         },
         predefinedOutput: true
     }
@@ -3075,10 +3081,10 @@ Name: net_margin, dtype: float64
             <p class="prev-next-title">Email</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../SMS_Text_Classifier/README.html" title="next page">
+    <a class='right-next' id="next-link" href="../sms_text_classifier/README.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Neural Network SMS Text Classifier</p>
+        <p class="prev-next-title"><span class="xref myst">Neural Network SMS Text Classifier</span></p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

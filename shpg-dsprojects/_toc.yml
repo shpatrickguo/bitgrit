@@ -6,15 +6,20 @@ root: intro
 parts:
   - caption: Projects
     chapters:
-    - file: projects/bcg/README.md
+    - file: projects/viral_tweets/README.md
+      title: Viral Tweets
+      sections:
+      - file: projects/viral_tweets/tweet-virality-prediction.ipynb
+        title: Viral Tweets - Notebook
+    - file: projects/BCG/README.md
       title: PowerCo - Churn is driven by price sensitivity
       sections:
-      - file: projects/bcg/PowerCo_email.md
+      - file: projects/BCG/PowerCo_email.md
         title: PowerCo - Proposal
-      - file: projects/bcg/PowerCo_EDA.ipynb
+      - file: projects/BCG/PowerCo_EDA.ipynb
         title: PowerCo - EDA
     - file: projects/sms_text_classifier/README.md
       title: SMS Text Classifier
       sections:
       - file: projects/sms_text_classifier/fcc_sms_text_classification.ipynb
-        title: Neural Network - SMS Text Classifier
+        title: SMS Text Classifier - Notebook
