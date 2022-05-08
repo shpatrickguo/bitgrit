@@ -10,7 +10,6 @@ wordcloud
 sklearn
 tensorflow
 tensorflow-datasets
-timeit
 collections
 warnings
 scikit-learn 
