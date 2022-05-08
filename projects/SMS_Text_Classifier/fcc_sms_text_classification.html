@@ -477,22 +477,8 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="c1">#!pip install tensorflow-datasets</span>
 <span class="c1">#!pip install wordcloud</span>
 
-<span class="o">!</span>pip install --upgrade numpy
-<span class="o">!</span>pip install --upgrade pandas
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy in /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages (1.22.3)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages (1.4.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: numpy&gt;=1.18.5 in /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages (from pandas) (1.22.3)
-Requirement already satisfied: pytz&gt;=2020.1 in /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages (from pandas) (2022.1)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages (from pandas) (2.8.2)
-Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages (from python-dateutil&gt;=2.8.1-&gt;pandas) (1.16.0)
+<span class="c1">#!pip install --upgrade numpy</span>
+<span class="c1">#!pip install --upgrade pandas</span>
 </pre></div>
 </div>
 </div>
@@ -520,7 +506,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.8.12
 <span class="c1"># Modeling </span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">GlobalAveragePooling1D</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Bidirectional</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">GlobalAveragePooling1D</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Bidirectional</span><span class="p">,</span> <span class="n">Flatten</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
@@ -568,7 +554,7 @@ Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.8.12
 <h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_file</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_file</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -597,63 +583,27 @@ Requirement already satisfied: six&gt;=1.5 in /opt/hostedtoolcache/Python/3.8.12
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>count</th>
+      <td>4179</td>
+      <td>4179</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>2</td>
+      <td>3935</td>
+    </tr>
+    <tr>
+      <th>top</th>
       <td>ham</td>
-      <td>ahhhh...just woken up!had a bad dream about u ...</td>
+      <td>sorry, i'll call later</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>ham</td>
-      <td>you can never do nothing</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ham</td>
-      <td>now u sound like manky scouse boy steve,like! ...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ham</td>
-      <td>mum say we wan to go then go... then she can s...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>ham</td>
-      <td>never y lei... i v lazy... got wat? dat day ü ...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>4174</th>
-      <td>ham</td>
-      <td>just woke up. yeesh its late. but i didn't fal...</td>
-    </tr>
-    <tr>
-      <th>4175</th>
-      <td>ham</td>
-      <td>what do u reckon as need 2 arrange transport i...</td>
-    </tr>
-    <tr>
-      <th>4176</th>
-      <td>spam</td>
-      <td>free entry into our £250 weekly competition ju...</td>
-    </tr>
-    <tr>
-      <th>4177</th>
-      <td>spam</td>
-      <td>-pls stop bootydelious (32/f) is inviting you ...</td>
-    </tr>
-    <tr>
-      <th>4178</th>
-      <td>ham</td>
-      <td>tell my  bad character which u dnt lik in me. ...</td>
+      <th>freq</th>
+      <td>3619</td>
+      <td>22</td>
     </tr>
   </tbody>
 </table>
-<p>4179 rows × 2 columns</p>
 </div></div></div>
 </div>
 <p>There are two unique classes: “ham” and “spam”. There are less unique messages (3935) than total message count (4179) indicating some repeated messages.
@@ -665,135 +615,54 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">apply</span><span class="nt">(self, func, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">724</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">725</span>                 <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_python_apply_general</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">726</span>             <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">_python_apply_general</span><span class="nt">(self, f)</span>
-<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="k">def</span> <span class="nf">_python_apply_general</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">742</span>         <span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">mutated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selected_obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">743</span> 
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">apply</span><span class="nt">(self, f, data, axis)</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span>             <span class="n">group_axes</span> <span class="o">=</span> <span class="n">_get_axes</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">237</span>             <span class="n">res</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_indexed_like</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">group_axes</span><span class="p">):</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1444</span>         <span class="k">with</span> <span class="n">_group_selection_context</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1445</span>             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1446</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">describe</span><span class="nt">(self, percentiles, include, exclude)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10264</span>             <span class="c1"># when some numerics are found, keep only numerics</span>
-<span class="ne">&gt; </span><span class="mi">10265</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span>
-<span class="g g-Whitespace">  </span><span class="mi">10266</span>             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ni">select_dtypes</span><span class="nt">(self, include, exclude)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3441</span>         <span class="c1"># we get the included and excluded, and return their logical and</span>
-<span class="ne">-&gt; </span><span class="mi">3442</span>         <span class="n">include_these</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">include</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3443</span>         <span class="n">exclude_these</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">exclude</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">__init__</span><span class="nt">(self, data, index, dtype, name, copy, fastpath)</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">314</span>                 <span class="n">data</span> <span class="o">=</span> <span class="n">sanitize_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">raise_cast_failure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span> 
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py</span> in <span class="ni">sanitize_array</span><span class="nt">(data, index, dtype, copy, raise_cast_failure)</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span> 
-<span class="ne">--&gt; </span><span class="mi">712</span>             <span class="n">subarr</span> <span class="o">=</span> <span class="n">construct_1d_arraylike_from_scalar</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span> 
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/dtypes/cast.py</span> in <span class="ni">construct_1d_arraylike_from_scalar</span><span class="nt">(value, length, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1232</span> 
-<span class="ne">-&gt; </span><span class="mi">1233</span>         <span class="n">subarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1234</span>         <span class="n">subarr</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: Cannot interpret &#39;&lt;attribute &#39;dtype&#39; of &#39;numpy.generic&#39; objects&gt;&#39; as a data type
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_74808</span><span class="o">/</span><span class="mf">2167858731.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">train_file</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Class&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">describe</span><span class="nt">(self, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1443</span>     <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1444</span>         <span class="k">with</span> <span class="n">_group_selection_context</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1445</span>             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1446</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1447</span>                 <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">T</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">apply</span><span class="nt">(self, func, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">735</span> 
-<span class="g g-Whitespace">    </span><span class="mi">736</span>                 <span class="k">with</span> <span class="n">_group_selection_context</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">737</span>                     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_python_apply_general</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">738</span> 
-<span class="g g-Whitespace">    </span><span class="mi">739</span>         <span class="k">return</span> <span class="n">result</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">_python_apply_general</span><span class="nt">(self, f)</span>
-<span class="g g-Whitespace">    </span><span class="mi">740</span> 
-<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="k">def</span> <span class="nf">_python_apply_general</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">742</span>         <span class="n">keys</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">mutated</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">grouper</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selected_obj</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">743</span> 
-<span class="g g-Whitespace">    </span><span class="mi">744</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wrap_applied_output</span><span class="p">(</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/ops.py</span> in <span class="ni">apply</span><span class="nt">(self, f, data, axis)</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span>             <span class="c1"># group might be modified</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span>             <span class="n">group_axes</span> <span class="o">=</span> <span class="n">_get_axes</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">237</span>             <span class="n">res</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">_is_indexed_like</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">group_axes</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>                 <span class="n">mutated</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py</span> in <span class="ni">&lt;lambda&gt;</span><span class="nt">(x)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1443</span>     <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1444</span>         <span class="k">with</span> <span class="n">_group_selection_context</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1445</span>             <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1446</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1447</span>                 <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">T</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/generic.py</span> in <span class="ni">describe</span><span class="nt">(self, percentiles, include, exclude)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10263</span>         <span class="k">elif</span> <span class="p">(</span><span class="n">include</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">exclude</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">  </span><span class="mi">10264</span>             <span class="c1"># when some numerics are found, keep only numerics</span>
-<span class="ne">&gt; </span><span class="mi">10265</span>             <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">])</span>
-<span class="g g-Whitespace">  </span><span class="mi">10266</span>             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">  </span><span class="mi">10267</span>                 <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/frame.py</span> in <span class="ni">select_dtypes</span><span class="nt">(self, include, exclude)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3440</span>         <span class="c1"># the &quot;union&quot; of the logic of case 1 and case 2:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3441</span>         <span class="c1"># we get the included and excluded, and return their logical and</span>
-<span class="ne">-&gt; </span><span class="mi">3442</span>         <span class="n">include_these</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">include</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3443</span>         <span class="n">exclude_these</span> <span class="o">=</span> <span class="n">Series</span><span class="p">(</span><span class="ow">not</span> <span class="nb">bool</span><span class="p">(</span><span class="n">exclude</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3444</span> 
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/series.py</span> in <span class="ni">__init__</span><span class="nt">(self, data, index, dtype, name, copy, fastpath)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span>                     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span>             <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">314</span>                 <span class="n">data</span> <span class="o">=</span> <span class="n">sanitize_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">raise_cast_failure</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span> 
-<span class="g g-Whitespace">    </span><span class="mi">316</span>                 <span class="n">data</span> <span class="o">=</span> <span class="n">SingleBlockManager</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">fastpath</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py</span> in <span class="ni">sanitize_array</span><span class="nt">(data, index, dtype, copy, raise_cast_failure)</span>
-<span class="g g-Whitespace">    </span><span class="mi">710</span>                 <span class="n">value</span> <span class="o">=</span> <span class="n">maybe_cast_to_datetime</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">711</span> 
-<span class="ne">--&gt; </span><span class="mi">712</span>             <span class="n">subarr</span> <span class="o">=</span> <span class="n">construct_1d_arraylike_from_scalar</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span> 
-<span class="g g-Whitespace">    </span><span class="mi">714</span>         <span class="k">else</span><span class="p">:</span>
-
-<span class="nn">~/.local/lib/python3.8/site-packages/pandas/core/dtypes/cast.py</span> in <span class="ni">construct_1d_arraylike_from_scalar</span><span class="nt">(value, length, dtype)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1231</span>                 <span class="n">value</span> <span class="o">=</span> <span class="n">ensure_str</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1232</span> 
-<span class="ne">-&gt; </span><span class="mi">1233</span>         <span class="n">subarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1234</span>         <span class="n">subarr</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1235</span> 
-
-<span class="ne">TypeError</span>: Cannot interpret &#39;&lt;attribute &#39;dtype&#39; of &#39;numpy.generic&#39; objects&gt;&#39; as a data type
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Class</th>
+      <th>ham</th>
+      <th>spam</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">Message</th>
+      <th>count</th>
+      <td>3619</td>
+      <td>560</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>3430</td>
+      <td>505</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>sorry, i'll call later</td>
+      <td>hmv bonus special 500 pounds of genuine hmv vo...</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>22</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>There are 3619 ham compared to 560 spam messages. This means the data is imbalanced. The most popular ham message “sorry, i’ll call later” occured 22 times. Whereas the most popular spam message “hmv bonus special 500 pounds of genuine hmv…” occured 3 times.</p>
 <div class="section" id="wordcloud">
@@ -823,6 +692,9 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fcc_sms_text_classification_13_0.png" src="../../_images/fcc_sms_text_classification_13_0.png" />
+</div>
 </div>
 <p>The ham message WordCloud shows that “love”, “going”, “come”, “home”, etc. are the most commonly appeared words in ham messages.</p>
 <div class="cell docutils container">
@@ -836,6 +708,9 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fcc_sms_text_classification_15_0.png" src="../../_images/fcc_sms_text_classification_15_0.png" />
 </div>
 </div>
 <p>The spam message WordCloud shows that “free”, “text”, “call” etc. are the most commonly appeared words in spam messages.</p>
@@ -857,6 +732,9 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fcc_sms_text_classification_19_0.png" src="../../_images/fcc_sms_text_classification_19_0.png" />
+</div>
 </div>
 <p>The bar chart shows that the classes are imbalanced. 85% of the messages are ham.</p>
 <div class="section" id="downsampling">
@@ -869,7 +747,12 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="n">train_ham_df</span> <span class="o">=</span> <span class="n">train_ham</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_spam</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">44</span><span class="p">)</span>
 <span class="n">train_spam_df</span> <span class="o">=</span> <span class="n">train_spam</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">train_ham_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_spam_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">train_df</span> <span class="o">=</span> <span class="n">train_ham_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">train_spam_df</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_ham_df</span><span class="p">,</span> <span class="n">train_spam_df</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(560, 2) (560, 2)
 </pre></div>
 </div>
 </div>
@@ -884,7 +767,12 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="n">test_ham_df</span> <span class="o">=</span> <span class="n">test_ham</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_spam</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">44</span><span class="p">)</span>
 <span class="n">test_spam_df</span> <span class="o">=</span> <span class="n">test_spam</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">test_ham_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_spam_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">test_df</span> <span class="o">=</span> <span class="n">test_ham_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_spam_df</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">test_ham_df</span><span class="p">,</span> <span class="n">test_spam_df</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(187, 2) (187, 2)
 </pre></div>
 </div>
 </div>
@@ -947,6 +835,11 @@ Downsampling randomly deletes some of the observations from the majority class s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 3999 unique tokens in training data. 
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="sequencing-and-padding">
@@ -970,6 +863,12 @@ Downsampling randomly deletes some of the observations from the majority class s
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape of train tensor</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of training tensor: &#39;</span><span class="p">,</span> <span class="n">training_padded</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of testing tensor: &#39;</span><span class="p">,</span> <span class="n">testing_padded</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of training tensor:  (1120, 50)
+Shape of testing tensor:  (374, 50)
 </pre></div>
 </div>
 </div>
@@ -1021,11 +920,83 @@ Downsampling randomly deletes some of the observations from the majority class s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/30
+35/35 - 1s - loss: 0.6901 - accuracy: 0.6134 - val_loss: 0.6823 - val_accuracy: 0.8610 - 769ms/epoch - 22ms/step
+Epoch 2/30
+35/35 - 0s - loss: 0.6724 - accuracy: 0.8723 - val_loss: 0.6567 - val_accuracy: 0.8743 - 72ms/epoch - 2ms/step
+Epoch 3/30
+35/35 - 0s - loss: 0.6340 - accuracy: 0.8679 - val_loss: 0.6031 - val_accuracy: 0.8743 - 105ms/epoch - 3ms/step
+Epoch 4/30
+35/35 - 0s - loss: 0.5624 - accuracy: 0.8875 - val_loss: 0.5165 - val_accuracy: 0.8797 - 81ms/epoch - 2ms/step
+Epoch 5/30
+35/35 - 0s - loss: 0.4706 - accuracy: 0.8938 - val_loss: 0.4220 - val_accuracy: 0.8877 - 101ms/epoch - 3ms/step
+Epoch 6/30
+35/35 - 0s - loss: 0.3784 - accuracy: 0.9018 - val_loss: 0.3390 - val_accuracy: 0.8957 - 66ms/epoch - 2ms/step
+Epoch 7/30
+35/35 - 0s - loss: 0.2970 - accuracy: 0.9134 - val_loss: 0.2796 - val_accuracy: 0.9037 - 86ms/epoch - 2ms/step
+Epoch 8/30
+35/35 - 0s - loss: 0.2445 - accuracy: 0.9268 - val_loss: 0.2376 - val_accuracy: 0.9118 - 85ms/epoch - 2ms/step
+Epoch 9/30
+35/35 - 0s - loss: 0.2061 - accuracy: 0.9348 - val_loss: 0.2109 - val_accuracy: 0.9171 - 73ms/epoch - 2ms/step
+Epoch 10/30
+35/35 - 0s - loss: 0.1768 - accuracy: 0.9473 - val_loss: 0.1848 - val_accuracy: 0.9251 - 149ms/epoch - 4ms/step
+Epoch 11/30
+35/35 - 0s - loss: 0.1584 - accuracy: 0.9545 - val_loss: 0.1737 - val_accuracy: 0.9305 - 114ms/epoch - 3ms/step
+Epoch 12/30
+35/35 - 0s - loss: 0.1431 - accuracy: 0.9563 - val_loss: 0.1552 - val_accuracy: 0.9278 - 80ms/epoch - 2ms/step
+Epoch 13/30
+35/35 - 0s - loss: 0.1263 - accuracy: 0.9643 - val_loss: 0.1446 - val_accuracy: 0.9385 - 127ms/epoch - 4ms/step
+Epoch 14/30
+35/35 - 0s - loss: 0.1208 - accuracy: 0.9598 - val_loss: 0.1357 - val_accuracy: 0.9465 - 107ms/epoch - 3ms/step
+Epoch 15/30
+35/35 - 0s - loss: 0.1089 - accuracy: 0.9688 - val_loss: 0.1273 - val_accuracy: 0.9439 - 136ms/epoch - 4ms/step
+Epoch 16/30
+35/35 - 0s - loss: 0.1001 - accuracy: 0.9714 - val_loss: 0.1221 - val_accuracy: 0.9545 - 123ms/epoch - 4ms/step
+Epoch 17/30
+35/35 - 0s - loss: 0.0966 - accuracy: 0.9688 - val_loss: 0.1168 - val_accuracy: 0.9599 - 80ms/epoch - 2ms/step
+Epoch 18/30
+35/35 - 0s - loss: 0.0865 - accuracy: 0.9759 - val_loss: 0.1150 - val_accuracy: 0.9599 - 67ms/epoch - 2ms/step
+Epoch 19/30
+35/35 - 0s - loss: 0.0814 - accuracy: 0.9705 - val_loss: 0.1112 - val_accuracy: 0.9599 - 81ms/epoch - 2ms/step
+Epoch 20/30
+35/35 - 0s - loss: 0.0764 - accuracy: 0.9732 - val_loss: 0.1081 - val_accuracy: 0.9626 - 96ms/epoch - 3ms/step
+Epoch 21/30
+35/35 - 0s - loss: 0.0755 - accuracy: 0.9786 - val_loss: 0.1062 - val_accuracy: 0.9652 - 77ms/epoch - 2ms/step
+Epoch 22/30
+35/35 - 0s - loss: 0.0691 - accuracy: 0.9804 - val_loss: 0.1052 - val_accuracy: 0.9599 - 59ms/epoch - 2ms/step
+Epoch 23/30
+35/35 - 0s - loss: 0.0635 - accuracy: 0.9795 - val_loss: 0.1039 - val_accuracy: 0.9652 - 77ms/epoch - 2ms/step
+Epoch 24/30
+35/35 - 0s - loss: 0.0592 - accuracy: 0.9795 - val_loss: 0.1049 - val_accuracy: 0.9599 - 78ms/epoch - 2ms/step
+Epoch 25/30
+35/35 - 0s - loss: 0.0604 - accuracy: 0.9821 - val_loss: 0.1002 - val_accuracy: 0.9679 - 80ms/epoch - 2ms/step
+Epoch 26/30
+35/35 - 0s - loss: 0.0527 - accuracy: 0.9866 - val_loss: 0.0984 - val_accuracy: 0.9679 - 80ms/epoch - 2ms/step
+Epoch 27/30
+35/35 - 0s - loss: 0.0506 - accuracy: 0.9839 - val_loss: 0.0987 - val_accuracy: 0.9626 - 70ms/epoch - 2ms/step
+Epoch 28/30
+35/35 - 0s - loss: 0.0502 - accuracy: 0.9857 - val_loss: 0.1001 - val_accuracy: 0.9599 - 71ms/epoch - 2ms/step
+Epoch 29/30
+35/35 - 0s - loss: 0.0455 - accuracy: 0.9857 - val_loss: 0.0978 - val_accuracy: 0.9679 - 53ms/epoch - 2ms/step
+Epoch 30/30
+35/35 - 0s - loss: 0.0436 - accuracy: 0.9875 - val_loss: 0.0973 - val_accuracy: 0.9679 - 56ms/epoch - 2ms/step
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model performance on test data </span>
 <span class="n">dense_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12/12 [==============================] - 0s 2ms/step - loss: 0.0973 - accuracy: 0.9679
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.09732193499803543, 0.9679144620895386]
 </pre></div>
 </div>
 </div>
@@ -1047,6 +1018,10 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="n">plot_dense</span><span class="p">(</span><span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fcc_sms_text_classification_39_0.png" src="../../_images/fcc_sms_text_classification_39_0.png" />
+<img alt="../../_images/fcc_sms_text_classification_39_1.png" src="../../_images/fcc_sms_text_classification_39_1.png" />
 </div>
 </div>
 </div>
@@ -1070,6 +1045,8 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
 <span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
+<span class="c1">#LSTM_model.add(Flatten())</span>
 </pre></div>
 </div>
 </div>
@@ -1085,7 +1062,7 @@ Downsampling randomly deletes some of the observations from the majority class s
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">LSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span><span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">LSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1108,6 +1085,10 @@ Downsampling randomly deletes some of the observations from the majority class s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fcc_sms_text_classification_45_0.png" src="../../_images/fcc_sms_text_classification_45_0.png" />
+<img alt="../../_images/fcc_sms_text_classification_45_1.png" src="../../_images/fcc_sms_text_classification_45_1.png" />
+</div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="bi-directional-long-short-term-memory-bilstm-model">
@@ -1120,6 +1101,8 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embeding_dim</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
 <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Bidirectional</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
 <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
+<span class="c1">#biLSTM_model.add(Flatten())</span>
 </pre></div>
 </div>
 </div>
@@ -1137,7 +1120,7 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">history</span> <span class="o">=</span> <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> 
-                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span><span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span><span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1161,6 +1144,10 @@ Downsampling randomly deletes some of the observations from the majority class s
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../_images/fcc_sms_text_classification_50_0.png" src="../../_images/fcc_sms_text_classification_50_0.png" />
+<img alt="../../_images/fcc_sms_text_classification_50_1.png" src="../../_images/fcc_sms_text_classification_50_1.png" />
+</div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="choose-model">
@@ -1171,6 +1158,16 @@ Downsampling randomly deletes some of the observations from the majority class s
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dense architecture loss and accuracy: </span><span class="si">{</span><span class="n">dense_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;LSTM architecture loss and accuracy: </span><span class="si">{</span><span class="n">LSTM_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bi-LSTM architecture loss and accuracy: </span><span class="si">{</span><span class="n">biLSTM_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12/12 [==============================] - 0s 1ms/step - loss: 0.0973 - accuracy: 0.9679
+Dense architecture loss and accuracy: [0.09732193499803543, 0.9679144620895386] 
+12/12 [==============================] - 0s 5ms/step - loss: 0.2421 - accuracy: 0.9305
+LSTM architecture loss and accuracy: [0.2421468198299408, 0.9304812550544739] 
+12/12 [==============================] - 0s 6ms/step - loss: 0.1322 - accuracy: 0.9519
+Bi-LSTM architecture loss and accuracy: [0.1321692019701004, 0.9518716335296631] 
 </pre></div>
 </div>
 </div>
@@ -1198,6 +1195,12 @@ Downsampling randomly deletes some of the observations from the majority class s
 
 <span class="n">prediction</span> <span class="o">=</span> <span class="n">predict_message</span><span class="p">(</span><span class="n">pred_text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - 0s 81ms/step
+[0.0048531713, &#39;ham&#39;]
 </pre></div>
 </div>
 </div>
@@ -1229,6 +1232,18 @@ Downsampling randomly deletes some of the observations from the majority class s
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You haven&#39;t passed yet. Keep trying.&quot;</span><span class="p">)</span>
 
 <span class="n">test_predictions</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - 0s 21ms/step
+1/1 [==============================] - 0s 20ms/step
+1/1 [==============================] - 0s 21ms/step
+1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - 0s 17ms/step
+You passed the challenge. Great job!
 </pre></div>
 </div>
 </div>

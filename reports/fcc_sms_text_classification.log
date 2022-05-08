@@ -38,7 +38,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 # Modeling 
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Embedding, GlobalAveragePooling1D, Dense, Dropout, LSTM, Bidirectional
+from tensorflow.keras.layers import Embedding, GlobalAveragePooling1D, Dense, Dropout, LSTM, Bidirectional, Flatten
 
 print(tf.__version__)
 ------------------
