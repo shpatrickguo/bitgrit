@@ -17,8 +17,8 @@ parts:
         title: PowerCo - Proposal
       - file: projects/BCG/PowerCo_eda.ipynb
         title: PowerCo - EDA
-    - file: projects/sms_text_classifier/README.md
+    - file: projects/sms_classifier/README.md
       title: SMS Text Classifier
       sections:
-      - file: projects/sms_text_classifier/fcc_sms_text_classification.ipynb
+      - file: projects/sms_classifier/sms_classification.ipynb
         title: SMS Text Classifier - Notebook

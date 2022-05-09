@@ -1,4 +1,4 @@
-# [Neural Network SMS Text Classifier](fcc_sms_text_classification.ipynb)
+# [Neural Network SMS Text Classifier](sms_classification.ipynb)
 
 ## In this notebook
 
