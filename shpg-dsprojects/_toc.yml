@@ -11,7 +11,7 @@ parts:
     - file: projects/viral_tweets/README.md
       title: Viral Tweets
     - file: projects/BCG/README.md
-      title: PowerCo - Churn is driven by price sensitivity
+      title: PowerCo - Is Churn driven by price sensitivity?
       sections:
       - file: projects/BCG/PowerCo_email.md
         title: PowerCo - Proposal
