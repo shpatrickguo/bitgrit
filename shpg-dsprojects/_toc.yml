@@ -18,7 +18,7 @@ parts:
       - file: projects/BCG/PowerCo_eda.ipynb
         title: PowerCo - EDA
     - file: projects/sms_classifier/README.md
-      title: SMS Text Classifier
+      title: SMS Text Classification
       sections:
       - file: projects/sms_classifier/sms_classification.ipynb
-        title: SMS Text Classifier - Notebook
+        title: SMS Text Classification - Notebook
