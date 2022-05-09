@@ -7,7 +7,7 @@ parts:
   - caption: Projects
     chapters:
     - file: projects/inn_the_neighborhood/inn_the_neighborhood.ipynb
-    - title: Rental Price Prediction
+      title: Rental Price Prediction
     - file: projects/exam_scores/exam_scores.ipynb
       title: Do test preparation courses help you prepare for exams?
     - file: projects/viral_tweets/README.md

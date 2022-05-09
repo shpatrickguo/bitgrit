@@ -1,0 +1,2126 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DataCamp Certification Case Study &#8212; shpg-dsprojects</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "shpatrickguo/dsprojects");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script >const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"processClass": "tex2jax_process|mathjax_process|math|output_area"}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Analyzing exam scores" href="../exam_scores/exam_scores.html" />
+    <link rel="prev" title="Welcome" href="../../intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Projects
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Rental Price Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exam_scores/exam_scores.html">
+   Do test preparation courses help you prepare for exams?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../viral_tweets/README.html">
+   Viral Tweets
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../BCG/README.html">
+   PowerCo - Is Churn driven by price sensitivity?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_email.html">
+     PowerCo - Proposal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_EDA.html">
+     PowerCo - EDA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sms_classifier/README.html">
+   SMS Text Classification
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sms_classifier/sms_classification.html">
+     Neural Network - SMS Text Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/projects/inn_the_neighborhood/inn_the_neighborhood.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/shpatrickguo/dsprojects"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/inn_the_neighborhood/inn_the_neighborhood.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=tree/docs/projects/inn_the_neighborhood/inn_the_neighborhood.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-brief">
+   Project Brief
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   The Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-the-data">
+   Load the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-size-and-structure">
+   Data Size and Structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-statistics">
+     Summary Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#completeness-of-data">
+     Completeness of Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-cleaning-summary">
+   Data Cleaning Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlation">
+     Correlation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#price">
+     Price
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bedrooms">
+     Bedrooms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bathrooms">
+     Bathrooms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimum-nights">
+     Minimum Nights
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#property-type">
+     Property Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#room-type">
+     Room Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latitude-and-longitude">
+     Latitude and Longitude
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-test-split">
+   Train Test Split
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-engineering">
+   Feature Engineering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-hot-encoding">
+     One-Hot-Encoding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geospaital-features">
+     Geospaital Features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-importance-with-random-forest">
+   Variable Importance with Random Forest
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-selection">
+   Feature Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-selection">
+   Model Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-tuning">
+   Model Tuning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-evaluation">
+   Model Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outcome-summary">
+   Outcome Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next steps
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>DataCamp Certification Case Study</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#project-brief">
+   Project Brief
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   The Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-the-data">
+   Load the data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-size-and-structure">
+   Data Size and Structure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-statistics">
+     Summary Statistics
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#completeness-of-data">
+     Completeness of Data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-cleaning-summary">
+   Data Cleaning Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlation">
+     Correlation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#price">
+     Price
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bedrooms">
+     Bedrooms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bathrooms">
+     Bathrooms
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minimum-nights">
+     Minimum Nights
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#property-type">
+     Property Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#room-type">
+     Room Type
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#latitude-and-longitude">
+     Latitude and Longitude
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-test-split">
+   Train Test Split
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-engineering">
+   Feature Engineering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-hot-encoding">
+     One-Hot-Encoding
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#geospaital-features">
+     Geospaital Features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#variable-importance-with-random-forest">
+   Variable Importance with Random Forest
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-selection">
+   Feature Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-selection">
+   Model Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-tuning">
+   Model Tuning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-evaluation">
+   Model Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#outcome-summary">
+   Outcome Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#next-steps">
+   Next steps
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="datacamp-certification-case-study">
+<h1>DataCamp Certification Case Study<a class="headerlink" href="#datacamp-certification-case-study" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="project-brief">
+<h2>Project Brief<a class="headerlink" href="#project-brief" title="Permalink to this headline">¶</a></h2>
+<p>You have been hired by Inn the Neighborhood, an online platform that allows people to rent out their properties for short stays. Currently, the webpage for renters has a conversion rate of 2%. This means that most people leave the platform without signing up.</p>
+<p>The product manager would like to increase this conversion rate. They are interested in developing an application to help people estimate the money they could earn renting out their living space. They hope that this would make people more likely to sign up.</p>
+<p>The company has provided you with a dataset that includes details about each property rented, as well as the price charged per night. They want to avoid estimating prices that are more than 25 dollars off of the actual price, as this may discourage people.</p>
+<p>You will need to present your findings in two formats:</p>
+<ul class="simple">
+<li><p>You must submit a written report summarising your analysis to your manager. As a data science manager, your manager has a strong technical background and wants to understand what you have done and why.</p></li>
+<li><p>You will then need to share your findings with the product manager in a 10 minute presentation. The product manager has no data science background but is familiar with basic data related terminology.</p></li>
+</ul>
+<p>The data you will use for this analysis can be accessed here: <code class="docutils literal notranslate"><span class="pre">&quot;data/rentals.csv&quot;</span></code></p>
+</div>
+<div class="section" id="the-data">
+<h2>The Data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: Numeric, the unique identification number of the property</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>: Numeric, the latitude of the property</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">longitude</span></code>: Numeric, the longitude of the property</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">property_type</span></code>: Character, the type of property (e.g., apartment, house, etc)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">room_type</span></code>: Character, the type of room (e.g., private room, entire home, etc)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bathrooms</span></code>: Numeric, the number of bathrooms</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bedrooms</span></code>: Numeric, the number of bedrooms</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">minimum_nights</span></code>: Numeric, the minimum number of nights someone can book</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code>: Character, the dollars per night charged</p></li>
+</ul>
+</div>
+<div class="section" id="import-libraries">
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Installations</span>
+<span class="c1">#!pip install geopy lightgbm xgboost verstack --upgrade</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;grid.color&quot;</span><span class="p">:</span> <span class="s2">&quot;.6&quot;</span><span class="p">,</span> <span class="s2">&quot;grid.linestyle&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">})</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_transformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.inspection</span> <span class="kn">import</span> <span class="n">permutation_importance</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">verstack</span> <span class="kn">import</span> <span class="n">LGBMTuner</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">AdaBoostRegressor</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span>
+<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
+<span class="kn">from</span> <span class="nn">lightgbm</span> <span class="kn">import</span> <span class="n">LGBMRegressor</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">6</span><span class="n">d</span><span class="o">/</span><span class="n">prnzxhkn7tj95jgrjcvd1j5r0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_1494</span><span class="o">/</span><span class="mf">962443652.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="kn">from</span> <span class="nn">sklearn.inspection</span> <span class="kn">import</span> <span class="n">permutation_importance</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
+<span class="ne">---&gt; </span><span class="mi">16</span> <span class="kn">from</span> <span class="nn">verstack</span> <span class="kn">import</span> <span class="n">LGBMTuner</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;verstack&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-the-data">
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rentals_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/rentals.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">rentals_csv</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>property_type</th>
+      <th>room_type</th>
+      <th>bathrooms</th>
+      <th>bedrooms</th>
+      <th>minimum_nights</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>958</td>
+      <td>37.76931</td>
+      <td>-122.43386</td>
+      <td>Apartment</td>
+      <td>Entire home/apt</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>$170.00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3850</td>
+      <td>37.75402</td>
+      <td>-122.45805</td>
+      <td>House</td>
+      <td>Private room</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>$99.00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5858</td>
+      <td>37.74511</td>
+      <td>-122.42102</td>
+      <td>Apartment</td>
+      <td>Entire home/apt</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>30</td>
+      <td>$235.00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>7918</td>
+      <td>37.76669</td>
+      <td>-122.45250</td>
+      <td>Apartment</td>
+      <td>Private room</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>32</td>
+      <td>$65.00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8142</td>
+      <td>37.76487</td>
+      <td>-122.45183</td>
+      <td>Apartment</td>
+      <td>Private room</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>32</td>
+      <td>$65.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="data-size-and-structure">
+<h2>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Dataset comprises of 8111 observations and 7 characteristics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> can be treated as the index</p></li>
+<li><p>7 independent variables: <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code>, <code class="docutils literal notranslate"><span class="pre">property_type</span></code>, <code class="docutils literal notranslate"><span class="pre">room_type</span></code>, <code class="docutils literal notranslate"><span class="pre">bathrooms</span></code>, <code class="docutils literal notranslate"><span class="pre">bedrooms</span></code>, <code class="docutils literal notranslate"><span class="pre">minimum_nights</span></code></p>
+<ul>
+<li><p>5 numerical features, 2 categorical features</p></li>
+</ul>
+</li>
+<li><p>1 dependent variable: <code class="docutils literal notranslate"><span class="pre">price</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code> is treated as <code class="docutils literal notranslate"><span class="pre">object</span></code> type because of the non-numeric characters in cell, e.g.“$”, “,”.</p></li>
+<li><p>2 variable columns has null/missing values.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 8111 entries, 0 to 8110
+Data columns (total 9 columns):
+ #   Column          Non-Null Count  Dtype  
+---  ------          --------------  -----  
+ 0   id              8111 non-null   int64  
+ 1   latitude        8111 non-null   float64
+ 2   longitude       8111 non-null   float64
+ 3   property_type   8111 non-null   object 
+ 4   room_type       8111 non-null   object 
+ 5   bathrooms       8099 non-null   float64
+ 6   bedrooms        8107 non-null   float64
+ 7   minimum_nights  8111 non-null   int64  
+ 8   price           8111 non-null   object 
+dtypes: float64(4), int64(2), object(3)
+memory usage: 570.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set id as index</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="k">def</span> <span class="nf">remove_nonnumeric</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Remove non-numeric characters from string using regex.</span>
+<span class="sd">    </span>
+<span class="sd">    INPUTS:</span>
+<span class="sd">    string - str</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT</span>
+<span class="sd">    output - str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;[^0-9]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="c1"># Remove non-numeric characters</span>
+<span class="n">df</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">remove_nonnumeric</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Change dtype of price from str to float64 </span>
+<span class="n">df</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="summary-statistics">
+<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Features have different scales and units.</p></li>
+<li><p>There is a narrow distribution of latitude and longitude values, which suggest the dataset contains properties in the same region.</p></li>
+<li><p>There are extreme outliers in <code class="docutils literal notranslate"><span class="pre">minimum_nights</span></code>, with a max value of <code class="docutils literal notranslate"><span class="pre">100000000</span></code> nights, which would be over 273972 years.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>bathrooms</th>
+      <th>bedrooms</th>
+      <th>minimum_nights</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>8111.000000</td>
+      <td>8111.000000</td>
+      <td>8099.000000</td>
+      <td>8107.000000</td>
+      <td>8.111000e+03</td>
+      <td>8111.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>37.766054</td>
+      <td>-122.430107</td>
+      <td>1.395975</td>
+      <td>1.345874</td>
+      <td>1.234526e+04</td>
+      <td>225.407101</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.022937</td>
+      <td>0.026967</td>
+      <td>0.923213</td>
+      <td>0.925298</td>
+      <td>1.110357e+06</td>
+      <td>412.253039</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>37.704630</td>
+      <td>-122.513060</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000e+00</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>37.751450</td>
+      <td>-122.442830</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2.000000e+00</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>37.769150</td>
+      <td>-122.424650</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>4.000000e+00</td>
+      <td>150.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>37.785670</td>
+      <td>-122.410615</td>
+      <td>1.500000</td>
+      <td>2.000000</td>
+      <td>3.000000e+01</td>
+      <td>240.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>37.828790</td>
+      <td>-122.368570</td>
+      <td>14.000000</td>
+      <td>14.000000</td>
+      <td>1.000000e+08</td>
+      <td>10000.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove outliers in columns minimum_nights and price using IQR</span>
+<span class="n">quant_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;minimum_nights&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="n">quant_cols</span><span class="p">:</span>
+    <span class="n">q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="n">q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">]</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">low</span><span class="p">]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>bathrooms</th>
+      <th>bedrooms</th>
+      <th>minimum_nights</th>
+      <th>price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>7389.000000</td>
+      <td>7389.000000</td>
+      <td>7377.000000</td>
+      <td>7386.000000</td>
+      <td>7389.000000</td>
+      <td>7389.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>37.765445</td>
+      <td>-122.430049</td>
+      <td>1.339637</td>
+      <td>1.225968</td>
+      <td>15.288131</td>
+      <td>162.706320</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.023001</td>
+      <td>0.027253</td>
+      <td>0.906060</td>
+      <td>0.792813</td>
+      <td>14.291618</td>
+      <td>87.043561</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>37.704630</td>
+      <td>-122.513060</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>37.750730</td>
+      <td>-122.442950</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+      <td>98.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>37.768500</td>
+      <td>-122.424370</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>5.000000</td>
+      <td>148.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>37.785220</td>
+      <td>-122.410380</td>
+      <td>1.500000</td>
+      <td>2.000000</td>
+      <td>30.000000</td>
+      <td>208.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>37.828790</td>
+      <td>-122.368570</td>
+      <td>14.000000</td>
+      <td>14.000000</td>
+      <td>70.000000</td>
+      <td>449.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="completeness-of-data">
+<h3>Completeness of Data<a class="headerlink" href="#completeness-of-data" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Less than 0.2% of missing values present in columns bathroom and bedrooms</p></li>
+<li><p>Since, the missing observations only account for a small amount of the dataset, we can drop these observations.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of dataset is null</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>latitude          0.000000
+longitude         0.000000
+property_type     0.000000
+room_type         0.000000
+bathrooms         0.162404
+bedrooms          0.040601
+minimum_nights    0.000000
+price             0.000000
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop null values</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="data-cleaning-summary">
+<h2>Data Cleaning Summary<a class="headerlink" href="#data-cleaning-summary" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">id</span></code> as index.</p></li>
+<li><p>Removed non-numeric characters from <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p></li>
+<li><p>Dropped extreme outliers in <code class="docutils literal notranslate"><span class="pre">minimum_nights</span></code> and <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p></li>
+<li><p>Drop rows with null values.</p></li>
+</ul>
+</div>
+<div class="section" id="exploratory-data-analysis">
+<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correlation">
+<h3>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>There is a positive correlation between number of bathrooms and bedrooms.</p></li>
+<li><p>Price has the highest positive correlation with the number of bedrooms.</p></li>
+<li><p>Price has a negative correlation with the number of bathrooms and minimum nights.</p></li>
+<li><p>There is no strong correlation between variables.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualizing the correlations between numerical variables</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Correlations Between Variables&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_20_0.png" src="../../_images/inn_the_neighborhood_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="price">
+<h3>Price<a class="headerlink" href="#price" title="Permalink to this headline">¶</a></h3>
+<p>Our target variable <code class="docutils literal notranslate"><span class="pre">price</span></code> is a continuous numerical variable. <br>
+The distribution is right skewed, with most properties costing around $100.00 per night. <br>
+Recall that outliers have already been removed from <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of Price&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histplot of Price&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_22_0.png" src="../../_images/inn_the_neighborhood_22_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bedrooms">
+<h3>Bedrooms<a class="headerlink" href="#bedrooms" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bedrooms</span></code> is a discrete numerical variable. It has the highest positive correlation with <code class="docutils literal notranslate"><span class="pre">price</span></code>. <br>
+The distribution is right skewed, with most properties having 1 bathroom.
+Different variability of the price is present for each number of bedrooms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bedrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bedrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of no. of Bedrooms&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Countplot of no. of Bedrooms&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bedrooms&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bedrooms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_24_0.png" src="../../_images/inn_the_neighborhood_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Price corresponding to no. of Bedrooms</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bedrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price ($) vs no. of Bedrooms&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bedrooms&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_25_0.png" src="../../_images/inn_the_neighborhood_25_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="bathrooms">
+<h3>Bathrooms<a class="headerlink" href="#bathrooms" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bathrooms</span></code> is a discrete numerical variable. It has a weak positive correlation with bedrooms.<br>
+<strong>Contextual information:</strong> A full bathroom has a sink, toilet, and either a tub/shower combo or separate tub and shower. Whereas, a half-bath has a sink and a toilet - no tub or shower.<br>
+The distribution is right skewed, with most properties having 1 bathroom. Different variability of the price is present for each number of bathrooms.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of no. of Bathrooms&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Countplot of no. of Bathrooms&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bathrooms&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bathrooms&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_27_0.png" src="../../_images/inn_the_neighborhood_27_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Price corresponding to no. of Bathrooms</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price ($) vs no. of Bathrooms&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bathrooms&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_28_0.png" src="../../_images/inn_the_neighborhood_28_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="minimum-nights">
+<h3>Minimum Nights<a class="headerlink" href="#minimum-nights" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">minimum_nights</span></code> is a discrete numerical variable. <br>
+The distribution is right skewed and bimodal, with most properties requiring a minimum of 30 or 1-3 nights of stay. <br>
+Recall that outliers have already been removed from <code class="docutils literal notranslate"><span class="pre">Minimum</span> <span class="pre">Nights</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;minimum_nights&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;minimum_nights&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of no. of Minimum Nights&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Countplot of no. of Minimum Nights&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Minimum Nights&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Minimum Nights&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_30_0.png" src="../../_images/inn_the_neighborhood_30_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="property-type">
+<h3>Property Type<a class="headerlink" href="#property-type" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">property_type</span></code> is a categorical variable. There are 26 property types.<br>
+Most properties are Apartments. The most expensive type being resorts, and the cheapest being Camper/RV. <br>
+Different variability of the price is present for each property type. For example, cottages has a wide range of prices, whereas apartments have a narrow range.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No. of property types: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Frequency of each property type</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of Property Types&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Property Type&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No. of property types: 26
+</pre></div>
+</div>
+<img alt="../../_images/inn_the_neighborhood_32_1.png" src="../../_images/inn_the_neighborhood_32_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Price of each property type</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price vs Property Types&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Property Type&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_33_0.png" src="../../_images/inn_the_neighborhood_33_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="room-type">
+<h3>Room Type<a class="headerlink" href="#room-type" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">room_type</span></code> is a categorical variable. There are 4 room types. <br>
+Most rooms are Entire home/apt. The most expensive type being Entire home/apt, and the cheapest being Shared Room.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No. of room types: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Frequency of each room type</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of Room Types&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Room Type&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No. of room types: 4
+</pre></div>
+</div>
+<img alt="../../_images/inn_the_neighborhood_35_1.png" src="../../_images/inn_the_neighborhood_35_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Price of each room type</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price vs Room Types&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Room Type&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_36_0.png" src="../../_images/inn_the_neighborhood_36_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="latitude-and-longitude">
+<h3>Latitude and Longitude<a class="headerlink" href="#latitude-and-longitude" title="Permalink to this headline">¶</a></h3>
+<p>Properties are located near San Francisco. <br>
+Scatterplot does not show distinct price clusters based on latitude and longitude.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get address from Latitude and Longitude</span>
+<span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s2">&quot;geoapi&quot;</span><span class="p">)</span>
+<span class="n">sample_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Latitude</span><span class="p">,</span> <span class="n">Longitude</span> <span class="o">=</span> <span class="n">sample_df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">sample_df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+<span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">Latitude</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">Longitude</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+
+<span class="c1"># Visualization of latitude and longitude</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatterplot of Latitude and Longitude, colored by Price&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Longitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1449, Baker Street, Western Addition, San Francisco, California, 94115, United States
+</pre></div>
+</div>
+<img alt="../../_images/inn_the_neighborhood_38_1.png" src="../../_images/inn_the_neighborhood_38_1.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="train-test-split">
+<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">¶</a></h2>
+<p>Split the data to train (80%) and test (20%) to estimate the performance of machine learning algorithms when they are used to make predictions on data not used to train the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Features</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="c1"># Target</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train Test Split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X train data </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y train data </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X test data  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y test data  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X train data (5899, 7)
+y train data (5899,)
+X test data  (1475, 7)
+y test data  (1475,)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feature-engineering">
+<h2>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">¶</a></h2>
+<p>Performed after Train Test split to prevent information leakage from the test set.</p>
+<ul class="simple">
+<li><p>Convert categorical variables into a format that can be readily used by machine learning algorithms using One-Hot-Encoding.</p></li>
+<li><p>Cartesian coordinates into polar coordinates</p></li>
+<li><p>Scale input variables to improve the convergence of algorithms that do not possess the property of scale invariance.</p></li>
+</ul>
+<div class="section" id="one-hot-encoding">
+<h3>One-Hot-Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Categorical Features</span>
+<span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="s1">&#39;room_type&#39;</span><span class="p">]</span>
+
+<span class="c1"># Transformer Object</span>
+<span class="n">ohe</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">),</span> 
+     <span class="n">cat_cols</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">transformer</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Apply transformer columns of a pandas DataFrame</span>
+<span class="sd">    </span>
+<span class="sd">    INPUTS:</span>
+<span class="sd">    transformer: transformer object</span>
+<span class="sd">    df: pandas DataFrame</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT:</span>
+<span class="sd">    transformed_df: transformed pandas DataFrame</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">transformed</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+    <span class="n">transformed_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">transformer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">transformed_df</span>
+
+<span class="c1"># Apply transformation on both Train and Test set</span>
+<span class="n">encoded_train</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">ohe</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span>
+<span class="n">encoded_train</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">index</span>
+<span class="n">encoded_test</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">ohe</span><span class="p">,</span> <span class="n">X_test</span><span class="p">)</span>
+<span class="n">encoded_test</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">index</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;encoded_train shape: </span><span class="si">{</span><span class="n">encoded_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;encoded_test shape: </span><span class="si">{</span><span class="n">encoded_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Join encoded cols to Train and Test set, drop original column</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoded_train</span><span class="p">)</span>
+<span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">cat_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoded_test</span><span class="p">)</span>
+<span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">cat_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Ensure Train and Test have the same no. of columns</span>
+<span class="n">train_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">test_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">cols_not_in_test</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">train_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">test_cols</span><span class="p">}</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">**</span><span class="n">cols_not_in_test</span><span class="p">)</span>
+<span class="n">cols_not_in_train</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">test_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">train_cols</span><span class="p">}</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">**</span><span class="n">cols_not_in_train</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>encoded_train shape: (5899, 30)
+encoded_test shape: (1475, 23)
+X_train shape: (5899, 35)
+X_test shape: (1475, 35)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="geospaital-features">
+<h3>Geospaital Features<a class="headerlink" href="#geospaital-features" title="Permalink to this headline">¶</a></h3>
+<p>Transform Cartesian coordinates into polar coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geospatial Features</span>
+<span class="n">geo_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">cart2pol</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Convert cartesian coordinates into polar coordinates</span>
+<span class="sd">    </span>
+<span class="sd">    INPUT</span>
+<span class="sd">    x, y: Cartesian coorindates</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT</span>
+<span class="sd">    rho, phi: Polar coordinates</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">rho</span><span class="p">,</span> <span class="n">phi</span>
+
+<span class="n">rho</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">cart2pol</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">],</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">])</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span>
+<span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;phi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span>
+<span class="n">rho</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">cart2pol</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">])</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span>
+<span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;phi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train shape: (5899, 37)
+X_test shape: (1475, 37)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="variable-importance-with-random-forest">
+<h2>Variable Importance with Random Forest<a class="headerlink" href="#variable-importance-with-random-forest" title="Permalink to this headline">¶</a></h2>
+<p>Using a simple random forest with 100 trees to get a quick overview of the top 5 relative permutation importance for each variable. <br>
+According to the random forest, <code class="docutils literal notranslate"><span class="pre">bedrooms</span></code> is the most important feature. This is expected because it has the highest correlation to the <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
+<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">perm_importance</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sorted_idx</span> <span class="o">=</span> <span class="n">perm_importance</span><span class="o">.</span><span class="n">importances_mean</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">sorted_idx</span><span class="p">],</span> <span class="n">perm_importance</span><span class="o">.</span><span class="n">importances_mean</span><span class="p">[</span><span class="n">sorted_idx</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Random Forest Feature Importance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/inn_the_neighborhood_49_0.png" src="../../_images/inn_the_neighborhood_49_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="feature-selection">
+<h2>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">¶</a></h2>
+<p>Recognize that many new features were generated during feature engineering. <br>
+Using Lasso Regularization to identify and select a subset of input variables that are most relevant to the target variable. <br>
+Non-important features are removed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lasso Regularization</span>
+<span class="n">sel_lasso</span> <span class="o">=</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">))</span>
+<span class="n">sel_lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">sel_lasso</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True, False, False, False,  True, False, False, False,  True,
+        True,  True,  True,  True, False, False,  True,  True,  True,
+        True, False,  True, False,  True,  True,  True,  True,  True,
+        True])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a list with the selected features and print the outputs</span>
+<span class="n">selected_feat</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[(</span><span class="n">sel_lasso</span><span class="o">.</span><span class="n">get_support</span><span class="p">())]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total features: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;selected features: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">selected_feat</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;features with coefficients shrank to zero: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sel_lasso</span><span class="o">.</span><span class="n">estimator_</span><span class="o">.</span><span class="n">coef_</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>total features: 37
+selected features: 27
+features with coefficients shrank to zero: 10531
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">selected_feat</span><span class="p">]</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">selected_feat</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train shape: (5899, 27)
+X_test shape: (1475, 27)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-selection">
+<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline">¶</a></h2>
+<p>Explore different supervised regression models since the target variable is labeled and continuous. <br>
+Using k-folds cross validation to estimate and compare the performance of models on out-of-sample data. Identify, which model is worth improving upon. <br>
+LGBMRegressor - (Microsoft’s implementation of gradient boosted machines) - gives the best results out of models.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">neural_network</span><span class="p">():</span>
+    <span class="c1"># No. of neuron based on the number of available features</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">model</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pipelines for Machine Learning models</span>
+<span class="n">pipelines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;Linear Regression&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;KNN Regressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;KNNR&#39;</span><span class="p">,</span> <span class="n">KNeighborsRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;SupportVectorRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;SVR&#39;</span><span class="p">,</span> <span class="n">SVR</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;DecisionTreeRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;DTR&#39;</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;AdaboostRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;ABR&#39;</span><span class="p">,</span> <span class="n">AdaBoostRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;RandomForestRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;RBR&#39;</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;BaggingRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;BGR&#39;</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;GradientBoostRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;GBR&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;LGBMRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;lightGBM&#39;</span><span class="p">,</span> <span class="n">LGBMRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;XGBRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;XGB&#39;</span><span class="p">,</span> <span class="n">XGBRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;Neural Network&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;NN&#39;</span><span class="p">,</span> <span class="n">neural_network</span><span class="p">())])))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-05-06 13:55:35.288773: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcuda.so.1&#39;; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-05-06 13:55:35.288805: W tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2022-05-06 13:55:35.288828: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (77be27d7-7f52-4c8e-b468-d0a291019f80): /proc/driver/nvidia/version does not exist
+2022-05-06 13:55:35.289038: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty dataframe to store the results</span>
+<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Regressor&#39;</span><span class="p">:[],</span> <span class="s1">&#39;RMSE&#39;</span><span class="p">:[],</span> <span class="s1">&#39;Std&#39;</span><span class="p">:[]})</span>
+
+<span class="c1"># Cross-validation score for each pipeline for training data</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pipelines</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="n">kfold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">))</span>
+    <span class="n">cv_scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">rmse</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">rmse</span><span class="o">.</span><span class="n">std</span><span class="p">()]</span>
+<span class="n">cv_scores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>166/166 [==============================] - 1s 2ms/step - loss: 21736.2793
+166/166 [==============================] - 1s 2ms/step - loss: 22532.7910
+166/166 [==============================] - 1s 1ms/step - loss: 22051.7402
+166/166 [==============================] - 1s 1ms/step - loss: 21992.9648
+166/166 [==============================] - 1s 1ms/step - loss: 21767.0879
+166/166 [==============================] - 1s 1ms/step - loss: 22092.2852
+166/166 [==============================] - 1s 2ms/step - loss: 21795.8145
+166/166 [==============================] - 1s 2ms/step - loss: 21977.7441
+166/166 [==============================] - 1s 1ms/step - loss: 21809.3965
+166/166 [==============================] - 1s 1ms/step - loss: 21561.3203
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Regressor</th>
+      <th>RMSE</th>
+      <th>Std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Linear Regression</td>
+      <td>61.030364</td>
+      <td>4.655586</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KNN Regressor</td>
+      <td>59.964974</td>
+      <td>2.316660</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SupportVectorRegressor</td>
+      <td>71.270238</td>
+      <td>2.734177</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>DecisionTreeRegressor</td>
+      <td>74.548034</td>
+      <td>4.277726</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AdaboostRegressor</td>
+      <td>68.978145</td>
+      <td>2.365603</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RandomForestRegressor</td>
+      <td>55.863697</td>
+      <td>2.589026</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>BaggingRegressor</td>
+      <td>57.978998</td>
+      <td>2.580112</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>GradientBoostRegressor</td>
+      <td>56.140068</td>
+      <td>3.002398</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>LGBMRegressor</td>
+      <td>54.644028</td>
+      <td>2.939779</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>XGBRegressor</td>
+      <td>55.920699</td>
+      <td>3.306022</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Neural Network</td>
+      <td>80.366193</td>
+      <td>2.881464</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="model-tuning">
+<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this headline">¶</a></h2>
+<p>Using LGBMTuner from verstack - automated lightgbm models tuner with optuna (automated hyperparameter optimization framework). <br>
+Using Root Mean Squared Error as the metric for 500 trials.</p>
+<p>According to the tuned model:</p>
+<ul class="simple">
+<li><p>The most important hyperparameter is <code class="docutils literal notranslate"><span class="pre">num_leaves</span></code>: max number of leaves in one tree.</p></li>
+<li><p>The features with the most impact to the model are the geographic features <code class="docutils literal notranslate"><span class="pre">phi</span></code>, <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">rho</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code>. Suggesting the location is a major factor in dictating price per night.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuner</span> <span class="o">=</span> <span class="n">LGBMTuner</span><span class="p">(</span><span class="n">metric</span> <span class="o">=</span> <span class="s1">&#39;rmse&#39;</span><span class="p">,</span> <span class="n">trials</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">tuner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * Initiating LGBMTuner.fit
+     . Settings:
+     .. Trying 500 trials
+     .. Evaluation metric: rmse 
+     .. Study direction: minimize rmse
+
+     . Trial number: 0 finished
+     .. Optimization score (lower-better): rmse: 55.67789244564906
+ ...........................................................................
+     . Trial number: 20 finished
+     .. Optimization score (lower-better): rmse: 54.29340571492496
+ ...........................................................................
+     . Trial number: 55 finished
+     .. Optimization score (lower-better): rmse: 54.05121505929641
+ ...........................................................................
+     . Trial number: 95 finished
+     .. Optimization score (lower-better): rmse: 52.856645986642825
+ ...........................................................................
+     . Trial number: 175 finished
+     .. Optimization score (lower-better): rmse: 53.08965433288682
+ ...........................................................................
+
+   - Tune n_estimators with early_stopping
+Training until validation scores don&#39;t improve for 200 rounds
+[100]	train&#39;s lgb_rmse: 57.4738	valid&#39;s lgb_rmse: 61.4568
+[200]	train&#39;s lgb_rmse: 47.4023	valid&#39;s lgb_rmse: 56.3379
+[300]	train&#39;s lgb_rmse: 42.7863	valid&#39;s lgb_rmse: 55.5581
+[400]	train&#39;s lgb_rmse: 39.7538	valid&#39;s lgb_rmse: 55.6518
+[500]	train&#39;s lgb_rmse: 37.4302	valid&#39;s lgb_rmse: 55.9252
+Early stopping, best iteration is:
+[344]	train&#39;s lgb_rmse: 41.314	valid&#39;s lgb_rmse: 55.5445
+
+   - Fitting optimized model with the follwing params:
+learning_rate                    : 0.01
+num_leaves                       : 111
+colsample_bytree                 : 0.705868674243541
+subsample                        : 0.6737648484996459
+verbosity                        : -1
+random_state                     : 42
+objective                        : regression
+metric                           : rmse
+num_threads                      : 14
+reg_alpha                        : 1.830273189019251e-08
+min_sum_hessian_in_leaf          : 0.0017813151887621482
+reg_lambda                       : 0.0723651402085118
+n_estimators                     : 344
+</pre></div>
+</div>
+<img alt="../../_images/inn_the_neighborhood_59_1.png" src="../../_images/inn_the_neighborhood_59_1.png" />
+<img alt="../../_images/inn_the_neighborhood_59_2.png" src="../../_images/inn_the_neighborhood_59_2.png" />
+<img alt="../../_images/inn_the_neighborhood_59_3.png" src="../../_images/inn_the_neighborhood_59_3.png" />
+<img alt="../../_images/inn_the_neighborhood_59_4.png" src="../../_images/inn_the_neighborhood_59_4.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     . Optuna hyperparameters optimization finished
+     .. Best trial number:76    |     rmse:            51.64429482194801
+ ---------------------------------------------------------------------------
+     . n_estimators optimization finished
+     .. best iteration:  344   |     rmse:             55.5445339314529
+ ===========================================================================
+
+Time elapsed for fit execution: 20 min 4.296 sec
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Best Performing Model</span>
+<span class="n">LGBMRegressor</span><span class="p">(</span><span class="o">**</span><span class="n">tuner</span><span class="o">.</span><span class="n">best_params</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LGBMRegressor(colsample_bytree=0.705868674243541, learning_rate=0.01,
+              metric=&#39;rmse&#39;, min_sum_hessian_in_leaf=0.0017813151887621482,
+              n_estimators=344, num_leaves=111, num_threads=14,
+              objective=&#39;regression&#39;, random_state=42,
+              reg_alpha=1.830273189019251e-08, reg_lambda=0.0723651402085118,
+              subsample=0.6737648484996459, verbosity=-1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">y_pred</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([149.52588627, 192.46170071, 239.86680096, ..., 225.76162168,
+        96.80989254, 150.26631376])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-evaluation">
+<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Measure model performance using Mean Squared Error, Mean Absolute Error, Root Mean Squared Error, and r2 Score.</p>
+<div class="math notranslate nohighlight">
+\[ MSE(y, \hat{y}) = \frac{1}{N_{samples}} \sum_{i=0}^{n_{samples} - 1} (y_i - \hat{y_i})^2 \]</div>
+<div class="math notranslate nohighlight">
+\[ MAE(y, \hat{y}) = \frac{1}{N_{samples}} \sum_{i=0}^{n_{samples} - 1} | y_i - \hat{y_i} | \]</div>
+<div class="math notranslate nohighlight">
+\[ R^2(y, \hat{y}) = 1 - \frac{\sum_{i=1}^{n} (y_i - \hat{y_i})^2}{\sum_{i=1}^{n} (y_i - \bar{y_i})^2} \]</div>
+<p>Hyperparameter tuning improved the model’s RMSE from the base model. <br>
+Nevertheless, the RMSE scores is greater than 25 indicating that the model fails to predict price within 25 dollars off of the actual price.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">performance_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> 
+                    <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)),</span>
+                    <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> 
+                    <span class="s1">&#39;R2 Score&#39;</span><span class="p">:</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+                   <span class="p">}</span>
+
+<span class="n">performance_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">performance_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Metric&#39;</span><span class="p">,</span> <span class="s1">&#39;Score&#39;</span><span class="p">])</span>
+<span class="n">performance_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Metric</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MSE</td>
+      <td>2899.750785</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RMSE</td>
+      <td>53.849334</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MAE</td>
+      <td>39.367336</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>R2 Score</td>
+      <td>0.612258</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="outcome-summary">
+<h2>Outcome Summary<a class="headerlink" href="#outcome-summary" title="Permalink to this headline">¶</a></h2>
+<p>Aimed to predict price, allowing renters to estimate how much they could earn renting out their living space. <br>
+Adopted Supervised Machine Learning approach to predict labeled continuous target variable <code class="docutils literal notranslate"><span class="pre">price</span></code> using details about each property rented, as well as the price charged per night. <br>
+After model selection and tuning, the best model:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LGBMRegressor</span><span class="p">(</span><span class="n">colsample_bytree</span><span class="o">=</span><span class="mf">0.6965557560964968</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+              <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;rmse&#39;</span><span class="p">,</span> <span class="n">min_sum_hessian_in_leaf</span><span class="o">=</span><span class="mf">0.37294528370449115</span><span class="p">,</span>
+              <span class="n">n_estimators</span><span class="o">=</span><span class="mi">314</span><span class="p">,</span> <span class="n">num_leaves</span><span class="o">=</span><span class="mi">142</span><span class="p">,</span> <span class="n">num_threads</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+              <span class="n">objective</span><span class="o">=</span><span class="s1">&#39;regression&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+              <span class="n">reg_alpha</span><span class="o">=</span><span class="mf">6.532407584502388</span><span class="p">,</span> <span class="n">reg_lambda</span><span class="o">=</span><span class="mf">0.31928270201641645</span><span class="p">,</span>
+              <span class="n">subsample</span><span class="o">=</span><span class="mf">0.5790593334642422</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The most important features of the model:</p>
+<ul class="simple">
+<li><p>geospaital features e.g.(<code class="docutils literal notranslate"><span class="pre">phi</span></code>, <code class="docutils literal notranslate"><span class="pre">latitude</span></code>, <code class="docutils literal notranslate"><span class="pre">rho</span></code>, <code class="docutils literal notranslate"><span class="pre">longitude</span></code>) <br>
+Interesting considering <code class="docutils literal notranslate"><span class="pre">price</span></code> has the highest correlation with no. of <code class="docutils literal notranslate"><span class="pre">bedrooms</span></code>.</p></li>
+</ul>
+<p>Resulting with a <span class="math notranslate nohighlight">\(r^2\)</span> Score of ~0.61 and ~53.75 RMSE. Though, failing to reach target of estimating prices that are less than 25 dollars off of the actual price.</p>
+</div>
+<div class="section" id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h2>
+<p>To improve the model and reach the target of estimating prices without being more than 25 dollars off:</p>
+<ul class="simple">
+<li><p>More data collection to increase training size.</p></li>
+<li><p>Record more features about the living space, e.g. amenities (parking, appliances, etc.), geographic features (nearby public transportation, etc.).</p></li>
+<li><p>Expand upon feature engineering and hyperparameter tuning.</p></li>
+<li><p>Use more complex models or ensemble methods, e.g. blending or stacking models.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/inn_the_neighborhood"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Welcome</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../exam_scores/exam_scores.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Analyzing exam scores</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Patrick Guo<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

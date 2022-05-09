@@ -1,14 +1,16 @@
-# About Me
+# Welcome
 
-Hello, my name is Patrick Guo. Welcome to my Data Science portfolio!
+Welcome to my Data Science portfolio!
 
-I ❤️ programming and learning new things
+## About Me
 
-Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.com) or comment it in each page (comments are linked to my github via [utteranc.es](https://utteranc.es/).
+My name is Patrick Guo. I ❤️ working with data and learning new things.
+
+Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.com) or comment on in each page (comments are linked to my github via [utteranc.es](https://utteranc.es/).
 
 ## Project List
 
-- [Inn the Neighborhood - Rental Price Prediction](project/inn_the_neighborhood/inn_the_neighborhood.ipynb)
+- [Inn the Neighborhood - Rental Price Prediction](projects/inn_the_neighborhood/inn_the_neighborhood.ipynb)
 - [Do test preparation courses help you prepare for exams?](projects/exam_scores/exam_scores.ipynb)
 - [PowerCo - Is Churn driven by price sensitivity?](projects/BCG/README.md)
 - [Viral Tweets Prediction Challenge](projects/viral_tweets/README.md)

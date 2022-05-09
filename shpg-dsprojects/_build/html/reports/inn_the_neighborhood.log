@@ -1,0 +1,62 @@
+Traceback (most recent call last):
+  File "/Users/simplypatrickg/anaconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/simplypatrickg/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/simplypatrickg/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/simplypatrickg/anaconda3/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/simplypatrickg/anaconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Users/simplypatrickg/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/Users/simplypatrickg/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/simplypatrickg/anaconda3/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import warnings
+warnings.filterwarnings('ignore')
+
+import pandas as pd
+import numpy as np
+import re
+from geopy.geocoders import Nominatim
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_style("darkgrid", {"grid.color": ".6", "grid.linestyle": ":"})
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import make_column_transformer
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.inspection import permutation_importance
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
+from verstack import LGBMTuner
+from sklearn.feature_selection import SelectFromModel
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LinearRegression, Lasso, LogisticRegression
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.svm import SVR
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import AdaBoostRegressor, RandomForestRegressor, BaggingRegressor, GradientBoostingRegressor
+from xgboost import XGBRegressor
+from lightgbm import LGBMRegressor
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Activation
+from tensorflow.keras.optimizers import Adam
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+[0;32m/var/folders/6d/prnzxhkn7tj95jgrjcvd1j5r0000gn/T/ipykernel_1494/962443652.py[0m in [0;36m<module>[0;34m[0m
+[1;32m     14[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0minspection[0m [0;32mimport[0m [0mpermutation_importance[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     15[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mmodel_selection[0m [0;32mimport[0m [0mtrain_test_split[0m[0;34m,[0m [0mcross_val_score[0m[0;34m,[0m [0mKFold[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 16[0;31m [0;32mfrom[0m [0mverstack[0m [0;32mimport[0m [0mLGBMTuner[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     17[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mfeature_selection[0m [0;32mimport[0m [0mSelectFromModel[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     18[0m [0;32mfrom[0m [0msklearn[0m[0;34m.[0m[0mpipeline[0m [0;32mimport[0m [0mPipeline[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mModuleNotFoundError[0m: No module named 'verstack'
+ModuleNotFoundError: No module named 'verstack'
+
