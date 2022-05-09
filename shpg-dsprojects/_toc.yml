@@ -6,6 +6,8 @@ root: intro
 parts:
   - caption: Projects
     chapters:
+    - file: projects/exam_scores/exam_scores.ipynb
+      title: Do test preparation courses help you prepare for exams?
     - file: projects/viral_tweets/README.md
       title: Viral Tweets
     - file: projects/BCG/README.md
