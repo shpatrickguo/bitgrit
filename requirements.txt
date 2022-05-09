@@ -12,8 +12,10 @@ scikit-learn
 tensorflow
 tensorflow-datasets
 lightgbm
+xgboost
+verstack
 geopy
+folium
 sodapy
 pyproj
 bs4
-folium
