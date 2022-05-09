@@ -1,0 +1,1440 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neural Network - SMS Text Classification &#8212; shpg-dsprojects</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "shpatrickguo/dsprojects");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="Neural Network SMS Text Classifier" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.jpg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   About Me
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Projects
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exam_scores/exam_scores.html">
+   Do test preparation courses help you prepare for exams?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../viral_tweets/README.html">
+   Viral Tweets
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../BCG/README.html">
+   PowerCo - Is Churn driven by price sensitivity?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_email.html">
+     PowerCo - Proposal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="README.html">
+   SMS Text Classifier
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Neural Network - SMS Text Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/projects/sms_classifier/sms_classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/shpatrickguo/dsprojects"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/sms_classifier/sms_classification.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=tree/docs/projects/sms_classifier/sms_classification.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Neural Network - SMS Text Classification
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wordcloud">
+     Wordcloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-processing">
+   Data Processing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-imbalance">
+     Data Imbalance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#downsampling">
+       Downsampling
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-train-split">
+     Test train split
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokenization">
+     Tokenization
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequencing-and-padding">
+     Sequencing and Padding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dense-spam-detection-model">
+   Dense Spam Detection Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#long-short-term-memory-lstm-model">
+   Long Short Term Memory (LSTM) Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bi-directional-long-short-term-memory-bilstm-model">
+   Bi-directional Long Short Term Memory (BiLSTM) Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choose-model">
+   Choose Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction">
+   Prediction
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Neural Network - SMS Text Classification</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Neural Network - SMS Text Classification
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wordcloud">
+     Wordcloud
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-processing">
+   Data Processing
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-imbalance">
+     Data Imbalance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#downsampling">
+       Downsampling
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-train-split">
+     Test train split
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tokenization">
+     Tokenization
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequencing-and-padding">
+     Sequencing and Padding
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dense-spam-detection-model">
+   Dense Spam Detection Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#long-short-term-memory-lstm-model">
+   Long Short Term Memory (LSTM) Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bi-directional-long-short-term-memory-bilstm-model">
+   Bi-directional Long Short Term Memory (BiLSTM) Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choose-model">
+   Choose Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prediction">
+   Prediction
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="neural-network-sms-text-classification">
+<h1>Neural Network - SMS Text Classification<a class="headerlink" href="#neural-network-sms-text-classification" title="Permalink to this headline">¶</a></h1>
+<p>Create a machine learning model that will classify SMS messages as either “ham” or “spam”. A “ham” message is a normal message sent by a friend. A “spam” message is an advertisement or a message sent by a company.</p>
+<p>Create a function called <code class="docutils literal notranslate"><span class="pre">predict_message</span></code> that takes a message string as an argument and returns a list. The first element in the list should be a number between zero and one that indicates the likeliness of “ham” (0) or “spam” (1). The second element in the list should be the word “ham” or “spam”, depending on which is most likely.</p>
+<p>Data from <a class="reference external" href="http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/">SMS Spam Collection dataset</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#try:</span>
+  <span class="c1"># %tensorflow_version only exists in Colab.</span>
+<span class="c1">#  !pip install tf-nightly</span>
+<span class="c1">#except Exception:</span>
+<span class="c1">#  pass</span>
+<span class="c1">#!pip install tensorflow-datasets</span>
+<span class="c1">#!pip install wordcloud</span>
+
+<span class="c1">#!pip install --upgrade numpy</span>
+<span class="c1">#!pip install --upgrade pandas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TF_CPP_MIN_LOG_LEVEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span><span class="p">,</span> <span class="n">STOPWORDS</span><span class="p">,</span> <span class="n">ImageColorGenerator</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.text</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
+
+<span class="c1"># Modeling </span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">GlobalAveragePooling1D</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Bidirectional</span><span class="p">,</span> <span class="n">Flatten</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.8.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get data files</span>
+<span class="c1">#!wget https://cdn.freecodecamp.org/project-data/sms/train-data.tsv</span>
+<span class="c1">#!wget https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv</span>
+
+<span class="n">train_file_path</span> <span class="o">=</span> <span class="s2">&quot;data/train-data.tsv&quot;</span>
+<span class="n">test_file_path</span> <span class="o">=</span> <span class="s2">&quot;data/valid-data.tsv&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data files</span>
+<span class="n">train_file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">train_file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">,</span> <span class="s2">&quot;Message&quot;</span><span class="p">])</span>
+<span class="n">test_file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">test_file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">,</span> <span class="s2">&quot;Message&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The file is tab separated (\t) and I provide column names “Class” and “Message”.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis">
+<h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_file</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Class</th>
+      <th>Message</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>4179</td>
+      <td>4179</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>2</td>
+      <td>3935</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>ham</td>
+      <td>sorry, i'll call later</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>3619</td>
+      <td>22</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>There are two unique classes: “ham” and “spam”. There are less unique messages (3935) than total message count (4179) indicating some repeated messages.
+The top class is “ham” and the top message is “sorry, i’ll call later”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_file</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Class&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Class</th>
+      <th>ham</th>
+      <th>spam</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="4" valign="top">Message</th>
+      <th>count</th>
+      <td>3619</td>
+      <td>560</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>3430</td>
+      <td>505</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>sorry, i'll call later</td>
+      <td>hmv bonus special 500 pounds of genuine hmv vo...</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>22</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>There are 3619 ham compared to 560 spam messages. This means the data is imbalanced. The most popular ham message “sorry, i’ll call later” occured 22 times. Whereas the most popular spam message “hmv bonus special 500 pounds of genuine hmv…” occured 3 times.</p>
+<div class="section" id="wordcloud">
+<h2>Wordcloud<a class="headerlink" href="#wordcloud" title="Permalink to this headline">¶</a></h2>
+<p>Wordcloud allows us to visualize the most frequent words in the given text.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all the ham and spam emails</span>
+<span class="n">train_ham</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[</span><span class="n">train_file</span><span class="o">.</span><span class="n">Class</span> <span class="o">==</span><span class="s1">&#39;ham&#39;</span><span class="p">]</span>
+<span class="n">train_spam</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[</span><span class="n">train_file</span><span class="o">.</span><span class="n">Class</span> <span class="o">==</span><span class="s1">&#39;spam&#39;</span><span class="p">]</span>
+<span class="c1"># Create numpy list to visualize using wordcloud</span>
+<span class="n">train_ham_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train_ham</span><span class="o">.</span><span class="n">Message</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<span class="n">train_spam_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train_spam</span><span class="o">.</span><span class="n">Message</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wordcloud of ham messages</span>
+<span class="n">ham_msg_cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">520</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">260</span><span class="p">,</span> <span class="n">stopwords</span><span class="o">=</span><span class="n">STOPWORDS</span><span class="p">,</span> <span class="n">max_font_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+                          <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">train_ham_text</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ham_msg_cloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># turn off axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sms_classification_13_0.png" src="../../_images/sms_classification_13_0.png" />
+</div>
+</div>
+<p>The ham message WordCloud shows that “love”, “going”, “come”, “home”, etc. are the most commonly appeared words in ham messages.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wordcloud of spam messages</span>
+<span class="n">spam_msg_cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">520</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">260</span><span class="p">,</span> <span class="n">stopwords</span><span class="o">=</span><span class="n">STOPWORDS</span><span class="p">,</span> <span class="n">max_font_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
+                           <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">train_spam_text</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">spam_msg_cloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># turn off axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sms_classification_15_0.png" src="../../_images/sms_classification_15_0.png" />
+</div>
+</div>
+<p>The spam message WordCloud shows that “free”, “text”, “call” etc. are the most commonly appeared words in spam messages.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="data-processing">
+<h1>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-imbalance">
+<h2>Data Imbalance<a class="headerlink" href="#data-imbalance" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of spam messages</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">train_spam</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">train_ham</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="c1"># 15.48%</span>
+
+<span class="c1"># Countplot showing imbalance data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Class&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train_file</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sms_classification_19_0.png" src="../../_images/sms_classification_19_0.png" />
+</div>
+</div>
+<p>The bar chart shows that the classes are imbalanced. 85% of the messages are ham.</p>
+<div class="section" id="downsampling">
+<h3>Downsampling<a class="headerlink" href="#downsampling" title="Permalink to this headline">¶</a></h3>
+<p>To handle the imbalance data, we downsample.
+Downsampling randomly deletes some of the observations from the majority class so that the numbers in majority and minority classes are matched.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Downsample the ham msg for train</span>
+<span class="n">train_ham_df</span> <span class="o">=</span> <span class="n">train_ham</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_spam</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">44</span><span class="p">)</span>
+<span class="n">train_spam_df</span> <span class="o">=</span> <span class="n">train_spam</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">train_ham_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_spam_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_ham_df</span><span class="p">,</span> <span class="n">train_spam_df</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(560, 2) (560, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Downsample for test file</span>
+<span class="n">test_ham</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[</span><span class="n">test_file</span><span class="o">.</span><span class="n">Class</span> <span class="o">==</span><span class="s1">&#39;ham&#39;</span><span class="p">]</span>
+<span class="n">test_spam</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[</span><span class="n">test_file</span><span class="o">.</span><span class="n">Class</span> <span class="o">==</span><span class="s1">&#39;spam&#39;</span><span class="p">]</span>
+
+<span class="c1"># Downsample the ham msg for test</span>
+<span class="n">test_ham_df</span> <span class="o">=</span> <span class="n">test_ham</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_spam</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">44</span><span class="p">)</span>
+<span class="n">test_spam_df</span> <span class="o">=</span> <span class="n">test_spam</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">test_ham_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_spam_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">test_ham_df</span><span class="p">,</span> <span class="n">test_spam_df</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(187, 2) (187, 2)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="test-train-split">
+<h2>Test train split<a class="headerlink" href="#test-train-split" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map ham label as 0 and spam as 1</span>
+<span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;msg_type&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;ham&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;msg_type&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;ham&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+
+
+<span class="n">train_msg</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;Message&#39;</span><span class="p">]</span>
+<span class="n">train_labels</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;msg_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">test_msg</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;Message&#39;</span><span class="p">]</span>
+<span class="n">test_labels</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;msg_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tokenization">
+<h2>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this headline">¶</a></h2>
+<p>Tokenizer API from TensorFlow Keras splits sentences into words and encodes them into integers.</p>
+<ul class="simple">
+<li><p>Tokenize into words</p></li>
+<li><p>Filter out punctuation and rare words</p></li>
+<li><p>Convert all words to lower case and to integer index</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining tokenizer hyperparameters</span>
+<span class="n">max_len</span> <span class="o">=</span> <span class="mi">50</span> 
+<span class="n">trunc_type</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span> 
+<span class="n">padding_type</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span> 
+<span class="n">oov_tok</span> <span class="o">=</span> <span class="s2">&quot;&lt;OOV&gt;&quot;</span> 
+<span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">500</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">num_words</span> <span class="o">=</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">char_level</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">oov_token</span> <span class="o">=</span> <span class="n">oov_tok</span><span class="p">)</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">(</span><span class="n">train_msg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the word_index </span>
+<span class="n">word_index</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">word_index</span>
+<span class="c1"># How many words </span>
+<span class="n">tot_words</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">%s</span><span class="s1"> unique tokens in training data. &#39;</span> <span class="o">%</span> <span class="n">tot_words</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>There are 3999 unique tokens in training data. 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sequencing-and-padding">
+<h2>Sequencing and Padding<a class="headerlink" href="#sequencing-and-padding" title="Permalink to this headline">¶</a></h2>
+<p>Use texts_tosequences() to espresent each sentence by sequences of numbers from tokenizer object.</p>
+<p>Use pad_sequences() so that each sequences have the same length.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sequencing and padding on training and testing </span>
+<span class="n">training_sequences</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">train_msg</span><span class="p">)</span>
+<span class="n">training_padded</span> <span class="o">=</span> <span class="n">pad_sequences</span> <span class="p">(</span><span class="n">training_sequences</span><span class="p">,</span> <span class="n">maxlen</span> <span class="o">=</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">padding</span> <span class="o">=</span> <span class="n">padding_type</span><span class="p">,</span> <span class="n">truncating</span> <span class="o">=</span> <span class="n">trunc_type</span><span class="p">)</span>
+<span class="n">testing_sequences</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">test_msg</span><span class="p">)</span>
+<span class="n">testing_padded</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">testing_sequences</span><span class="p">,</span> <span class="n">maxlen</span> <span class="o">=</span> <span class="n">max_len</span><span class="p">,</span>
+                                <span class="n">padding</span> <span class="o">=</span> <span class="n">padding_type</span><span class="p">,</span> <span class="n">truncating</span> <span class="o">=</span> <span class="n">trunc_type</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape of train tensor</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of training tensor: &#39;</span><span class="p">,</span> <span class="n">training_padded</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of testing tensor: &#39;</span><span class="p">,</span> <span class="n">testing_padded</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of training tensor:  (1120, 50)
+Shape of testing tensor:  (374, 50)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dense-spam-detection-model">
+<h1>Dense Spam Detection Model<a class="headerlink" href="#dense-spam-detection-model" title="Permalink to this headline">¶</a></h1>
+<p>Train model using a Dense architecture followed by LSTM and Bi-LSTM.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hyper-parameters</span>
+<span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">500</span> 
+<span class="n">embeding_dim</span> <span class="o">=</span> <span class="mi">16</span>
+<span class="n">drop_value</span> <span class="o">=</span> <span class="mf">0.2</span> 
+<span class="n">n_dense</span> <span class="o">=</span> <span class="mi">24</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dense model architecture</span>
+<span class="n">dense_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embeding_dim</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
+<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
+<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
+<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="n">drop_value</span><span class="p">))</span>
+<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dense_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fitting a dense spam detector model</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">dense_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> 
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> 
+                    <span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 1s - loss: 0.6841 - accuracy: 0.6205 - val_loss: 0.6719 - val_accuracy: 0.7701 - 701ms/epoch - 20ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6548 - accuracy: 0.8045 - val_loss: 0.6302 - val_accuracy: 0.8556 - 67ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5980 - accuracy: 0.8723 - val_loss: 0.5573 - val_accuracy: 0.8770 - 63ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5142 - accuracy: 0.8804 - val_loss: 0.4699 - val_accuracy: 0.8797 - 73ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.4241 - accuracy: 0.9018 - val_loss: 0.3876 - val_accuracy: 0.8877 - 63ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3472 - accuracy: 0.9018 - val_loss: 0.3246 - val_accuracy: 0.8877 - 60ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 7/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2843 - accuracy: 0.9107 - val_loss: 0.2782 - val_accuracy: 0.8984 - 65ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 8/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2440 - accuracy: 0.9232 - val_loss: 0.2424 - val_accuracy: 0.9064 - 62ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 9/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2075 - accuracy: 0.9375 - val_loss: 0.2142 - val_accuracy: 0.9118 - 73ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 10/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1827 - accuracy: 0.9491 - val_loss: 0.1908 - val_accuracy: 0.9225 - 75ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 11/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1570 - accuracy: 0.9527 - val_loss: 0.1719 - val_accuracy: 0.9251 - 64ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 12/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1470 - accuracy: 0.9571 - val_loss: 0.1603 - val_accuracy: 0.9278 - 74ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 13/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1368 - accuracy: 0.9589 - val_loss: 0.1488 - val_accuracy: 0.9358 - 63ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1233 - accuracy: 0.9625 - val_loss: 0.1392 - val_accuracy: 0.9439 - 73ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1116 - accuracy: 0.9652 - val_loss: 0.1325 - val_accuracy: 0.9465 - 60ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1062 - accuracy: 0.9643 - val_loss: 0.1281 - val_accuracy: 0.9545 - 74ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0968 - accuracy: 0.9705 - val_loss: 0.1213 - val_accuracy: 0.9572 - 75ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0910 - accuracy: 0.9670 - val_loss: 0.1192 - val_accuracy: 0.9572 - 64ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0892 - accuracy: 0.9714 - val_loss: 0.1149 - val_accuracy: 0.9599 - 62ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0788 - accuracy: 0.9768 - val_loss: 0.1113 - val_accuracy: 0.9572 - 74ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 21/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0738 - accuracy: 0.9777 - val_loss: 0.1096 - val_accuracy: 0.9572 - 72ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 22/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0731 - accuracy: 0.9768 - val_loss: 0.1079 - val_accuracy: 0.9572 - 60ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 23/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0669 - accuracy: 0.9768 - val_loss: 0.1055 - val_accuracy: 0.9599 - 65ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 24/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0650 - accuracy: 0.9821 - val_loss: 0.1053 - val_accuracy: 0.9572 - 64ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 25/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0641 - accuracy: 0.9812 - val_loss: 0.1029 - val_accuracy: 0.9599 - 74ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 26/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0611 - accuracy: 0.9830 - val_loss: 0.1042 - val_accuracy: 0.9572 - 63ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 27/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0583 - accuracy: 0.9786 - val_loss: 0.0998 - val_accuracy: 0.9652 - 75ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 28/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0544 - accuracy: 0.9848 - val_loss: 0.1015 - val_accuracy: 0.9599 - 74ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 29/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0542 - accuracy: 0.9812 - val_loss: 0.1013 - val_accuracy: 0.9652 - 63ms/epoch - 2ms/step
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 30/30
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0502 - accuracy: 0.9893 - val_loss: 0.0997 - val_accuracy: 0.9679 - 74ms/epoch - 2ms/step
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model performance on test data </span>
+<span class="n">dense_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1387 - accuracy: 0.9375
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+12/12 [==============================] - 0s 1ms/step - loss: 0.0997 - accuracy: 0.9679
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.09966222196817398, 0.9679144620895386]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read as a dataframe </span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+<span class="c1"># Rename column</span>
+<span class="n">metrics</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;val_accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">plot_dense</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+    <span class="n">metrics</span><span class="p">[[</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and Validation &#39;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span> <span class="p">(</span><span class="s1">&#39;Number of epochs&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">])</span>
+
+<span class="n">plot_dense</span><span class="p">(</span><span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+<span class="n">plot_dense</span><span class="p">(</span><span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sms_classification_39_0.png" src="../../_images/sms_classification_39_0.png" />
+<img alt="../../_images/sms_classification_39_1.png" src="../../_images/sms_classification_39_1.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="long-short-term-memory-lstm-model">
+<h1>Long Short Term Memory (LSTM) Model<a class="headerlink" href="#long-short-term-memory-lstm-model" title="Permalink to this headline">¶</a></h1>
+<p>This neural network is capable of learning order dependence in sequence prediction problems.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LSTM hyperparameters</span>
+<span class="n">n_lstm</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">drop_lstm</span> <span class="o">=</span><span class="mf">0.2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LSTM Spam detection architecture</span>
+<span class="n">LSTM_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embeding_dim</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
+<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
+<span class="c1">#LSTM_model.add(Flatten())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LSTM_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">LSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dataframe</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+<span class="c1"># Rename column</span>
+<span class="n">metrics</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;val_accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">plot_LSTM</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+    <span class="n">metrics</span><span class="p">[[</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;LSTM Model: Training and Validation &#39;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span> <span class="p">(</span><span class="s1">&#39;Number of epochs&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">])</span>
+<span class="n">plot_LSTM</span><span class="p">(</span><span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+<span class="n">plot_LSTM</span><span class="p">(</span><span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sms_classification_45_0.png" src="../../_images/sms_classification_45_0.png" />
+<img alt="../../_images/sms_classification_45_1.png" src="../../_images/sms_classification_45_1.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bi-directional-long-short-term-memory-bilstm-model">
+<h1>Bi-directional Long Short Term Memory (BiLSTM) Model<a class="headerlink" href="#bi-directional-long-short-term-memory-bilstm-model" title="Permalink to this headline">¶</a></h1>
+<p>Bi-LSTM learns patterns from before and after a given token.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biderectional LSTM Spam detection architecture</span>
+<span class="n">biLSTM_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embeding_dim</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
+<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Bidirectional</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
+<span class="c1">#biLSTM_model.add(Flatten())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biLSTM_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training</span>
+<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">history</span> <span class="o">=</span> <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> 
+                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span><span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dataframe</span>
+<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
+<span class="c1"># Rename column</span>
+<span class="n">metrics</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;val_accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">plot_biLSTM</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
+    <span class="n">metrics</span><span class="p">[[</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;BiLSTM Model: Training and Validation &#39;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span> <span class="p">(</span><span class="s1">&#39;Number of epochs&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">])</span>
+<span class="c1"># Plot</span>
+<span class="n">plot_biLSTM</span><span class="p">(</span><span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">)</span>
+<span class="n">plot_biLSTM</span><span class="p">(</span><span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/sms_classification_50_0.png" src="../../_images/sms_classification_50_0.png" />
+<img alt="../../_images/sms_classification_50_1.png" src="../../_images/sms_classification_50_1.png" />
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="choose-model">
+<h1>Choose Model<a class="headerlink" href="#choose-model" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparing three different models</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dense architecture loss and accuracy: </span><span class="si">{</span><span class="n">dense_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;LSTM architecture loss and accuracy: </span><span class="si">{</span><span class="n">LSTM_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bi-LSTM architecture loss and accuracy: </span><span class="si">{</span><span class="n">biLSTM_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1387 - accuracy: 0.9375
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+12/12 [==============================] - 0s 1ms/step - loss: 0.0997 - accuracy: 0.9679
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dense architecture loss and accuracy: [0.09966222196817398, 0.9679144620895386] 
+
+ 1/12 [=&gt;............................] - ETA: 0s - loss: 0.3097 - accuracy: 0.9062
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+10/12 [========================&gt;.....] - ETA: 0s - loss: 0.1657 - accuracy: 0.9594
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+12/12 [==============================] - 0s 6ms/step - loss: 0.1573 - accuracy: 0.9599
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LSTM architecture loss and accuracy: [0.15733930468559265, 0.9598930478096008] 
+
+ 1/12 [=&gt;............................] - ETA: 0s - loss: 0.3662 - accuracy: 0.9062
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+12/12 [==============================] - 0s 4ms/step - loss: 0.1443 - accuracy: 0.9439
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bi-LSTM architecture loss and accuracy: [0.14432235062122345, 0.9438502788543701] 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Based on loss, accuracy and the plots above, we select the Dense architecture as the final model for classifying whether messages are spam or ham.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="prediction">
+<h1>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to predict messages based on model</span>
+<span class="c1"># (should return list containing prediction and label, ex. [0.008318834938108921, &#39;ham&#39;])</span>
+<span class="k">def</span> <span class="nf">predict_message</span><span class="p">(</span><span class="n">pred_text</span><span class="p">):</span>
+    <span class="n">pred_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">pred_text</span><span class="p">]</span>
+    <span class="n">new_seq</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">pred_text</span><span class="p">)</span>
+    <span class="n">padded</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">new_seq</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">max_len</span><span class="p">,</span>
+                      <span class="n">padding</span> <span class="o">=</span> <span class="n">padding_type</span><span class="p">,</span>
+                      <span class="n">truncating</span><span class="o">=</span><span class="n">trunc_type</span><span class="p">)</span>
+    <span class="n">prediction</span> <span class="o">=</span> <span class="p">(</span><span class="n">dense_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">padded</span><span class="p">))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">prediction</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">prediction</span><span class="p">,</span> <span class="s1">&#39;ham&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">prediction</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">]</span>
+<span class="n">pred_text</span> <span class="o">=</span> <span class="s2">&quot;how are you doing today?&quot;</span>
+
+<span class="n">prediction</span> <span class="o">=</span> <span class="n">predict_message</span><span class="p">(</span><span class="n">pred_text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.00657627, &#39;ham&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to test your function and model. </span>
+<span class="k">def</span> <span class="nf">test_predictions</span><span class="p">():</span>
+    <span class="n">test_messages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;how are you doing today&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;sale today! to stop texts call 98912460324&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;i dont want to go. can we try it a different day? available sat&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;our new mobile video service is live. just install on your phone to start watching.&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;you have won £1000 cash! call to claim your prize.&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;i&#39;ll bring it tomorrow. don&#39;t forget the milk.&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;wow, is your arm alright. that happened to me one time too&quot;</span>
+                  <span class="p">]</span>
+
+    <span class="n">test_answers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">,</span> <span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">,</span> <span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;ham&quot;</span><span class="p">]</span>
+    <span class="n">passed</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">for</span> <span class="n">msg</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_messages</span><span class="p">,</span> <span class="n">test_answers</span><span class="p">):</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">predict_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">prediction</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">ans</span><span class="p">:</span>
+            <span class="n">passed</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="n">passed</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You passed the challenge. Great job!&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You haven&#39;t passed yet. Keep trying.&quot;</span><span class="p">)</span>
+
+<span class="n">test_predictions</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You passed the challenge. Great job!
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/sms_classifier"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="xref myst">Neural Network SMS Text Classifier</span></p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Patrick Guo<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
