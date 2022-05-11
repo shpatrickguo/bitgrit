@@ -312,6 +312,26 @@ const thebe_selector_output = ".output, .cell_output"
    The Data
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-the-data">
+   Load the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-size-and-structure">
+   Data Size and Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#travel-habits">
+   Travel Habits
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -340,6 +360,26 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#the-data">
    The Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-the-data">
+   Load the Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-size-and-structure">
+   Data Size and Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#travel-habits">
+   Travel Habits
   </a>
  </li>
 </ul>
@@ -371,23 +411,30 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><code class="docutils literal notranslate"><span class="pre">EverTravelledAbroad</span></code>: Character, has the customer ever travelled abroad</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">TravelInsurance</span></code>: Numeric, whether the customer bought travel insurance</p></li>
 </ul>
+</div>
+<div class="section" id="import-libraries">
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
 <p>Let us set up all the objects (packages, and modules) that we will need to explore the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary modules</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="load-the-data">
+<h2>Load the Data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read file</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/travel_insurance.csv&#39;</span><span class="p">)</span>
-
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -487,6 +534,19 @@ const thebe_selector_output = ".output, .cell_output"
 </table>
 </div></div></div>
 </div>
+</div>
+<div class="section" id="data-size-and-structure">
+<h2>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Dataset comprises of 1987 observations and 9 columns.</p></li>
+<li><p>8 independent variables: <code class="docutils literal notranslate"><span class="pre">Age</span></code>, <code class="docutils literal notranslate"><span class="pre">Employement</span> <span class="pre">Type</span></code>, <code class="docutils literal notranslate"><span class="pre">GraduateOrNot</span></code>, <code class="docutils literal notranslate"><span class="pre">AnnualIncome</span></code>, <code class="docutils literal notranslate"><span class="pre">FamilyMembers</span></code>, <code class="docutils literal notranslate"><span class="pre">ChronicDiseases</span></code>, <code class="docutils literal notranslate"><span class="pre">FrequentFlyer</span></code>, <code class="docutils literal notranslate"><span class="pre">EverTravelledAbroad</span></code></p>
+<ul>
+<li><p>3 numerical features, 5 categorical features</p></li>
+</ul>
+</li>
+<li><p>1 dependent variable: <code class="docutils literal notranslate"><span class="pre">TravelInsurance</span></code></p></li>
+<li><p>Complete dataset with no missing/null values.</p></li>
+</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the size and datatypes of the DataFrame</span>
@@ -567,6 +627,132 @@ Name: TravelInsurance, dtype: int64
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>AnnualIncome</th>
+      <th>FamilyMembers</th>
+      <th>ChronicDiseases</th>
+      <th>TravelInsurance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1987.000000</td>
+      <td>1.987000e+03</td>
+      <td>1987.000000</td>
+      <td>1987.000000</td>
+      <td>1987.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>29.650226</td>
+      <td>9.327630e+05</td>
+      <td>4.752894</td>
+      <td>0.277806</td>
+      <td>0.357323</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.913308</td>
+      <td>3.768557e+05</td>
+      <td>1.609650</td>
+      <td>0.448030</td>
+      <td>0.479332</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>25.000000</td>
+      <td>3.000000e+05</td>
+      <td>2.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>28.000000</td>
+      <td>6.000000e+05</td>
+      <td>4.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>29.000000</td>
+      <td>9.000000e+05</td>
+      <td>5.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>32.000000</td>
+      <td>1.250000e+06</td>
+      <td>6.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>35.000000</td>
+      <td>1.800000e+06</td>
+      <td>9.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of dataset is null</span>
+<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Age                    0.0
+Employment Type        0.0
+GraduateOrNot          0.0
+AnnualIncome           0.0
+FamilyMembers          0.0
+ChronicDiseases        0.0
+FrequentFlyer          0.0
+EverTravelledAbroad    0.0
+TravelInsurance        0.0
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="travel-habits">
+<h2>Travel Habits<a class="headerlink" href="#travel-habits" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
