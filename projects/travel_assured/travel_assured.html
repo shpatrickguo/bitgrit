@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Neural Network SMS Text Classifier &#8212; shpg-dsprojects</title>
+    <title>Travel Assured &#8212; shpg-dsprojects</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet">
   <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -88,8 +88,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Neural Network - SMS Text Classification" href="sms_classification.html" />
-    <link rel="prev" title="PowerCo - EDA" href="../BCG/PowerCo_EDA.html" />
+    <link rel="next" title="Analyzing exam scores" href="../exam_scores/exam_scores.html" />
+    <link rel="prev" title="DataCamp Certification Case Study" href="../inn_the_neighborhood/inn_the_neighborhood.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -144,8 +144,8 @@ const thebe_selector_output = ".output, .cell_output"
    Rental Price Prediction
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../travel_assured/travel_assured.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Travel Insurance Analysis
   </a>
  </li>
@@ -181,18 +181,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sms_classifier/README.html">
    SMS Text Classification
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="sms_classification.html">
+    <a class="reference internal" href="../sms_classifier/sms_classification.html">
      Neural Network - SMS Text Classification
     </a>
    </li>
@@ -239,9 +239,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/projects/sms_classifier/README.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/projects/travel_assured/travel_assured.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -259,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/sms_classifier/README.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/travel_assured/travel_assured.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -275,6 +275,23 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=tree/docs/projects/travel_assured/travel_assured.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -286,21 +303,14 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#in-this-notebook">
-   In this notebook
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#environment-details">
-   Environment details
+  <a class="reference internal nav-link" href="#the-data">
+   The Data
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#which-data-files-are-being-used">
-     Which data files are being used?
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -312,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Neural Network SMS Text Classifier</h1>
+                <h1>Travel Assured</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -323,21 +333,14 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#in-this-notebook">
-   In this notebook
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#environment-details">
-   Environment details
+  <a class="reference internal nav-link" href="#the-data">
+   The Data
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#which-data-files-are-being-used">
-     Which data files are being used?
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -348,31 +351,222 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="neural-network-sms-text-classifier">
-<h1><a class="reference internal" href="sms_classification.html"><span class="doc std std-doc">Neural Network SMS Text Classifier</span></a><a class="headerlink" href="#neural-network-sms-text-classifier" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="in-this-notebook">
-<h2>In this notebook<a class="headerlink" href="#in-this-notebook" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="travel-assured">
+<h1>Travel Assured<a class="headerlink" href="#travel-assured" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Travel Assured is a travel insurance company. Due to the COVID pandemic they have had to cut their marketing budget by over 50%. It is more important than ever that they advertise in the right places and to the right people.</p>
+<p>Travel Assured has data on their current customers as well as people who got quotes but never bought insurance. They want to know if there are differences in the travel habits between customers and non-customers - they believe they are more likely to travel often (buying tickets from frequent flyer miles) and travel abroad.</p>
+</div>
+<div class="section" id="the-data">
+<h2>The Data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Down-sampling to address data imbalance</p></li>
-<li><p>Tokenization, Sequencing, and padding of text messages</p></li>
-<li><p>Compare between Dense, LSTM, BiLSTM models</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">age</span></code>: Numeric, the customer’s age</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Employment</span> <span class="pre">Type</span></code>: Character, the sector of employment</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GraduateOrNot</span></code>: Character, whether the customer is a college graduate</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AnnualIncome</span></code>: Numeric, the customer’s yearly income</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FamilyMembers</span></code>: Numeric, the number of family members living with the customer</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ChronicDiseases</span></code>: Numeric, whether the customer has any chronic conditions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FrequentFlyer</span></code>: Character, whether a customer books frequent tickets</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EverTravelledAbroad</span></code>: Character, has the customer ever travelled abroad</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TravelInsurance</span></code>: Numeric, whether the customer bought travel insurance</p></li>
 </ul>
-</div>
-<div class="section" id="environment-details">
-<h2>Environment details<a class="headerlink" href="#environment-details" title="Permalink to this headline">¶</a></h2>
-<p><strong>OS:</strong> macOS Big Sur 11.4
-<strong>Memory:</strong> 16 GB 2133 MHz LPDDR3<br />
-<strong>Disk Space:</strong> 1 TB Flask Stroage<br />
-<strong>CPU/GPU:</strong> Intel HD Graphics 530 1536 MB</p>
-<div class="section" id="which-data-files-are-being-used">
-<h3>Which data files are being used?<a class="headerlink" href="#which-data-files-are-being-used" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p><a class="reference external" href="https://cdn.freecodecamp.org/project-data/sms/train-data.tsv">https://cdn.freecodecamp.org/project-data/sms/train-data.tsv</a></p></li>
-<li><p><a class="reference external" href="https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv">https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv</a></p></li>
-</ul>
+<p>Let us set up all the objects (packages, and modules) that we will need to explore the dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary modules</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
 </div>
 </div>
-<div class="toctree-wrapper compound">
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read file</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/travel_insurance.csv&#39;</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Age</th>
+      <th>Employment Type</th>
+      <th>GraduateOrNot</th>
+      <th>AnnualIncome</th>
+      <th>FamilyMembers</th>
+      <th>ChronicDiseases</th>
+      <th>FrequentFlyer</th>
+      <th>EverTravelledAbroad</th>
+      <th>TravelInsurance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>31</td>
+      <td>Government Sector</td>
+      <td>Yes</td>
+      <td>400000</td>
+      <td>6</td>
+      <td>1</td>
+      <td>No</td>
+      <td>No</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>31</td>
+      <td>Private Sector/Self Employed</td>
+      <td>Yes</td>
+      <td>1250000</td>
+      <td>7</td>
+      <td>0</td>
+      <td>No</td>
+      <td>No</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>34</td>
+      <td>Private Sector/Self Employed</td>
+      <td>Yes</td>
+      <td>500000</td>
+      <td>4</td>
+      <td>1</td>
+      <td>No</td>
+      <td>No</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>28</td>
+      <td>Private Sector/Self Employed</td>
+      <td>Yes</td>
+      <td>700000</td>
+      <td>3</td>
+      <td>1</td>
+      <td>No</td>
+      <td>No</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>28</td>
+      <td>Private Sector/Self Employed</td>
+      <td>Yes</td>
+      <td>700000</td>
+      <td>8</td>
+      <td>1</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the size and datatypes of the DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape: (1987, 9)
+
+
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1987 entries, 0 to 1986
+Data columns (total 9 columns):
+ #   Column               Non-Null Count  Dtype 
+---  ------               --------------  ----- 
+ 0   Age                  1987 non-null   int64 
+ 1   Employment Type      1987 non-null   object
+ 2   GraduateOrNot        1987 non-null   object
+ 3   AnnualIncome         1987 non-null   int64 
+ 4   FamilyMembers        1987 non-null   int64 
+ 5   ChronicDiseases      1987 non-null   int64 
+ 6   FrequentFlyer        1987 non-null   object
+ 7   EverTravelledAbroad  1987 non-null   object
+ 8   TravelInsurance      1987 non-null   int64 
+dtypes: int64(5), object(4)
+memory usage: 139.8+ KB
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For all categorical data columns</span>
+<span class="c1"># Print categories and the number of times they appear</span>
+<span class="c1"># ChornicDiseases and TravelInsurance at categorical because 1 and 0 represent yes and no</span>
+<span class="n">CAT_COLS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Employment Type&#39;</span><span class="p">,</span> <span class="s1">&#39;GraduateOrNot&#39;</span><span class="p">,</span> <span class="s2">&quot;ChronicDiseases&quot;</span><span class="p">,</span> <span class="s2">&quot;FrequentFlyer&quot;</span><span class="p">,</span> <span class="s2">&quot;EverTravelledAbroad&quot;</span><span class="p">,</span> <span class="s2">&quot;TravelInsurance&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">CAT_COLS</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Private Sector/Self Employed    1417
+Government Sector                570
+Name: Employment Type, dtype: int64
+
+
+Yes    1692
+No      295
+Name: GraduateOrNot, dtype: int64
+
+
+0    1435
+1     552
+Name: ChronicDiseases, dtype: int64
+
+
+No     1570
+Yes     417
+Name: FrequentFlyer, dtype: int64
+
+
+No     1607
+Yes     380
+Name: EverTravelledAbroad, dtype: int64
+
+
+0    1277
+1     710
+Name: TravelInsurance, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 
@@ -389,7 +583,7 @@ const thebe_selector_output = ".output, .cell_output"
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./projects/sms_classifier"
+            path: "./projects/travel_assured"
         },
         predefinedOutput: true
     }
@@ -401,17 +595,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../BCG/PowerCo_EDA.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../inn_the_neighborhood/inn_the_neighborhood.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">PowerCo - EDA</p>
+            <p class="prev-next-title">DataCamp Certification Case Study</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="sms_classification.html" title="next page">
+    <a class='right-next' id="next-link" href="../exam_scores/exam_scores.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Neural Network - SMS Text Classification</p>
+        <p class="prev-next-title">Analyzing exam scores</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
