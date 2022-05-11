@@ -1,6 +1,6 @@
 # Welcome
 
-Welcome to my Data Science portfolio!
+Welcome to my Data Science portfolio! All projects are unguided and for educational purposes only.
 
 ## About Me
 
