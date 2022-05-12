@@ -337,17 +337,17 @@ const thebe_selector_output = ".output, .cell_output"
      What are the travel habits of the insured and uninsured?
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chronic-diseases">
+     Chronic Diseases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#family-members">
+     Family Members
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chronic-diseases">
-   Chronic Diseases
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#family-members">
-   Family Members
-  </a>
  </li>
 </ul>
 
@@ -404,17 +404,17 @@ const thebe_selector_output = ".output, .cell_output"
      What are the travel habits of the insured and uninsured?
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#chronic-diseases">
+     Chronic Diseases
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#family-members">
+     Family Members
+    </a>
+   </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#chronic-diseases">
-   Chronic Diseases
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#family-members">
-   Family Members
-  </a>
  </li>
 </ul>
 
@@ -820,7 +820,7 @@ dtype: int64
 </div>
 <div class="section" id="what-are-the-travel-habits-of-the-insured-and-uninsured">
 <h3>What are the travel habits of the insured and uninsured?<a class="headerlink" href="#what-are-the-travel-habits-of-the-insured-and-uninsured" title="Permalink to this headline">¶</a></h3>
-<p>Now let’s first look at the how many people have travel insurance and their travel habits. The countplot shows taht a large proportion of people that have never travelled abroad are uninsured. However for those that have, a significant proportion have gotten travel insurance. This pattern is also seen for people that aren’t/are frequent flyers. Indicating that people that have travelled abroad or are frequent flyers are more likely to get travel insurance.</p>
+<p>Now let’s first look at the how many people have travel insurance and their travel habits. The countplot shows that a large proportion of people that have never travelled abroad are uninsured. However for those that have, a significant proportion have gotten travel insurance. This pattern is also seen for people that aren’t/are frequent flyers. Indicating that people that have travelled abroad or are frequent flyers are more likely to get travel insurance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_travelled</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;EverTravelledAbroad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
@@ -890,9 +890,8 @@ dtype: int64
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="chronic-diseases">
-<h2>Chronic Diseases<a class="headerlink" href="#chronic-diseases" title="Permalink to this headline">¶</a></h2>
+<h3>Chronic Diseases<a class="headerlink" href="#chronic-diseases" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_chronic</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;ChronicDiseases&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
@@ -927,7 +926,7 @@ dtype: int64
 </div>
 </div>
 <div class="section" id="family-members">
-<h2>Family Members<a class="headerlink" href="#family-members" title="Permalink to this headline">¶</a></h2>
+<h3>Family Members<a class="headerlink" href="#family-members" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -942,7 +941,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/travel_assured_21_0.png" src="../../_images/travel_assured_21_0.png" />
+<img alt="../../_images/travel_assured_22_0.png" src="../../_images/travel_assured_22_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -962,20 +961,48 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/travel_assured_22_0.png" src="../../_images/travel_assured_22_0.png" />
+<img alt="../../_images/travel_assured_23_0.png" src="../../_images/travel_assured_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;TravelInsurance&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+
+<span class="c1"># plot histogram comparing the density distribution of the Annual Income in each groups</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">insured_df</span><span class="p">[</span><span class="s1">&#39;AnnualIncome&#39;</span><span class="p">],</span> 
+             <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> 
+             <span class="n">hatch</span><span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> 
+             <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> 
+             <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> 
+             <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+            <span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">uninsured_df</span><span class="p">[</span><span class="s1">&#39;AnnualIncome&#39;</span><span class="p">],</span>
+             <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> 
+             <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+            <span class="p">)</span>
+
+<span class="c1"># put a title, label the axes, define the legend and display</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;PDF of Annual Income by whether they are insured&quot;</span><span class="p">,</span> 
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> 
+                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+                 <span class="n">x</span><span class="o">=</span><span class="mf">0.52</span><span class="p">,</span>
+                 <span class="n">y</span><span class="o">=</span><span class="mf">0.92</span><span class="p">,</span>
+                <span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Annual Income&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density Function (PDF)&#39;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Insured&#39;</span><span class="p">,</span> <span class="s1">&#39;Uninsured&#39;</span><span class="p">])</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f6c6ceef4c0&gt;
-</pre></div>
+<img alt="../../_images/travel_assured_24_0.png" src="../../_images/travel_assured_24_0.png" />
 </div>
-<img alt="../../_images/travel_assured_23_1.png" src="../../_images/travel_assured_23_1.png" />
 </div>
 </div>
 </div>
