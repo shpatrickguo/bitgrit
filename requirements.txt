@@ -19,3 +19,4 @@ folium
 sodapy
 pyproj
 bs4
+#git+https://github.com/QuantEcon/quantecon-book-theme.git
