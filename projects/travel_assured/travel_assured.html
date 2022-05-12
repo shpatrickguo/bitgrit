@@ -333,8 +333,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ever-travelled-abroad">
-     Ever Travelled Abroad
+    <a class="reference internal nav-link" href="#what-are-the-travel-habits-of-the-insured-and-uninsured">
+     What are the travel habits of the insured and uninsured?
     </a>
    </li>
   </ul>
@@ -405,8 +405,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ever-travelled-abroad">
-     Ever Travelled Abroad
+    <a class="reference internal nav-link" href="#what-are-the-travel-habits-of-the-insured-and-uninsured">
+     What are the travel habits of the insured and uninsured?
     </a>
    </li>
   </ul>
@@ -816,7 +816,7 @@ dtype: int64
 </div>
 <div class="section" id="exploratory-data-analysis">
 <h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
-<p>Let’s define the global variables that we will use regularly thorughout the analysis. These global variables are in uppercase and all defined at the begining of the script.</p>
+<p>Let’s define the global variables and functions that we will use regularly throughout the analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LABELS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">]</span> <span class="c1"># travel insurance labels</span>
@@ -828,9 +828,9 @@ dtype: int64
 </div>
 </div>
 </div>
-<p>Now let’s look at the travel habits</p>
-<div class="section" id="ever-travelled-abroad">
-<h3>Ever Travelled Abroad<a class="headerlink" href="#ever-travelled-abroad" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="what-are-the-travel-habits-of-the-insured-and-uninsured">
+<h3>What are the travel habits of the insured and uninsured?<a class="headerlink" href="#what-are-the-travel-habits-of-the-insured-and-uninsured" title="Permalink to this headline">¶</a></h3>
+<p>Now let’s first look at the people’s travel habits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_travelled</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;EverTravelledAbroad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
@@ -900,7 +900,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/travel_assured_18_0.png" src="../../_images/travel_assured_18_0.png" />
+<img alt="../../_images/travel_assured_19_0.png" src="../../_images/travel_assured_19_0.png" />
 </div>
 </div>
 </div>
@@ -935,7 +935,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/travel_assured_20_0.png" src="../../_images/travel_assured_20_0.png" />
+<img alt="../../_images/travel_assured_21_0.png" src="../../_images/travel_assured_21_0.png" />
 </div>
 </div>
 </div>
@@ -955,7 +955,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/travel_assured_22_0.png" src="../../_images/travel_assured_22_0.png" />
+<img alt="../../_images/travel_assured_23_0.png" src="../../_images/travel_assured_23_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -975,7 +975,20 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/travel_assured_23_0.png" src="../../_images/travel_assured_23_0.png" />
+<img alt="../../_images/travel_assured_24_0.png" src="../../_images/travel_assured_24_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;TravelInsurance&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fbc01140eb0&gt;
+</pre></div>
+</div>
+<img alt="../../_images/travel_assured_25_1.png" src="../../_images/travel_assured_25_1.png" />
 </div>
 </div>
 </div>
