@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # DataCamp Certification Case Study
+# # Inn the Neighborhood - Rental Price Prediction
 # 
 # ## Project Brief
 # 
