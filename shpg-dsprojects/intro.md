@@ -1,10 +1,12 @@
 # Welcome
 
-Welcome to my Data Science portfolio! All projects are unguided and for educational purposes only.
+Welcome to my Data Science portfolio!
 
 ## About Me
 
-My name is Patrick Guo. I ❤️ working with data and learning new things.
+My name is Patrick Guo. As a data scientist and analyst, I translate data into valuable and comprehensible insights. My aim is to improve results, make the right decisions and save costs.
+
+I am experienced in machine learning, supervised and unsupervised algorithms and use data visualization techniques to present the results. I use Python, SQL for my data projects.
 
 Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.com) or comment on in each page (comments are linked to my github via [utteranc.es](https://utteranc.es/).
 
