@@ -1,5 +1,10 @@
 # Certificates
 
+````{dropdown} [DataCamp - Professional Data Scientist - May 2022](https://www.datacamp.com/certificate/DS0015263399857)
+- Time assessments on Data Management, Exploratory Analysis, Statistical Experimentation, Model Development, Coding for Production Environments, Communicating and Reporting
+- Case study with technical report and non-technical presentation.
+````
+
 ````{dropdown} [DeepLearning.AI Deep Learnign Specialization- Dec 2021](https://coursera.org/share/2feff820c78f807f2b40fbc6d498fa55)
 - Build and train deep neural networks, implement vectorized neural networks, identify architecture parameters
 - Use best practices to train and develop test sets and analyze bias/variance for building DL applications, use standard NN techniques, apply optimization algorithms, and implement a neural network in TensorFlow
