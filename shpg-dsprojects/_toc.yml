@@ -26,3 +26,5 @@ parts:
       sections:
       - file: projects/sms_classifier/sms_classification.ipynb
         title: SMS Text Classification - Notebook
+- file: achievements/certificates.md
+      title: Certifications
