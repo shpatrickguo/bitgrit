@@ -5,7 +5,7 @@
 - Case study with technical report and non-technical presentation.
 ````
 
-````{dropdown} [DeepLearning.AI Deep Learnign Specialization- Dec 2021](https://coursera.org/share/2feff820c78f807f2b40fbc6d498fa55)
+````{dropdown} [DeepLearning.AI Deep Learning Specialization- Dec 2021](https://coursera.org/share/2feff820c78f807f2b40fbc6d498fa55)
 - Build and train deep neural networks, implement vectorized neural networks, identify architecture parameters
 - Use best practices to train and develop test sets and analyze bias/variance for building DL applications, use standard NN techniques, apply optimization algorithms, and implement a neural network in TensorFlow
 - Use strategies for reducing errors in ML systems, understand complex ML settings, and apply end-to-end, transfer, and multi-task learning
@@ -20,7 +20,7 @@
 - Implement feature engineering, transformation, and selection with TensorFlow Extended
 - Establish data lifecycle by leveraging data lineage and provenance metadata tools and follow data evolution with enterprise data schemas
 - Apply techniques to manage modeling resources and best serve offline/online inference requests
-- Use analytics to address model fairness, explainability issues, and mitigate bottlenecks
+- Use analytics to address model fairness, explain-ability issues, and mitigate bottlenecks
 - Deliver deployment pipelines for model serving that require different infrastructures
 - Apply best practices and progressive delivery techniques to maintain a continuously operating production system
 ````
