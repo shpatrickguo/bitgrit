@@ -25,7 +25,7 @@
 - Apply best practices and progressive delivery techniques to maintain a continuously operating production system
 ````
 
-````{dropdown} [FreeCodeCamp Data Analysis with Python](https://www.freecodecamp.org/certification/guopatrick/data-analysis-with-python-v7)
+````{dropdown} [FreeCodeCamp Data Analysis with Python - Jul 2021](https://www.freecodecamp.org/certification/guopatrick/data-analysis-with-python-v7)
 - [Mean-Variance-Standard Deviation Calculator](https://www.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/mean-variance-standard-deviation-calculator)
 - [Demographic Data Analyzer](https://www.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/demographic-data-analyzer)
 - [Medical Data Visualizer](https://www.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/medical-data-visualizer)
