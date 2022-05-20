@@ -646,15 +646,15 @@ const thebe_selector_output = ".output, .cell_output"
 <h1>Inn the Neighborhood - Rental Price Prediction<a class="headerlink" href="#inn-the-neighborhood-rental-price-prediction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="project-brief">
 <h2>Project Brief<a class="headerlink" href="#project-brief" title="Permalink to this headline">¶</a></h2>
-<p>You have been hired by Inn the Neighborhood, an online platform that allows people to rent out their properties for short stays. Currently, the webpage for renters has a conversion rate of 2%. This means that most people leave the platform without signing up.</p>
+<p>Inn the Neighborhood is an online platform that allows people to rent out their properties for short stays. Currently, the webpage for renters has a conversion rate of 2%. This means that most people leave the platform without signing up.</p>
 <p>The product manager would like to increase this conversion rate. They are interested in developing an application to help people estimate the money they could earn renting out their living space. They hope that this would make people more likely to sign up.</p>
-<p>The company has provided you with a dataset that includes details about each property rented, as well as the price charged per night. They want to avoid estimating prices that are more than 25 dollars off of the actual price, as this may discourage people.</p>
-<p>You will need to present your findings in two formats:</p>
+<p>The company has a dataset that includes details about each property rented, as well as the price charged per night. They want to avoid estimating prices that are more than 25 dollars off of the actual price, as this may discourage people.</p>
+<p>OBjective is to present your findings in two formats:</p>
 <ul class="simple">
-<li><p>You must submit a written report summarising your analysis to your manager. As a data science manager, your manager has a strong technical background and wants to understand what you have done and why.</p></li>
-<li><p>You will then need to share your findings with the product manager in a 10 minute presentation. The product manager has no data science background but is familiar with basic data related terminology.</p></li>
+<li><p>Submit a written report summarising your analysis to your manager. As a data science manager, your manager has a strong technical background and wants to understand what you have done and why.</p></li>
+<li><p>Share  findings with the product manager in a 10 minute presentation. The product manager has no data science background but is familiar with basic data related terminology.</p></li>
 </ul>
-<p>The data you will use for this analysis can be accessed here: <code class="docutils literal notranslate"><span class="pre">&quot;data/rentals.csv&quot;</span></code></p>
+<p>The data for this analysis can be accessed here: <code class="docutils literal notranslate"><span class="pre">&quot;data/rentals.csv&quot;</span></code></p>
 </div>
 <div class="section" id="the-data">
 <h2>The Data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h2>
@@ -715,8 +715,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-05-20 06:17:07.188617: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.12/x64/lib
-2022-05-20 06:17:07.188648: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-05-20 10:17:02.017989: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.12/x64/lib
+2022-05-20 10:17:02.018020: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
 </div>
@@ -1442,7 +1442,7 @@ Scatterplot does not show distinct price clusters based on latitude and longitud
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>552;554;556;558, Broderick Street, Western Addition, San Francisco, California, 94115, United States
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>683;685, Sutter Street, Union Square, San Francisco, California, 94108, United States
 </pre></div>
 </div>
 <img alt="../../_images/inn_the_neighborhood_38_1.png" src="../../_images/inn_the_neighborhood_38_1.png" />
@@ -1591,9 +1591,7 @@ X_test shape: (1475, 35)
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_train shape: (5899, 37)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X_test shape: (1475, 37)
+X_test shape: (1475, 37)
 </pre></div>
 </div>
 </div>
