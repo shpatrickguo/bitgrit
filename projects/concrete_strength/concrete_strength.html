@@ -1,0 +1,1664 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predict the strength of concrete &#8212; shpg-dsprojects</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "shpatrickguo/dsprojects");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Travel Assured" href="../travel_assured/travel_assured.html" />
+    <link rel="prev" title="Inn the Neighborhood - Rental Price Prediction" href="../inn_the_neighborhood/inn_the_neighborhood.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/cat.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Projects
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
+   Rental Price Prediction
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Predict Concrete Strength
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../travel_assured/travel_assured.html">
+   Travel Insurance Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exam_scores/exam_scores.html">
+   Do test preparation courses help you prepare for exams?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../viral_tweets/README.html">
+   Viral Tweets
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../BCG/README.html">
+   PowerCo - Is Churn driven by price sensitivity?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_email.html">
+     PowerCo - Proposal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_EDA.html">
+     PowerCo - EDA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sms_classifier/README.html">
+   SMS Text Classification
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sms_classifier/sms_classification.html">
+     Neural Network - SMS Text Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Achievements
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../achievements/certificates.html">
+   Certifications
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/projects/concrete_strength/concrete_strength.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/shpatrickguo/dsprojects"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/concrete_strength/concrete_strength.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=lab/tree/docs/projects/concrete_strength/concrete_strength.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/concrete_strength/concrete_strength.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   📖 Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   💾 The data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compressive-strength-data">
+     Compressive strength data:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data Preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-size-and-structure">
+     Data Size and Structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#duplicated-data">
+     Duplicated Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#outliers">
+     Outliers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-statistics">
+     Summary Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlation-matrix">
+     Correlation matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#age">
+     Age
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
+   1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-predictive-model">
+   2. Creating predictive model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-test-split">
+   Train Test Split
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encoding-age">
+     Encoding age
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-selection">
+   Model Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-tuning">
+   Model Tuning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-evaluation">
+   Model Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-importance">
+   Feature Importance
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Predict the strength of concrete</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   📖 Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   💾 The data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compressive-strength-data">
+     Compressive strength data:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-libraries">
+   Import Libraries
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-preprocessing">
+   Data Preprocessing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-size-and-structure">
+     Data Size and Structure
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#duplicated-data">
+     Duplicated Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#outliers">
+     Outliers
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#summary-statistics">
+     Summary Statistics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#correlation-matrix">
+     Correlation matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#age">
+     Age
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
+   1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-predictive-model">
+   2. Creating predictive model
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-test-split">
+   Train Test Split
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#encoding-age">
+     Encoding age
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-selection">
+   Model Selection
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-tuning">
+   Model Tuning
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-evaluation">
+   Model Evaluation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-importance">
+   Feature Importance
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="predict-the-strength-of-concrete">
+<h1>Predict the strength of concrete<a class="headerlink" href="#predict-the-strength-of-concrete" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>📖 Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
+<p>Concrete is the most widely used building material in the world. It is a mix of cement and water with gravel and sand. It can also include other materials like fly ash, blast furnace slag, and additives.</p>
+<p>The compressive strength of concrete is a function of components and age, the team is testing different combinations of ingredients at different time intervals.</p>
+<p>Find a simple way to estimate strength to predict how a particular sample is expected to perform.</p>
+<p>The objective is to answer:</p>
+<ol class="simple">
+<li><p>The average strength of the concrete samples at 1, 7, 14, and 28 days of age.</p></li>
+<li><p>The coefficients of regression model using the formula that provided us:
+<img alt="Strength Equation" src="../../_images/str_eq.png" /></p></li>
+</ol>
+</div>
+<div class="section" id="the-data">
+<h2>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h2>
+<p>The team has already tested more than a thousand samples (<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength">source</a>):</p>
+<div class="section" id="compressive-strength-data">
+<h3>Compressive strength data:<a class="headerlink" href="#compressive-strength-data" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>“cement” - Portland cement in kg/m3</p></li>
+<li><p>“slag” - Blast furnace slag in kg/m3</p></li>
+<li><p>“fly_ash” - Fly ash in kg/m3</p></li>
+<li><p>“water” - Water in liters/m3</p></li>
+<li><p>“superplasticizer” - Superplasticizer additive in kg/m3</p></li>
+<li><p>“coarse_aggregate” - Coarse aggregate (gravel) in kg/m3</p></li>
+<li><p>“fine_aggregate” - Fine aggregate (sand) in kg/m3</p></li>
+<li><p>“age” - Age of the sample in days</p></li>
+<li><p>“strength” - Concrete compressive strength in megapascals (MPa)</p></li>
+</ul>
+<p><em><strong>Acknowledgments</strong>: I-Cheng Yeh, “Modeling of strength of high-performance concrete using artificial neural networks,” Cement and Concrete Research, Vol. 28, No. 12, pp. 1797-1808 (1998)</em>.</p>
+</div>
+</div>
+<div class="section" id="import-libraries">
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OrdinalEncoder</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">AdaBoostRegressor</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-05-20 13:22:27.528259: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.12/x64/lib
+2022-05-20 13:22:27.528294: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-data">
+<h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/concrete_data.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cement</th>
+      <th>slag</th>
+      <th>fly_ash</th>
+      <th>water</th>
+      <th>superplasticizer</th>
+      <th>coarse_aggregate</th>
+      <th>fine_aggregate</th>
+      <th>age</th>
+      <th>strength</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>540.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>162.0</td>
+      <td>2.5</td>
+      <td>1040.0</td>
+      <td>676.0</td>
+      <td>28</td>
+      <td>79.986111</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>540.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>162.0</td>
+      <td>2.5</td>
+      <td>1055.0</td>
+      <td>676.0</td>
+      <td>28</td>
+      <td>61.887366</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>332.5</td>
+      <td>142.5</td>
+      <td>0.0</td>
+      <td>228.0</td>
+      <td>0.0</td>
+      <td>932.0</td>
+      <td>594.0</td>
+      <td>270</td>
+      <td>40.269535</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>332.5</td>
+      <td>142.5</td>
+      <td>0.0</td>
+      <td>228.0</td>
+      <td>0.0</td>
+      <td>932.0</td>
+      <td>594.0</td>
+      <td>365</td>
+      <td>41.052780</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>198.6</td>
+      <td>132.4</td>
+      <td>0.0</td>
+      <td>192.0</td>
+      <td>0.0</td>
+      <td>978.4</td>
+      <td>825.5</td>
+      <td>360</td>
+      <td>44.296075</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="data-preprocessing">
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-size-and-structure">
+<h3>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Dataset comprises of 1030 observations.</p></li>
+<li><p>8 features and 1 target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code>.</p></li>
+<li><p>All columns are numerical</p></li>
+<li><p>No null values</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shape: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape: (1030, 9) 
+
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1030 entries, 0 to 1029
+Data columns (total 9 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   cement            1030 non-null   float64
+ 1   slag              1030 non-null   float64
+ 2   fly_ash           1030 non-null   float64
+ 3   water             1030 non-null   float64
+ 4   superplasticizer  1030 non-null   float64
+ 5   coarse_aggregate  1030 non-null   float64
+ 6   fine_aggregate    1030 non-null   float64
+ 7   age               1030 non-null   int64  
+ 8   strength          1030 non-null   float64
+dtypes: float64(8), int64(1)
+memory usage: 72.5 KB
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="duplicated-data">
+<h3>Duplicated Data<a class="headerlink" href="#duplicated-data" title="Permalink to this headline">¶</a></h3>
+<p>A small 2.43% of the dataset are duplicated. I decided to drop these, so now the dataset has 1005 observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dup_perc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Duplicated percentage: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dup_perc</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;df shape after removing duplicates: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Duplicated percentage: 2.43%
+df shape after removing duplicates: (1005, 9)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="outliers">
+<h3>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">¶</a></h3>
+<p>Boxplots show that there are outliers in our data, but not many.
+We will be replacing these outliers with their median.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set3&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/concrete_strength_11_0.png" src="../../_images/concrete_strength_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="n">q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
+    <span class="n">q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
+    <span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="n">q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">low</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">),</span> <span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="summary-statistics">
+<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h3>
+<p>Variance, skew, and kurtosis is also included. <br>
+We can see that all variables have skew are in asymmetric form.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">desc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<span class="n">desc</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">desc</span><span class="p">[</span><span class="s1">&#39;skew&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">desc</span><span class="p">[</span><span class="s1">&#39;kurtosis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">desc</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+      <th>var</th>
+      <th>skew</th>
+      <th>kurtosis</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>cement</th>
+      <td>1005.0</td>
+      <td>278.629055</td>
+      <td>104.345003</td>
+      <td>102.000000</td>
+      <td>190.680000</td>
+      <td>265.000000</td>
+      <td>349.00000</td>
+      <td>540.000000</td>
+      <td>10887.879601</td>
+      <td>0.564997</td>
+      <td>-0.432463</td>
+    </tr>
+    <tr>
+      <th>slag</th>
+      <td>1005.0</td>
+      <td>71.367711</td>
+      <td>85.239740</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>20.000000</td>
+      <td>141.30000</td>
+      <td>342.100000</td>
+      <td>7265.813343</td>
+      <td>0.830465</td>
+      <td>-0.524116</td>
+    </tr>
+    <tr>
+      <th>fly_ash</th>
+      <td>1005.0</td>
+      <td>55.535075</td>
+      <td>64.207448</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>118.27000</td>
+      <td>200.100000</td>
+      <td>4122.596436</td>
+      <td>0.497324</td>
+      <td>-1.366457</td>
+    </tr>
+    <tr>
+      <th>water</th>
+      <td>1005.0</td>
+      <td>182.521294</td>
+      <td>20.114500</td>
+      <td>127.300000</td>
+      <td>168.000000</td>
+      <td>185.700000</td>
+      <td>192.00000</td>
+      <td>228.000000</td>
+      <td>404.593097</td>
+      <td>0.126521</td>
+      <td>-0.076357</td>
+    </tr>
+    <tr>
+      <th>superplasticizer</th>
+      <td>1005.0</td>
+      <td>5.791846</td>
+      <td>5.396851</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>6.100000</td>
+      <td>9.90000</td>
+      <td>23.400000</td>
+      <td>29.126001</td>
+      <td>0.514240</td>
+      <td>-0.312220</td>
+    </tr>
+    <tr>
+      <th>coarse_aggregate</th>
+      <td>1005.0</td>
+      <td>974.376468</td>
+      <td>77.579534</td>
+      <td>801.000000</td>
+      <td>932.000000</td>
+      <td>968.000000</td>
+      <td>1031.00000</td>
+      <td>1145.000000</td>
+      <td>6018.584052</td>
+      <td>-0.065242</td>
+      <td>-0.583034</td>
+    </tr>
+    <tr>
+      <th>fine_aggregate</th>
+      <td>1005.0</td>
+      <td>771.628905</td>
+      <td>78.821267</td>
+      <td>594.000000</td>
+      <td>724.300000</td>
+      <td>780.000000</td>
+      <td>822.00000</td>
+      <td>945.000000</td>
+      <td>6212.792066</td>
+      <td>-0.335220</td>
+      <td>-0.198316</td>
+    </tr>
+    <tr>
+      <th>age</th>
+      <td>1005.0</td>
+      <td>32.117413</td>
+      <td>27.665333</td>
+      <td>1.000000</td>
+      <td>7.000000</td>
+      <td>28.000000</td>
+      <td>28.00000</td>
+      <td>120.000000</td>
+      <td>765.370663</td>
+      <td>1.312008</td>
+      <td>0.876534</td>
+    </tr>
+    <tr>
+      <th>strength</th>
+      <td>1005.0</td>
+      <td>35.250273</td>
+      <td>16.284808</td>
+      <td>2.331808</td>
+      <td>23.523542</td>
+      <td>33.798114</td>
+      <td>44.86834</td>
+      <td>82.599225</td>
+      <td>265.194960</td>
+      <td>0.395653</td>
+      <td>-0.305402</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+<div class="section" id="exploratory-data-analysis">
+<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correlation-matrix">
+<h3>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Let’s look at the relationship between all the variables and their correlation. <br>
+From the heatmap, we observe target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code> has a high positive correlation <code class="docutils literal notranslate"><span class="pre">cement</span></code> 0.49, <code class="docutils literal notranslate"><span class="pre">superplasticizer</span></code> 0.32, and <code class="docutils literal notranslate"><span class="pre">age</span></code> 0.5. <br>
+There is a strong negative correlation (-0.61) between <code class="docutils literal notranslate"><span class="pre">superplasticizer</span></code> and <code class="docutils literal notranslate"><span class="pre">water</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Heatmap of correlation with all features&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/concrete_strength_17_0.png" src="../../_images/concrete_strength_17_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="age">
+<h3>Age<a class="headerlink" href="#age" title="Permalink to this headline">¶</a></h3>
+<p>Age is a very important characteristic that affects concrete strength.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Count of ages of concrete&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Age (Days)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/concrete_strength_19_0.png" src="../../_images/concrete_strength_19_0.png" />
+</div>
+</div>
+<p>This bar plot shows that age is a categorical variable with a high number of observations at 28 days. <br>
+The 28 days time frame is significant because this is the period for concrete to reach 99% of it’s strength. While the concrete continuous to gain strength after that period, the rate of gain is much less compared to that in 28 days.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_str_by_day</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])[</span><span class="s1">&#39;strength&#39;</span><span class="p">]</span>
+<span class="n">avg_str_by_day</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">avg_str_by_day</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">avg_str_by_day</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">avg_str_by_day</span> <span class="o">=</span> <span class="n">avg_str_by_day</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;Average concrete strength at different ages (Days):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average concrete strength: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">strength</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">avg_str_by_day</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average concrete strength: 35.25027287623584 
+</pre></div>
+</div>
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_f1113">
+  <caption>Average concrete strength at different ages (Days):</caption>
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_f1113_level0_col0" class="col_heading level0 col0" >age</th>
+      <th id="T_f1113_level0_col1" class="col_heading level0 col1" >mean</th>
+      <th id="T_f1113_level0_col2" class="col_heading level0 col2" >count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_f1113_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_f1113_row0_col0" class="data row0 col0" >1</td>
+      <td id="T_f1113_row0_col1" class="data row0 col1" >9.452716</td>
+      <td id="T_f1113_row0_col2" class="data row0 col2" >2</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_f1113_row1_col0" class="data row1 col0" >3</td>
+      <td id="T_f1113_row1_col1" class="data row1 col1" >18.378023</td>
+      <td id="T_f1113_row1_col2" class="data row1 col2" >129</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_f1113_row2_col0" class="data row2 col0" >7</td>
+      <td id="T_f1113_row2_col1" class="data row2 col1" >25.181843</td>
+      <td id="T_f1113_row2_col2" class="data row2 col2" >122</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_f1113_row3_col0" class="data row3 col0" >14</td>
+      <td id="T_f1113_row3_col1" class="data row3 col1" >28.751038</td>
+      <td id="T_f1113_row3_col2" class="data row3 col2" >62</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_f1113_row4_col0" class="data row4 col0" >28</td>
+      <td id="T_f1113_row4_col1" class="data row4 col1" >37.383788</td>
+      <td id="T_f1113_row4_col2" class="data row4 col2" >478</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_f1113_row5_col0" class="data row5 col0" >56</td>
+      <td id="T_f1113_row5_col1" class="data row5 col1" >50.715152</td>
+      <td id="T_f1113_row5_col2" class="data row5 col2" >86</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_f1113_row6_col0" class="data row6 col0" >90</td>
+      <td id="T_f1113_row6_col1" class="data row6 col1" >40.480809</td>
+      <td id="T_f1113_row6_col2" class="data row6 col2" >54</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_f1113_row7_col0" class="data row7 col0" >91</td>
+      <td id="T_f1113_row7_col1" class="data row7 col1" >68.674649</td>
+      <td id="T_f1113_row7_col2" class="data row7 col2" >17</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_f1113_row8_col0" class="data row8 col0" >100</td>
+      <td id="T_f1113_row8_col1" class="data row8 col1" >47.668780</td>
+      <td id="T_f1113_row8_col2" class="data row8 col2" >52</td>
+    </tr>
+    <tr>
+      <th id="T_f1113_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_f1113_row9_col0" class="data row9 col0" >120</td>
+      <td id="T_f1113_row9_col1" class="data row9 col1" >39.647168</td>
+      <td id="T_f1113_row9_col2" class="data row9 col2" >3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>From the table we can see that average concrete strength at 28 days is similar to the average strength of the entire dataset.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;strength&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Boxplot of concrete strength at different ages&quot;</span><span class="p">)</span>   
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Age (Days)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Strength&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/concrete_strength_23_0.png" src="../../_images/concrete_strength_23_0.png" />
+</div>
+</div>
+<p>In this boxplot, concrete strength is the highest at 91 days. They have the highest median strenght with a narrow variation. We can also see that strength has the largest variation at 28 days.</p>
+</div>
+</div>
+<div class="section" id="average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
+<h2>1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.<a class="headerlink" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age" title="Permalink to this headline">¶</a></h2>
+<p>Average strength of concrete is the lowest after 1 day and increases significantly after 7 days. Strength continues to increase in MPa after 14 and 28 days.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">ages</span><span class="p">:</span>
+    <span class="n">cond</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">==</span> <span class="n">age</span>
+    <span class="n">avg_str</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">strength</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">age</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average strength of the concrete sample is </span><span class="si">{</span><span class="n">avg_str</span><span class="si">}</span><span class="s1"> MPa at </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> day.&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average strength of the concrete sample is </span><span class="si">{</span><span class="n">avg_str</span><span class="si">}</span><span class="s1"> MPa at </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> days.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average strength of the concrete sample is 9.45 MPa at 1 day.
+Average strength of the concrete sample is 25.18 MPa at 7 days.
+Average strength of the concrete sample is 28.75 MPa at 14 days.
+Average strength of the concrete sample is 37.38 MPa at 28 days.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-predictive-model">
+<h2>2. Creating predictive model<a class="headerlink" href="#creating-predictive-model" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s help our colleages in the engineering department find out the coefficients <span class="math notranslate nohighlight">\(\beta_{0}\)</span>, <span class="math notranslate nohighlight">\(\beta_{1}\)</span> … <span class="math notranslate nohighlight">\(\beta_{8}\)</span>, to use in the following formula:</p>
+<p><img alt="Strength Equation" src="../../_images/str_eq.png" /></p>
+</div>
+<div class="section" id="train-test-split">
+<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">¶</a></h2>
+<p>Split the data to train (80%) and test (20%) to estimate the performance of machine learning algorithms when they are used to make predictions on data not used to train the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cement&#39;</span><span class="p">,</span> <span class="s1">&#39;slag&#39;</span><span class="p">,</span> <span class="s1">&#39;fly_ash&#39;</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">,</span> <span class="s1">&#39;superplasticizer&#39;</span><span class="p">,</span> <span class="s1">&#39;coarse_aggregate&#39;</span><span class="p">,</span> <span class="s1">&#39;fine_aggregate&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span> <span class="c1"># Features</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;strength&#39;</span><span class="p">]</span> <span class="c1"># Target</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train Test Split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X train data </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y train data </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X test data  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y test data  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X train data (804, 8)
+y train data (804,)
+X test data  (201, 8)
+y test data  (201,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="encoding-age">
+<h3>Encoding age<a class="headerlink" href="#encoding-age" title="Permalink to this headline">¶</a></h3>
+<p>We observed that <code class="docutils literal notranslate"><span class="pre">age</span></code> is a variabel comprised of a finite set of discrete values with a ranked ordering between values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ordinal_encoding_feature</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>    
+    <span class="sd">&#39;&#39;&#39;Transform selected column with ordinal encoder</span>
+<span class="sd">    </span>
+<span class="sd">    INPUTS:</span>
+<span class="sd">    data: dataframe</span>
+<span class="sd">    feature: column name</span>
+<span class="sd">    </span>
+<span class="sd">    OUTPUT:</span>
+<span class="sd">    d: dataframe with feature ordinally encoded</span>
+<span class="sd">    &#39;&#39;&#39;</span>  
+    <span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">encoder</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
+    <span class="c1"># Reshape because only one column is transformed</span>
+    <span class="n">encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">d</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">d</span>
+<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">ordinal_encoding_feature</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">)</span>
+<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">ordinal_encoding_feature</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-selection">
+<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline">¶</a></h2>
+<p>We will be using a supervised regression model since the target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code> is labeled and continuous. <br>
+Using k-folds cross validation to estimate and compare the performance of models on out-of-sample data using r2 score. This enables us to identify which model is worth improving upon. <br>
+GradientBoostRegressor gives the best results out of models, with the highest r2score of 0.89.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipelines</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;Linear Regression&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;KNN Regressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;KNNR&#39;</span><span class="p">,</span> <span class="n">KNeighborsRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;SupportVectorRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;SVR&#39;</span><span class="p">,</span> <span class="n">SVR</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;DecisionTreeRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;DTR&#39;</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;AdaboostRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;ABR&#39;</span><span class="p">,</span> <span class="n">AdaBoostRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;RandomForestRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;RBR&#39;</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;BaggingRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;BGR&#39;</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">())])))</span>
+<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;GradientBoostRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;GBR&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">())])))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty dataframe to store the results</span>
+<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Regressor&#39;</span><span class="p">:[],</span> <span class="s1">&#39;R2&#39;</span><span class="p">:[],</span> <span class="s1">&#39;Std&#39;</span><span class="p">:[]})</span>
+
+<span class="c1"># Cross-validation score for each pipeline for training data</span>
+<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pipelines</span><span class="p">):</span>
+    <span class="n">name</span><span class="p">,</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">val</span>
+    <span class="n">kfold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> 
+    <span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;r2&quot;</span><span class="p">)</span>
+    <span class="n">cv_scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">score</span><span class="o">.</span><span class="n">std</span><span class="p">()]</span>
+<span class="n">cv_scores</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Regressor</th>
+      <th>R2</th>
+      <th>Std</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Linear Regression</td>
+      <td>0.766578</td>
+      <td>0.026529</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>KNN Regressor</td>
+      <td>0.788847</td>
+      <td>0.023574</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SupportVectorRegressor</td>
+      <td>0.702593</td>
+      <td>0.018576</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>DecisionTreeRegressor</td>
+      <td>0.808143</td>
+      <td>0.030844</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>AdaboostRegressor</td>
+      <td>0.769013</td>
+      <td>0.018178</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>RandomForestRegressor</td>
+      <td>0.883270</td>
+      <td>0.011158</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>BaggingRegressor</td>
+      <td>0.870644</td>
+      <td>0.010835</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>GradientBoostRegressor</td>
+      <td>0.885583</td>
+      <td>0.011901</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="model-tuning">
+<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this headline">¶</a></h2>
+<p>Using Grid Search to tune hyperparameters of Gradient Boosting Regressor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;GBR&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">())]</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+
+<span class="n">param_grid</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;GBR__n_estimators&#39;</span><span class="p">:[</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">1000</span><span class="p">],</span> 
+             <span class="s1">&#39;GBR__learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],</span> 
+             <span class="s1">&#39;GBR__max_depth&#39;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> 
+             <span class="s1">&#39;GBR__min_samples_leaf&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">17</span><span class="p">],</span> 
+             <span class="s1">&#39;GBR__max_features&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]</span> <span class="p">}]</span>
+
+<span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R Squared:&quot;</span><span class="p">,</span> <span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 5 folds for each of 288 candidates, totalling 1440 fits
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [18],</span> in <span class="ni">&lt;cell line: 11&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">param_grid</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;GBR__n_estimators&#39;</span><span class="p">:[</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">1000</span><span class="p">],</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span>              <span class="s1">&#39;GBR__learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],</span> 
+<span class="g g-Whitespace">      </span><span class="mi">6</span>              <span class="s1">&#39;GBR__max_depth&#39;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span>              <span class="s1">&#39;GBR__min_samples_leaf&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">17</span><span class="p">],</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span>              <span class="s1">&#39;GBR__max_features&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]</span> <span class="p">}]</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">cv</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">scoring</span> <span class="o">=</span> <span class="s1">&#39;r2&#39;</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="nb">print</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span><span class="p">)</span> 
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R Squared:&quot;</span><span class="p">,</span> <span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/sklearn/model_selection/_search.py:891,</span> in <span class="ni">BaseSearchCV.fit</span><span class="nt">(self, X, y, groups, **fit_params)</span>
+<span class="g g-Whitespace">    </span><span class="mi">885</span>     <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_format_results</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">886</span>         <span class="n">all_candidate_params</span><span class="p">,</span> <span class="n">n_splits</span><span class="p">,</span> <span class="n">all_out</span><span class="p">,</span> <span class="n">all_more_results</span>
+<span class="g g-Whitespace">    </span><span class="mi">887</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">889</span>     <span class="k">return</span> <span class="n">results</span>
+<span class="ne">--&gt; </span><span class="mi">891</span> <span class="bp">self</span><span class="o">.</span><span class="n">_run_search</span><span class="p">(</span><span class="n">evaluate_candidates</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">893</span> <span class="c1"># multimetric is determined here because in the case of a callable</span>
+<span class="g g-Whitespace">    </span><span class="mi">894</span> <span class="c1"># self.scoring the return type is only known after calling</span>
+<span class="g g-Whitespace">    </span><span class="mi">895</span> <span class="n">first_test_score</span> <span class="o">=</span> <span class="n">all_out</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;test_scores&quot;</span><span class="p">]</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/sklearn/model_selection/_search.py:1392,</span> in <span class="ni">GridSearchCV._run_search</span><span class="nt">(self, evaluate_candidates)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1390</span> <span class="k">def</span> <span class="nf">_run_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evaluate_candidates</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1391</span>     <span class="sd">&quot;&quot;&quot;Search all candidates in param_grid&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1392</span>     <span class="n">evaluate_candidates</span><span class="p">(</span><span class="n">ParameterGrid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">param_grid</span><span class="p">))</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/sklearn/model_selection/_search.py:838,</span> in <span class="ni">BaseSearchCV.fit.&lt;locals&gt;.evaluate_candidates</span><span class="nt">(candidate_params, cv, more_results)</span>
+<span class="g g-Whitespace">    </span><span class="mi">830</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">831</span>     <span class="nb">print</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">832</span>         <span class="s2">&quot;Fitting </span><span class="si">{0}</span><span class="s2"> folds for each of </span><span class="si">{1}</span><span class="s2"> candidates,&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">833</span>         <span class="s2">&quot; totalling </span><span class="si">{2}</span><span class="s2"> fits&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">834</span>             <span class="n">n_splits</span><span class="p">,</span> <span class="n">n_candidates</span><span class="p">,</span> <span class="n">n_candidates</span> <span class="o">*</span> <span class="n">n_splits</span>
+<span class="g g-Whitespace">    </span><span class="mi">835</span>         <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">836</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">838</span> <span class="n">out</span> <span class="o">=</span> <span class="n">parallel</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">839</span>     <span class="n">delayed</span><span class="p">(</span><span class="n">_fit_and_score</span><span class="p">)(</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span>         <span class="n">clone</span><span class="p">(</span><span class="n">base_estimator</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">841</span>         <span class="n">X</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">842</span>         <span class="n">y</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">843</span>         <span class="n">train</span><span class="o">=</span><span class="n">train</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">844</span>         <span class="n">test</span><span class="o">=</span><span class="n">test</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">845</span>         <span class="n">parameters</span><span class="o">=</span><span class="n">parameters</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">846</span>         <span class="n">split_progress</span><span class="o">=</span><span class="p">(</span><span class="n">split_idx</span><span class="p">,</span> <span class="n">n_splits</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">847</span>         <span class="n">candidate_progress</span><span class="o">=</span><span class="p">(</span><span class="n">cand_idx</span><span class="p">,</span> <span class="n">n_candidates</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">848</span>         <span class="o">**</span><span class="n">fit_and_score_kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">849</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">850</span>     <span class="k">for</span> <span class="p">(</span><span class="n">cand_idx</span><span class="p">,</span> <span class="n">parameters</span><span class="p">),</span> <span class="p">(</span><span class="n">split_idx</span><span class="p">,</span> <span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">))</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">851</span>         <span class="nb">enumerate</span><span class="p">(</span><span class="n">candidate_params</span><span class="p">),</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">852</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">853</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">855</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">856</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">857</span>         <span class="s2">&quot;No fits were performed. &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">858</span>         <span class="s2">&quot;Was the CV iterator empty? &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">859</span>         <span class="s2">&quot;Were there no candidates?&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/joblib/parallel.py:1056,</span> in <span class="ni">Parallel.__call__</span><span class="nt">(self, iterable)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1053</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_iterating</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1055</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1056</span>     <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1057</span> <span class="c1"># Make sure that we get a last message telling us we are done</span>
+<span class="g g-Whitespace">   </span><span class="mi">1058</span> <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/joblib/parallel.py:935,</span> in <span class="ni">Parallel.retrieve</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">934</span>     <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">935</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">937</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/joblib/_parallel_backends.py:542,</span> in <span class="ni">LokyBackend.wrap_future_result</span><span class="nt">(future, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span> <span class="sd">&quot;&quot;&quot;Wrapper for Future.result to implement the same behaviour as</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span><span class="sd"> AsyncResults.get from multiprocessing.&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">542</span>     <span class="k">return</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span> <span class="k">except</span> <span class="n">CfTimeoutError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">544</span>     <span class="k">raise</span> <span class="ne">TimeoutError</span> <span class="kn">from</span> <span class="nn">e</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/concurrent/futures/_base.py:439,</span> in <span class="ni">Future.result</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">436</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">==</span> <span class="n">FINISHED</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__get_result</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">439</span> <span class="bp">self</span><span class="o">.</span><span class="n">_condition</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="ow">in</span> <span class="p">[</span><span class="n">CANCELLED</span><span class="p">,</span> <span class="n">CANCELLED_AND_NOTIFIED</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span>     <span class="k">raise</span> <span class="n">CancelledError</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/threading.py:302,</span> in <span class="ni">Condition.wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span> <span class="k">try</span><span class="p">:</span>    <span class="c1"># restore state no matter what (e.g., KeyboardInterrupt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">302</span>         <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">303</span>         <span class="n">gotit</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have identified the best model, let’s use it to predict on our unseen data <code class="docutils literal notranslate"><span class="pre">X_test</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">best_model</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
+
+<span class="n">es</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span> <span class="o">=</span> <span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">,</span><span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">best_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pipeline(steps=[(&#39;GBR&#39;,
+                 GradientBoostingRegressor(learning_rate=0.05, max_depth=6,
+                                           max_features=0.3,
+                                           min_samples_leaf=17,
+                                           n_estimators=1000))])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="model-evaluation">
+<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h2>
+<p>Let’s evaluate the model’s performance on the testing data to assess the likely future performance of a model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Absolute Error (MAE): </span><span class="si">{</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Squared Error (MSE): </span><span class="si">{</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;RMSE: </span><span class="si">{</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R2 Score: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 2.857554474106023
+Mean Squared Error (MSE): 18.697809837585048
+RMSE: 4.324096418627255
+R2 Score: 0.9270673834665101
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feature-importance">
+<h2>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">¶</a></h2>
+<p>Using the feature importance of the model, we get the coefficients <span class="math notranslate nohighlight">\(\beta_{0}\)</span>, <span class="math notranslate nohighlight">\(\beta_{1}\)</span> … <span class="math notranslate nohighlight">\(\beta_{8}\)</span>, to use in the following formula:
+<img alt="Strength Equation" src="../../_images/str_eq.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">betas</span> <span class="o">=</span> <span class="n">best_model</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">feature_importances_</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">betas</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/concrete_strength_44_0.png" src="../../_images/concrete_strength_44_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">betas_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">betas</span><span class="p">))</span>
+<span class="n">beta_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="n">betas</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Concrete Strength = </span><span class="si">{</span><span class="n">beta_0</span><span class="si">}</span><span class="s2"> +&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">betas_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">betas_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">betas_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> +&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -172.73850453322098 +
+0.2298719580731237 * cement +
+0.05785238568150824 * slag +
+0.03957066757451669 * fly_ash +
+0.1375242032644161 * water +
+0.06154927686809351 * superplasticizer +
+0.04513983123823491 * coarse_aggregate +
+0.0735764168446555 * fine_aggregate +
+0.35491526045545135 * age
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/concrete_strength"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../inn_the_neighborhood/inn_the_neighborhood.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Inn the Neighborhood - Rental Price Prediction</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../travel_assured/travel_assured.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Travel Assured</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Patrick Guo<br/>
+    
+        &copy; Copyright 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
