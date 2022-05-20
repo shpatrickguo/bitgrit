@@ -8,6 +8,8 @@ parts:
     chapters:
     - file: projects/inn_the_neighborhood/inn_the_neighborhood.ipynb
       title: Rental Price Prediction
+    - file: projects/concrete_strength/concrete_strength.ipynb
+      title: Concrete Strength Prediction
     - file: projects/travel_assured/travel_assured.ipynb
       title: Travel Insurance Analysis
     - file: projects/exam_scores/exam_scores.ipynb
