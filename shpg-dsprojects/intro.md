@@ -4,7 +4,7 @@ Welcome to my Data Science portfolio!
 
 ## About Me
 
-My name is Patrick Guo. As a data scientist and analyst, I translate data into valuable and comprehensible insights. My aim is to improve results, make the right decisions and save costs.
+My name is Patrick Guo. As a data scientist and analyst, I translate data into valuable and comprehensible insights. I am passionate about using statistical analysis skills to drive organizational change.
 
 I am experienced in machine learning, supervised and unsupervised algorithms and use data visualization techniques to present the results. I use Python, SQL for my data projects.
 
