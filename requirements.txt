@@ -19,4 +19,4 @@ folium
 sodapy
 pyproj
 bs4
-imageio
+nltk
