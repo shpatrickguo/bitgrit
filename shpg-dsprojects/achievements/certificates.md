@@ -1,11 +1,15 @@
 # Certificates
 
-````{dropdown} [DataCamp - Professional Data Scientist - May 2022](https://www.datacamp.com/certificate/DS0015263399857)
+````{dropdown} [DataKitchen DataOps Fundamentals - May 2022](https://learn.datakitchen.io/certificate/ODIwMDBfODg1NDU2)
+[Course Overview](https://info.datakitchen.io/training-certification-dataops-fundamentals)
+````
+
+````{dropdown} [DataCamp Professional Data Scientist - May 2022](https://www.datacamp.com/certificate/DS0015263399857)
 - Time assessments on Data Management, Exploratory Analysis, Statistical Experimentation, Model Development, Coding for Production Environments, Communicating and Reporting
 - Case study with technical report and non-technical presentation.
 ````
 
-````{dropdown} [DataCamp - Professional Analyst - May 2022](https://www.datacamp.com/certificate/DA0018252251622)
+````{dropdown} [DataCamp Professional Analyst - May 2022](https://www.datacamp.com/certificate/DA0018252251622)
 - Time assessments on Analytic Fundamentals, Exploratory Analysis, Data Management, Visualization and Reporting
 - Case study with technical report and non-technical presentation.
 ````
