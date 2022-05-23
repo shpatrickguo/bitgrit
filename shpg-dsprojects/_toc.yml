@@ -16,6 +16,8 @@ parts:
       title: Do test preparation courses help you prepare for exams?
     - file: projects/viral_tweets/README.md
       title: Viral Tweets
+    - file: projects/stock_sentiment_from_headlines/stock_sentiment_from_headlines.ipynb
+      title: Stock Sentiment Analysis from News Headlines
     - file: projects/BCG/README.md
       title: PowerCo - Is Churn driven by price sensitivity?
       sections:
