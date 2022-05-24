@@ -453,7 +453,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="searching-inside-html-files">
 <h2>1. Searching inside HTML files<a class="headerlink" href="#searching-inside-html-files" title="Permalink to this headline">¶</a></h2>
 <p>Nowadays, financial news spreads across the internet in a matter of seconds. News articles are <em>automatically</em> being generated from figures and earnings call streams. Hedge funds and independent traders are using data science to process this wealth of information in the quest for profit.</p>
-<p>In this notebook, we will generate investing insights by applying <a href="https://en.wikipedia.org/wiki/Sentiment_analysis">sentiment analysis</a> on financial news headlines from <a href="https://finviz.com">FINVIZ.com</a>. Using this <a href="https://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a> technique, we can understand the emotion behind the headlines and predict whether the market <em>feels</em> good or bad about a stock. It would then be possible to make educated guesses on how certain stocks will perform and trade accordingly.</p>
+<p>In this notebook, we will generate investing insights by applying <a href="https://en.wikipedia.org/wiki/Sentiment_analysis">sentiment analysis</a> on financial news headlines from <a href="https://finviz.com">FINVIZ.com</a>. FinViz makes market information accessible and provides a lot of data in visual snapshots. Using this <a href="https://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a> technique, we can understand the emotion behind the headlines and predict whether the market <em>feels</em> good or bad about a stock. It would then be possible to make educated guesses on how certain stocks will perform and trade accordingly.</p>
 <p>Why headlines? And why from FINVIZ?</p>
 <ol>
 <li>Headlines, which have similar length, are easier to parse and group than full articles, which vary in length.</li>
@@ -468,7 +468,6 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;fivethirtyeight&quot;</span><span class="p">)</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="c1"># NLTK VADER for sentiment analysis</span>
