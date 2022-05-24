@@ -339,6 +339,16 @@ const thebe_selector_output = ".output, .cell_output"
    Sentiment analysis is very sensitive to context
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-classification">
+   Sentiment Classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handling-duplicates">
+   Handling duplicates
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -367,6 +377,16 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sentiment-analysis-is-very-sensitive-to-context">
    Sentiment analysis is very sensitive to context
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-classification">
+   Sentiment Classification
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#handling-duplicates">
+   Handling duplicates
   </a>
  </li>
 </ul>
@@ -448,7 +468,7 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.time(8, 30)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.time(19, 1)
 </pre></div>
 </div>
 </div>
@@ -482,16 +502,16 @@ FinViz makes market information accessible and provides a lot of data in visual 
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;AMZN&#39;,
   datetime.date(2022, 5, 24),
-  datetime.time(7, 59),
-  &#39;Legal &amp; General to Jeff Bezos: drop dead&#39;],
+  datetime.time(17, 27),
+  &#39;Report: Almost 1 in 5 Amazon delivery drivers injured last year&#39;],
  [&#39;AMZN&#39;,
   datetime.date(2022, 5, 24),
-  datetime.time(7, 35),
-  &#39;Missed Out on Tesla? Cathie Wood Has a New Top Growth Stock&#39;],
+  datetime.time(17, 0),
+  &#39;An Amazon worker will make a novel shareholder proposal this week&#39;],
  [&#39;AMZN&#39;,
   datetime.date(2022, 5, 24),
-  datetime.time(6, 25),
-  &quot;Netflix doesn&#39;t have a &#39;natural investor base&#39; right now: analyst&quot;]]
+  datetime.time(16, 55),
+  &#39;Amazon Style Opens Its Very First Store Powered by\xa0Technology&#39;]]
 </pre></div>
 </div>
 </div>
@@ -535,6 +555,11 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="sentiment-classification">
+<h2>Sentiment Classification<a class="headerlink" href="#sentiment-classification" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://pypi.org/project/vaderSentiment/">VADER</a> (Valence Aware Dictionary and sEntiment Reasoner)is a lexicon and rule-based sentiment analysis tool. Let’s use it to quantify how much of positive or negative emotion the text has and also the intensity of emotion.</p>
+<p>The tool will generate a compound score, which is the sum of positive, negative &amp; neutral scores which is then normalized between -1(most extreme negative) and +1 (most extreme positive).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use these column names</span>
@@ -570,7 +595,30 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/stock_sentiment_from_headlines_12_0.png" src="../../_images/stock_sentiment_from_headlines_12_0.png" />
+<img alt="../../_images/stock_sentiment_from_headlines_13_0.png" src="../../_images/stock_sentiment_from_headlines_13_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="handling-duplicates">
+<h2>Handling duplicates<a class="headerlink" href="#handling-duplicates" title="Permalink to this headline">¶</a></h2>
+<p>Some headlines are the same news piece from different sources, the fact that they are written differently could provide different perspectives on the same story. Plus, when one piece of news is more important, it tends to get more headlines from multiple sources. What we want to get rid of is verbatim copied headlines, as these are very likely coming from the same journalist and are just being “forwarded” around, so to speak.</p></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count the number of headlines in scored_news (store as integer)</span>
+<span class="n">num_news_before</span> <span class="o">=</span> <span class="n">scored_news</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Drop duplicates based on ticker and headline</span>
+<span class="n">scored_news_clean</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;headline&#39;</span><span class="p">])</span>
+<span class="c1"># Count number of headlines after dropping duplicates</span>
+<span class="n">num_news_after</span> <span class="o">=</span> <span class="n">scored_news_clean</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Print before and after numbers</span>
+<span class="sa">f</span><span class="s2">&quot;Before we had </span><span class="si">{</span><span class="n">num_news_before</span><span class="si">}</span><span class="s2"> headlines, now we have </span><span class="si">{</span><span class="n">num_news_after</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Before we had 200 headlines, now we have 199&#39;
+</pre></div>
+</div>
 </div>
 </div>
 </div>
