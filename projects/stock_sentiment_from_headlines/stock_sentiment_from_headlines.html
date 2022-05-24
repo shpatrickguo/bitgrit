@@ -330,48 +330,13 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#searching-inside-html-files">
-   1. Searching inside HTML files
+  <a class="reference internal nav-link" href="#finviz-api">
+   finviz-api
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inside-the-html-file">
-   2. Inside the HTML file
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extract-the-news-headlines">
-   3.Extract the news headlines
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#make-nltk-think-like-a-financial-journalist">
-   4. Make NLTK think like a financial journalist
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#breaking-news-nltk-crushes-sentiment-estimates">
-   5. BREAKING NEWS: NLTK Crushes Sentiment Estimates
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-all-the-sentiment-in-subplots">
-   6. Plot all the sentiment in subplots
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#weekends-and-duplicates">
-   7. Weekends and duplicates
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sentiment-on-one-single-trading-day-and-stock">
-   8. Sentiment on one single trading day and stock
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualize-the-single-day">
-   9. Visualize the single day
+  <a class="reference internal nav-link" href="#sentiment-analysis-is-very-sensitive-to-context">
+   Sentiment analysis is very sensitive to context
   </a>
  </li>
 </ul>
@@ -395,48 +360,13 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#searching-inside-html-files">
-   1. Searching inside HTML files
+  <a class="reference internal nav-link" href="#finviz-api">
+   finviz-api
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inside-the-html-file">
-   2. Inside the HTML file
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#extract-the-news-headlines">
-   3.Extract the news headlines
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#make-nltk-think-like-a-financial-journalist">
-   4. Make NLTK think like a financial journalist
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#breaking-news-nltk-crushes-sentiment-estimates">
-   5. BREAKING NEWS: NLTK Crushes Sentiment Estimates
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#plot-all-the-sentiment-in-subplots">
-   6. Plot all the sentiment in subplots
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#weekends-and-duplicates">
-   7. Weekends and duplicates
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sentiment-on-one-single-trading-day-and-stock">
-   8. Sentiment on one single trading day and stock
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visualize-the-single-day">
-   9. Visualize the single day
+  <a class="reference internal nav-link" href="#sentiment-analysis-is-very-sensitive-to-context">
+   Sentiment analysis is very sensitive to context
   </a>
  </li>
 </ul>
@@ -450,25 +380,25 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="stock-sentiment-analysis-from-news-headlines">
 <h1>Stock Sentiment Analysis from News Headlines<a class="headerlink" href="#stock-sentiment-analysis-from-news-headlines" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="searching-inside-html-files">
-<h2>1. Searching inside HTML files<a class="headerlink" href="#searching-inside-html-files" title="Permalink to this headline">¶</a></h2>
-<p>Nowadays, financial news spreads across the internet in a matter of seconds. News articles are <em>automatically</em> being generated from figures and earnings call streams. Hedge funds and independent traders are using data science to process this wealth of information in the quest for profit.</p>
-<p>In this notebook, we will generate investing insights by applying <a href="https://en.wikipedia.org/wiki/Sentiment_analysis">sentiment analysis</a> on financial news headlines from <a href="https://finviz.com">FINVIZ.com</a>. FinViz makes market information accessible and provides a lot of data in visual snapshots. Using this <a href="https://en.wikipedia.org/wiki/Natural_language_processing">natural language processing</a> technique, we can understand the emotion behind the headlines and predict whether the market <em>feels</em> good or bad about a stock. It would then be possible to make educated guesses on how certain stocks will perform and trade accordingly.</p>
+<p>This notebook generates investing insights by applying sentiment analysis on financial news headlines from <a href="https://finviz.com">FINVIZ.com</a>. Using a natural language processing< technique, we can understand the emotion behind the headlines and predict whether the market <em>feels</em> good or bad about a stock. This enables us to make educated guesses on how certain stocks will perform and trade accordingly.</p>
 <p>Why headlines? And why from FINVIZ?</p>
-<ol>
+FinViz makes market information accessible and provides a lot of data in visual snapshots.
 <li>Headlines, which have similar length, are easier to parse and group than full articles, which vary in length.</li>
-<li>FINVIZ has a list of trusted websites, and headlines from these sites tend to be more consistent in their jargon than those from independent bloggers. Consistent textual patterns will improve the sentiment analysis.</li>
+<li>FINVIZ has a list of trusted websites, and headlines from these sites tend to be more consistent in their jargon than those from independent bloggers. <b>Consistent textual patterns will improve the sentiment analysis.</b></li>
 </ol>
-<p><strong>Disclaimer: Investing in the stock market involves risk and can lead to monetary loss. The content in this notebook is not to be taken as financial advice.</strong> </p><div class="cell docutils container">
+<br>
+<p><strong>Disclaimer: Investing in the stock market involves risk and can lead to monetary loss. The content in this notebook is purely for educational purposes and should not to be taken as financial advice.</strong> </p><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;fivethirtyeight&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># https://github.com/mariostoev/finviz</span>
+<span class="kn">import</span> <span class="nn">finviz</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="c1"># NLTK VADER for sentiment analysis</span>
 <span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="kn">import</span> <span class="n">SentimentIntensityAnalyzer</span>
@@ -476,125 +406,109 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="cell tag_sample_code docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">html_tables</span> <span class="o">=</span> <span class="p">{}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tickers of Stocks we want to investigate</span>
+<span class="n">TICKER_LIST</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AMZN&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="finviz-api">
+<h2>finviz-api<a class="headerlink" href="#finviz-api" title="Permalink to this headline">¶</a></h2>
+<p>We will be using an unofficial <a class="reference external" href="https://github.com/mariostoev/finviz">finviz-API</a> made by <a class="reference external" href="https://github.com/mariostoev">Mario Stoev</a> to get the news headlines for each stock.</p>
+<p>finviz.get_news returns list of sets containing containing:</p>
+<ol class="simple">
+<li><p>Datetime</p></li>
+<li><p>Headline</p></li>
+<li><p>URL</p></li>
+<li><p>Source</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_news</span><span class="p">(</span><span class="n">ticker</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a list of sets containing news headline and url</span>
+<span class="sd">    </span>
+<span class="sd">    :param ticker: stock symbol</span>
+<span class="sd">    :return: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">news</span> <span class="o">=</span> <span class="n">finviz</span><span class="o">.</span><span class="n">get_news</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">news</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">get_news</span><span class="p">(</span><span class="s1">&#39;AAPL&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.time(8, 30)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hold the parsed news into a list</span>
+<span class="n">parsed_news</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="c1"># For every table in the datasets folder...</span>
-<span class="k">for</span> <span class="n">table_name</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s1">&#39;datasets&#39;</span><span class="p">):</span>
-    <span class="c1"># Path to the file.</span>
-    <span class="n">table_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;datasets/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s1">&#39;</span>
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">TICKER_LIST</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># Open as a python file in read-only mode</span>
-        <span class="n">table_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">table_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-        <span class="c1"># Read the contents of the file into &#39;html&#39;</span>
-        <span class="n">html</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">table_file</span><span class="p">)</span>
-        <span class="c1"># Find &#39;news-table&#39; in the Soup and load it into &#39;html_table&#39;</span>
-        <span class="n">html_table</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s2">&quot;news-table&quot;</span><span class="p">)</span>
-        <span class="c1"># Add the table to our dictionary</span>
-        <span class="n">html_tables</span><span class="p">[</span><span class="n">table_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">html_table</span>
+        <span class="n">news_array</span> <span class="o">=</span> <span class="n">get_news</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">news_set</span> <span class="ow">in</span> <span class="n">news_array</span><span class="p">:</span>
+            <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">news_set</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">headline</span> <span class="o">=</span> <span class="n">news_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">parsed_news</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ticker</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">headline</span><span class="p">])</span>
     <span class="k">except</span><span class="p">:</span>
         <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="inside-the-html-file">
-<h2>2. Inside the HTML file<a class="headerlink" href="#inside-the-html-file" title="Permalink to this headline">¶</a></h2>
-<p>We've grabbed the table that contains the headlines from each stock's HTML file, but before we start parsing those tables further, let's understand how the data in that table is structured.<div class="cell tag_sample_code docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read one single day of headlines </span>
-<span class="n">tsla</span> <span class="o">=</span> <span class="n">html_tables</span><span class="p">[</span><span class="s1">&#39;tsla_22sep.html&#39;</span><span class="p">]</span>
-<span class="c1"># Get all the table rows tagged in HTML with &lt;tr&gt; into &#39;tesla_tr&#39;</span>
-<span class="n">tsla_tr</span> <span class="o">=</span> <span class="n">tsla</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">)</span>
-
-<span class="c1"># For each row...</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">table_row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tsla_tr</span><span class="p">):</span>
-    <span class="c1"># Read the text of the element &#39;a&#39; into &#39;link_text&#39;</span>
-    <span class="n">link_text</span> <span class="o">=</span> <span class="n">table_row</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-    <span class="c1"># Read the text of the element &#39;td&#39; into &#39;data_text&#39;</span>
-    <span class="n">data_text</span> <span class="o">=</span> <span class="n">table_row</span><span class="o">.</span><span class="n">td</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-    <span class="c1"># Print the count</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;File number </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">:&#39;</span><span class="p">)</span>
-    <span class="c1"># Print the contents of &#39;link_text&#39; and &#39;data_text&#39; </span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">link_text</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">data_text</span><span class="p">)</span>
-    <span class="c1"># The following exits the loop after four rows to prevent spamming the notebook</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="k">break</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed_news</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File number 1:
-Billionaire investor questions Elon Musk getting &#39;a pass&#39; after bombshell tweets
-Sep-21-18 09:56PM  
-File number 2:
-Broadcoms Stock Looks Like a Winner
-09:30PM  
-File number 3:
-SHAREHOLDER ALERT:  Pomerantz Law Firm Reminds Shareholders with Losses on their Investment in Tesla, Inc. of Class Action Lawsuit and Upcoming Deadline  TSLA
-05:30PM  
-File number 4:
-Tesla&#39;s People Problem and the Inscrutable Musk: 2 Things That Make You Go Hmmm
-05:30PM  
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;AMZN&#39;,
+  datetime.date(2022, 5, 24),
+  datetime.time(7, 59),
+  &#39;Legal &amp; General to Jeff Bezos: drop dead&#39;],
+ [&#39;AMZN&#39;,
+  datetime.date(2022, 5, 24),
+  datetime.time(7, 35),
+  &#39;Missed Out on Tesla? Cathie Wood Has a New Top Growth Stock&#39;],
+ [&#39;AMZN&#39;,
+  datetime.date(2022, 5, 24),
+  datetime.time(6, 25),
+  &quot;Netflix doesn&#39;t have a &#39;natural investor base&#39; right now: analyst&quot;]]
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="extract-the-news-headlines">
-<h2>3.Extract the news headlines<a class="headerlink" href="#extract-the-news-headlines" title="Permalink to this headline">¶</a></h2>
-<p>As we saw above, the interesting data inside each table row (<code>&lt;tr&gt;</code>) is in the text inside the <code>&lt;td&gt;</code> and <code>&lt;a&gt;</code> tags. Let's now actually parse the data for <strong>all</strong> tables in a comfortable data structure.</p><div class="cell tag_sample_code docutils container">
+<div class="section" id="sentiment-analysis-is-very-sensitive-to-context">
+<h2>Sentiment analysis is very sensitive to context<a class="headerlink" href="#sentiment-analysis-is-very-sensitive-to-context" title="Permalink to this headline">¶</a></h2>
+<p>For example, “This is so addictive!” often means something positive if the context is a video game you are enjoying with your friends, but it very often means something negative when we are talking about opioids.</p>
+<p>Financial journalists have their own lingo. Let’s add some new words and sentiment values to our lexicon to make NLTK think like a financial journalist.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hold the parsed news into a list</span>
-<span class="n">parsed_news</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="c1"># Iterate through the news</span>
-<span class="k">for</span> <span class="n">file_name</span><span class="p">,</span> <span class="n">news_table</span> <span class="ow">in</span> <span class="n">html_tables</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="c1"># Iterate through all tr tags in &#39;news_table&#39;</span>
-    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">news_table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;tr&#39;</span><span class="p">):</span>
-        <span class="c1"># Read the text from the tr tag into text</span>
-        <span class="n">text</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-        <span class="n">headline</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-        <span class="c1"># Split the text in the td tag into a list </span>
-        <span class="n">date_scrape</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">td</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
-        <span class="c1"># If the length of &#39;date_scrape&#39; is 1, load &#39;time&#39; as the only element</span>
-        <span class="c1"># If not, load &#39;date&#39; as the 1st element and &#39;time&#39; as the second</span>
-        <span class="k">if</span>  <span class="nb">len</span><span class="p">(</span><span class="n">date_scrape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">time</span> <span class="o">=</span> <span class="n">date_scrape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">date</span> <span class="o">=</span> <span class="n">date_scrape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">time</span> <span class="o">=</span> <span class="n">date_scrape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-        <span class="c1"># Extract the ticker from the file name, get the string up to the 1st &#39;_&#39;  </span>
-        <span class="n">ticker</span> <span class="o">=</span> <span class="n">file_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="c1"># Append ticker, date, time and headline as a list to the &#39;parsed_news&#39; list</span>
-        <span class="n">parsed_news</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ticker</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">headline</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#nltk.download(&#39;vader_lexicon&#39;)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="make-nltk-think-like-a-financial-journalist">
-<h2>4. Make NLTK think like a financial journalist<a class="headerlink" href="#make-nltk-think-like-a-financial-journalist" title="Permalink to this headline">¶</a></h2>
-<p>Sentiment analysis is very sensitive to context. As an example, saying <em>"This is so addictive!"</em> often means something positive if the context is a video game you are enjoying with your friends, but it very often means something negative when we are talking about opioids. Remember that the reason we chose headlines is so we can try to extract sentiment from financial journalists, who like most professionals, have their own lingo. Let's now make NLTK think like a financial journalist by adding some new words and sentiment values to our lexicon.</p><div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;vader_lexicon&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package vader_lexicon to
-[nltk_data]     /home/runner/nltk_data...
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_sample_code docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># New words and values</span>
 <span class="n">new_words</span> <span class="o">=</span> <span class="p">{</span>
@@ -611,12 +525,78 @@ Tesla&#39;s People Problem and the Inscrutable Musk: 2 Things That Make You Go H
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">LookupError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
+<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 10&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">new_words</span> <span class="o">=</span> <span class="p">{</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="s1">&#39;crushes&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="s1">&#39;beats&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="s1">&#39;falls&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">}</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Instantiate the sentiment intensity analyzer with the existing lexicon</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">vader</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Update the lexicon</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">vader</span><span class="o">.</span><span class="n">lexicon</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_words</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nltk/sentiment/vader.py:340,</span> in <span class="ni">SentimentIntensityAnalyzer.__init__</span><span class="nt">(self, lexicon_file)</span>
+<span class="g g-Whitespace">    </span><span class="mi">336</span> <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">337</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span>     <span class="n">lexicon_file</span><span class="o">=</span><span class="s2">&quot;sentiment/vader_lexicon.zip/vader_lexicon/vader_lexicon.txt&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span> <span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">340</span>     <span class="bp">self</span><span class="o">.</span><span class="n">lexicon_file</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">lexicon_file</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>     <span class="bp">self</span><span class="o">.</span><span class="n">lexicon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_lex_dict</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>     <span class="bp">self</span><span class="o">.</span><span class="n">constants</span> <span class="o">=</span> <span class="n">VaderConstants</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nltk/data.py:750,</span> in <span class="ni">load</span><span class="nt">(resource_url, format, cache, verbose, logic_parser, fstruct_reader, encoding)</span>
+<span class="g g-Whitespace">    </span><span class="mi">747</span>     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;&lt;Loading </span><span class="si">{</span><span class="n">resource_url</span><span class="si">}</span><span class="s2">&gt;&gt;&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">749</span> <span class="c1"># Load the resource.</span>
+<span class="ne">--&gt; </span><span class="mi">750</span> <span class="n">opened_resource</span> <span class="o">=</span> <span class="n">_open</span><span class="p">(</span><span class="n">resource_url</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">752</span> <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s2">&quot;raw&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">753</span>     <span class="n">resource_val</span> <span class="o">=</span> <span class="n">opened_resource</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nltk/data.py:876,</span> in <span class="ni">_open</span><span class="nt">(resource_url)</span>
+<span class="g g-Whitespace">    </span><span class="mi">873</span> <span class="n">protocol</span><span class="p">,</span> <span class="n">path_</span> <span class="o">=</span> <span class="n">split_resource_url</span><span class="p">(</span><span class="n">resource_url</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">875</span> <span class="k">if</span> <span class="n">protocol</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">protocol</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;nltk&quot;</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">876</span>     <span class="k">return</span> <span class="n">find</span><span class="p">(</span><span class="n">path_</span><span class="p">,</span> <span class="n">path</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">877</span> <span class="k">elif</span> <span class="n">protocol</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;file&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">878</span>     <span class="c1"># urllib might not use mode=&#39;rb&#39;, so handle this one ourselves:</span>
+<span class="g g-Whitespace">    </span><span class="mi">879</span>     <span class="k">return</span> <span class="n">find</span><span class="p">(</span><span class="n">path_</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nltk/data.py:583,</span> in <span class="ni">find</span><span class="nt">(resource_name, paths)</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;*&quot;</span> <span class="o">*</span> <span class="mi">70</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span> <span class="n">resource_not_found</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="si">{</span><span class="n">sep</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">msg</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">sep</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">583</span> <span class="k">raise</span> <span class="ne">LookupError</span><span class="p">(</span><span class="n">resource_not_found</span><span class="p">)</span>
+
+<span class="ne">LookupError</span>: 
+<span class="o">**********************************************************************</span>
+  <span class="n">Resource</span> <span class="n">vader_lexicon</span> <span class="ow">not</span> <span class="n">found</span><span class="o">.</span>
+  <span class="n">Please</span> <span class="n">use</span> <span class="n">the</span> <span class="n">NLTK</span> <span class="n">Downloader</span> <span class="n">to</span> <span class="n">obtain</span> <span class="n">the</span> <span class="n">resource</span><span class="p">:</span>
+
+  <span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">nltk</span>
+  <span class="o">&gt;&gt;&gt;</span> <span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;vader_lexicon&#39;</span><span class="p">)</span>
+  
+  <span class="n">For</span> <span class="n">more</span> <span class="n">information</span> <span class="n">see</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">nltk</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">data</span><span class="o">.</span><span class="n">html</span>
+
+  <span class="n">Attempted</span> <span class="n">to</span> <span class="n">load</span> <span class="n">sentiment</span><span class="o">/</span><span class="n">vader_lexicon</span><span class="o">.</span><span class="n">zip</span><span class="o">/</span><span class="n">vader_lexicon</span><span class="o">/</span><span class="n">vader_lexicon</span><span class="o">.</span><span class="n">txt</span>
+
+  <span class="n">Searched</span> <span class="ow">in</span><span class="p">:</span>
+    <span class="o">-</span> <span class="s1">&#39;/home/runner/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.12/x64/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.12/x64/share/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/opt/hostedtoolcache/Python/3.8.12/x64/lib/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/usr/share/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/usr/local/share/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/usr/lib/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;/usr/local/lib/nltk_data&#39;</span>
+    <span class="o">-</span> <span class="s1">&#39;&#39;</span>
+<span class="o">**********************************************************************</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="breaking-news-nltk-crushes-sentiment-estimates">
-<h2>5. BREAKING NEWS: NLTK Crushes Sentiment Estimates<a class="headerlink" href="#breaking-news-nltk-crushes-sentiment-estimates" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have the data and the algorithm loaded, we will get to the core of the matter: programmatically predicting sentiment out of news headlines! Luckily for us, VADER is very high level so, in this case, we will not adjust the model further<sup>*</sup> other than the lexicon additions from before.</p>
-<p><sup>*</sup>VADER "out-of-the-box" with some extra lexicon would likely translate into <strong>heavy losses</strong> with real money. A real sentiment analysis tool with chances of being profitable will require a very extensive and dedicated to finance news lexicon. Furthermore, it might also not be enough using a pre-packaged model like VADER.</p><div class="cell tag_sample_code docutils container">
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use these column names</span>
 <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;headline&#39;</span><span class="p">]</span>
@@ -629,15 +609,12 @@ Tesla&#39;s People Problem and the Inscrutable Musk: 2 Things That Make You Go H
 <span class="c1"># Join the DataFrames</span>
 <span class="n">scored_news</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">scored_news</span><span class="p">,</span> <span class="n">scores_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Convert the date column from string to datetime</span>
-<span class="n">scored_news</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">scored_news</span><span class="o">.</span><span class="n">date</span><span class="p">)</span>
+<span class="n">scored_news</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">date</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-all-the-sentiment-in-subplots">
-<h2>6. Plot all the sentiment in subplots<a class="headerlink" href="#plot-all-the-sentiment-in-subplots" title="Permalink to this headline">¶</a></h2>
-<p>Now that we have the scores, let's start plotting the results. We will start by plotting the time series for the stocks we have.</p><div class="cell tag_sample_code docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by date and ticker columns from scored_news and calculate the mean</span>
 <span class="n">mean_c</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;ticker&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -647,88 +624,14 @@ Tesla&#39;s People Problem and the Inscrutable Musk: 2 Things That Make You Go H
 <span class="n">mean_c</span> <span class="o">=</span> <span class="n">mean_c</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;compound&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1"># Plot a bar chart with pandas</span>
 <span class="n">mean_c</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vader compound scores by date for each ticker&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/stock_sentiment_from_headlines_14_0.png" src="../../_images/stock_sentiment_from_headlines_14_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="weekends-and-duplicates">
-<h2>7. Weekends and duplicates<a class="headerlink" href="#weekends-and-duplicates" title="Permalink to this headline">¶</a></h2>
-<p>What happened to Tesla on November 22nd? Since we happen to have the headlines inside our <code>DataFrame</code>, a quick peek reveals that there are a few problems with that particular day: </p>
-<ul>
-<li>There are only 5 headlines for that day.</li>
-<li>Two headlines are verbatim the same as another but from another news outlet.</li>
-</ul>
-<p>Let's clean up the dataset a bit, but not too much! While some headlines are the same news piece from different sources, the fact that they are written differently could provide different perspectives on the same story. Plus, when one piece of news is more important, it tends to get more headlines from multiple sources. What we want to get rid of is verbatim copied headlines, as these are very likely coming from the same journalist and are just being "forwarded" around, so to speak.</p><div class="cell tag_sample_code docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count the number of headlines in scored_news (store as integer)</span>
-<span class="n">num_news_before</span> <span class="o">=</span> <span class="n">scored_news</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="c1"># Drop duplicates based on ticker and headline</span>
-<span class="n">scored_news_clean</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;headline&#39;</span><span class="p">])</span>
-<span class="c1"># Count number of headlines after dropping duplicates</span>
-<span class="n">num_news_after</span> <span class="o">=</span> <span class="n">scored_news_clean</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-<span class="c1"># Print before and after numbers</span>
-<span class="sa">f</span><span class="s2">&quot;Before we had </span><span class="si">{</span><span class="n">num_news_before</span><span class="si">}</span><span class="s2"> headlines, now we have </span><span class="si">{</span><span class="n">num_news_after</span><span class="si">}</span><span class="s2">&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Before we had 500 headlines, now we have 476&#39;
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="sentiment-on-one-single-trading-day-and-stock">
-<h2>8. Sentiment on one single trading day and stock<a class="headerlink" href="#sentiment-on-one-single-trading-day-and-stock" title="Permalink to this headline">¶</a></h2>
-<p>Just to understand the possibilities of this dataset and get a better feel of the data, let's focus on one trading day and one single stock. We will make an informative plot where we will see the smallest grain possible: headline and subscores.</p><div class="cell tag_sample_code docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">STOCK</span> <span class="o">=</span> <span class="s1">&#39;fb&#39;</span>
-<span class="n">DATE</span> <span class="o">=</span> <span class="s1">&#39;2019-01-03&#39;</span>
-
-<span class="c1"># Set the index to ticker and date</span>
-<span class="n">single_day</span> <span class="o">=</span> <span class="n">scored_news_clean</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">])</span>
-<span class="c1"># Cross-section the STOCK row</span>
-<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">STOCK</span><span class="p">]</span>
-<span class="c1"># Select the DATE</span>
-<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">DATE</span><span class="p">]</span>
-<span class="c1"># Convert the datetime string to just the time</span>
-<span class="n">single_day</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">single_day</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">time</span>
-<span class="c1"># Set the index to time and </span>
-<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-<span class="c1"># Sort it</span>
-<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="visualize-the-single-day">
-<h2>9. Visualize the single day<a class="headerlink" href="#visualize-the-single-day" title="Permalink to this headline">¶</a></h2>
-<p>We will make a plot to visualize the positive, negative and neutral scores for a single day of trading and a single stock. This is just one of the many ways to visualize this dataset.</p><div class="cell tag_sample_code docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TITLE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Negative, neutral, and positive sentiment for </span><span class="si">{</span><span class="n">STOCK</span><span class="si">}</span><span class="s2"> on </span><span class="si">{</span><span class="n">DATE</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="n">COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
-<span class="c1"># Drop the columns that aren&#39;t useful for the plot</span>
-<span class="n">plot_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;headline&#39;</span><span class="p">,</span> <span class="s1">&#39;compound&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># Change the column names to &#39;negative&#39;, &#39;positive&#39;, and &#39;neutral&#39;</span>
-<span class="n">plot_day</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;neutral&#39;</span><span class="p">,</span> <span class="s1">&#39;positive&#39;</span><span class="p">]</span>
-<span class="c1"># Plot a stacked bar chart</span>
-<span class="n">plot_day</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
-                  <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> 
-                  <span class="n">title</span> <span class="o">=</span> <span class="n">TITLE</span><span class="p">,</span> 
-                  <span class="n">color</span> <span class="o">=</span> <span class="n">COLORS</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;scores&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/stock_sentiment_from_headlines_20_0.png" src="../../_images/stock_sentiment_from_headlines_20_0.png" />
+<img alt="../../_images/stock_sentiment_from_headlines_12_0.png" src="../../_images/stock_sentiment_from_headlines_12_0.png" />
 </div>
 </div>
 </div>
