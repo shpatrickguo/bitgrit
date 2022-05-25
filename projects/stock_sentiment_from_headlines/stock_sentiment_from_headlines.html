@@ -410,7 +410,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="stock-sentiment-analysis-from-news-headlines">
 <h1>Stock Sentiment Analysis from News Headlines<a class="headerlink" href="#stock-sentiment-analysis-from-news-headlines" title="Permalink to this headline">¶</a></h1>
-<p>This notebook generates investing insights by applying sentiment analysis on financial news headlines from <a href="https://finviz.com">FINVIZ.com</a>. Using a natural language processing< technique, we can understand the emotion behind the headlines and predict whether the market <em>feels</em> good or bad about a stock. This enables us to make educated guesses on how certain stocks will perform and trade accordingly.</p>
+<p>We have seen how sentiments have driven the markets in recent times. Let’s explore using natural language processing to devise new trading strategies.</p>
+<p>This notebook generates investing insights by applying sentiment analysis on financial news headlines from <a href="https://finviz.com">FINVIZ.com</a>. Using a natural language processing technique, we can understand the emotion behind the headlines and predict whether the market <em>feels</em> good or bad about a stock. This enables us to make educated guesses on how certain stocks will perform and trade accordingly.</p>
 <p>Why headlines? And why from FINVIZ?</p>
 FinViz makes market information accessible and provides a lot of data in visual snapshots.
 <li>Headlines, which have similar length, are easier to parse and group than full articles, which vary in length.</li>
@@ -432,6 +433,19 @@ FinViz makes market information accessible and provides a lot of data in visual 
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="c1"># NLTK VADER for sentiment analysis</span>
 <span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="kn">import</span> <span class="n">SentimentIntensityAnalyzer</span>
+<span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">pdr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 14&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># NLTK VADER for sentiment analysis</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="kn">import</span> <span class="n">SentimentIntensityAnalyzer</span>
+<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">pdr</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas_datareader&#39;
 </pre></div>
 </div>
 </div>
@@ -465,20 +479,6 @@ FinViz makes market information accessible and provides a lot of data in visual 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">news</span> <span class="o">=</span> <span class="n">finviz</span><span class="o">.</span><span class="n">get_news</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">news</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">get_news</span><span class="p">(</span><span class="s1">&#39;AAPL&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.time(19, 1)
 </pre></div>
 </div>
 </div>
@@ -539,7 +539,8 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package vader_lexicon to
-[nltk_data]     /home/runner/nltk_data...
+[nltk_data]     /Users/simplypatrickg/nltk_data...
+[nltk_data]   Package vader_lexicon is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -605,7 +606,7 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/stock_sentiment_from_headlines_13_0.png" src="../../_images/stock_sentiment_from_headlines_13_0.png" />
+<img alt="../../_images/stock_sentiment_from_headlines_12_0.png" src="../../_images/stock_sentiment_from_headlines_12_0.png" />
 </div>
 </div>
 </div>
@@ -638,7 +639,7 @@ FinViz makes market information accessible and provides a lot of data in visual 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">STOCK</span> <span class="o">=</span> <span class="n">TICKER_LIST</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">DATE</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">DATE</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">scored_news</span><span class="o">.</span><span class="n">date</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="c1"># Set the index to ticker and date</span>
 <span class="n">single_day</span> <span class="o">=</span> <span class="n">scored_news_clean</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">])</span>
@@ -673,8 +674,190 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/stock_sentiment_from_headlines_18_0.png" src="../../_images/stock_sentiment_from_headlines_18_0.png" />
+<img alt="../../_images/stock_sentiment_from_headlines_17_0.png" src="../../_images/stock_sentiment_from_headlines_17_0.png" />
 </div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">STOCK</span><span class="p">,</span> <span class="n">DATE</span><span class="p">)</span> 
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Open</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Adj Close</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2022-05-19</th>
+      <td>2200.679932</td>
+      <td>2123.860107</td>
+      <td>2125.610107</td>
+      <td>2146.379883</td>
+      <td>4407100</td>
+      <td>2146.379883</td>
+    </tr>
+    <tr>
+      <th>2022-05-20</th>
+      <td>2197.959961</td>
+      <td>2100.189941</td>
+      <td>2191.370117</td>
+      <td>2151.820068</td>
+      <td>4968200</td>
+      <td>2151.820068</td>
+    </tr>
+    <tr>
+      <th>2022-05-23</th>
+      <td>2176.379883</td>
+      <td>2079.000000</td>
+      <td>2169.219971</td>
+      <td>2151.139893</td>
+      <td>5389900</td>
+      <td>2151.139893</td>
+    </tr>
+    <tr>
+      <th>2022-05-24</th>
+      <td>2108.000000</td>
+      <td>2025.199951</td>
+      <td>2080.500000</td>
+      <td>2082.000000</td>
+      <td>5137100</td>
+      <td>2082.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Date
+2022-05-09            NaN
+2022-05-10    2176.479980
+2022-05-11    2142.309937
+2022-05-12    2123.025024
+2022-05-13    2199.855103
+2022-05-16    2238.655029
+2022-05-17    2261.790039
+2022-05-18    2224.810059
+2022-05-19    2144.314941
+2022-05-20    2149.099976
+2022-05-23    2151.479980
+2022-05-24    2116.569946
+Name: Close, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;2_SMA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;5_SMA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;5_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+
+<span class="c1"># SMA trade calls</span>
+<span class="n">Trade_Buy</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">Trade_Sell</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;2_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;5_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;2_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;5_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trade Call for </span><span class="si">{row}</span><span class="s2"> is Buy.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()))</span>
+        <span class="n">Trade_Buy</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">((</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;2_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;5_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;2_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;5_SMA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">])):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Trade Call for </span><span class="si">{row}</span><span class="s2"> is Sell.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">()))</span>
+        <span class="n">Trade_Sell</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>High</th>
+      <th>Low</th>
+      <th>Open</th>
+      <th>Close</th>
+      <th>Volume</th>
+      <th>Adj Close</th>
+      <th>2_SMA</th>
+      <th>5_SMA</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </div>
 </div>
