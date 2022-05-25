@@ -349,6 +349,11 @@ const thebe_selector_output = ".output, .cell_output"
    Handling duplicates
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-on-one-single-trading-day-and-stock">
+   Sentiment on one single trading day and stock¶
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -387,6 +392,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#handling-duplicates">
    Handling duplicates
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sentiment-on-one-single-trading-day-and-stock">
+   Sentiment on one single trading day and stock¶
   </a>
  </li>
 </ul>
@@ -619,6 +629,51 @@ FinViz makes market information accessible and provides a lot of data in visual 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Before we had 200 headlines, now we have 199&#39;
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="sentiment-on-one-single-trading-day-and-stock">
+<h2>Sentiment on one single trading day and stock¶<a class="headerlink" href="#sentiment-on-one-single-trading-day-and-stock" title="Permalink to this headline">¶</a></h2>
+<p>Now let’s focus on one trading day and one single stock. We will make an informative plot where we will see the smallest grain possible: headline and subscores.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">STOCK</span> <span class="o">=</span> <span class="n">TICKER_LIST</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">DATE</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Set the index to ticker and date</span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">scored_news_clean</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">])</span>
+<span class="c1"># Cross-section the STOCK row</span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">STOCK</span><span class="p">]</span>
+<span class="c1"># Select the DATE</span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">DATE</span><span class="p">]</span>
+<span class="c1"># Set the index to time and </span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="c1"># Sort it</span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TITLE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Negative, neutral, and positive sentiment for </span><span class="si">{</span><span class="n">STOCK</span><span class="si">}</span><span class="s2"> on </span><span class="si">{</span><span class="n">DATE</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
+<span class="c1"># Drop the columns that aren&#39;t useful for the plot</span>
+<span class="n">plot_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;headline&#39;</span><span class="p">,</span> <span class="s1">&#39;compound&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Change the column names to &#39;negative&#39;, &#39;positive&#39;, and &#39;neutral&#39;</span>
+<span class="n">plot_day</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;neutral&#39;</span><span class="p">,</span> <span class="s1">&#39;positive&#39;</span><span class="p">]</span>
+<span class="c1"># Plot a stacked bar chart</span>
+<span class="n">plot_day</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                  <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> 
+                  <span class="n">title</span> <span class="o">=</span> <span class="n">TITLE</span><span class="p">,</span> 
+                  <span class="n">color</span> <span class="o">=</span> <span class="n">COLORS</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;scores&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/stock_sentiment_from_headlines_18_0.png" src="../../_images/stock_sentiment_from_headlines_18_0.png" />
 </div>
 </div>
 </div>
