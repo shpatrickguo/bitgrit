@@ -433,19 +433,6 @@ FinViz makes market information accessible and provides a lot of data in visual 
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="c1"># NLTK VADER for sentiment analysis</span>
 <span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="kn">import</span> <span class="n">SentimentIntensityAnalyzer</span>
-<span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">pdr</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 14&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># NLTK VADER for sentiment analysis</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="kn">import</span> <span class="n">SentimentIntensityAnalyzer</span>
-<span class="ne">---&gt; </span><span class="mi">14</span> <span class="kn">import</span> <span class="nn">pandas_datareader</span> <span class="k">as</span> <span class="nn">pdr</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas_datareader&#39;
 </pre></div>
 </div>
 </div>
@@ -511,17 +498,17 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;AMZN&#39;,
-  datetime.date(2022, 5, 24),
-  datetime.time(17, 27),
-  &#39;Report: Almost 1 in 5 Amazon delivery drivers injured last year&#39;],
+  datetime.date(2022, 5, 25),
+  datetime.time(18, 46),
+  &#39;Heres whats new on Amazons Prime Video in June 2022&#39;],
  [&#39;AMZN&#39;,
-  datetime.date(2022, 5, 24),
-  datetime.time(17, 0),
-  &#39;An Amazon worker will make a novel shareholder proposal this week&#39;],
+  datetime.date(2022, 5, 25),
+  datetime.time(17, 5),
+  &#39;Amazon opens its first physical clothing store near Los Angeles&#39;],
  [&#39;AMZN&#39;,
-  datetime.date(2022, 5, 24),
-  datetime.time(16, 55),
-  &#39;Amazon Style Opens Its Very First Store Powered by\xa0Technology&#39;]]
+  datetime.date(2022, 5, 25),
+  datetime.time(16, 7),
+  &#39;Ukraine Latest: Russia Says That It Will Open Sea Corridors&#39;]]
 </pre></div>
 </div>
 </div>
@@ -539,8 +526,7 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package vader_lexicon to
-[nltk_data]     /Users/simplypatrickg/nltk_data...
-[nltk_data]   Package vader_lexicon is already up-to-date!
+[nltk_data]     /home/runner/nltk_data...
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -627,7 +613,7 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Before we had 200 headlines, now we have 199&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Before we had 200 headlines, now we have 198&#39;
 </pre></div>
 </div>
 </div>
@@ -685,81 +671,16 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [13],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pdr</span><span class="o">.</span><span class="n">get_data_yahoo</span><span class="p">(</span><span class="n">STOCK</span><span class="p">,</span> <span class="n">DATE</span><span class="p">)</span> 
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>High</th>
-      <th>Low</th>
-      <th>Open</th>
-      <th>Close</th>
-      <th>Volume</th>
-      <th>Adj Close</th>
-    </tr>
-    <tr>
-      <th>Date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>2022-05-19</th>
-      <td>2200.679932</td>
-      <td>2123.860107</td>
-      <td>2125.610107</td>
-      <td>2146.379883</td>
-      <td>4407100</td>
-      <td>2146.379883</td>
-    </tr>
-    <tr>
-      <th>2022-05-20</th>
-      <td>2197.959961</td>
-      <td>2100.189941</td>
-      <td>2191.370117</td>
-      <td>2151.820068</td>
-      <td>4968200</td>
-      <td>2151.820068</td>
-    </tr>
-    <tr>
-      <th>2022-05-23</th>
-      <td>2176.379883</td>
-      <td>2079.000000</td>
-      <td>2169.219971</td>
-      <td>2151.139893</td>
-      <td>5389900</td>
-      <td>2151.139893</td>
-    </tr>
-    <tr>
-      <th>2022-05-24</th>
-      <td>2108.000000</td>
-      <td>2025.199951</td>
-      <td>2080.500000</td>
-      <td>2082.000000</td>
-      <td>5137100</td>
-      <td>2082.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
+<span class="ne">NameError</span>: name &#39;pdr&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
