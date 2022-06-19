@@ -38,29 +38,30 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 
 ````{card} Do test preparation courses help you prepare for exams?
 :link: projects/exam_scores/exam_scores.html
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
 ````
 
 ````{card} Viral Tweets Prediction Challenge
 :link: projects/viral_tweets/README.html
-:link-type: ref
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
 ````
 
 ````{card} Stock Sentiment Analysis from News Headlines
 :link: projects/stock_sentiment_from_headlines/stock_sentiment_from_headlines.html
-:link-type: ref
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
 ````
 
 ````{card} PowerCo - Is Churn driven by price sensitivity?
-:link: projects/BCG/README.md
-:link-type: any
+:link: projects/BCG/README.html
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
 ````
 
 ````{card} Neural Network SMS Text Classifier
-:link: projects/sms_classifier/README.md
-:link-type: doc
+:link: projects/sms_classifier/README.html
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
 ````
