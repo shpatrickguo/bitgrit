@@ -54,13 +54,13 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 ````
 
 ````{card} PowerCo - Is Churn driven by price sensitivity?
-:link: projects/BCG/README.html
-:link-type: ref
+:link: projects/BCG/README.md
+:link-type: any
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
 ````
 
 ````{card} Neural Network SMS Text Classifier
-:link: projects/sms_classifier/README.html
-:link-type: ref
+:link: projects/sms_classifier/README.md
+:link-type: doc
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
 ````
