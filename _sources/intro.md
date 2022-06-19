@@ -19,11 +19,13 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 
 ````{card} Predict Concrete Strength
 :link: projects/concrete_strength/concrete_strength.ipynb
+:link-type: ref
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
 ````
 
 ````{card} Finding the best chocolate bars
-:link: projects/chocolate_bars/chocolate_bars.ipynb
+:link: [](projects/chocolate_bars/chocolate_bars.ipynb)
+:link-type: ref
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
 ````
 
