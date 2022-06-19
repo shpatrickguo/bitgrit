@@ -10,6 +10,8 @@ parts:
       title: Rental Price Prediction
     - file: projects/concrete_strength/concrete_strength.ipynb
       title: Predict Concrete Strength
+    - file: projects/chocolate_bars/chocolate_bars.ipynb
+      title: Finding the best Chocolate Bars   
     - file: projects/travel_assured/travel_assured.ipynb
       title: Travel Insurance Analysis
     - file: projects/exam_scores/exam_scores.ipynb
