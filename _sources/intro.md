@@ -13,7 +13,7 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 ## Project List
 
 ````{card} Inn the Neighborhood - Rental Price Prediction
-:link: projects/inn_the_neighborhood/inn_the_neighborhood.ipynb
+:link: [](projects/inn_the_neighborhood/inn_the_neighborhood.ipynb)
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
 ````
 
