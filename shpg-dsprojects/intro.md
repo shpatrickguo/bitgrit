@@ -12,17 +12,47 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 
 ## Project List
 
-:::{card} Inn the Neighborhood - Rental Price Prediction
+````{card} Inn the Neighborhood - Rental Price Prediction
 :link: projects/inn_the_neighborhood/inn_the_neighborhood.ipynb
-:link-type: ref
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
-:::
+````
 
-- [Predict Concrete Strength](projects/concrete_strength/concrete_strength.ipynb)
-- [Finding the best chocolate bars](projects/chocolate_bars/chocolate_bars.ipynb)
-- [Travel Assured - Travel Insurance Analysis](projects/travel_assured/travel_assured.ipynb)
-- [Do test preparation courses help you prepare for exams?](projects/exam_scores/exam_scores.ipynb)
-- [Viral Tweets Prediction Challenge](projects/viral_tweets/README.md)
-- [Stock Sentiment Analysis from News Headlines](projects/stock_sentiment_from_headlines/stock_sentiment_from_headlines.ipynb)
-- [PowerCo - Is Churn driven by price sensitivity?](projects/BCG/README.md)
-- [Neural Network SMS Text Classifier](projects/sms_classifier/README.md)
+````{card} Predict Concrete Strength
+:link: projects/concrete_strength/concrete_strength.ipynb
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
+````
+
+````{card} Finding the best chocolate bars
+:link: projects/chocolate_bars/chocolate_bars.ipynb
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
+````
+
+````{card} Travel Assured - Travel Insurance Analysis
+:link: projects/travel_assured/travel_assured.ipynb
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
+````
+
+````{card} Do test preparation courses help you prepare for exams?
+:link: projects/exam_scores/exam_scores.ipynb
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
+````
+
+````{card} Viral Tweets Prediction Challenge
+:link: projects/viral_tweets/README.md
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
+````
+
+````{card} Stock Sentiment Analysis from News Headlines
+:link: projects/stock_sentiment_from_headlines/stock_sentiment_from_headlines.ipynb
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
+````
+
+````{card} PowerCo - Is Churn driven by price sensitivity?
+:link: projects/BCG/README.md
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
+````
+
+````{card} Neural Network SMS Text Classifier
+:link: projects/sms_classifier/README.md
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
+````
