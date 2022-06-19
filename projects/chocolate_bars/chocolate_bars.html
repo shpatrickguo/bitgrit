@@ -512,11 +512,6 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis">
-   Exploratory Data Analysis
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#what-is-the-average-rating-by-country-of-origin">
    1. What is the average rating by country of origin?
   </a>
@@ -610,11 +605,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#missing-data">
    Missing Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis">
-   Exploratory Data Analysis
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1248,203 +1238,6 @@ dtype: int64
 </div></div></div>
 </div>
 </section>
-<section id="exploratory-data-analysis">
-<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">rating</span></code> has a left skewed distribution, where most ratings are around 3-4, recommended and highly recommended.</p></li>
-<li><p>Most cholocolate bars have 3 ingredients and a cocoa percent between 60-90%.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_core.py:1057: FutureWarning: reindexing with a non-unique Index is deprecated and will raise in a future version.
-  comp_col.loc[orig.index] = pd.to_numeric(axis.convert_units(orig))
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">Input In [10],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_decorators.py:46,</span> in <span class="ni">_deprecate_positional_args.&lt;locals&gt;.inner_f</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>         <span class="s2">&quot;Pass the following variable</span><span class="si">{}</span><span class="s2"> as </span><span class="si">{}</span><span class="s2">keyword arg</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">. &quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="s2">&quot;From version 0.12, the only valid positional argument &quot;</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="ne">FutureWarning</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="p">)</span>
-<span class="nn">     45 kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
-<span class="ne">---&gt; </span><span class="mi">46</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/axisgrid.py:2126,</span> in <span class="ni">pairplot</span><span class="nt">(data, hue, hue_order, palette, vars, x_vars, y_vars, kind, diag_kind, markers, height, aspect, corner, dropna, plot_kws, diag_kws, grid_kws, size)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2124</span> <span class="n">diag_kws</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;legend&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2125</span> <span class="k">if</span> <span class="n">diag_kind</span> <span class="o">==</span> <span class="s2">&quot;hist&quot;</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2126</span>     <span class="n">grid</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">histplot</span><span class="p">,</span> <span class="o">**</span><span class="n">diag_kws</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2127</span> <span class="k">elif</span> <span class="n">diag_kind</span> <span class="o">==</span> <span class="s2">&quot;kde&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2128</span>     <span class="n">diag_kws</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/axisgrid.py:1478,</span> in <span class="ni">PairGrid.map_diag</span><span class="nt">(self, func, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1476</span>     <span class="n">plot_kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;hue_order&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hue_order</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1477</span>     <span class="n">plot_kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;palette&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_orig_palette</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1478</span>     <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vector</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1479</span>     <span class="n">ax</span><span class="o">.</span><span class="n">legend_</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1481</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_axis_labels</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/distributions.py:1462,</span> in <span class="ni">histplot</span><span class="nt">(data, x, y, hue, weights, stat, bins, binwidth, binrange, discrete, cumulative, common_bins, common_norm, multiple, element, fill, shrink, kde, kde_kws, line_kws, thresh, pthresh, pmax, cbar, cbar_ax, cbar_kws, palette, hue_order, hue_norm, color, log_scale, legend, ax, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1451</span> <span class="n">estimate_kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1452</span>     <span class="n">stat</span><span class="o">=</span><span class="n">stat</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1453</span>     <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1457</span>     <span class="n">cumulative</span><span class="o">=</span><span class="n">cumulative</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1458</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1460</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">univariate</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1462</span>     <span class="n">p</span><span class="o">.</span><span class="n">plot_univariate_histogram</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1463</span>         <span class="n">multiple</span><span class="o">=</span><span class="n">multiple</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1464</span>         <span class="n">element</span><span class="o">=</span><span class="n">element</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1465</span>         <span class="n">fill</span><span class="o">=</span><span class="n">fill</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1466</span>         <span class="n">shrink</span><span class="o">=</span><span class="n">shrink</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1467</span>         <span class="n">common_norm</span><span class="o">=</span><span class="n">common_norm</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1468</span>         <span class="n">common_bins</span><span class="o">=</span><span class="n">common_bins</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1469</span>         <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1470</span>         <span class="n">kde_kws</span><span class="o">=</span><span class="n">kde_kws</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1471</span>         <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1472</span>         <span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1473</span>         <span class="n">estimate_kws</span><span class="o">=</span><span class="n">estimate_kws</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1474</span>         <span class="n">line_kws</span><span class="o">=</span><span class="n">line_kws</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1475</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1476</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1478</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1480</span>     <span class="n">p</span><span class="o">.</span><span class="n">plot_bivariate_histogram</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1481</span>         <span class="n">common_bins</span><span class="o">=</span><span class="n">common_bins</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1482</span>         <span class="n">common_norm</span><span class="o">=</span><span class="n">common_norm</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1493</span>     <span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/distributions.py:428,</span> in <span class="ni">_DistributionPlotter.plot_univariate_histogram</span><span class="nt">(self, multiple, element, fill, common_norm, common_bins, shrink, kde, kde_kws, color, legend, line_kws, estimate_kws, **plot_kws)</span>
-<span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="n">densities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_univariate_density</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">419</span>         <span class="bp">self</span><span class="o">.</span><span class="n">data_variable</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">420</span>         <span class="n">common_norm</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">424</span>         <span class="n">warn_singular</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">425</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">427</span> <span class="c1"># First pass through the data to compute the histograms</span>
-<span class="ne">--&gt; </span><span class="mi">428</span> <span class="k">for</span> <span class="n">sub_vars</span><span class="p">,</span> <span class="n">sub_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_data</span><span class="p">(</span><span class="s2">&quot;hue&quot;</span><span class="p">,</span> <span class="n">from_comp_data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">429</span> 
-<span class="g g-Whitespace">    </span><span class="mi">430</span>     <span class="c1"># Prepare the relevant data</span>
-<span class="g g-Whitespace">    </span><span class="mi">431</span>     <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">sub_vars</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">432</span>     <span class="n">sub_data</span> <span class="o">=</span> <span class="n">sub_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_core.py:983,</span> in <span class="ni">VectorPlotter.iter_data</span><span class="nt">(self, grouping_vars, reverse, from_comp_data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">978</span> <span class="n">grouping_vars</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">    </span><span class="mi">979</span>     <span class="n">var</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">grouping_vars</span> <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">variables</span>
-<span class="g g-Whitespace">    </span><span class="mi">980</span> <span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">982</span> <span class="k">if</span> <span class="n">from_comp_data</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">983</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_data</span>
-<span class="g g-Whitespace">    </span><span class="mi">984</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">985</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plot_data</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_core.py:1057,</span> in <span class="ni">VectorPlotter.comp_data</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1055</span>     <span class="n">orig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plot_data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1056</span> <span class="n">comp_col</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">orig</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">var</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1057</span> <span class="n">comp_col</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">orig</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">axis</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="n">orig</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1059</span> <span class="k">if</span> <span class="n">axis</span><span class="o">.</span><span class="n">get_scale</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;log&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1060</span>     <span class="n">comp_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">comp_col</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:716,</span> in <span class="ni">_LocationIndexer.__setitem__</span><span class="nt">(self, key, value)</span>
-<span class="g g-Whitespace">    </span><span class="mi">713</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_setitem_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">715</span> <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
-<span class="ne">--&gt; </span><span class="mi">716</span> <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1690,</span> in <span class="ni">_iLocIndexer._setitem_with_indexer</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1688</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1689</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1690</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_single_block</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1929,</span> in <span class="ni">_iLocIndexer._setitem_single_block</span><span class="nt">(self, indexer, value, name)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1923</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="n">maybe_convert_ix</span><span class="p">(</span><span class="o">*</span><span class="n">indexer</span><span class="p">)</span>  <span class="c1"># e.g. test_setitem_frame_align</span>
-<span class="g g-Whitespace">   </span><span class="mi">1925</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ABCSeries</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;iloc&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1926</span>     <span class="c1"># TODO(EA): ExtensionBlock.setitem this causes issues with</span>
-<span class="g g-Whitespace">   </span><span class="mi">1927</span>     <span class="c1"># setting for extensionarrays that store dicts. Need to decide</span>
-<span class="g g-Whitespace">   </span><span class="mi">1928</span>     <span class="c1"># if it&#39;s worth supporting that.</span>
-<span class="ne">-&gt; </span><span class="mi">1929</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_align_series</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">Series</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
-<span class="g g-Whitespace">   </span><span class="mi">1931</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ABCDataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;iloc&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1932</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_align_frame</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:2091,</span> in <span class="ni">_iLocIndexer._align_series</span><span class="nt">(self, indexer, ser, multiindex_indexer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2089</span> <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">is_empty_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ser</span><span class="o">.</span><span class="n">_values</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2090</span>     <span class="k">return</span> <span class="n">ser</span><span class="o">.</span><span class="n">_values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">2091</span> <span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">indexer</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">_values</span>
-<span class="g g-Whitespace">   </span><span class="mi">2093</span> <span class="c1"># single indexer</span>
-<span class="g g-Whitespace">   </span><span class="mi">2094</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">multiindex_indexer</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/series.py:4672,</span> in <span class="ni">Series.reindex</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4668</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">4669</span>             <span class="s2">&quot;&#39;index&#39; passed as both positional and keyword argument&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">4670</span>         <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4671</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">})</span>
-<span class="ne">-&gt; </span><span class="mi">4672</span> <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:4966,</span> in <span class="ni">NDFrame.reindex</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4963</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_multi</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4965</span> <span class="c1"># perform the reindex on the axes</span>
-<span class="ne">-&gt; </span><span class="mi">4966</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_axes</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">4967</span>     <span class="n">axes</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">,</span> <span class="n">copy</span>
-<span class="g g-Whitespace">   </span><span class="mi">4968</span> <span class="p">)</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;reindex&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:4986,</span> in <span class="ni">NDFrame._reindex_axes</span><span class="nt">(self, axes, level, limit, tolerance, method, fill_value, copy)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4981</span> <span class="n">new_index</span><span class="p">,</span> <span class="n">indexer</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">4982</span>     <span class="n">labels</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span>
-<span class="g g-Whitespace">   </span><span class="mi">4983</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4985</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_axis_number</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">4986</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_reindex_with_indexers</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">4987</span>     <span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="p">[</span><span class="n">new_index</span><span class="p">,</span> <span class="n">indexer</span><span class="p">]},</span>
-<span class="g g-Whitespace">   </span><span class="mi">4988</span>     <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4989</span>     <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4990</span>     <span class="n">allow_dups</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">4991</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4992</span> <span class="c1"># If we&#39;ve made a copy once, no need to make another one</span>
-<span class="g g-Whitespace">   </span><span class="mi">4993</span> <span class="n">copy</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:5032,</span> in <span class="ni">NDFrame._reindex_with_indexers</span><span class="nt">(self, reindexers, fill_value, copy, allow_dups)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5029</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="n">ensure_platform_int</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5031</span> <span class="c1"># TODO: speed up on homogeneous DataFrame objects (see _reindex_multi)</span>
-<span class="ne">-&gt; </span><span class="mi">5032</span> <span class="n">new_data</span> <span class="o">=</span> <span class="n">new_data</span><span class="o">.</span><span class="n">reindex_indexer</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">5033</span>     <span class="n">index</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5034</span>     <span class="n">indexer</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5035</span>     <span class="n">axis</span><span class="o">=</span><span class="n">baxis</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5036</span>     <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5037</span>     <span class="n">allow_dups</span><span class="o">=</span><span class="n">allow_dups</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5038</span>     <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">5039</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5040</span> <span class="c1"># If we&#39;ve made a copy once, no need to make another one</span>
-<span class="g g-Whitespace">   </span><span class="mi">5041</span> <span class="n">copy</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:679,</span> in <span class="ni">BaseBlockManager.reindex_indexer</span><span class="nt">(self, new_axis, indexer, axis, fill_value, allow_dups, copy, consolidate, only_slice, use_na_proxy)</span>
-<span class="g g-Whitespace">    </span><span class="mi">677</span> <span class="c1"># some axes don&#39;t allow reindexing with dups</span>
-<span class="g g-Whitespace">    </span><span class="mi">678</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">allow_dups</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">679</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">_validate_can_reindex</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">681</span> <span class="k">if</span> <span class="n">axis</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Requested axis not found in manager&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:4107,</span> in <span class="ni">Index._validate_can_reindex</span><span class="nt">(self, indexer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">4105</span> <span class="c1"># trying to reindex on an axis with duplicates</span>
-<span class="g g-Whitespace">   </span><span class="mi">4106</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_as_unique</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">4107</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cannot reindex on an axis with duplicate labels&quot;</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: cannot reindex on an axis with duplicate labels
-</pre></div>
-</div>
-<img alt="../../_images/chocolate_bars_18_2.png" src="../../_images/chocolate_bars_18_2.png" />
-</div>
-</div>
-</section>
 <section id="what-is-the-average-rating-by-country-of-origin">
 <h2>1. What is the average rating by country of origin?<a class="headerlink" href="#what-is-the-average-rating-by-country-of-origin" title="Permalink to this headline">#</a></h2>
 <p>The average rating by country of origin ranges from 2.71 to 3.63. <br>
@@ -1558,7 +1351,7 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chocolate_bars_21_0.png" src="../../_images/chocolate_bars_21_0.png" />
+<img alt="../../_images/chocolate_bars_19_0.png" src="../../_images/chocolate_bars_19_0.png" />
 </div>
 </div>
 </section>
@@ -1674,7 +1467,7 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chocolate_bars_24_0.png" src="../../_images/chocolate_bars_24_0.png" />
+<img alt="../../_images/chocolate_bars_22_0.png" src="../../_images/chocolate_bars_22_0.png" />
 </div>
 </div>
 </section>
@@ -1693,7 +1486,7 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/chocolate_bars_26_0.png" src="../../_images/chocolate_bars_26_0.png" />
+<img alt="../../_images/chocolate_bars_24_0.png" src="../../_images/chocolate_bars_24_0.png" />
 </div>
 </div>
 </section>
@@ -1718,7 +1511,7 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pearsons correlation: -0.147
 </pre></div>
 </div>
-<img alt="../../_images/chocolate_bars_28_1.png" src="../../_images/chocolate_bars_28_1.png" />
+<img alt="../../_images/chocolate_bars_26_1.png" src="../../_images/chocolate_bars_26_1.png" />
 </div>
 </div>
 </section>
