@@ -13,8 +13,8 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 ## Project List
 
 - [Inn the Neighborhood - Rental Price Prediction](projects/inn_the_neighborhood/inn_the_neighborhood.ipynb)
-- [Finding the best chocolate bars](projects/chocolate_bars/chocolate_bars.ipynb)
 - [Predict Concrete Strength](projects/concrete_strength/concrete_strength.ipynb)
+- [Finding the best chocolate bars](projects/chocolate_bars/chocolate_bars.ipynb)
 - [Travel Assured - Travel Insurance Analysis](projects/travel_assured/travel_assured.ipynb)
 - [Do test preparation courses help you prepare for exams?](projects/exam_scores/exam_scores.ipynb)
 - [Viral Tweets Prediction Challenge](projects/viral_tweets/README.md)
