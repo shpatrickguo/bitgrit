@@ -14,25 +14,25 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 
 ````{card} Inn the Neighborhood - Rental Price Prediction
 :link: projects/inn_the_neighborhood/inn_the_neighborhood.html
-:link-type: ref
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
 ````
 
 ````{card} Predict Concrete Strength
 :link: projects/concrete_strength/concrete_strength.html
-:link-type: ref
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
 ````
 
 ````{card} Finding the best chocolate bars
 :link: projects/chocolate_bars/chocolate_bars.html
-:link-type: ref
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
 ````
 
 ````{card} Travel Assured - Travel Insurance Analysis
 :link: projects/travel_assured/travel_assured.html
-:link-type: ref
+:link-type: url
 {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
 ````
 
