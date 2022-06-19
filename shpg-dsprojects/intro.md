@@ -8,7 +8,7 @@ My name is Patrick Guo. As a data scientist and analyst, I translate data into v
 
 I am experienced in machine learning, supervised and unsupervised algorithms and use data visualization techniques to present the results. I use Python, SQL for my data projects.
 
-Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.com) or comment on in each page (comments are linked to my github via [utteranc.es](https://utteranc.es/).
+Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.com).
 
 ## Project List
 
