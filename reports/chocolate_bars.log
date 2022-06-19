@@ -1,0 +1,198 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+ax = sns.pairplot(df)
+plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mValueError[0m                                Traceback (most recent call last)
+Input [0;32mIn [10][0m, in [0;36m<cell line: 1>[0;34m()[0m
+[0;32m----> 1[0m ax [38;5;241m=[39m [43msns[49m[38;5;241;43m.[39;49m[43mpairplot[49m[43m([49m[43mdf[49m[43m)[49m
+[1;32m      2[0m plt[38;5;241m.[39mshow()
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_decorators.py:46[0m, in [0;36m_deprecate_positional_args.<locals>.inner_f[0;34m(*args, **kwargs)[0m
+[1;32m     36[0m     warnings[38;5;241m.[39mwarn(
+[1;32m     37[0m         [38;5;124m"[39m[38;5;124mPass the following variable[39m[38;5;132;01m{}[39;00m[38;5;124m as [39m[38;5;132;01m{}[39;00m[38;5;124mkeyword arg[39m[38;5;132;01m{}[39;00m[38;5;124m: [39m[38;5;132;01m{}[39;00m[38;5;124m. [39m[38;5;124m"[39m
+[1;32m     38[0m         [38;5;124m"[39m[38;5;124mFrom version 0.12, the only valid positional argument [39m[38;5;124m"[39m
+[0;32m   (...)[0m
+[1;32m     43[0m         [38;5;167;01mFutureWarning[39;00m
+[1;32m     44[0m     )
+[1;32m     45[0m kwargs[38;5;241m.[39mupdate({k: arg [38;5;28;01mfor[39;00m k, arg [38;5;129;01min[39;00m [38;5;28mzip[39m(sig[38;5;241m.[39mparameters, args)})
+[0;32m---> 46[0m [38;5;28;01mreturn[39;00m [43mf[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/axisgrid.py:2126[0m, in [0;36mpairplot[0;34m(data, hue, hue_order, palette, vars, x_vars, y_vars, kind, diag_kind, markers, height, aspect, corner, dropna, plot_kws, diag_kws, grid_kws, size)[0m
+[1;32m   2124[0m diag_kws[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mlegend[39m[38;5;124m"[39m, [38;5;28;01mFalse[39;00m)
+[1;32m   2125[0m [38;5;28;01mif[39;00m diag_kind [38;5;241m==[39m [38;5;124m"[39m[38;5;124mhist[39m[38;5;124m"[39m:
+[0;32m-> 2126[0m     [43mgrid[49m[38;5;241;43m.[39;49m[43mmap_diag[49m[43m([49m[43mhistplot[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mdiag_kws[49m[43m)[49m
+[1;32m   2127[0m [38;5;28;01melif[39;00m diag_kind [38;5;241m==[39m [38;5;124m"[39m[38;5;124mkde[39m[38;5;124m"[39m:
+[1;32m   2128[0m     diag_kws[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mfill[39m[38;5;124m"[39m, [38;5;28;01mTrue[39;00m)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/axisgrid.py:1478[0m, in [0;36mPairGrid.map_diag[0;34m(self, func, **kwargs)[0m
+[1;32m   1476[0m     plot_kwargs[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mhue_order[39m[38;5;124m"[39m, [38;5;28mself[39m[38;5;241m.[39m_hue_order)
+[1;32m   1477[0m     plot_kwargs[38;5;241m.[39msetdefault([38;5;124m"[39m[38;5;124mpalette[39m[38;5;124m"[39m, [38;5;28mself[39m[38;5;241m.[39m_orig_palette)
+[0;32m-> 1478[0m     [43mfunc[49m[43m([49m[43mx[49m[38;5;241;43m=[39;49m[43mvector[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mplot_kwargs[49m[43m)[49m
+[1;32m   1479[0m     ax[38;5;241m.[39mlegend_ [38;5;241m=[39m [38;5;28;01mNone[39;00m
+[1;32m   1481[0m [38;5;28mself[39m[38;5;241m.[39m_add_axis_labels()
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/distributions.py:1462[0m, in [0;36mhistplot[0;34m(data, x, y, hue, weights, stat, bins, binwidth, binrange, discrete, cumulative, common_bins, common_norm, multiple, element, fill, shrink, kde, kde_kws, line_kws, thresh, pthresh, pmax, cbar, cbar_ax, cbar_kws, palette, hue_order, hue_norm, color, log_scale, legend, ax, **kwargs)[0m
+[1;32m   1451[0m estimate_kws [38;5;241m=[39m [38;5;28mdict[39m(
+[1;32m   1452[0m     stat[38;5;241m=[39mstat,
+[1;32m   1453[0m     bins[38;5;241m=[39mbins,
+[0;32m   (...)[0m
+[1;32m   1457[0m     cumulative[38;5;241m=[39mcumulative,
+[1;32m   1458[0m )
+[1;32m   1460[0m [38;5;28;01mif[39;00m p[38;5;241m.[39munivariate:
+[0;32m-> 1462[0m     [43mp[49m[38;5;241;43m.[39;49m[43mplot_univariate_histogram[49m[43m([49m
+[1;32m   1463[0m [43m        [49m[43mmultiple[49m[38;5;241;43m=[39;49m[43mmultiple[49m[43m,[49m
+[1;32m   1464[0m [43m        [49m[43melement[49m[38;5;241;43m=[39;49m[43melement[49m[43m,[49m
+[1;32m   1465[0m [43m        [49m[43mfill[49m[38;5;241;43m=[39;49m[43mfill[49m[43m,[49m
+[1;32m   1466[0m [43m        [49m[43mshrink[49m[38;5;241;43m=[39;49m[43mshrink[49m[43m,[49m
+[1;32m   1467[0m [43m        [49m[43mcommon_norm[49m[38;5;241;43m=[39;49m[43mcommon_norm[49m[43m,[49m
+[1;32m   1468[0m [43m        [49m[43mcommon_bins[49m[38;5;241;43m=[39;49m[43mcommon_bins[49m[43m,[49m
+[1;32m   1469[0m [43m        [49m[43mkde[49m[38;5;241;43m=[39;49m[43mkde[49m[43m,[49m
+[1;32m   1470[0m [43m        [49m[43mkde_kws[49m[38;5;241;43m=[39;49m[43mkde_kws[49m[43m,[49m
+[1;32m   1471[0m [43m        [49m[43mcolor[49m[38;5;241;43m=[39;49m[43mcolor[49m[43m,[49m
+[1;32m   1472[0m [43m        [49m[43mlegend[49m[38;5;241;43m=[39;49m[43mlegend[49m[43m,[49m
+[1;32m   1473[0m [43m        [49m[43mestimate_kws[49m[38;5;241;43m=[39;49m[43mestimate_kws[49m[43m,[49m
+[1;32m   1474[0m [43m        [49m[43mline_kws[49m[38;5;241;43m=[39;49m[43mline_kws[49m[43m,[49m
+[1;32m   1475[0m [43m        [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m   1476[0m [43m    [49m[43m)[49m
+[1;32m   1478[0m [38;5;28;01melse[39;00m:
+[1;32m   1480[0m     p[38;5;241m.[39mplot_bivariate_histogram(
+[1;32m   1481[0m         common_bins[38;5;241m=[39mcommon_bins,
+[1;32m   1482[0m         common_norm[38;5;241m=[39mcommon_norm,
+[0;32m   (...)[0m
+[1;32m   1492[0m         [38;5;241m*[39m[38;5;241m*[39mkwargs,
+[1;32m   1493[0m     )
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/distributions.py:428[0m, in [0;36m_DistributionPlotter.plot_univariate_histogram[0;34m(self, multiple, element, fill, common_norm, common_bins, shrink, kde, kde_kws, color, legend, line_kws, estimate_kws, **plot_kws)[0m
+[1;32m    418[0m     densities [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_compute_univariate_density(
+[1;32m    419[0m         [38;5;28mself[39m[38;5;241m.[39mdata_variable,
+[1;32m    420[0m         common_norm,
+[0;32m   (...)[0m
+[1;32m    424[0m         warn_singular[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[1;32m    425[0m     )
+[1;32m    427[0m [38;5;66;03m# First pass through the data to compute the histograms[39;00m
+[0;32m--> 428[0m [38;5;28;01mfor[39;00m sub_vars, sub_data [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39miter_data([38;5;124m"[39m[38;5;124mhue[39m[38;5;124m"[39m, from_comp_data[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[1;32m    429[0m 
+[1;32m    430[0m     [38;5;66;03m# Prepare the relevant data[39;00m
+[1;32m    431[0m     key [38;5;241m=[39m [38;5;28mtuple[39m(sub_vars[38;5;241m.[39mitems())
+[1;32m    432[0m     sub_data [38;5;241m=[39m sub_data[38;5;241m.[39mdropna()
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_core.py:983[0m, in [0;36mVectorPlotter.iter_data[0;34m(self, grouping_vars, reverse, from_comp_data)[0m
+[1;32m    978[0m grouping_vars [38;5;241m=[39m [
+[1;32m    979[0m     var [38;5;28;01mfor[39;00m var [38;5;129;01min[39;00m grouping_vars [38;5;28;01mif[39;00m var [38;5;129;01min[39;00m [38;5;28mself[39m[38;5;241m.[39mvariables
+[1;32m    980[0m ]
+[1;32m    982[0m [38;5;28;01mif[39;00m from_comp_data:
+[0;32m--> 983[0m     data [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcomp_data[49m
+[1;32m    984[0m [38;5;28;01melse[39;00m:
+[1;32m    985[0m     data [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mplot_data
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_core.py:1057[0m, in [0;36mVectorPlotter.comp_data[0;34m(self)[0m
+[1;32m   1055[0m     orig [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mplot_data[var][38;5;241m.[39mdropna()
+[1;32m   1056[0m comp_col [38;5;241m=[39m pd[38;5;241m.[39mSeries(index[38;5;241m=[39morig[38;5;241m.[39mindex, dtype[38;5;241m=[39m[38;5;28mfloat[39m, name[38;5;241m=[39mvar)
+[0;32m-> 1057[0m comp_col[38;5;241m.[39mloc[orig[38;5;241m.[39mindex] [38;5;241m=[39m pd[38;5;241m.[39mto_numeric(axis[38;5;241m.[39mconvert_units(orig))
+[1;32m   1059[0m [38;5;28;01mif[39;00m axis[38;5;241m.[39mget_scale() [38;5;241m==[39m [38;5;124m"[39m[38;5;124mlog[39m[38;5;124m"[39m:
+[1;32m   1060[0m     comp_col [38;5;241m=[39m np[38;5;241m.[39mlog10(comp_col)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:716[0m, in [0;36m_LocationIndexer.__setitem__[0;34m(self, key, value)[0m
+[1;32m    713[0m [38;5;28mself[39m[38;5;241m.[39m_has_valid_setitem_indexer(key)
+[1;32m    715[0m iloc [38;5;241m=[39m [38;5;28mself[39m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mname [38;5;241m==[39m [38;5;124m"[39m[38;5;124miloc[39m[38;5;124m"[39m [38;5;28;01melse[39;00m [38;5;28mself[39m[38;5;241m.[39mobj[38;5;241m.[39miloc
+[0;32m--> 716[0m [43miloc[49m[38;5;241;43m.[39;49m[43m_setitem_with_indexer[49m[43m([49m[43mindexer[49m[43m,[49m[43m [49m[43mvalue[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mname[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1690[0m, in [0;36m_iLocIndexer._setitem_with_indexer[0;34m(self, indexer, value, name)[0m
+[1;32m   1688[0m     [38;5;28mself[39m[38;5;241m.[39m_setitem_with_indexer_split_path(indexer, value, name)
+[1;32m   1689[0m [38;5;28;01melse[39;00m:
+[0;32m-> 1690[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_setitem_single_block[49m[43m([49m[43mindexer[49m[43m,[49m[43m [49m[43mvalue[49m[43m,[49m[43m [49m[43mname[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1929[0m, in [0;36m_iLocIndexer._setitem_single_block[0;34m(self, indexer, value, name)[0m
+[1;32m   1923[0m     indexer [38;5;241m=[39m maybe_convert_ix([38;5;241m*[39mindexer)  [38;5;66;03m# e.g. test_setitem_frame_align[39;00m
+[1;32m   1925[0m [38;5;28;01mif[39;00m ([38;5;28misinstance[39m(value, ABCSeries) [38;5;129;01mand[39;00m name [38;5;241m!=[39m [38;5;124m"[39m[38;5;124miloc[39m[38;5;124m"[39m) [38;5;129;01mor[39;00m [38;5;28misinstance[39m(value, [38;5;28mdict[39m):
+[1;32m   1926[0m     [38;5;66;03m# TODO(EA): ExtensionBlock.setitem this causes issues with[39;00m
+[1;32m   1927[0m     [38;5;66;03m# setting for extensionarrays that store dicts. Need to decide[39;00m
+[1;32m   1928[0m     [38;5;66;03m# if it's worth supporting that.[39;00m
+[0;32m-> 1929[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_align_series[49m[43m([49m[43mindexer[49m[43m,[49m[43m [49m[43mSeries[49m[43m([49m[43mvalue[49m[43m)[49m[43m)[49m
+[1;32m   1931[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(value, ABCDataFrame) [38;5;129;01mand[39;00m name [38;5;241m!=[39m [38;5;124m"[39m[38;5;124miloc[39m[38;5;124m"[39m:
+[1;32m   1932[0m     value [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_align_frame(indexer, value)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:2091[0m, in [0;36m_iLocIndexer._align_series[0;34m(self, indexer, ser, multiindex_indexer)[0m
+[1;32m   2089[0m [38;5;28;01mif[39;00m obj[38;5;241m.[39mndim [38;5;241m==[39m [38;5;241m2[39m [38;5;129;01mand[39;00m is_empty_indexer(indexer[[38;5;241m0[39m], ser[38;5;241m.[39m_values):
+[1;32m   2090[0m     [38;5;28;01mreturn[39;00m ser[38;5;241m.[39m_values[38;5;241m.[39mcopy()
+[0;32m-> 2091[0m ser [38;5;241m=[39m [43mser[49m[38;5;241;43m.[39;49m[43mreindex[49m[43m([49m[43mobj[49m[38;5;241;43m.[39;49m[43maxes[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m[[49m[43mindexer[49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m][49m[43m,[49m[43m [49m[43mcopy[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m[38;5;241m.[39m_values
+[1;32m   2093[0m [38;5;66;03m# single indexer[39;00m
+[1;32m   2094[0m [38;5;28;01mif[39;00m [38;5;28mlen[39m(indexer) [38;5;241m>[39m [38;5;241m1[39m [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m multiindex_indexer:
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/series.py:4672[0m, in [0;36mSeries.reindex[0;34m(self, *args, **kwargs)[0m
+[1;32m   4668[0m         [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(
+[1;32m   4669[0m             [38;5;124m"[39m[38;5;124m'[39m[38;5;124mindex[39m[38;5;124m'[39m[38;5;124m passed as both positional and keyword argument[39m[38;5;124m"[39m
+[1;32m   4670[0m         )
+[1;32m   4671[0m     kwargs[38;5;241m.[39mupdate({[38;5;124m"[39m[38;5;124mindex[39m[38;5;124m"[39m: index})
+[0;32m-> 4672[0m [38;5;28;01mreturn[39;00m [38;5;28;43msuper[39;49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mreindex[49m[43m([49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:4966[0m, in [0;36mNDFrame.reindex[0;34m(self, *args, **kwargs)[0m
+[1;32m   4963[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_reindex_multi(axes, copy, fill_value)
+[1;32m   4965[0m [38;5;66;03m# perform the reindex on the axes[39;00m
+[0;32m-> 4966[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_reindex_axes[49m[43m([49m
+[1;32m   4967[0m [43m    [49m[43maxes[49m[43m,[49m[43m [49m[43mlevel[49m[43m,[49m[43m [49m[43mlimit[49m[43m,[49m[43m [49m[43mtolerance[49m[43m,[49m[43m [49m[43mmethod[49m[43m,[49m[43m [49m[43mfill_value[49m[43m,[49m[43m [49m[43mcopy[49m
+[1;32m   4968[0m [43m[49m[43m)[49m[38;5;241m.[39m__finalize__([38;5;28mself[39m, method[38;5;241m=[39m[38;5;124m"[39m[38;5;124mreindex[39m[38;5;124m"[39m)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:4986[0m, in [0;36mNDFrame._reindex_axes[0;34m(self, axes, level, limit, tolerance, method, fill_value, copy)[0m
+[1;32m   4981[0m new_index, indexer [38;5;241m=[39m ax[38;5;241m.[39mreindex(
+[1;32m   4982[0m     labels, level[38;5;241m=[39mlevel, limit[38;5;241m=[39mlimit, tolerance[38;5;241m=[39mtolerance, method[38;5;241m=[39mmethod
+[1;32m   4983[0m )
+[1;32m   4985[0m axis [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_get_axis_number(a)
+[0;32m-> 4986[0m obj [38;5;241m=[39m [43mobj[49m[38;5;241;43m.[39;49m[43m_reindex_with_indexers[49m[43m([49m
+[1;32m   4987[0m [43m    [49m[43m{[49m[43maxis[49m[43m:[49m[43m [49m[43m[[49m[43mnew_index[49m[43m,[49m[43m [49m[43mindexer[49m[43m][49m[43m}[49m[43m,[49m
+[1;32m   4988[0m [43m    [49m[43mfill_value[49m[38;5;241;43m=[39;49m[43mfill_value[49m[43m,[49m
+[1;32m   4989[0m [43m    [49m[43mcopy[49m[38;5;241;43m=[39;49m[43mcopy[49m[43m,[49m
+[1;32m   4990[0m [43m    [49m[43mallow_dups[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[1;32m   4991[0m [43m[49m[43m)[49m
+[1;32m   4992[0m [38;5;66;03m# If we've made a copy once, no need to make another one[39;00m
+[1;32m   4993[0m copy [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:5032[0m, in [0;36mNDFrame._reindex_with_indexers[0;34m(self, reindexers, fill_value, copy, allow_dups)[0m
+[1;32m   5029[0m     indexer [38;5;241m=[39m ensure_platform_int(indexer)
+[1;32m   5031[0m [38;5;66;03m# TODO: speed up on homogeneous DataFrame objects (see _reindex_multi)[39;00m
+[0;32m-> 5032[0m new_data [38;5;241m=[39m [43mnew_data[49m[38;5;241;43m.[39;49m[43mreindex_indexer[49m[43m([49m
+[1;32m   5033[0m [43m    [49m[43mindex[49m[43m,[49m
+[1;32m   5034[0m [43m    [49m[43mindexer[49m[43m,[49m
+[1;32m   5035[0m [43m    [49m[43maxis[49m[38;5;241;43m=[39;49m[43mbaxis[49m[43m,[49m
+[1;32m   5036[0m [43m    [49m[43mfill_value[49m[38;5;241;43m=[39;49m[43mfill_value[49m[43m,[49m
+[1;32m   5037[0m [43m    [49m[43mallow_dups[49m[38;5;241;43m=[39;49m[43mallow_dups[49m[43m,[49m
+[1;32m   5038[0m [43m    [49m[43mcopy[49m[38;5;241;43m=[39;49m[43mcopy[49m[43m,[49m
+[1;32m   5039[0m [43m[49m[43m)[49m
+[1;32m   5040[0m [38;5;66;03m# If we've made a copy once, no need to make another one[39;00m
+[1;32m   5041[0m copy [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:679[0m, in [0;36mBaseBlockManager.reindex_indexer[0;34m(self, new_axis, indexer, axis, fill_value, allow_dups, copy, consolidate, only_slice, use_na_proxy)[0m
+[1;32m    677[0m [38;5;66;03m# some axes don't allow reindexing with dups[39;00m
+[1;32m    678[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m allow_dups:
+[0;32m--> 679[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43maxes[49m[43m[[49m[43maxis[49m[43m][49m[38;5;241;43m.[39;49m[43m_validate_can_reindex[49m[43m([49m[43mindexer[49m[43m)[49m
+[1;32m    681[0m [38;5;28;01mif[39;00m axis [38;5;241m>[39m[38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mndim:
+[1;32m    682[0m     [38;5;28;01mraise[39;00m [38;5;167;01mIndexError[39;00m([38;5;124m"[39m[38;5;124mRequested axis not found in manager[39m[38;5;124m"[39m)
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:4107[0m, in [0;36mIndex._validate_can_reindex[0;34m(self, indexer)[0m
+[1;32m   4105[0m [38;5;66;03m# trying to reindex on an axis with duplicates[39;00m
+[1;32m   4106[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_index_as_unique [38;5;129;01mand[39;00m [38;5;28mlen[39m(indexer):
+[0;32m-> 4107[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mcannot reindex on an axis with duplicate labels[39m[38;5;124m"[39m)
+
+[0;31mValueError[0m: cannot reindex on an axis with duplicate labels
+ValueError: cannot reindex on an axis with duplicate labels
+

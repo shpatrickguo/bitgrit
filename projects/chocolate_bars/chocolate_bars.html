@@ -1,0 +1,1831 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Finding the best chocolate bars &#8212; shpg-dsprojects</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "shpatrickguo/dsprojects");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Travel Assured" href="../travel_assured/travel_assured.html" />
+    <link rel="prev" title="Predict the strength of concrete" href="../concrete_strength/concrete_strength.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/cat.jpeg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Welcome
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Projects
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
+   Rental Price Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../concrete_strength/concrete_strength.html">
+   Predict Concrete Strength
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Finding the best Chocolate Bars
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../travel_assured/travel_assured.html">
+   Travel Insurance Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exam_scores/exam_scores.html">
+   Do test preparation courses help you prepare for exams?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../viral_tweets/README.html">
+   Viral Tweets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
+   Stock Sentiment Analysis from News Headlines
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../BCG/README.html">
+   PowerCo - Is Churn driven by price sensitivity?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_email.html">
+     PowerCo - Proposal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_EDA.html">
+     PowerCo - EDA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sms_classifier/README.html">
+   SMS Text Classification
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sms_classifier/sms_classification.html">
+     Neural Network - SMS Text Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Achievements
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../achievements/certificates.html">
+   Certifications
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=lab/tree/docs/projects/chocolate_bars/chocolate_bars.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/chocolate_bars/chocolate_bars.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/shpatrickguo/dsprojects"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/chocolate_bars/chocolate_bars.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/projects/chocolate_bars/chocolate_bars.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   📖 Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   💾 The data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-data-file-contains-the-following-information-source">
+     The data file contains the following information (source):
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge">
+   💪 Challenge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-size-and-structure">
+   Data Size and Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   Missing Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-average-rating-by-country-of-origin">
+   1. What is the average rating by country of origin?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-many-bars-were-reviewed-for-each-of-those-countries">
+   2. How many bars were reviewed for each of those countries?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-the-cacao-beans-origin-an-indicator-of-quality">
+   3. Is the cacao bean’s origin an indicator of quality?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-cocoa-content-relate-to-rating">
+   4. How does cocoa content relate to rating?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-average-cocoa-content-for-bars-with-higher-ratings-above-3-5">
+   4.5 What is the average cocoa content for bars with higher ratings (above 3.5)?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-the-average-rating-of-bars-with-and-without-lecithin-l-in-the-ingredients">
+   5. Compare the average rating of bars with and without lecithin (L in the ingredients).
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Finding the best chocolate bars</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background">
+   📖 Background
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-data">
+   💾 The data
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-data-file-contains-the-following-information-source">
+     The data file contains the following information (source):
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#challenge">
+   💪 Challenge
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#imports">
+   Imports
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#load-data">
+   Load Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-size-and-structure">
+   Data Size and Structure
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#missing-data">
+   Missing Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-average-rating-by-country-of-origin">
+   1. What is the average rating by country of origin?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-many-bars-were-reviewed-for-each-of-those-countries">
+   2. How many bars were reviewed for each of those countries?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#is-the-cacao-beans-origin-an-indicator-of-quality">
+   3. Is the cacao bean’s origin an indicator of quality?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-cocoa-content-relate-to-rating">
+   4. How does cocoa content relate to rating?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-the-average-cocoa-content-for-bars-with-higher-ratings-above-3-5">
+   4.5 What is the average cocoa content for bars with higher ratings (above 3.5)?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-the-average-rating-of-bars-with-and-without-lecithin-l-in-the-ingredients">
+   5. Compare the average rating of bars with and without lecithin (L in the ingredients).
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="finding-the-best-chocolate-bars">
+<h1>Finding the best chocolate bars<a class="headerlink" href="#finding-the-best-chocolate-bars" title="Permalink to this headline">#</a></h1>
+<section id="background">
+<h2>📖 Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<p>A specialty foods import company wants to expand into gourmet chocolate bars. Let’s research this market to inform the initial approach to potential suppliers.</p>
+<p>After finding valuable chocolate bar ratings online, we will need to explore if the chocolate bars with the highest ratings share any characteristics that could help narrow down the search for suppliers (e.g., cacao percentage, bean country of origin, etc.)</p>
+</section>
+<section id="the-data">
+<h2>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this headline">#</a></h2>
+<section id="the-data-file-contains-the-following-information-source">
+<h3>The data file contains the following information (<a class="reference external" href="https://flavorsofcacao.com">source</a>):<a class="headerlink" href="#the-data-file-contains-the-following-information-source" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>“id” - id number of the review</p></li>
+<li><p>“manufacturer” - Name of the bar manufacturer</p></li>
+<li><p>“company_location” - Location of the manufacturer</p></li>
+<li><p>“year_reviewed” - From 2006 to 2021</p></li>
+<li><p>“bean_origin” - Country of origin of the cacao beans</p></li>
+<li><p>“bar_name” - Name of the chocolate bar</p></li>
+<li><p>“cocoa_percent” - Cocoa content of the bar (%)</p></li>
+<li><p>“num_ingredients” - Number of ingredients</p></li>
+<li><p>“ingredients” - B (Beans), S (Sugar), S* (Sweetener other than sugar or beet sugar), C (Cocoa Butter), (V) Vanilla, (L) Lecithin, (Sa) Salt</p></li>
+<li><p>“review” - Summary of most memorable characteristics of the chocolate bar</p></li>
+<li><p>“rating” - 1.0-1.9 Unpleasant, 2.0-2.9 Disappointing, 3.0-3.49 Recommended, 3.5-3.9 Highly Recommended, 4.0-5.0 Oustanding</p></li>
+</ul>
+<p><em><strong>Acknowledgments</strong>: Brady Brelinski, Manhattan Chocolate Society</em></p>
+</section>
+</section>
+<section id="challenge">
+<h2>💪 Challenge<a class="headerlink" href="#challenge" title="Permalink to this headline">#</a></h2>
+<p>This notebooks aims to report on the following questions:</p>
+<ol class="simple">
+<li><p>What is the average rating by country of origin?</p></li>
+<li><p>How many bars were reviewed for each of those countries?</p></li>
+<li><p>Create plots to visualize findings for questions 1 and 2.</p></li>
+<li><p>Is the cacao bean’s origin an indicator of quality?</p></li>
+<li><p>[Optional] How does cocoa content relate to rating? What is the average cocoa content for bars with higher ratings (above 3.5)?</p></li>
+<li><p>[Optional 2] Your research indicates that some consumers want to avoid bars with lecithin. Compare the average rating of bars with and without lecithin (L in the ingredients).</p></li>
+<li><p>Summarize your findings.</p></li>
+</ol>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>The average rating by country of origin ranges from 2.71 to 3.63. The country with the highest average rating is Tobago, whereas the lowest is Puerto Rico.</p></li>
+<li><p>The highest numbers of bars were reviewed for the country Venezulea with 253 bars reviewed.</p></li>
+<li><p>Cocoa bean’s country of origin is not an indicator of quality.</p></li>
+<li><p>Cocoa percent and rating is not correlated. The average cocao content for bars with higher ratings (above 3.5) is 71.108.</p></li>
+<li><p>The average rating of bars without Lecithin is higher than bars with the ingredient.</p></li>
+</ul>
+</section>
+<section id="imports">
+<h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">)})</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to display value on seaborn barplot</span>
+<span class="k">def</span> <span class="nf">show_values_on_bars</span><span class="p">(</span><span class="n">axs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_show_on_single_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>        
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
+            <span class="n">_x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
+            <span class="n">_y</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.05</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">())</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span> 
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">axs</span><span class="p">):</span>
+            <span class="n">_show_on_single_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_show_on_single_plot</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="load-data">
+<h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reading in the data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/chocolate_bars.csv&#39;</span><span class="p">)</span>
+<span class="c1"># Set id as index</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Take a look at the first datapoints</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>manufacturer</th>
+      <th>company_location</th>
+      <th>year_reviewed</th>
+      <th>bean_origin</th>
+      <th>bar_name</th>
+      <th>cocoa_percent</th>
+      <th>num_ingredients</th>
+      <th>ingredients</th>
+      <th>review</th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2454</th>
+      <td>5150</td>
+      <td>U.S.A.</td>
+      <td>2019</td>
+      <td>Tanzania</td>
+      <td>Kokoa Kamili, batch 1</td>
+      <td>76.0</td>
+      <td>3.0</td>
+      <td>B,S,C</td>
+      <td>rich cocoa, fatty, bready</td>
+      <td>3.25</td>
+    </tr>
+    <tr>
+      <th>2458</th>
+      <td>5150</td>
+      <td>U.S.A.</td>
+      <td>2019</td>
+      <td>Dominican Republic</td>
+      <td>Zorzal, batch 1</td>
+      <td>76.0</td>
+      <td>3.0</td>
+      <td>B,S,C</td>
+      <td>cocoa, vegetal, savory</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <th>2454</th>
+      <td>5150</td>
+      <td>U.S.A.</td>
+      <td>2019</td>
+      <td>Madagascar</td>
+      <td>Bejofo Estate, batch 1</td>
+      <td>76.0</td>
+      <td>3.0</td>
+      <td>B,S,C</td>
+      <td>cocoa, blackberry, full body</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <th>2542</th>
+      <td>5150</td>
+      <td>U.S.A.</td>
+      <td>2021</td>
+      <td>Fiji</td>
+      <td>Matasawalevu, batch 1</td>
+      <td>68.0</td>
+      <td>3.0</td>
+      <td>B,S,C</td>
+      <td>chewy, off, rubbery</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <th>2546</th>
+      <td>5150</td>
+      <td>U.S.A.</td>
+      <td>2021</td>
+      <td>Venezuela</td>
+      <td>Sur del Lago, batch 1</td>
+      <td>72.0</td>
+      <td>3.0</td>
+      <td>B,S,C</td>
+      <td>fatty, earthy, moss, nutty,chalky</td>
+      <td>3.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="data-size-and-structure">
+<h2>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>Dataset comprises of 2530 observations and 10 columns, of which some are categorical and numerical.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_ingredients</span></code> and <code class="docutils literal notranslate"><span class="pre">ingredients</span></code> contains null values.</p></li>
+<li><p>There are no duplicated values.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shape: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape: (2530, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+Int64Index: 2530 entries, 2454 to 2170
+Data columns (total 10 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   manufacturer      2530 non-null   object 
+ 1   company_location  2530 non-null   object 
+ 2   year_reviewed     2530 non-null   int64  
+ 3   bean_origin       2530 non-null   object 
+ 4   bar_name          2530 non-null   object 
+ 5   cocoa_percent     2530 non-null   float64
+ 6   num_ingredients   2443 non-null   float64
+ 7   ingredients       2443 non-null   object 
+ 8   review            2530 non-null   object 
+ 9   rating            2530 non-null   float64
+dtypes: float64(3), int64(1), object(6)
+memory usage: 217.4+ KB
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year_reviewed</th>
+      <th>cocoa_percent</th>
+      <th>num_ingredients</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>2530.000000</td>
+      <td>2530.000000</td>
+      <td>2443.000000</td>
+      <td>2530.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2014.374308</td>
+      <td>71.639723</td>
+      <td>3.041343</td>
+      <td>3.196344</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>3.968267</td>
+      <td>5.616724</td>
+      <td>0.913728</td>
+      <td>0.445321</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>2006.000000</td>
+      <td>42.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2012.000000</td>
+      <td>70.000000</td>
+      <td>2.000000</td>
+      <td>3.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2015.000000</td>
+      <td>70.000000</td>
+      <td>3.000000</td>
+      <td>3.250000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>2018.000000</td>
+      <td>74.000000</td>
+      <td>4.000000</td>
+      <td>3.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2021.000000</td>
+      <td>100.000000</td>
+      <td>6.000000</td>
+      <td>4.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>manufacturer         0
+company_location     0
+year_reviewed        0
+bean_origin          0
+bar_name             0
+cocoa_percent        0
+num_ingredients     87
+ingredients         87
+review               0
+rating               0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="missing-data">
+<h2>Missing Data<a class="headerlink" href="#missing-data" title="Permalink to this headline">#</a></h2>
+<p>For the 87 records that have missing information. If <code class="docutils literal notranslate"><span class="pre">ingredients</span></code> is NaN, then <code class="docutils literal notranslate"><span class="pre">num_ingredients</span></code> is also NaN. Therefore <code class="docutils literal notranslate"><span class="pre">num_ingredients</span></code> is MNAR (missing not at random).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">num_ingredients</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">ingredients</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>manufacturer</th>
+      <th>company_location</th>
+      <th>year_reviewed</th>
+      <th>bean_origin</th>
+      <th>bar_name</th>
+      <th>cocoa_percent</th>
+      <th>num_ingredients</th>
+      <th>ingredients</th>
+      <th>review</th>
+      <th>rating</th>
+    </tr>
+    <tr>
+      <th>id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1964</th>
+      <td>Amazing Cacao</td>
+      <td>Russia</td>
+      <td>2017</td>
+      <td>Peru</td>
+      <td>Maranon</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>raisins, pungent</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <th>1964</th>
+      <td>Amazing Cacao</td>
+      <td>Russia</td>
+      <td>2017</td>
+      <td>Peru</td>
+      <td>Platan Bajo</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>few grits, blackcherry, licorice</td>
+      <td>3.50</td>
+    </tr>
+    <tr>
+      <th>486</th>
+      <td>Artisan du Chocolat</td>
+      <td>U.K.</td>
+      <td>2010</td>
+      <td>Venezuela</td>
+      <td>Venezuela</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>very nutty, very bitter</td>
+      <td>1.75</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Bonnat</td>
+      <td>France</td>
+      <td>2006</td>
+      <td>Blend</td>
+      <td>One Hundred</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>acidic, bitter, dry</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <th>341</th>
+      <td>Bouga Cacao (Tulicorp)</td>
+      <td>Ecuador</td>
+      <td>2009</td>
+      <td>Ecuador</td>
+      <td>El Oro, Hacienda de Oro</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cardboard, very bitter, floral</td>
+      <td>1.50</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>Vintage Plantations (Tulicorp)</td>
+      <td>U.S.A.</td>
+      <td>2007</td>
+      <td>Ecuador</td>
+      <td>Los Rios, Rancho Grande 2004/2007</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>bland, mild fruit, strong bitter</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>Vintage Plantations (Tulicorp)</td>
+      <td>U.S.A.</td>
+      <td>2007</td>
+      <td>Ecuador</td>
+      <td>Los Rios, Rancho Grande 2004/2007</td>
+      <td>90.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>some fruit, strong bitter</td>
+      <td>2.00</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>Vintage Plantations (Tulicorp)</td>
+      <td>U.S.A.</td>
+      <td>2007</td>
+      <td>Ecuador</td>
+      <td>Los Rios, Rancho Grande 2004/2007</td>
+      <td>75.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>cocoa,earthy,very astringent</td>
+      <td>3.00</td>
+    </tr>
+    <tr>
+      <th>733</th>
+      <td>Whittakers</td>
+      <td>New Zealand</td>
+      <td>2011</td>
+      <td>Ghana</td>
+      <td>Ghana</td>
+      <td>72.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>sticky, dry, vanilla dominates</td>
+      <td>2.50</td>
+    </tr>
+    <tr>
+      <th>1109</th>
+      <td>Willie's Cacao</td>
+      <td>U.K.</td>
+      <td>2013</td>
+      <td>Indonesia</td>
+      <td>Java, Indonesian Black</td>
+      <td>100.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>fruit, strong smoke, bitter</td>
+      <td>2.25</td>
+    </tr>
+  </tbody>
+</table>
+<p>87 rows × 10 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="exploratory-data-analysis">
+<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rating</span></code> has a left skewed distribution, where most ratings are around 3-4, recommended and highly recommended.</p></li>
+<li><p>Most cholocolate bars have 3 ingredients and a cocoa percent between 60-90%.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_core.py:1057: FutureWarning: reindexing with a non-unique Index is deprecated and will raise in a future version.
+  comp_col.loc[orig.index] = pd.to_numeric(axis.convert_units(orig))
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="nn">Input In [10],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_decorators.py:46,</span> in <span class="ni">_deprecate_positional_args.&lt;locals&gt;.inner_f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>         <span class="s2">&quot;Pass the following variable</span><span class="si">{}</span><span class="s2"> as </span><span class="si">{}</span><span class="s2">keyword arg</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">. &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="s2">&quot;From version 0.12, the only valid positional argument &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="ne">FutureWarning</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="p">)</span>
+<span class="nn">     45 kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
+<span class="ne">---&gt; </span><span class="mi">46</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/axisgrid.py:2126,</span> in <span class="ni">pairplot</span><span class="nt">(data, hue, hue_order, palette, vars, x_vars, y_vars, kind, diag_kind, markers, height, aspect, corner, dropna, plot_kws, diag_kws, grid_kws, size)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2124</span> <span class="n">diag_kws</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;legend&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2125</span> <span class="k">if</span> <span class="n">diag_kind</span> <span class="o">==</span> <span class="s2">&quot;hist&quot;</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2126</span>     <span class="n">grid</span><span class="o">.</span><span class="n">map_diag</span><span class="p">(</span><span class="n">histplot</span><span class="p">,</span> <span class="o">**</span><span class="n">diag_kws</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2127</span> <span class="k">elif</span> <span class="n">diag_kind</span> <span class="o">==</span> <span class="s2">&quot;kde&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2128</span>     <span class="n">diag_kws</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;fill&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/axisgrid.py:1478,</span> in <span class="ni">PairGrid.map_diag</span><span class="nt">(self, func, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1476</span>     <span class="n">plot_kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;hue_order&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hue_order</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1477</span>     <span class="n">plot_kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;palette&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_orig_palette</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1478</span>     <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">vector</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1479</span>     <span class="n">ax</span><span class="o">.</span><span class="n">legend_</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1481</span> <span class="bp">self</span><span class="o">.</span><span class="n">_add_axis_labels</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/distributions.py:1462,</span> in <span class="ni">histplot</span><span class="nt">(data, x, y, hue, weights, stat, bins, binwidth, binrange, discrete, cumulative, common_bins, common_norm, multiple, element, fill, shrink, kde, kde_kws, line_kws, thresh, pthresh, pmax, cbar, cbar_ax, cbar_kws, palette, hue_order, hue_norm, color, log_scale, legend, ax, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1451</span> <span class="n">estimate_kws</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1452</span>     <span class="n">stat</span><span class="o">=</span><span class="n">stat</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1453</span>     <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1457</span>     <span class="n">cumulative</span><span class="o">=</span><span class="n">cumulative</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1458</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1460</span> <span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">univariate</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1462</span>     <span class="n">p</span><span class="o">.</span><span class="n">plot_univariate_histogram</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1463</span>         <span class="n">multiple</span><span class="o">=</span><span class="n">multiple</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1464</span>         <span class="n">element</span><span class="o">=</span><span class="n">element</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1465</span>         <span class="n">fill</span><span class="o">=</span><span class="n">fill</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1466</span>         <span class="n">shrink</span><span class="o">=</span><span class="n">shrink</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1467</span>         <span class="n">common_norm</span><span class="o">=</span><span class="n">common_norm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1468</span>         <span class="n">common_bins</span><span class="o">=</span><span class="n">common_bins</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1469</span>         <span class="n">kde</span><span class="o">=</span><span class="n">kde</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1470</span>         <span class="n">kde_kws</span><span class="o">=</span><span class="n">kde_kws</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1471</span>         <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1472</span>         <span class="n">legend</span><span class="o">=</span><span class="n">legend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1473</span>         <span class="n">estimate_kws</span><span class="o">=</span><span class="n">estimate_kws</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1474</span>         <span class="n">line_kws</span><span class="o">=</span><span class="n">line_kws</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1475</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1476</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1478</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1480</span>     <span class="n">p</span><span class="o">.</span><span class="n">plot_bivariate_histogram</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1481</span>         <span class="n">common_bins</span><span class="o">=</span><span class="n">common_bins</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1482</span>         <span class="n">common_norm</span><span class="o">=</span><span class="n">common_norm</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1493</span>     <span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/distributions.py:428,</span> in <span class="ni">_DistributionPlotter.plot_univariate_histogram</span><span class="nt">(self, multiple, element, fill, common_norm, common_bins, shrink, kde, kde_kws, color, legend, line_kws, estimate_kws, **plot_kws)</span>
+<span class="g g-Whitespace">    </span><span class="mi">418</span>     <span class="n">densities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compute_univariate_density</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">419</span>         <span class="bp">self</span><span class="o">.</span><span class="n">data_variable</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">420</span>         <span class="n">common_norm</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">424</span>         <span class="n">warn_singular</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">425</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">427</span> <span class="c1"># First pass through the data to compute the histograms</span>
+<span class="ne">--&gt; </span><span class="mi">428</span> <span class="k">for</span> <span class="n">sub_vars</span><span class="p">,</span> <span class="n">sub_data</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">iter_data</span><span class="p">(</span><span class="s2">&quot;hue&quot;</span><span class="p">,</span> <span class="n">from_comp_data</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span> 
+<span class="g g-Whitespace">    </span><span class="mi">430</span>     <span class="c1"># Prepare the relevant data</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span>     <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">sub_vars</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span>     <span class="n">sub_data</span> <span class="o">=</span> <span class="n">sub_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_core.py:983,</span> in <span class="ni">VectorPlotter.iter_data</span><span class="nt">(self, grouping_vars, reverse, from_comp_data)</span>
+<span class="g g-Whitespace">    </span><span class="mi">978</span> <span class="n">grouping_vars</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">    </span><span class="mi">979</span>     <span class="n">var</span> <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">grouping_vars</span> <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">variables</span>
+<span class="g g-Whitespace">    </span><span class="mi">980</span> <span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">982</span> <span class="k">if</span> <span class="n">from_comp_data</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">983</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">comp_data</span>
+<span class="g g-Whitespace">    </span><span class="mi">984</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">985</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plot_data</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/seaborn/_core.py:1057,</span> in <span class="ni">VectorPlotter.comp_data</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1055</span>     <span class="n">orig</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plot_data</span><span class="p">[</span><span class="n">var</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1056</span> <span class="n">comp_col</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">orig</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">var</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1057</span> <span class="n">comp_col</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">orig</span><span class="o">.</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">axis</span><span class="o">.</span><span class="n">convert_units</span><span class="p">(</span><span class="n">orig</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1059</span> <span class="k">if</span> <span class="n">axis</span><span class="o">.</span><span class="n">get_scale</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;log&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1060</span>     <span class="n">comp_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">comp_col</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:716,</span> in <span class="ni">_LocationIndexer.__setitem__</span><span class="nt">(self, key, value)</span>
+<span class="g g-Whitespace">    </span><span class="mi">713</span> <span class="bp">self</span><span class="o">.</span><span class="n">_has_valid_setitem_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">715</span> <span class="n">iloc</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;iloc&quot;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">iloc</span>
+<span class="ne">--&gt; </span><span class="mi">716</span> <span class="n">iloc</span><span class="o">.</span><span class="n">_setitem_with_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1690,</span> in <span class="ni">_iLocIndexer._setitem_with_indexer</span><span class="nt">(self, indexer, value, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1688</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_with_indexer_split_path</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1689</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1690</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_setitem_single_block</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1929,</span> in <span class="ni">_iLocIndexer._setitem_single_block</span><span class="nt">(self, indexer, value, name)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1923</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="n">maybe_convert_ix</span><span class="p">(</span><span class="o">*</span><span class="n">indexer</span><span class="p">)</span>  <span class="c1"># e.g. test_setitem_frame_align</span>
+<span class="g g-Whitespace">   </span><span class="mi">1925</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ABCSeries</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;iloc&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1926</span>     <span class="c1"># TODO(EA): ExtensionBlock.setitem this causes issues with</span>
+<span class="g g-Whitespace">   </span><span class="mi">1927</span>     <span class="c1"># setting for extensionarrays that store dicts. Need to decide</span>
+<span class="g g-Whitespace">   </span><span class="mi">1928</span>     <span class="c1"># if it&#39;s worth supporting that.</span>
+<span class="ne">-&gt; </span><span class="mi">1929</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_align_series</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">Series</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+<span class="g g-Whitespace">   </span><span class="mi">1931</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">ABCDataFrame</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;iloc&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1932</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_align_frame</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexing.py:2091,</span> in <span class="ni">_iLocIndexer._align_series</span><span class="nt">(self, indexer, ser, multiindex_indexer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2089</span> <span class="k">if</span> <span class="n">obj</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">is_empty_indexer</span><span class="p">(</span><span class="n">indexer</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ser</span><span class="o">.</span><span class="n">_values</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2090</span>     <span class="k">return</span> <span class="n">ser</span><span class="o">.</span><span class="n">_values</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="ne">-&gt; </span><span class="mi">2091</span> <span class="n">ser</span> <span class="o">=</span> <span class="n">ser</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">indexer</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">_values</span>
+<span class="g g-Whitespace">   </span><span class="mi">2093</span> <span class="c1"># single indexer</span>
+<span class="g g-Whitespace">   </span><span class="mi">2094</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">multiindex_indexer</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/series.py:4672,</span> in <span class="ni">Series.reindex</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4668</span>         <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4669</span>             <span class="s2">&quot;&#39;index&#39; passed as both positional and keyword argument&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">4670</span>         <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4671</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">index</span><span class="p">})</span>
+<span class="ne">-&gt; </span><span class="mi">4672</span> <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:4966,</span> in <span class="ni">NDFrame.reindex</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4963</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_multi</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">copy</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4965</span> <span class="c1"># perform the reindex on the axes</span>
+<span class="ne">-&gt; </span><span class="mi">4966</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reindex_axes</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4967</span>     <span class="n">axes</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">limit</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">fill_value</span><span class="p">,</span> <span class="n">copy</span>
+<span class="g g-Whitespace">   </span><span class="mi">4968</span> <span class="p">)</span><span class="o">.</span><span class="n">__finalize__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;reindex&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:4986,</span> in <span class="ni">NDFrame._reindex_axes</span><span class="nt">(self, axes, level, limit, tolerance, method, fill_value, copy)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4981</span> <span class="n">new_index</span><span class="p">,</span> <span class="n">indexer</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4982</span>     <span class="n">labels</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">level</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="n">limit</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span>
+<span class="g g-Whitespace">   </span><span class="mi">4983</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4985</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_axis_number</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">4986</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">_reindex_with_indexers</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">4987</span>     <span class="p">{</span><span class="n">axis</span><span class="p">:</span> <span class="p">[</span><span class="n">new_index</span><span class="p">,</span> <span class="n">indexer</span><span class="p">]},</span>
+<span class="g g-Whitespace">   </span><span class="mi">4988</span>     <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4989</span>     <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4990</span>     <span class="n">allow_dups</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">4991</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4992</span> <span class="c1"># If we&#39;ve made a copy once, no need to make another one</span>
+<span class="g g-Whitespace">   </span><span class="mi">4993</span> <span class="n">copy</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/generic.py:5032,</span> in <span class="ni">NDFrame._reindex_with_indexers</span><span class="nt">(self, reindexers, fill_value, copy, allow_dups)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5029</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="n">ensure_platform_int</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5031</span> <span class="c1"># TODO: speed up on homogeneous DataFrame objects (see _reindex_multi)</span>
+<span class="ne">-&gt; </span><span class="mi">5032</span> <span class="n">new_data</span> <span class="o">=</span> <span class="n">new_data</span><span class="o">.</span><span class="n">reindex_indexer</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">5033</span>     <span class="n">index</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5034</span>     <span class="n">indexer</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5035</span>     <span class="n">axis</span><span class="o">=</span><span class="n">baxis</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5036</span>     <span class="n">fill_value</span><span class="o">=</span><span class="n">fill_value</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5037</span>     <span class="n">allow_dups</span><span class="o">=</span><span class="n">allow_dups</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5038</span>     <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">5039</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">5040</span> <span class="c1"># If we&#39;ve made a copy once, no need to make another one</span>
+<span class="g g-Whitespace">   </span><span class="mi">5041</span> <span class="n">copy</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:679,</span> in <span class="ni">BaseBlockManager.reindex_indexer</span><span class="nt">(self, new_axis, indexer, axis, fill_value, allow_dups, copy, consolidate, only_slice, use_na_proxy)</span>
+<span class="g g-Whitespace">    </span><span class="mi">677</span> <span class="c1"># some axes don&#39;t allow reindexing with dups</span>
+<span class="g g-Whitespace">    </span><span class="mi">678</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">allow_dups</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">679</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span><span class="o">.</span><span class="n">_validate_can_reindex</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">681</span> <span class="k">if</span> <span class="n">axis</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ndim</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">682</span>     <span class="k">raise</span> <span class="ne">IndexError</span><span class="p">(</span><span class="s2">&quot;Requested axis not found in manager&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.12/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:4107,</span> in <span class="ni">Index._validate_can_reindex</span><span class="nt">(self, indexer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">4105</span> <span class="c1"># trying to reindex on an axis with duplicates</span>
+<span class="g g-Whitespace">   </span><span class="mi">4106</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index_as_unique</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">4107</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;cannot reindex on an axis with duplicate labels&quot;</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: cannot reindex on an axis with duplicate labels
+</pre></div>
+</div>
+<img alt="../../_images/chocolate_bars_18_2.png" src="../../_images/chocolate_bars_18_2.png" />
+</div>
+</div>
+</section>
+<section id="what-is-the-average-rating-by-country-of-origin">
+<h2>1. What is the average rating by country of origin?<a class="headerlink" href="#what-is-the-average-rating-by-country-of-origin" title="Permalink to this headline">#</a></h2>
+<p>The average rating by country of origin ranges from 2.71 to 3.63. <br>
+The country with the highest average rating is Tobago, whereas the lowest is Puerto Rico.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_rating_by_origin</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">df</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">rating</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">avg_rating_by_origin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bean_origin</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>54</th>
+      <td>Tobago</td>
+      <td>3.625000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>China</td>
+      <td>3.500000</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Sao Tome &amp; Principe</td>
+      <td>3.500000</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Solomon Islands</td>
+      <td>3.450000</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Congo</td>
+      <td>3.318182</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Sierra Leone</td>
+      <td>2.750000</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>St.Vincent-Grenadines</td>
+      <td>2.750000</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Principe</td>
+      <td>2.750000</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Martinique</td>
+      <td>2.750000</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Puerto Rico</td>
+      <td>2.714286</td>
+    </tr>
+  </tbody>
+</table>
+<p>62 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">avg_rating_by_origin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">show_values_on_bars</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Top 8 average rating by country of origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Country of Origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Average rating&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chocolate_bars_21_0.png" src="../../_images/chocolate_bars_21_0.png" />
+</div>
+</div>
+</section>
+<section id="how-many-bars-were-reviewed-for-each-of-those-countries">
+<h2>2. How many bars were reviewed for each of those countries?<a class="headerlink" href="#how-many-bars-were-reviewed-for-each-of-those-countries" title="Permalink to this headline">#</a></h2>
+<p>The highest numbers of bars were reviewed for the country Venezulea with 253 bars reviewed.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bar_count_by_origin</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span>
+                       <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">)</span>
+                       <span class="o">.</span><span class="n">bar_name</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+                       <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+                       <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;bar_name&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+                       <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;bar_name&quot;</span><span class="p">:</span> <span class="s2">&quot;no. of bars reviewed&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                      <span class="p">)</span>
+<span class="n">bar_count_by_origin</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bean_origin</th>
+      <th>no. of bars reviewed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>60</th>
+      <td>Venezuela</td>
+      <td>253</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Peru</td>
+      <td>244</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Dominican Republic</td>
+      <td>226</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Ecuador</td>
+      <td>219</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Madagascar</td>
+      <td>177</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Suriname</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Sumatra</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Sulawesi</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>St.Vincent-Grenadines</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Principe</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>62 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;no. of bars reviewed&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">bar_count_by_origin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span>
+<span class="n">show_values_on_bars</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Number of bars reviewed by country of origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Country of Origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of bars reviewed&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chocolate_bars_24_0.png" src="../../_images/chocolate_bars_24_0.png" />
+</div>
+</div>
+</section>
+<section id="is-the-cacao-beans-origin-an-indicator-of-quality">
+<h2>3. Is the cacao bean’s origin an indicator of quality?<a class="headerlink" href="#is-the-cacao-beans-origin-an-indicator-of-quality" title="Permalink to this headline">#</a></h2>
+<p>Cocoa bean’s country of origin is not an indicator of quality.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Rating of bean by country of origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Country of Origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Rating&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/chocolate_bars_26_0.png" src="../../_images/chocolate_bars_26_0.png" />
+</div>
+</div>
+</section>
+<section id="how-does-cocoa-content-relate-to-rating">
+<h2>4. How does cocoa content relate to rating?<a class="headerlink" href="#how-does-cocoa-content-relate-to-rating" title="Permalink to this headline">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cocoa_percent</span></code> and <code class="docutils literal notranslate"><span class="pre">rating</span></code> is not correlated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate Pearson&#39;s correlation</span>
+<span class="n">corr</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rating</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">cocoa_percent</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pearsons correlation: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">corr</span><span class="p">)</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;cocoa_percent&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Rating of bean by cocao content&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cocao Content %&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Rating&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Pearsons correlation: -0.147
+</pre></div>
+</div>
+<img alt="../../_images/chocolate_bars_28_1.png" src="../../_images/chocolate_bars_28_1.png" />
+</div>
+</div>
+</section>
+<section id="what-is-the-average-cocoa-content-for-bars-with-higher-ratings-above-3-5">
+<h2>4.5 What is the average cocoa content for bars with higher ratings (above 3.5)?<a class="headerlink" href="#what-is-the-average-cocoa-content-for-bars-with-higher-ratings-above-3-5" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">3.5</span><span class="p">]</span><span class="o">.</span><span class="n">cocoa_percent</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71.108
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compare-the-average-rating-of-bars-with-and-without-lecithin-l-in-the-ingredients">
+<h2>5. Compare the average rating of bars with and without lecithin (L in the ingredients).<a class="headerlink" href="#compare-the-average-rating-of-bars-with-and-without-lecithin-l-in-the-ingredients" title="Permalink to this headline">#</a></h2>
+<p>Some consumers want to avoid bars with lecithin.</p>
+<p>The average rating of bars without Lecithin is higher than bars with the ingredient.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">contains_L</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;ingredients&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
+<span class="n">avg_rating_with_L</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">contains_L</span><span class="p">]</span><span class="o">.</span><span class="n">rating</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">avg_rating_without_L</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">contains_L</span><span class="p">]</span><span class="o">.</span><span class="n">rating</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average rating with lecithin: </span><span class="si">{</span><span class="n">avg_rating_with_L</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average rating without lecithin: </span><span class="si">{</span><span class="n">avg_rating_without_L</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average rating with lecithin: 3.151
+Average rating without lecithin: 3.225
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./projects/chocolate_bars"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../concrete_strength/concrete_strength.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Predict the strength of concrete</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../travel_assured/travel_assured.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Travel Assured</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Patrick Guo<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
