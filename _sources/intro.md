@@ -21,13 +21,13 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 ````{card} Predict Concrete Strength
 :link: projects/concrete_strength/concrete_strength.html
 :link-type: url
-{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning` {bdg-primary-line}`Competition`
 ````
 
 ````{card} Finding the best chocolate bars
 :link: projects/chocolate_bars/chocolate_bars.html
 :link-type: url
-{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Competition`
 ````
 
 ````{card} Travel Assured - Travel Insurance Analysis
@@ -39,13 +39,13 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 ````{card} Do test preparation courses help you prepare for exams?
 :link: projects/exam_scores/exam_scores.html
 :link-type: url
-{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization`
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Competition`
 ````
 
 ````{card} Viral Tweets Prediction Challenge
 :link: projects/viral_tweets/README.html
 :link-type: url
-{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning`
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning` {bdg-primary-line}`Competition`
 ````
 
 ````{card} Stock Sentiment Analysis from News Headlines
