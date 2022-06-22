@@ -58,6 +58,7 @@ html:
     utterances:
       repo: "shpatrickguo/dsprojects"
     hypothesis: true
+    dokieli: true
 
 launch_buttons:
   notebook_interface: "jupyterlab"
