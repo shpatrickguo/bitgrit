@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="PowerCo_EDA.html">
+    <a class="reference internal" href="eda.html">
      PowerCo - EDA
     </a>
    </li>
@@ -432,6 +432,11 @@ title="Print to PDF"
    </span>
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-engineering-and-modelling">
+   [Feature Engineering and Modelling]
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -466,6 +471,11 @@ title="Print to PDF"
    </span>
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#feature-engineering-and-modelling">
+   [Feature Engineering and Modelling]
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -489,7 +499,7 @@ PowerCo is a major gas and electricity utility that supplies to corporate, SME (
 <p>Your LDS wants an email with your thoughts on how the team should go about to test this hypothesis.</p>
 </section>
 <section id="exploratory-data-analysis-data-cleaning">
-<h2>2: <a class="reference internal" href="PowerCo_EDA.html"><span class="doc std std-doc">Exploratory Data Analysis &amp; Data Cleaning</span></a><a class="headerlink" href="#exploratory-data-analysis-data-cleaning" title="Permalink to this headline">#</a></h2>
+<h2>2: <a class="reference internal" href="eda.html"><span class="doc std std-doc">Exploratory Data Analysis &amp; Data Cleaning</span></a><a class="headerlink" href="#exploratory-data-analysis-data-cleaning" title="Permalink to this headline">#</a></h2>
 <p><strong>Objective</strong>
 Clean the data – address missing values, duplicates, data type conversions, transformations, and multi-co-linearity, as well as outliers.</p>
 <p>Perform some exploratory data analysis. Look into the data types, data statistics, and identify any missing data or null values, and how often they appear in the data. Visualize specific parameters as well as variable distributions.</p>
@@ -500,6 +510,25 @@ The BCG project team thinks that building a churn model to understand whether pr
 Historical pricing data: variable and fixed pricing data etc
 Churn indicator: whether each customer has churned or not
 These datasets are otherwise identical and have historical price data and customer data (including churn status for the customers in the training data).</p>
+</section>
+<section id="feature-engineering-and-modelling">
+<h2>[Feature Engineering and Modelling]<a class="headerlink" href="#feature-engineering-and-modelling" title="Permalink to this headline">#</a></h2>
+<p><strong>Objective</strong>
+Your colleague has done some work on engineering the features within the cleaned dataset and has calculated a feature which seems to have predictive power. This feature is <code class="docutils literal notranslate"><span class="pre">the</span> <span class="pre">difference</span> <span class="pre">between</span> <span class="pre">off-peak</span> <span class="pre">prices</span> <span class="pre">in</span> <span class="pre">December</span> <span class="pre">and</span> <span class="pre">January</span> <span class="pre">the</span> <span class="pre">preceding</span> <span class="pre">year</span></code>. Improve the feature’s predictive power and elaborate why you made those choices.</p>
+<p>Train a Random Forest classifier and to evaluate how well these features are able to predict a customer churning. Document the advantages and disadvantages of using a Random Forest for this use case.</p>
+<ul class="simple">
+<li><p>Where did the model underperform?</p></li>
+<li><p>Why use the chosen evaluation metrics?</p></li>
+<li><p>Document the advantages and disadvantages of using the Random Forest for this use case.</p></li>
+<li><p>Is the model performance is satisfactory?</p></li>
+<li><p>Relate the model performance to the client’s financial performance with the introduction of the discount proposition. How much money could a client save with the use of the model? What assumptions did you make to come to this conclusion?</p></li>
+</ul>
+<p><strong>Background Information</strong>
+The team now needs to brainstorm and build out features to uncover signals in the data that could inform the churn model.</p>
+<p>Feature engineering is one of the keys to unlocking predictive insight through mathematical modeling. Based on the data that is available and was cleaned, identify what you think could be drivers of churn for our client and build those features to later use in your model.</p>
+<p>Once you have a set of features, train a Random Forest classifier to predict customer churn and evaluate the performance of the model with suitable evaluation metrics.</p>
+<p>Recall that the hypotheses under consideration is that churn is driven by the customers’ price sensitivities and that it would be possible to predict customers likely to churn using a predictive model.</p>
+<p>If you’re eager to go the extra mile for the client, when you have a trained predictive model, remember to investigate the client’s proposed discounting strategy, with the head of the SME division suggesting that offering customers at high propensity to churn a 20% discount might be effective.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
