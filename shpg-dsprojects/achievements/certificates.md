@@ -1,5 +1,10 @@
 # Certificates
 
+````{dropdown} [Neo4j Certified Professional](https://graphacademy.neo4j.com/certificates/ec69014412ba18c86c59343915814f59d8383b6a7ef32a74e77feaac0ec271fb.pdf)
+Professional level of knowledge of Neo4j.
+````
+
+
 ````{dropdown} [DataKitchen DataOps Fundamentals - May 2022](https://learn.datakitchen.io/certificate/ODIwMDBfODg1NDU2)
 [Course Overview](https://info.datakitchen.io/training-certification-dataops-fundamentals)
 ````
