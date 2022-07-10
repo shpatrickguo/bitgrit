@@ -633,17 +633,17 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[&#39;AMZN&#39;,
-  datetime.date(2022, 7, 3),
-  datetime.time(20, 12),
-  &#39;Oil Edges Lower as Traders Weigh Recession Concern, Tight Supply&#39;],
+  datetime.date(2022, 7, 10),
+  datetime.time(11, 45),
+  &quot;Better Buy: Bed Bath &amp; Beyond vs. Kohl&#39;s&quot;],
  [&#39;AMZN&#39;,
-  datetime.date(2022, 7, 3),
-  datetime.time(19, 29),
-  &#39;Bezos Criticizes Bidens Call for Gas Stations to Cut Prices&#39;],
+  datetime.date(2022, 7, 10),
+  datetime.time(11, 30),
+  &#39;3 Red-Hot Stocks That Could Continue to Beat the Market&#39;],
  [&#39;AMZN&#39;,
-  datetime.date(2022, 7, 3),
-  datetime.time(19, 1),
-  &#39;WeShop launches as first community-owned shopping platform with IPO in sight&#39;]]
+  datetime.date(2022, 7, 10),
+  datetime.time(11, 28),
+  &quot;Stock market: Here&#39;s what usually happens after a 20% plunge&quot;]]
 </pre></div>
 </div>
 </div>
@@ -748,7 +748,7 @@ FinViz makes market information accessible and provides a lot of data in visual 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Before we had 200 headlines, now we have 196&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Before we had 200 headlines, now we have 198&#39;
 </pre></div>
 </div>
 </div>
@@ -772,6 +772,72 @@ FinViz makes market information accessible and provides a lot of data in visual 
 <span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 <span class="c1"># Sort it</span>
 <span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3621,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3620</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3621</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3622</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:136,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:160,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:201,</span> in <span class="ni">pandas._libs.index.IndexEngine._get_loc_duplicates</span><span class="nt">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:209,</span> in <span class="ni">pandas._libs.index.IndexEngine._maybe_get_bool_indexer</span><span class="nt">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:107,</span> in <span class="ni">pandas._libs.index._unpack_bool_indexer</span><span class="nt">()</span>
+
+<span class="ne">KeyError</span>: datetime.date(2022, 7, 4)
+
+<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">Input In [11],</span> in <span class="ni">&lt;cell line: 9&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">STOCK</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Select the DATE</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">DATE</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="c1"># Set the index to time and </span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexing.py:967,</span> in <span class="ni">_LocationIndexer.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">964</span> <span class="n">axis</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis</span> <span class="ow">or</span> <span class="mi">0</span>
+<span class="g g-Whitespace">    </span><span class="mi">966</span> <span class="n">maybe_callable</span> <span class="o">=</span> <span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">967</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_axis</span><span class="p">(</span><span class="n">maybe_callable</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1202,</span> in <span class="ni">_LocIndexer._getitem_axis</span><span class="nt">(self, key, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1200</span> <span class="c1"># fall thru to straight lookup</span>
+<span class="g g-Whitespace">   </span><span class="mi">1201</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate_key</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1202</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_label</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1153,</span> in <span class="ni">_LocIndexer._get_label</span><span class="nt">(self, label, axis)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1151</span> <span class="k">def</span> <span class="nf">_get_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1152</span>     <span class="c1"># GH#5667 this will fail if the label is not present in the axis.</span>
+<span class="ne">-&gt; </span><span class="mi">1153</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/generic.py:3864,</span> in <span class="ni">NDFrame.xs</span><span class="nt">(self, key, axis, level, drop_level)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3862</span>             <span class="n">new_index</span> <span class="o">=</span> <span class="n">index</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">3863</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3864</span>     <span class="n">loc</span> <span class="o">=</span> <span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3866</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3867</span>         <span class="k">if</span> <span class="n">loc</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3623,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3621</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3622</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3623</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3624</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3625</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3626</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3627</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3628</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: datetime.date(2022, 7, 4)
 </pre></div>
 </div>
 </div>
