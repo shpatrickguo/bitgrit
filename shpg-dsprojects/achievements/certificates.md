@@ -1,7 +1,17 @@
 # Certificates
 
+````{dropdown} [Neo4j Graph Data Science Certified](https://graphacademy.neo4j.com/certificates/4fe37ad4060286cfbcbd37412208c63d606db028455e0942eab9338565fd0d5e.pdf)
+- General use of the Neo4j Graph Data Science Library
+- Graph Data Science workflow used during analysis
+- Using specific graph algorithms
+````
+
 ````{dropdown} [Neo4j Certified Professional](https://graphacademy.neo4j.com/certificates/ec69014412ba18c86c59343915814f59d8383b6a7ef32a74e77feaac0ec271fb.pdf)
-Professional level of knowledge of Neo4j.
+- Neo4j property graph model
+- Cypher queries
+- Graph data modeling
+- Importing data
+- Application development concepts
 ````
 
 
