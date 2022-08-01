@@ -16,6 +16,7 @@ xgboost
 verstack
 geopy
 folium
+yellowbrick
 sodapy
 pyproj
 bs4
