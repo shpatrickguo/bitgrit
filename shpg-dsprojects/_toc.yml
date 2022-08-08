@@ -6,6 +6,8 @@ root: intro
 parts:
   - caption: Projects
     chapters:
+    - file: projects/doctor_segmentation/doctor_segmentation.ipynb
+      title: Customer Segmentation for Medical Device Manufacturer
     - file: projects/inn_the_neighborhood/inn_the_neighborhood.ipynb
       title: Rental Price Prediction
     - file: projects/concrete_strength/concrete_strength.ipynb
