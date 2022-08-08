@@ -12,6 +12,12 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 
 ## Project List
 
+````{card} Customer Segmentation for Medical Device Manufacturer
+:link: projects/doctor_segmentation/doctor_segmentation.html
+:link-type: url
+{bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning` {bdg-secondary-line}`Competition`
+````
+
 ````{card} Inn the Neighborhood - Rental Price Prediction
 :link: projects/inn_the_neighborhood/inn_the_neighborhood.html
 :link-type: url
