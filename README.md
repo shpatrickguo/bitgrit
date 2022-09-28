@@ -19,10 +19,6 @@ If you'd like to develop and/or build the shpg-dsprojects book, you should:
 
 A fully-rendered HTML version of the book will be built in `shpg_dsprojects/_build/html/`.
 
-## Contributors
-
-We welcome and recognize all contributions.
-
 ## Credits
 
-This project is created using the excellent open source [Jupyter Book project](https://jupyterbook.org/) and the [executablebooks/cookiecutter-jupyter-book template](https://github.com/executablebooks/cookiecutter-jupyter-book).
+This project is created using the excellent open source [Jupyter Book project](https://jupyterbook.org/).
