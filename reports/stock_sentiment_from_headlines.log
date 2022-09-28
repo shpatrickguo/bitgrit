@@ -1,98 +1,114 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+  File "/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
     executenb(
-  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
+  File "/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
+  File "/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
+  File "/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
     return future.result()
-  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
+  File "/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/nbclient/client.py", line 663, in async_execute
     await self.async_execute_cell(
-  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
+  File "/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/nbclient/client.py", line 965, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-STOCK = TICKER_LIST[0]
-DATE = list(scored_news.date)[-1]
-
-# Set the index to ticker and date
-single_day = scored_news_clean.set_index(['ticker', 'date'])
-# Cross-section the STOCK row
-single_day = single_day.loc[STOCK]
-# Select the DATE
-single_day = single_day.loc[DATE]
-# Set the index to time and 
-single_day = single_day.set_index('time')
-# Sort it
-single_day = single_day.sort_index()
+# Group by date and ticker columns from scored_news and calculate the mean
+mean_c = scored_news.groupby(['date', 'ticker']).mean()
+# Unstack the column ticker
+mean_c = mean_c.unstack(level=1)
+# Get the cross-section of compound in the 'columns' axis
+mean_c = mean_c.xs('compound', axis=1)
+# Plot a bar chart with pandas
+mean_c.plot.bar()
+plt.title("Vader compound scores by date for each ticker", fontsize=16)
+plt.ylabel("score")
+plt.show()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mKeyError[0m                                  Traceback (most recent call last)
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3621[0m, in [0;36mIndex.get_loc[0;34m(self, key, method, tolerance)[0m
-[1;32m   3620[0m [38;5;28;01mtry[39;00m:
-[0;32m-> 3621[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engine[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mcasted_key[49m[43m)[49m
-[1;32m   3622[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3800[0m, in [0;36mIndex.get_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3799[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 3800[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_engine[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mcasted_key[49m[43m)[49m
+[1;32m   3801[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:136[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:138[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:160[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:165[0m, in [0;36mpandas._libs.index.IndexEngine.get_loc[0;34m()[0m
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:201[0m, in [0;36mpandas._libs.index.IndexEngine._get_loc_duplicates[0;34m()[0m
+File [0;32mpandas/_libs/hashtable_class_helper.pxi:5745[0m, in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:209[0m, in [0;36mpandas._libs.index.IndexEngine._maybe_get_bool_indexer[0;34m()[0m
+File [0;32mpandas/_libs/hashtable_class_helper.pxi:5753[0m, in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[0;34m()[0m
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:107[0m, in [0;36mpandas._libs.index._unpack_bool_indexer[0;34m()[0m
-
-[0;31mKeyError[0m: datetime.date(2022, 8, 23)
+[0;31mKeyError[0m: 'compound'
 
 The above exception was the direct cause of the following exception:
 
 [0;31mKeyError[0m                                  Traceback (most recent call last)
-Input [0;32mIn [11][0m, in [0;36m<cell line: 9>[0;34m()[0m
-[1;32m      7[0m single_day [38;5;241m=[39m single_day[38;5;241m.[39mloc[STOCK]
-[1;32m      8[0m [38;5;66;03m# Select the DATE[39;00m
-[0;32m----> 9[0m single_day [38;5;241m=[39m [43msingle_day[49m[38;5;241;43m.[39;49m[43mloc[49m[43m[[49m[43mDATE[49m[43m][49m
-[1;32m     10[0m [38;5;66;03m# Set the index to time and [39;00m
-[1;32m     11[0m single_day [38;5;241m=[39m single_day[38;5;241m.[39mset_index([38;5;124m'[39m[38;5;124mtime[39m[38;5;124m'[39m)
+Cell [0;32mIn [9], line 6[0m
+[1;32m      4[0m mean_c [38;5;241m=[39m mean_c[38;5;241m.[39munstack(level[38;5;241m=[39m[38;5;241m1[39m)
+[1;32m      5[0m [38;5;66;03m# Get the cross-section of compound in the 'columns' axis[39;00m
+[0;32m----> 6[0m mean_c [38;5;241m=[39m mean_c[38;5;241m.[39mxs([38;5;124m'[39m[38;5;124mcompound[39m[38;5;124m'[39m, axis[38;5;241m=[39m[38;5;241m1[39m)
+[1;32m      7[0m [38;5;66;03m# Plot a bar chart with pandas[39;00m
+[1;32m      8[0m mean_c[38;5;241m.[39mplot[38;5;241m.[39mbar()
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexing.py:967[0m, in [0;36m_LocationIndexer.__getitem__[0;34m(self, key)[0m
-[1;32m    964[0m axis [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39maxis [38;5;129;01mor[39;00m [38;5;241m0[39m
-[1;32m    966[0m maybe_callable [38;5;241m=[39m com[38;5;241m.[39mapply_if_callable(key, [38;5;28mself[39m[38;5;241m.[39mobj)
-[0;32m--> 967[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_axis[49m[43m([49m[43mmaybe_callable[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m)[49m
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/generic.py:4042[0m, in [0;36mNDFrame.xs[0;34m(self, key, axis, level, drop_level)[0m
+[1;32m   4040[0m [38;5;28;01mif[39;00m axis [38;5;241m==[39m [38;5;241m1[39m:
+[1;32m   4041[0m     [38;5;28;01mif[39;00m drop_level:
+[0;32m-> 4042[0m         [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[43m[[49m[43mkey[49m[43m][49m
+[1;32m   4043[0m     index [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns
+[1;32m   4044[0m [38;5;28;01melse[39;00m:
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1202[0m, in [0;36m_LocIndexer._getitem_axis[0;34m(self, key, axis)[0m
-[1;32m   1200[0m [38;5;66;03m# fall thru to straight lookup[39;00m
-[1;32m   1201[0m [38;5;28mself[39m[38;5;241m.[39m_validate_key(key, axis)
-[0;32m-> 1202[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_get_label[49m[43m([49m[43mkey[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m)[49m
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/frame.py:3804[0m, in [0;36mDataFrame.__getitem__[0;34m(self, key)[0m
+[1;32m   3802[0m [38;5;28;01mif[39;00m is_single_key:
+[1;32m   3803[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mnlevels [38;5;241m>[39m [38;5;241m1[39m:
+[0;32m-> 3804[0m         [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_multilevel[49m[43m([49m[43mkey[49m[43m)[49m
+[1;32m   3805[0m     indexer [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mget_loc(key)
+[1;32m   3806[0m     [38;5;28;01mif[39;00m is_integer(indexer):
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexing.py:1153[0m, in [0;36m_LocIndexer._get_label[0;34m(self, label, axis)[0m
-[1;32m   1151[0m [38;5;28;01mdef[39;00m [38;5;21m_get_label[39m([38;5;28mself[39m, label, axis: [38;5;28mint[39m):
-[1;32m   1152[0m     [38;5;66;03m# GH#5667 this will fail if the label is not present in the axis.[39;00m
-[0;32m-> 1153[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mobj[49m[38;5;241;43m.[39;49m[43mxs[49m[43m([49m[43mlabel[49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[43maxis[49m[43m)[49m
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/frame.py:3855[0m, in [0;36mDataFrame._getitem_multilevel[0;34m(self, key)[0m
+[1;32m   3853[0m [38;5;28;01mdef[39;00m [38;5;21m_getitem_multilevel[39m([38;5;28mself[39m, key):
+[1;32m   3854[0m     [38;5;66;03m# self.columns is a MultiIndex[39;00m
+[0;32m-> 3855[0m     loc [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolumns[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mkey[49m[43m)[49m
+[1;32m   3856[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(loc, ([38;5;28mslice[39m, np[38;5;241m.[39mndarray)):
+[1;32m   3857[0m         new_columns [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns[loc]
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/generic.py:3864[0m, in [0;36mNDFrame.xs[0;34m(self, key, axis, level, drop_level)[0m
-[1;32m   3862[0m             new_index [38;5;241m=[39m index[loc]
-[1;32m   3863[0m [38;5;28;01melse[39;00m:
-[0;32m-> 3864[0m     loc [38;5;241m=[39m [43mindex[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mkey[49m[43m)[49m
-[1;32m   3866[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(loc, np[38;5;241m.[39mndarray):
-[1;32m   3867[0m         [38;5;28;01mif[39;00m loc[38;5;241m.[39mdtype [38;5;241m==[39m np[38;5;241m.[39mbool_:
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:2915[0m, in [0;36mMultiIndex.get_loc[0;34m(self, key, method)[0m
+[1;32m   2912[0m     [38;5;28;01mreturn[39;00m mask
+[1;32m   2914[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(key, [38;5;28mtuple[39m):
+[0;32m-> 2915[0m     loc [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_get_level_indexer[49m[43m([49m[43mkey[49m[43m,[49m[43m [49m[43mlevel[49m[38;5;241;43m=[39;49m[38;5;241;43m0[39;49m[43m)[49m
+[1;32m   2916[0m     [38;5;28;01mreturn[39;00m _maybe_to_slice(loc)
+[1;32m   2918[0m keylen [38;5;241m=[39m [38;5;28mlen[39m(key)
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.13/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3623[0m, in [0;36mIndex.get_loc[0;34m(self, key, method, tolerance)[0m
-[1;32m   3621[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_engine[38;5;241m.[39mget_loc(casted_key)
-[1;32m   3622[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
-[0;32m-> 3623[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
-[1;32m   3624[0m [38;5;28;01mexcept[39;00m [38;5;167;01mTypeError[39;00m:
-[1;32m   3625[0m     [38;5;66;03m# If we have a listlike key, _check_indexing_error will raise[39;00m
-[1;32m   3626[0m     [38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise[39;00m
-[1;32m   3627[0m     [38;5;66;03m#  the TypeError.[39;00m
-[1;32m   3628[0m     [38;5;28mself[39m[38;5;241m.[39m_check_indexing_error(key)
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:3262[0m, in [0;36mMultiIndex._get_level_indexer[0;34m(self, key, level, indexer)[0m
+[1;32m   3258[0m         [38;5;28;01mreturn[39;00m [38;5;28mslice[39m(i, j, step)
+[1;32m   3260[0m [38;5;28;01melse[39;00m:
+[0;32m-> 3262[0m     idx [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_get_loc_single_level_index[49m[43m([49m[43mlevel_index[49m[43m,[49m[43m [49m[43mkey[49m[43m)[49m
+[1;32m   3264[0m     [38;5;28;01mif[39;00m level [38;5;241m>[39m [38;5;241m0[39m [38;5;129;01mor[39;00m [38;5;28mself[39m[38;5;241m.[39m_lexsort_depth [38;5;241m==[39m [38;5;241m0[39m:
+[1;32m   3265[0m         [38;5;66;03m# Desired level is not sorted[39;00m
+[1;32m   3266[0m         [38;5;28;01mif[39;00m [38;5;28misinstance[39m(idx, [38;5;28mslice[39m):
+[1;32m   3267[0m             [38;5;66;03m# test_get_loc_partial_timestamp_multiindex[39;00m
 
-[0;31mKeyError[0m: datetime.date(2022, 8, 23)
-KeyError: datetime.date(2022, 8, 23)
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:2848[0m, in [0;36mMultiIndex._get_loc_single_level_index[0;34m(self, level_index, key)[0m
+[1;32m   2846[0m     [38;5;28;01mreturn[39;00m [38;5;241m-[39m[38;5;241m1[39m
+[1;32m   2847[0m [38;5;28;01melse[39;00m:
+[0;32m-> 2848[0m     [38;5;28;01mreturn[39;00m [43mlevel_index[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mkey[49m[43m)[49m
+
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3802[0m, in [0;36mIndex.get_loc[0;34m(self, key, method, tolerance)[0m
+[1;32m   3800[0m     [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_engine[38;5;241m.[39mget_loc(casted_key)
+[1;32m   3801[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m [38;5;28;01mas[39;00m err:
+[0;32m-> 3802[0m     [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m(key) [38;5;28;01mfrom[39;00m [38;5;21;01merr[39;00m
+[1;32m   3803[0m [38;5;28;01mexcept[39;00m [38;5;167;01mTypeError[39;00m:
+[1;32m   3804[0m     [38;5;66;03m# If we have a listlike key, _check_indexing_error will raise[39;00m
+[1;32m   3805[0m     [38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise[39;00m
+[1;32m   3806[0m     [38;5;66;03m#  the TypeError.[39;00m
+[1;32m   3807[0m     [38;5;28mself[39m[38;5;241m.[39m_check_indexing_error(key)
+
+[0;31mKeyError[0m: 'compound'
+KeyError: 'compound'
 

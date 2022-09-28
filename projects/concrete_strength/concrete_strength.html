@@ -784,8 +784,16 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-08-30 08:59:59.274648: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.13/x64/lib
-2022-08-30 08:59:59.274674: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-28 10:34:26.382031: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-28 10:34:26.523955: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-09-28 10:34:26.523979: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-09-28 10:34:26.555765: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-28 10:34:27.301411: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-09-28 10:34:27.301519: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-09-28 10:34:27.301527: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
 </pre></div>
 </div>
 </div>
@@ -1223,76 +1231,76 @@ The 28 days time frame is significant because this is the period for concrete to
 </div>
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_8f87c">
+<table id="T_d3e9d">
   <caption>Average concrete strength at different ages (Days):</caption>
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_8f87c_level0_col0" class="col_heading level0 col0" >age</th>
-      <th id="T_8f87c_level0_col1" class="col_heading level0 col1" >mean</th>
-      <th id="T_8f87c_level0_col2" class="col_heading level0 col2" >count</th>
+      <th id="T_d3e9d_level0_col0" class="col_heading level0 col0" >age</th>
+      <th id="T_d3e9d_level0_col1" class="col_heading level0 col1" >mean</th>
+      <th id="T_d3e9d_level0_col2" class="col_heading level0 col2" >count</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_8f87c_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_8f87c_row0_col0" class="data row0 col0" >1</td>
-      <td id="T_8f87c_row0_col1" class="data row0 col1" >9.452716</td>
-      <td id="T_8f87c_row0_col2" class="data row0 col2" >2</td>
+      <th id="T_d3e9d_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_d3e9d_row0_col0" class="data row0 col0" >1</td>
+      <td id="T_d3e9d_row0_col1" class="data row0 col1" >9.452716</td>
+      <td id="T_d3e9d_row0_col2" class="data row0 col2" >2</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_8f87c_row1_col0" class="data row1 col0" >3</td>
-      <td id="T_8f87c_row1_col1" class="data row1 col1" >18.378023</td>
-      <td id="T_8f87c_row1_col2" class="data row1 col2" >129</td>
+      <th id="T_d3e9d_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_d3e9d_row1_col0" class="data row1 col0" >3</td>
+      <td id="T_d3e9d_row1_col1" class="data row1 col1" >18.378023</td>
+      <td id="T_d3e9d_row1_col2" class="data row1 col2" >129</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_8f87c_row2_col0" class="data row2 col0" >7</td>
-      <td id="T_8f87c_row2_col1" class="data row2 col1" >25.181843</td>
-      <td id="T_8f87c_row2_col2" class="data row2 col2" >122</td>
+      <th id="T_d3e9d_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_d3e9d_row2_col0" class="data row2 col0" >7</td>
+      <td id="T_d3e9d_row2_col1" class="data row2 col1" >25.181843</td>
+      <td id="T_d3e9d_row2_col2" class="data row2 col2" >122</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_8f87c_row3_col0" class="data row3 col0" >14</td>
-      <td id="T_8f87c_row3_col1" class="data row3 col1" >28.751038</td>
-      <td id="T_8f87c_row3_col2" class="data row3 col2" >62</td>
+      <th id="T_d3e9d_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_d3e9d_row3_col0" class="data row3 col0" >14</td>
+      <td id="T_d3e9d_row3_col1" class="data row3 col1" >28.751038</td>
+      <td id="T_d3e9d_row3_col2" class="data row3 col2" >62</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_8f87c_row4_col0" class="data row4 col0" >28</td>
-      <td id="T_8f87c_row4_col1" class="data row4 col1" >37.383788</td>
-      <td id="T_8f87c_row4_col2" class="data row4 col2" >478</td>
+      <th id="T_d3e9d_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_d3e9d_row4_col0" class="data row4 col0" >28</td>
+      <td id="T_d3e9d_row4_col1" class="data row4 col1" >37.383788</td>
+      <td id="T_d3e9d_row4_col2" class="data row4 col2" >478</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_8f87c_row5_col0" class="data row5 col0" >56</td>
-      <td id="T_8f87c_row5_col1" class="data row5 col1" >50.715152</td>
-      <td id="T_8f87c_row5_col2" class="data row5 col2" >86</td>
+      <th id="T_d3e9d_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_d3e9d_row5_col0" class="data row5 col0" >56</td>
+      <td id="T_d3e9d_row5_col1" class="data row5 col1" >50.715152</td>
+      <td id="T_d3e9d_row5_col2" class="data row5 col2" >86</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_8f87c_row6_col0" class="data row6 col0" >90</td>
-      <td id="T_8f87c_row6_col1" class="data row6 col1" >40.480809</td>
-      <td id="T_8f87c_row6_col2" class="data row6 col2" >54</td>
+      <th id="T_d3e9d_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_d3e9d_row6_col0" class="data row6 col0" >90</td>
+      <td id="T_d3e9d_row6_col1" class="data row6 col1" >40.480809</td>
+      <td id="T_d3e9d_row6_col2" class="data row6 col2" >54</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_8f87c_row7_col0" class="data row7 col0" >91</td>
-      <td id="T_8f87c_row7_col1" class="data row7 col1" >68.674649</td>
-      <td id="T_8f87c_row7_col2" class="data row7 col2" >17</td>
+      <th id="T_d3e9d_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_d3e9d_row7_col0" class="data row7 col0" >91</td>
+      <td id="T_d3e9d_row7_col1" class="data row7 col1" >68.674649</td>
+      <td id="T_d3e9d_row7_col2" class="data row7 col2" >17</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_8f87c_row8_col0" class="data row8 col0" >100</td>
-      <td id="T_8f87c_row8_col1" class="data row8 col1" >47.668780</td>
-      <td id="T_8f87c_row8_col2" class="data row8 col2" >52</td>
+      <th id="T_d3e9d_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_d3e9d_row8_col0" class="data row8 col0" >100</td>
+      <td id="T_d3e9d_row8_col1" class="data row8 col1" >47.668780</td>
+      <td id="T_d3e9d_row8_col2" class="data row8 col2" >52</td>
     </tr>
     <tr>
-      <th id="T_8f87c_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_8f87c_row9_col0" class="data row9 col0" >120</td>
-      <td id="T_8f87c_row9_col1" class="data row9 col1" >39.647168</td>
-      <td id="T_8f87c_row9_col2" class="data row9 col2" >3</td>
+      <th id="T_d3e9d_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_d3e9d_row9_col0" class="data row9 col0" >120</td>
+      <td id="T_d3e9d_row9_col1" class="data row9 col1" >39.647168</td>
+      <td id="T_d3e9d_row9_col2" class="data row9 col2" >3</td>
     </tr>
   </tbody>
 </table>
@@ -1492,32 +1500,32 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
     <tr>
       <th>3</th>
       <td>DecisionTreeRegressor</td>
-      <td>0.808219</td>
-      <td>0.018213</td>
+      <td>0.803288</td>
+      <td>0.026538</td>
     </tr>
     <tr>
       <th>4</th>
       <td>AdaboostRegressor</td>
-      <td>0.769167</td>
-      <td>0.014198</td>
+      <td>0.773730</td>
+      <td>0.013713</td>
     </tr>
     <tr>
       <th>5</th>
       <td>RandomForestRegressor</td>
-      <td>0.881868</td>
-      <td>0.015352</td>
+      <td>0.880426</td>
+      <td>0.011559</td>
     </tr>
     <tr>
       <th>6</th>
       <td>BaggingRegressor</td>
-      <td>0.867884</td>
-      <td>0.014402</td>
+      <td>0.873072</td>
+      <td>0.026142</td>
     </tr>
     <tr>
       <th>7</th>
       <td>GradientBoostRegressor</td>
-      <td>0.885367</td>
-      <td>0.011482</td>
+      <td>0.885572</td>
+      <td>0.011506</td>
     </tr>
   </tbody>
 </table>
@@ -1594,10 +1602,10 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 6.737795362431767
-Mean Squared Error (MSE): 71.80598336695235
-RMSE: 8.473841122357225
-R2 Score: 0.7199138136924979
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 6.933661061304483
+Mean Squared Error (MSE): 73.01911465828591
+RMSE: 8.545122272869238
+R2 Score: 0.7151818777040508
 </pre></div>
 </div>
 </div>
@@ -1634,15 +1642,15 @@ R2 Score: 0.7199138136924979
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -164.6138337814143 +
-0.21877018822057134 * cement +
-0.05967591221377838 * slag +
-0.04838112228285088 * fly_ash +
-0.1431440785639913 * water +
-0.059040758550128816 * superplasticizer +
-0.04636406066113085 * coarse_aggregate +
-0.06312265107509968 * fine_aggregate +
-0.3615012284324486 * age
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -162.37153262904795 +
+0.2268579111124566 * cement +
+0.06122384735397296 * slag +
+0.04851176564592267 * fly_ash +
+0.12785812641978384 * water +
+0.07472542944268609 * superplasticizer +
+0.040080167413770615 * coarse_aggregate +
+0.06898218734184954 * fine_aggregate +
+0.3517605652695578 * age
 </pre></div>
 </div>
 </div>
