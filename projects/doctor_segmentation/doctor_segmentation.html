@@ -4,13 +4,52 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Segmenting customers of medical device manufacturer &#8212; shpg-dsprojects</title>
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +59,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/quantecon-book-theme.1ef59f8f4e91ec8319176e8479c6af4e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -37,7 +81,6 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -78,7 +121,8 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -89,620 +133,52 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Inn the Neighborhood - Rental Price Prediction" href="../inn_the_neighborhood/inn_the_neighborhood.html" />
     <link rel="prev" title="Welcome" href="../../intro.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
 
-    <!-- Google Analytics -->
-    
+<!-- Normal Meta Tags -->
+<meta name="author" context="Patrick Guo" />
+<meta name="keywords" content="" />
+<meta name="description" content=Segmenting customers of medical device manufacturer  1.1 Background  A medical device manufacturer in Switzerland manufactures orthopedic devices and sells them />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:title" content="Segmenting customers of medical device manufacturer"/>
+<meta name="twitter:description" content="Segmenting customers of medical device manufacturer  1.1 Background  A medical device manufacturer in Switzerland manufactures orthopedic devices and sells them">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:image" content="">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="Segmenting customers of medical device manufacturer" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="None" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="Segmenting customers of medical device manufacturer  1.1 Background  A medical device manufacturer in Switzerland manufactures orthopedic devices and sells them" />
+<meta property="og:site_name" content="shpg-dsprojects" />
+<meta name="theme-color" content="#ffffff" />
+
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="../../_static/cat.jpeg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../intro.html">
-                    Welcome
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Projects
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Customer Segmentation for Medical Device Manufacturer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
-   Rental Price Prediction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../concrete_strength/concrete_strength.html">
-   Predict Concrete Strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chocolate_bars/chocolate_bars.html">
-   Finding the best Chocolate Bars
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../travel_assured/travel_assured.html">
-   Travel Insurance Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exam_scores/exam_scores.html">
-   Do test preparation courses help you prepare for exams?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../viral_tweets/README.html">
-   Viral Tweets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
-   Stock Sentiment Analysis from News Headlines
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../BCG/README.html">
-   PowerCo - Is Churn driven by price sensitivity?
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/PowerCo_email.html">
-     PowerCo - Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/eda.html">
-     PowerCo - EDA
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../sms_classifier/README.html">
-   SMS Text Classification
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sms_classifier/sms_classification.html">
-     Neural Network - SMS Text Classification
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Achievements
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../achievements/certificates.html">
-   Certifications
-  </a>
- </li>
-</ul>
-
-    </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
-</div>
+<body>
 
 
-          
+    <span id="top"></span>
 
+    <div class="qe-wrapper">
 
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
+        <div class="qe-main">
 
+            <div class="qe-page" id=projects/doctor_segmentation/doctor_segmentation>
 
+                <div class="qe-page__toc">
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
+                    <div class="inner">
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=lab/tree/docs/projects/doctor_segmentation/doctor_segmentation.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/doctor_segmentation/doctor_segmentation.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_colab.png">
-  </span>
-<span class="headerbtn__text-container">Colab</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/doctor_segmentation/doctor_segmentation.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/projects/doctor_segmentation/doctor_segmentation.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
-</div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   1.1 Background
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#business-qustions">
-   1.2 Business Qustions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-dataset">
-   2 The dataset
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#imports">
-     2.1 Imports
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-data">
-     2.2 Load data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-data">
-     💾 The data
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor">
-       Doctors contains information on doctors. Each row represents one doctor.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders">
-       Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#complaints-collects-information-on-doctor-complaints">
-       Complaints collects information on doctor complaints.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders">
-       Instructions has information on whether the doctor includes special instructions on their orders.
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#buisness-questions">
-   3 Buisness Questions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-many-doctors-are-there-in-each-region">
-     3.1 How many doctors are there in each region?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-the-average-number-of-purchases-per-region">
-     3.2 What is the average number of purchases per region?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#can-you-find-a-relationship-between-purchases-and-complaints">
-     3.3 Can you find a relationship between purchases and complaints?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis-eda">
-   4 Exploratory Data Analysis (EDA)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#region">
-     4.1 Region
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#category">
-     4.2 Category
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank">
-     4.3 Rank
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#incidence-rate">
-     4.4 Incidence rate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#r-rate">
-     4.5 R rate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#satisfaction">
-     4.6 Satisfaction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#experience">
-     4.7 Experience
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#purchases">
-     4.8 Purchases
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#condition-a-j">
-     4.9 Condition A-J
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#complaint-type">
-     4.10 Complaint Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#qty">
-     4.11 Qty
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#instructions">
-     4.12 Instructions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-selection-and-engineering">
-   5 Feature Selection and Engineering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dropping-identifiers-filling-missing-values-and-encoding">
-     5.1 Dropping identifiers, filling missing values, and encoding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#feature-scaling">
-     5.2 Feature Scaling
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#principal-component-analysis-pca">
-     5.3 Principal Component Analysis (PCA)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#define-new-doctor-segments">
-   6 Define new doctor segments
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimal-number-of-clusters">
-     6.1 Optimal number of clusters
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kmeans-clustering">
-     6.2 KMeans clustering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#which-features-impact-the-new-segmentation-strategy-the-most">
-     6.3 Which features impact the new segmentation strategy the most
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#characteristics-that-distinguish-the-newly-defined-segments">
-   7 Characteristics that distinguish the newly defined segments
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank-vs-purchases">
-     7.1 Rank vs Purchases
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank-vs-incidence-rate-and-r-rate">
-     7.2 Rank vs Incidence rate and R rate
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   8. Conclusion
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#next-steps">
-     8.1 Next steps
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Segmenting customers of medical device manufacturer</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
+                        <div class="qe-page__toc-header">
+                            On this page
                         </div>
-                        <nav aria-label="Page">
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#background">
@@ -922,24 +398,59 @@ title="Print to PDF"
  </li>
 </ul>
 
+                            <p class="logo">
+                                
+                                    
+                                    <a href="../../intro.html"><img src="../../_static/cat.jpeg" class="logo" alt="logo"></a>
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/">Jupyter Book</a></p>
+
                         </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
                     </div>
+
                 </div>
-            </div>
-            <main id="main-content" role="main">
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="../../intro.html">shpg-dsprojects</a></p>
+
+                        <p class="qe-page__header-subheading">Segmenting customers of medical device manufacturer</p>
+
+                    </div>
+
+                    <p class="qe-page__header-authors">Patrick Guo</p>
+
+                </div> <!-- .page__header -->
+
+
+
                 
-              <div>
-                
-  <section class="tex2jax_ignore mathjax_ignore" id="segmenting-customers-of-medical-device-manufacturer">
-<h1><a class="reference external" href="https://app.datacamp.com/workspace/w/340ba6a8-af75-4ee0-99f5-cb1a22acffba">Segmenting customers of medical device manufacturer</a><a class="headerlink" href="#segmenting-customers-of-medical-device-manufacturer" title="Permalink to this headline">#</a></h1>
-<section id="background">
-<h2>1.1 Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <div class="tex2jax_ignore mathjax_ignore section" id="segmenting-customers-of-medical-device-manufacturer">
+<h1><a class="reference external" href="https://app.datacamp.com/workspace/w/340ba6a8-af75-4ee0-99f5-cb1a22acffba">Segmenting customers of medical device manufacturer</a><a class="headerlink" href="#segmenting-customers-of-medical-device-manufacturer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>1.1 Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>A medical device manufacturer in Switzerland manufactures orthopedic devices and sells them worldwide. The company sells directly to individual doctors who use them on rehabilitation and physical therapy patients. <br>
 Historically, the sales and customer support departments have grouped doctors by geography. However, the region is not a good predictor of the number of purchases a doctor will make or their support needs. <br>
 The team wants to use a data-centric approach to segmenting doctors to improve marketing, customer service, and product planning.</p>
-</section>
-<section id="business-qustions">
-<h2>1.2 Business Qustions<a class="headerlink" href="#business-qustions" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="business-qustions">
+<h2>1.2 Business Qustions<a class="headerlink" href="#business-qustions" title="Permalink to this headline">¶</a></h2>
 <p>Before making a segmentation to the team, we shall focus on answering the following five business questions:</p>
 <ol class="simple">
 <li><p>How many doctors are there in each region? What is the average number of purchases per region?</p></li>
@@ -948,11 +459,11 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 <li><p>Identify which features impact the new segmentation strategy the most.</p></li>
 <li><p>Describe which characteristics distinguish the newly defined segments.</p></li>
 </ol>
-</section>
-<section id="the-dataset">
-<h2>2 The dataset<a class="headerlink" href="#the-dataset" title="Permalink to this headline">#</a></h2>
-<section id="imports">
-<h3>2.1 Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="the-dataset">
+<h2>2 The dataset<a class="headerlink" href="#the-dataset" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="imports">
+<h3>2.1 Imports<a class="headerlink" href="#imports" title="Permalink to this headline">¶</a></h3>
 <p>First, let’s load all the modules that will be used in this report.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1079,16 +590,16 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </div>
 </div>
 </div>
-</section>
-<section id="load-data">
-<h3>2.2 Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="load-data">
+<h3>2.2 Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h3>
 <p>Next, let’s load the data and explore the basic contents for each dataframe: the type of the variables, whether there are null values.</p>
-</section>
-<section id="the-data">
-<h3>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="the-data">
+<h3>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h3>
 <p>The company stores the information you need in the following four tables. Some of the fields are anonymized to comply with privacy regulations.</p>
-<section id="doctors-contains-information-on-doctors-each-row-represents-one-doctor">
-<h4>Doctors contains information on doctors. Each row represents one doctor.<a class="headerlink" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor" title="Permalink to this headline">#</a></h4>
+<div class="section" id="doctors-contains-information-on-doctors-each-row-represents-one-doctor">
+<h4>Doctors contains information on doctors. Each row represents one doctor.<a class="headerlink" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>“DoctorID” - is a unique identifier for each doctor.</p></li>
 <li><p>“Region” - the current geographical region of the doctor.</p></li>
@@ -1099,26 +610,26 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 <li><p>“Experience” - relates to the doctor’s experience with the company.</p></li>
 <li><p>“Purchases” - purchases over the last year.</p></li>
 </ul>
-</section>
-<section id="orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders">
-<h4>Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.<a class="headerlink" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders">
+<h4>Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.<a class="headerlink" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>“DoctorID” - doctor id (matches the other tables).</p></li>
 <li><p>“OrderID” - order identifier.</p></li>
 <li><p>“OrderNum” - order number.</p></li>
 <li><p>“Conditions A through J” - map the different settings of the devices in each order. Each order goes to an individual patient.</p></li>
 </ul>
-</section>
-<section id="complaints-collects-information-on-doctor-complaints">
-<h4>Complaints collects information on doctor complaints.<a class="headerlink" href="#complaints-collects-information-on-doctor-complaints" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="complaints-collects-information-on-doctor-complaints">
+<h4>Complaints collects information on doctor complaints.<a class="headerlink" href="#complaints-collects-information-on-doctor-complaints" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>“DoctorID” - doctor id (matches the other tables).</p></li>
 <li><p>“Complaint Type” - the company’s classification of the complaints.</p></li>
 <li><p>“Qty” - number of complaints per complaint type per doctor.</p></li>
 </ul>
-</section>
-<section id="instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders">
-<h4>Instructions has information on whether the doctor includes special instructions on their orders.<a class="headerlink" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders" title="Permalink to this headline">#</a></h4>
+</div>
+<div class="section" id="instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders">
+<h4>Instructions has information on whether the doctor includes special instructions on their orders.<a class="headerlink" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li><p>“DoctorID” - doctor id (matches the other tables).</p></li>
 <li><p>“Instructions” - ‘Yes’ when the doctor includes special instructions, ‘No’ when they do not.</p></li>
@@ -2066,14 +1577,14 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </table>
 </div></div></div>
 </div>
-</section>
-</section>
-</section>
-<section id="buisness-questions">
-<h2>3 Buisness Questions<a class="headerlink" href="#buisness-questions" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+</div>
+<div class="section" id="buisness-questions">
+<h2>3 Buisness Questions<a class="headerlink" href="#buisness-questions" title="Permalink to this headline">¶</a></h2>
 <p>The sales and customer support departments have previously grouped doctors by geography. Let’s look into region information to see whether there are any signs that it is a good indicator.</p>
-<section id="how-many-doctors-are-there-in-each-region">
-<h3>3.1 How many doctors are there in each region?<a class="headerlink" href="#how-many-doctors-are-there-in-each-region" title="Permalink to this headline">#</a></h3>
+<div class="section" id="how-many-doctors-are-there-in-each-region">
+<h3>3.1 How many doctors are there in each region?<a class="headerlink" href="#how-many-doctors-are-there-in-each-region" title="Permalink to this headline">¶</a></h3>
 <p>We can find region information in the doctors table. Since each row represent one doctor, we then perform a groupby operation to count how many doctors there are in each region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2210,9 +1721,9 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </div>
 </div>
 <p>The barplot above compares the number of doctors in each region. Region <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">13</span></code> has the most number of doctors, followed by <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">9</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">14</span></code>. The counts range from 1 to 34. The mean number of doctors across all regions is <code class="docutils literal notranslate"><span class="pre">10</span></code>, while the median is <code class="docutils literal notranslate"><span class="pre">6</span></code>. There is no observerable direct relationship between number of doctors and region.</p>
-</section>
-<section id="what-is-the-average-number-of-purchases-per-region">
-<h3>3.2 What is the average number of purchases per region?<a class="headerlink" href="#what-is-the-average-number-of-purchases-per-region" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="what-is-the-average-number-of-purchases-per-region">
+<h3>3.2 What is the average number of purchases per region?<a class="headerlink" href="#what-is-the-average-number-of-purchases-per-region" title="Permalink to this headline">¶</a></h3>
 <p>We can find region and purchases information in the doctors table. We will perform a groupby operation to aggregate the average number of purchases in each region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2349,9 +1860,9 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </div>
 </div>
 <p>The barplot above compares the average number of purchases in each region. Region <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">19</span> <span class="pre">20</span></code> has the highest average number of purchases of 129, however it can also be treated as a outlier because it is much larger than the other values in the dataset. The next highest region is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">13</span> <span class="pre">T4</span></code> with 30 average purchases. The average number of purchases range from 3 to 129. Across the dataset, the mean number of purchases across all region is <code class="docutils literal notranslate"><span class="pre">13</span></code>, while the median is <code class="docutils literal notranslate"><span class="pre">10</span></code>. There is no observerable direct relationship between number of purchases and region.</p>
-</section>
-<section id="can-you-find-a-relationship-between-purchases-and-complaints">
-<h3>3.3 Can you find a relationship between purchases and complaints?<a class="headerlink" href="#can-you-find-a-relationship-between-purchases-and-complaints" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="can-you-find-a-relationship-between-purchases-and-complaints">
+<h3>3.3 Can you find a relationship between purchases and complaints?<a class="headerlink" href="#can-you-find-a-relationship-between-purchases-and-complaints" title="Permalink to this headline">¶</a></h3>
 <p>Complaints information can be found complaints table. First let’s sum the quantity of complaints to <code class="docutils literal notranslate"><span class="pre">DoctorID</span></code>, then merge the complaints table with doctors table. There are also outliers, which are data values that are far away from other data values, which can strongly affect results. We will remove these outliers and calculate the correlation between the two variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2443,10 +1954,10 @@ Correlation between purchases and quantity of complaints: 0.01839142745208687
 </div>
 <p>Pearson’s Correlation coefficient is a measure for the strength of a linear relationship between two variables. A coefficient between 0.3 and 0.5 is generally considered as weak, meaning that the two variables show no strong linear relationship. A coefficient between 0.5 and 0.7 is considered as moderate, whereas a correlation between 0.7 and 0.9 is considered strong. The correlation number and regression plot shows the no relationship between number of purchases and quantity of complaints.</p>
 <p>There are also instances where quantity of complaints is greater than number of purchases. This could possibly be due to 1. Data Error 2. Multiple complaints regarding to same purchase 3. Complaints to purchases over a year ago since <code class="docutils literal notranslate"><span class="pre">Purchases</span></code> only contains data about purchases over the last year.</p>
-</section>
-</section>
-<section id="exploratory-data-analysis-eda">
-<h2>4 Exploratory Data Analysis (EDA)<a class="headerlink" href="#exploratory-data-analysis-eda" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="exploratory-data-analysis-eda">
+<h2>4 Exploratory Data Analysis (EDA)<a class="headerlink" href="#exploratory-data-analysis-eda" title="Permalink to this headline">¶</a></h2>
 <p>Let’s start by merging the four dataframes together. Next we will explore each column in the merged dataframe to better understand their type, distribution or frequency, and possible methods of addressing missing information.</p>
 <p><strong>Summary</strong>:</p>
 <ul class="simple">
@@ -2944,8 +2455,8 @@ Correlation between purchases and quantity of complaints: 0.01839142745208687
 </div>
 </div>
 <p>The y-axis scale ranges from 0.0 to 1.0, where 1.0 represents 100% data completeness. If the bar is less than this, it indicates that we have missing values within that column. <code class="docutils literal notranslate"><span class="pre">DoctorID</span></code> has 100% completeness while <code class="docutils literal notranslate"><span class="pre">Instructions</span></code> have the most number of missing values. This is expected because we used an outer join to merge the dataframes together.</p>
-<section id="region">
-<h3>4.1 Region<a class="headerlink" href="#region" title="Permalink to this headline">#</a></h3>
+<div class="section" id="region">
+<h3>4.1 Region<a class="headerlink" href="#region" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Categorical variable</p></li>
 <li><p>Convert missing values to “Missing” variable or drop those rows</p></li>
@@ -2968,9 +2479,9 @@ Name: Region, dtype: object
 </div>
 </div>
 </div>
-</section>
-<section id="category">
-<h3>4.2 Category<a class="headerlink" href="#category" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="category">
+<h3>4.2 Category<a class="headerlink" href="#category" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Categorical variable, two categories: Specialist, or General Practitioner</p></li>
 <li><p>Convert missing values to “Missing” variable or drop those rows</p></li>
@@ -3020,9 +2531,9 @@ Name: Category, dtype: int64
 <img alt="../../_images/doctor_segmentation_31_5.png" src="../../_images/doctor_segmentation_31_5.png" />
 </div>
 </div>
-</section>
-<section id="rank">
-<h3>4.3 Rank<a class="headerlink" href="#rank" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="rank">
+<h3>4.3 Rank<a class="headerlink" href="#rank" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Ordered Categorical variable, there are nine categories.</p></li>
 <li><p>The highest rank is Ambassadors, followed by Titanium Plus, Titanium, Platinum Plus, Platinum, Gold Plus, Gold, Silver Plus, and the lowest level is Silver.</p></li>
@@ -3083,9 +2594,9 @@ Name: Rank, dtype: int64
 <img alt="../../_images/doctor_segmentation_33_5.png" src="../../_images/doctor_segmentation_33_5.png" />
 </div>
 </div>
-</section>
-<section id="incidence-rate">
-<h3>4.4 Incidence rate<a class="headerlink" href="#incidence-rate" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="incidence-rate">
+<h3>4.4 Incidence rate<a class="headerlink" href="#incidence-rate" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Numerical variable</p></li>
 <li><p>Impute missing values with 0 or drop rows</p></li>
@@ -3127,7 +2638,69 @@ Name: Incidence rate, dtype: float64
 Skew: 5.607171363436355
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_35_2.png" src="../../_images/doctor_segmentation_35_2.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Assigning a graph to each ax</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Incidence rate&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_merged</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_box</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Incidence rate&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_merged</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_hist</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Remove x axis name for the boxplot</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">ax_box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Boxplot and Histogram of Incidence rate&quot;</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/seaborn/distributions.py:1418,</span> in <span class="ni">histplot</span><span class="nt">(data, x, y, hue, weights, stat, bins, binwidth, binrange, discrete, cumulative, common_bins, common_norm, multiple, element, fill, shrink, kde, kde_kws, line_kws, thresh, pthresh, pmax, cbar, cbar_ax, cbar_kws, palette, hue_order, hue_norm, color, log_scale, legend, ax, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1416</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1417</span>         <span class="n">method</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span>
+<span class="ne">-&gt; </span><span class="mi">1418</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">_default_color</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1420</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">has_xy_data</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1421</span>     <span class="k">return</span> <span class="n">ax</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/seaborn/utils.py:139,</span> in <span class="ni">_default_color</span><span class="nt">(method, hue, color, kws)</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">scout</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">elif</span> <span class="n">method</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">137</span> 
+<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="c1"># bar() needs masked, not empty data, to generate a patch</span>
+<span class="ne">--&gt; </span><span class="mi">139</span>     <span class="n">scout</span><span class="p">,</span> <span class="o">=</span> <span class="n">method</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">140</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">to_rgb</span><span class="p">(</span><span class="n">scout</span><span class="o">.</span><span class="n">get_facecolor</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="n">scout</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/__init__.py:1423,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1420</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1421</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1422</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1423</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1425</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1426</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1427</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/axes/_axes.py:2373,</span> in <span class="ni">Axes.bar</span><span class="nt">(self, x, height, width, bottom, align, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2371</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
+<span class="g g-Whitespace">   </span><span class="mi">2372</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="ne">-&gt; </span><span class="mi">2373</span> <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_dx</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2374</span> <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2375</span>     <span class="n">xerr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_dx</span><span class="p">(</span><span class="n">xerr</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/axes/_axes.py:2182,</span> in <span class="ni">Axes._convert_dx</span><span class="nt">(dx, x0, xconv, convert)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2170</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2171</span>     <span class="c1"># attempt to add the width to x0; this works for</span>
+<span class="g g-Whitespace">   </span><span class="mi">2172</span>     <span class="c1"># datetime+timedelta, for instance</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2179</span>     <span class="c1"># removes the units from unit packages like `pint` that</span>
+<span class="g g-Whitespace">   </span><span class="mi">2180</span>     <span class="c1"># wrap numpy arrays.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2181</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2182</span>         <span class="n">x0</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">_safe_first_finite</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2183</span>     <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2184</span>         <span class="k">pass</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/cbook/__init__.py:1749,</span> in <span class="ni">_safe_first_finite</span><span class="nt">(obj, skip_nonfinite)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1746</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;matplotlib does not &quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1747</span>                        <span class="s2">&quot;support generators as input&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1748</span> <span class="k">else</span><span class="p">:</span>
+<span class="nn">-&gt; 1749     return next(val for val</span> in <span class="ni">obj if safe_isfinite</span><span class="nt">(val))</span>
+
+<span class="ne">StopIteration</span>: 
+</pre></div>
+</div>
+<img alt="../../_images/doctor_segmentation_35_3.png" src="../../_images/doctor_segmentation_35_3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3157,9 +2730,9 @@ Skew of cube-root transform: 2.025533508846419
 <img alt="../../_images/doctor_segmentation_36_1.png" src="../../_images/doctor_segmentation_36_1.png" />
 </div>
 </div>
-</section>
-<section id="r-rate">
-<h3>4.5 R rate<a class="headerlink" href="#r-rate" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="r-rate">
+<h3>4.5 R rate<a class="headerlink" href="#r-rate" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Numerical variable</p></li>
 <li><p>Only positive values</p></li>
@@ -3204,9 +2777,9 @@ Skew: 1.8086653960068204
 <img alt="../../_images/doctor_segmentation_38_2.png" src="../../_images/doctor_segmentation_38_2.png" />
 </div>
 </div>
-</section>
-<section id="satisfaction">
-<h3>4.6 Satisfaction<a class="headerlink" href="#satisfaction" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="satisfaction">
+<h3>4.6 Satisfaction<a class="headerlink" href="#satisfaction" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Numerical variable, spanning from -100 to 100</p></li>
 <li><p>Contains some – characters, fill missing values with 0 or drop rows</p></li>
@@ -3259,9 +2832,9 @@ Name: Satisfaction, dtype: float64
 <img alt="../../_images/doctor_segmentation_40_2.png" src="../../_images/doctor_segmentation_40_2.png" />
 </div>
 </div>
-</section>
-<section id="experience">
-<h3>4.7 Experience<a class="headerlink" href="#experience" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="experience">
+<h3>4.7 Experience<a class="headerlink" href="#experience" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Numerical variable</p></li>
 <li><p>Only positive values as expected</p></li>
@@ -3306,9 +2879,9 @@ Skew: 2.711810861459008
 <img alt="../../_images/doctor_segmentation_42_2.png" src="../../_images/doctor_segmentation_42_2.png" />
 </div>
 </div>
-</section>
-<section id="purchases">
-<h3>4.8 Purchases<a class="headerlink" href="#purchases" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="purchases">
+<h3>4.8 Purchases<a class="headerlink" href="#purchases" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Discrete Numerical variable</p></li>
 <li><p>Only positive values as expected</p></li>
@@ -3353,9 +2926,9 @@ Skew: 2.8726322076942634
 <img alt="../../_images/doctor_segmentation_44_2.png" src="../../_images/doctor_segmentation_44_2.png" />
 </div>
 </div>
-</section>
-<section id="condition-a-j">
-<h3>4.9 Condition A-J<a class="headerlink" href="#condition-a-j" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="condition-a-j">
+<h3>4.9 Condition A-J<a class="headerlink" href="#condition-a-j" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>No Condition E</p></li>
 <li><p>Boolean variable</p></li>
@@ -3387,9 +2960,9 @@ Skew: 2.8726322076942634
 <img alt="../../_images/doctor_segmentation_46_0.png" src="../../_images/doctor_segmentation_46_0.png" />
 </div>
 </div>
-</section>
-<section id="complaint-type">
-<h3>4.10 Complaint Type<a class="headerlink" href="#complaint-type" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="complaint-type">
+<h3>4.10 Complaint Type<a class="headerlink" href="#complaint-type" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Categorical variable</p></li>
 <li><p>Most common complaint type is “Correct”</p></li>
@@ -3421,9 +2994,9 @@ Name: Complaint Type, dtype: int64
 <img alt="../../_images/doctor_segmentation_48_1.png" src="../../_images/doctor_segmentation_48_1.png" />
 </div>
 </div>
-</section>
-<section id="qty">
-<h3>4.11 Qty<a class="headerlink" href="#qty" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="qty">
+<h3>4.11 Qty<a class="headerlink" href="#qty" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Discrete numerical variable</p></li>
 <li><p>Right skewed distribution, ranging from 1 to 15.</p></li>
@@ -3451,9 +3024,9 @@ Name: Complaint Type, dtype: int64
 <img alt="../../_images/doctor_segmentation_50_0.png" src="../../_images/doctor_segmentation_50_0.png" />
 </div>
 </div>
-</section>
-<section id="instructions">
-<h3>4.12 Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="instructions">
+<h3>4.12 Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Binary variable</p></li>
 <li><p>Fill missing with “No”</p></li>
@@ -3475,10 +3048,10 @@ Name: Complaint Type, dtype: int64
 <img alt="../../_images/doctor_segmentation_52_0.png" src="../../_images/doctor_segmentation_52_0.png" />
 </div>
 </div>
-</section>
-</section>
-<section id="feature-selection-and-engineering">
-<h2>5 Feature Selection and Engineering<a class="headerlink" href="#feature-selection-and-engineering" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="feature-selection-and-engineering">
+<h2>5 Feature Selection and Engineering<a class="headerlink" href="#feature-selection-and-engineering" title="Permalink to this headline">¶</a></h2>
 <p>Based on our EDA, we recognize the dataset contains a mixture of identifier, categorical and continuous data, as well as missing values. We will now perform data preprocessing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3490,8 +3063,8 @@ Name: Complaint Type, dtype: int64
 </div>
 </div>
 </div>
-<section id="dropping-identifiers-filling-missing-values-and-encoding">
-<h3>5.1 Dropping identifiers, filling missing values, and encoding<a class="headerlink" href="#dropping-identifiers-filling-missing-values-and-encoding" title="Permalink to this headline">#</a></h3>
+<div class="section" id="dropping-identifiers-filling-missing-values-and-encoding">
+<h3>5.1 Dropping identifiers, filling missing values, and encoding<a class="headerlink" href="#dropping-identifiers-filling-missing-values-and-encoding" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Drop ID columns</p></li>
 <li><p>Fill in missing values</p></li>
@@ -3787,9 +3360,9 @@ Name: Complaint Type, dtype: int64
 <p>5 rows × 73 columns</p>
 </div></div></div>
 </div>
-</section>
-<section id="feature-scaling">
-<h3>5.2 Feature Scaling<a class="headerlink" href="#feature-scaling" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="feature-scaling">
+<h3>5.2 Feature Scaling<a class="headerlink" href="#feature-scaling" title="Permalink to this headline">¶</a></h3>
 <p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html">MinMaxScaler</a> to make sure features with different scales don’t introduce bias into clustering</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3802,9 +3375,9 @@ Name: Complaint Type, dtype: int64
 </div>
 </div>
 </div>
-</section>
-<section id="principal-component-analysis-pca">
-<h3>5.3 Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="principal-component-analysis-pca">
+<h3>5.3 Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this headline">¶</a></h3>
 <p>This method is used to reduce the dimensionality of the dataset. Let have set up a loop function to identify number of principal components that explain at least 85% of the variance in the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3883,13 +3456,13 @@ Name: Complaint Type, dtype: int64
 </table>
 </div></div></div>
 </div>
-</section>
-</section>
-<section id="define-new-doctor-segments">
-<h2>6 Define new doctor segments<a class="headerlink" href="#define-new-doctor-segments" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="define-new-doctor-segments">
+<h2>6 Define new doctor segments<a class="headerlink" href="#define-new-doctor-segments" title="Permalink to this headline">¶</a></h2>
 <p>Our objective is to help the company improve their marketing efforts and customer service by creating new doctor segments from an unlabeled dataset, hence an unsupervised machine learning and clustering appears to be the most reasonable choice of the model. Clustering divides a set of objects or observations (in this case doctors) into different groups based on their features or properties. The division is done in such that the observations are as similar as possible to each other within the same cluster. In addition, each cluster should be as far away from the others as possible.</p>
-<section id="optimal-number-of-clusters">
-<h3>6.1 Optimal number of clusters<a class="headerlink" href="#optimal-number-of-clusters" title="Permalink to this headline">#</a></h3>
+<div class="section" id="optimal-number-of-clusters">
+<h3>6.1 Optimal number of clusters<a class="headerlink" href="#optimal-number-of-clusters" title="Permalink to this headline">¶</a></h3>
 <p>We will use the elbow method to determe the optimal number of clusters. The method calculates the Within-Cluster-Sum of Squared Errors (WSS) for different number of clusters (k) and selecting the k for which change in WSS first starts to diminish.</p>
 <ul class="simple">
 <li><p>Based on the distortion score at different k, 5 is the optimal number of clusters.</p></li>
@@ -3911,9 +3484,9 @@ Name: Complaint Type, dtype: int64
 <img alt="../../_images/doctor_segmentation_64_0.png" src="../../_images/doctor_segmentation_64_0.png" />
 </div>
 </div>
-</section>
-<section id="kmeans-clustering">
-<h3>6.2 KMeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="kmeans-clustering">
+<h3>6.2 KMeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this headline">¶</a></h3>
 <p>KMeans is an iterative algorithm that partitions the dataset into K pre-defined distinct non-overlapping subgroups (clusters) where each data point belongs to only one group.</p>
 <p>The graph shows the scatter plot of the data colored by the cluster they belong to based on their similarity.</p>
 <div class="cell docutils container">
@@ -3940,9 +3513,9 @@ Name: Complaint Type, dtype: int64
 <img alt="../../_images/doctor_segmentation_66_0.png" src="../../_images/doctor_segmentation_66_0.png" />
 </div>
 </div>
-</section>
-<section id="which-features-impact-the-new-segmentation-strategy-the-most">
-<h3>6.3 Which features impact the new segmentation strategy the most<a class="headerlink" href="#which-features-impact-the-new-segmentation-strategy-the-most" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="which-features-impact-the-new-segmentation-strategy-the-most">
+<h3>6.3 Which features impact the new segmentation strategy the most<a class="headerlink" href="#which-features-impact-the-new-segmentation-strategy-the-most" title="Permalink to this headline">¶</a></h3>
 <p>Now that we have identified our clusters, let’s extract each cluster’s most important features. One approach is to convert the unsupervised clustering problem into a One-vs-All supervised classification problem.</p>
 <ol class="simple">
 <li><p>Change the cluster labels into One-vs-All binary labels</p></li>
@@ -3979,21 +3552,17 @@ Name: Complaint Type, dtype: int64
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Rank&#39;, 0.3462422263806552), (&#39;R rate&#39;, 0.060365456749001456), (&#39;Category_General Practitioner&#39;, 0.05741863343778913)]
 [(&#39;Rank&#39;, 0.36374424881372586), (&#39;Purchases&#39;, 0.08363203178543055), (&#39;Region_1 8 T3&#39;, 0.06992636245787862)]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Rank&#39;, 0.16906243640382515), (&#39;Category_Missing&#39;, 0.16547351972134908), (&#39;Purchases&#39;, 0.16081255501034938)]
+[(&#39;Rank&#39;, 0.16906243640382515), (&#39;Category_Missing&#39;, 0.16547351972134908), (&#39;Purchases&#39;, 0.16081255501034938)]
 [(&#39;Rank&#39;, 0.44233890242367024), (&#39;Purchases&#39;, 0.16679337117408138), (&#39;R rate&#39;, 0.06584395381200006)]
+[(&#39;Rank&#39;, 0.3689971859520564), (&#39;Purchases&#39;, 0.10372479238158124), (&#39;R rate&#39;, 0.09107045419109543)]
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Rank&#39;, 0.3689971859520564), (&#39;Purchases&#39;, 0.10372479238158124), (&#39;R rate&#39;, 0.09107045419109543)]
-</pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="characteristics-that-distinguish-the-newly-defined-segments">
-<h2>7 Characteristics that distinguish the newly defined segments<a class="headerlink" href="#characteristics-that-distinguish-the-newly-defined-segments" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="characteristics-that-distinguish-the-newly-defined-segments">
+<h2>7 Characteristics that distinguish the newly defined segments<a class="headerlink" href="#characteristics-that-distinguish-the-newly-defined-segments" title="Permalink to this headline">¶</a></h2>
 <p>Now that we have identified new doctor segments, let’s identify their characteristics.</p>
 <p>Each cluster contains the following groups of <code class="docutils literal notranslate"><span class="pre">Ranks</span></code>:</p>
 <ul class="simple">
@@ -4083,8 +3652,8 @@ Name: Rank, dtype: int64
 </table>
 </div></div></div>
 </div>
-<section id="rank-vs-purchases">
-<h3>7.1 Rank vs Purchases<a class="headerlink" href="#rank-vs-purchases" title="Permalink to this headline">#</a></h3>
+<div class="section" id="rank-vs-purchases">
+<h3>7.1 Rank vs Purchases<a class="headerlink" href="#rank-vs-purchases" title="Permalink to this headline">¶</a></h3>
 <p>From the violin plot, we can see there is a positive relationship between Rank and Purchases, where the higher Ranks have a higher number of purchases. This is also seen in the median number of purchases of each rank,  with the exception of Silver Rank. Therefore, Rank is helpful indicator in predicting the number of purchases a doctor will make. Ambassador Rank has the highest number of purchases, with a high of 129 purchases. Titanium Plus looks like an outlier on the violin plot, but this can be attributed to having a small sample size of doctors in that rank.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4145,9 +3714,9 @@ Name: Purchases, dtype: float64
 <img alt="../../_images/doctor_segmentation_72_4.png" src="../../_images/doctor_segmentation_72_4.png" />
 </div>
 </div>
-</section>
-<section id="rank-vs-incidence-rate-and-r-rate">
-<h3>7.2 Rank vs Incidence rate and R rate<a class="headerlink" href="#rank-vs-incidence-rate-and-r-rate" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="rank-vs-incidence-rate-and-r-rate">
+<h3>7.2 Rank vs Incidence rate and R rate<a class="headerlink" href="#rank-vs-incidence-rate-and-r-rate" title="Permalink to this headline">¶</a></h3>
 <p>On the other hand, it is less certain whether there is a clear trend between Rank and Incidence rate or Rank and R rate. Therefore, Rank is a moderate indicator on the amount of rework a doctor generates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4184,10 +3753,10 @@ Name: R rate, dtype: float64
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="conclusion">
-<h2>8. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="conclusion">
+<h2>8. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">¶</a></h2>
 <p>From our analysis in 3.2 we consider that grouping doctors by geography is a poor predictor of the number of purchases a doctor will make or their support needs. In addition, there is no relationship between number of purchases and number of complaints as seen in 3.3.</p>
 <p>We move to use a data-centric approach to segment the doctors by using unsupervised machine learning to cluster them based on their features from the tables <code class="docutils literal notranslate"><span class="pre">Doctors</span></code>, <code class="docutils literal notranslate"><span class="pre">Orders</span></code>, <code class="docutils literal notranslate"><span class="pre">Complaints</span></code>, <code class="docutils literal notranslate"><span class="pre">Instructions</span></code>. The model we use for clustering is KMeans and it has grouped the doctors into 5 clusters as seen in section 6. We find that <code class="docutils literal notranslate"><span class="pre">Rank</span></code> impacts the new segmentation strategy the most and also detect a positive relationship between <code class="docutils literal notranslate"><span class="pre">Rank</span></code> and <code class="docutils literal notranslate"><span class="pre">Purchases</span></code>.</p>
 <p><strong>Clusters based on Rank:</strong></p>
@@ -4204,8 +3773,8 @@ Name: R rate, dtype: float64
 <li><p>Though it is unknown how a doctor’s <code class="docutils literal notranslate"><span class="pre">Rank</span></code> is generated. While, it is a good predictor for the number a doctor will make, it is not a direct indicator of their support needs.</p></li>
 <li><p>While Ordinal encoding of Rank captured the ordering of the variable, it assumes that each rank is of equal distance to each other. Perhaps the gap between Titanium and Titanium Plus is small, however the jump to Ambassador is much larger etc. and the encoding does not represent that.</p></li>
 </ul>
-<section id="next-steps">
-<h3>8.1 Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h3>
+<div class="section" id="next-steps">
+<h3>8.1 Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">¶</a></h3>
 <p>To build upon this analysis, we recommend doing the following:</p>
 <ul class="simple">
 <li><p>Understand how <code class="docutils literal notranslate"><span class="pre">Rank</span></code> is generated</p></li>
@@ -4214,9 +3783,9 @@ Name: R rate, dtype: float64
 <li><p>Explore different clustering models besides KMeans. Drawbacks to KMeans include being unable to handle noisy data and outliers, as well as not being suitable to identify clusters with non-convex shapes.</p></li>
 <li><p>Alternatives to interpreting the clusters (our approach was using a Random Forest Classifier)</p></li>
 </ul>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -4238,50 +3807,297 @@ Name: R rate, dtype: float64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
+                    </div>
+                    
+                </main> <!-- .page__content -->
                 
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../../intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Welcome</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../inn_the_neighborhood/inn_the_neighborhood.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Inn the Neighborhood - Rental Price Prediction</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Patrick Guo<br/>
-  
-      &copy; Copyright 2022.<br/>
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Projects
+ </span>
 </p>
-        </footer>
-    </div>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   Customer Segmentation for Medical Device Manufacturer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
+   Rental Price Prediction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../concrete_strength/concrete_strength.html">
+   Predict Concrete Strength
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chocolate_bars/chocolate_bars.html">
+   Finding the best Chocolate Bars
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../travel_assured/travel_assured.html">
+   Travel Insurance Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exam_scores/exam_scores.html">
+   Do test preparation courses help you prepare for exams?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../viral_tweets/README.html">
+   Viral Tweets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
+   Stock Sentiment Analysis from News Headlines
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../BCG/README.html">
+   PowerCo - Is Churn driven by price sensitivity?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_email.html">
+     PowerCo - Proposal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/eda.html">
+     PowerCo - EDA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sms_classifier/README.html">
+   SMS Text Classification
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sms_classifier/sms_classification.html">
+     Neural Network - SMS Text Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Achievements
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../achievements/certificates.html">
+   Certifications
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="../../intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="" title=""><span class="show-for-sr"></span></a></li>
+                    <!-- <li class="btn__search">
+                        <form action="../../search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li> -->
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/shpatrickguo/dsprojects/tree/main/projects/doctor_segmentation/doctor_segmentation.ipynb" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "projects/doctor_segmentation/doctor_segmentation";
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/jupyter/hub/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
     
-</div>
-
-
-      </div>
-    </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
-
   </body>
 </html>

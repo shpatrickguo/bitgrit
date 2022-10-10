@@ -53,7 +53,7 @@ The above exception was the direct cause of the following exception:
 Cell [0;32mIn [9], line 6[0m
 [1;32m      4[0m mean_c [38;5;241m=[39m mean_c[38;5;241m.[39munstack(level[38;5;241m=[39m[38;5;241m1[39m)
 [1;32m      5[0m [38;5;66;03m# Get the cross-section of compound in the 'columns' axis[39;00m
-[0;32m----> 6[0m mean_c [38;5;241m=[39m mean_c[38;5;241m.[39mxs([38;5;124m'[39m[38;5;124mcompound[39m[38;5;124m'[39m, axis[38;5;241m=[39m[38;5;241m1[39m)
+[0;32m----> 6[0m mean_c [38;5;241m=[39m [43mmean_c[49m[38;5;241;43m.[39;49m[43mxs[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mcompound[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m)[49m
 [1;32m      7[0m [38;5;66;03m# Plot a bar chart with pandas[39;00m
 [1;32m      8[0m mean_c[38;5;241m.[39mplot[38;5;241m.[39mbar()
 

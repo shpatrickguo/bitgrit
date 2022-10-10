@@ -4,13 +4,52 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Predict the strength of concrete &#8212; shpg-dsprojects</title>
+    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+        <script>
+            MathJax = {
+            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
+            tex: {
+                packages: {'[+]': ['boldsymbol', 'textmacros']},
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                processEscapes: true,
+                macros: {
+                    "argmax" : "arg\\,max",
+                    "argmin" : "arg\\,min",
+                    "col"    : "col",
+                    "Span"   :  "span",
+                    "epsilon": "\\varepsilon",
+                    "EE": "\\mathbb{E}",
+                    "PP": "\\mathbb{P}",
+                    "RR": "\\mathbb{R}",
+                    "NN": "\\mathbb{N}",
+                    "ZZ": "\\mathbb{Z}",
+                    "aA": "\\mathcal{A}",
+                    "bB": "\\mathcal{B}",
+                    "cC": "\\mathcal{C}",
+                    "dD": "\\mathcal{D}",
+                    "eE": "\\mathcal{E}",
+                    "fF": "\\mathcal{F}",
+                    "gG": "\\mathcal{G}",
+                    "hH": "\\mathcal{H}",
+                }
+            },
+            svg: {
+                fontCache: 'global',
+                scale: 0.92,
+                displayAlign: "center",
+            },
+            };
+        </script>
+    
+    
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -20,16 +59,21 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
+    
+      
+
+    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/quantecon-book-theme.1ef59f8f4e91ec8319176e8479c6af4e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -37,7 +81,6 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -78,7 +121,8 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -91,517 +135,52 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Finding the best chocolate bars" href="../chocolate_bars/chocolate_bars.html" />
     <link rel="prev" title="Inn the Neighborhood - Rental Price Prediction" href="../inn_the_neighborhood/inn_the_neighborhood.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
 
-    <!-- Google Analytics -->
-    
+<!-- Normal Meta Tags -->
+<meta name="author" context="Patrick Guo" />
+<meta name="keywords" content="" />
+<meta name="description" content=Predict the strength of concrete  📖 Background  Concrete is the most widely used building material in the world. It is a mix of cement and water with gravel and />
+
+<!-- Twitter tags -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@" />
+<meta name="twitter:title" content="Predict the strength of concrete"/>
+<meta name="twitter:description" content="Predict the strength of concrete  📖 Background  Concrete is the most widely used building material in the world. It is a mix of cement and water with gravel and">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:image" content="">
+
+<!-- Opengraph tags -->
+<meta property="og:title" content="Predict the strength of concrete" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="None" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="Predict the strength of concrete  📖 Background  Concrete is the most widely used building material in the world. It is a mix of cement and water with gravel and" />
+<meta property="og:site_name" content="shpg-dsprojects" />
+<meta name="theme-color" content="#ffffff" />
+
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
-
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
-      
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
-        
-      
-      
-      <img src="../../_static/cat.jpeg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="../../intro.html">
-                    Welcome
-                </a>
-            </li>
-        </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Projects
- </span>
-</p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../doctor_segmentation/doctor_segmentation.html">
-   Customer Segmentation for Medical Device Manufacturer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
-   Rental Price Prediction
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Predict Concrete Strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chocolate_bars/chocolate_bars.html">
-   Finding the best Chocolate Bars
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../travel_assured/travel_assured.html">
-   Travel Insurance Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exam_scores/exam_scores.html">
-   Do test preparation courses help you prepare for exams?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../viral_tweets/README.html">
-   Viral Tweets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
-   Stock Sentiment Analysis from News Headlines
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../BCG/README.html">
-   PowerCo - Is Churn driven by price sensitivity?
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/PowerCo_email.html">
-     PowerCo - Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/eda.html">
-     PowerCo - EDA
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../sms_classifier/README.html">
-   SMS Text Classification
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sms_classifier/sms_classification.html">
-     Neural Network - SMS Text Classification
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Achievements
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../achievements/certificates.html">
-   Certifications
-  </a>
- </li>
-</ul>
-
-    </div>
-</nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
-    </div>
-    <div id="rtd-footer-container"></div>
-</div>
+<body>
 
 
-          
+    <span id="top"></span>
 
+    <div class="qe-wrapper">
 
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
+        <div class="qe-main">
 
+            <div class="qe-page" id=projects/concrete_strength/concrete_strength>
 
+                <div class="qe-page__toc">
 
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
-  
+                    <div class="inner">
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=lab/tree/docs/projects/concrete_strength/concrete_strength.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/concrete_strength/concrete_strength.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
->
-  
-
-<span class="headerbtn__icon-container">
-  
-    <img src="../../_static/images/logo_colab.png">
-  </span>
-<span class="headerbtn__text-container">Colab</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-expand"></i>
-  </span>
-
-</button>
-
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/concrete_strength/concrete_strength.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/projects/concrete_strength/concrete_strength.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
-</label>
-
-    </div>
-</div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   📖 Background
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-data">
-   💾 The data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compressive-strength-data">
-     Compressive strength data:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-libraries">
-   Import Libraries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-data">
-   Load Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-preprocessing">
-   Data Preprocessing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-size-and-structure">
-     Data Size and Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#duplicated-data">
-     Duplicated Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#outliers">
-     Outliers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-statistics">
-     Summary Statistics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis">
-   Exploratory Data Analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-matrix">
-     Correlation matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#age">
-     Age
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
-   1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-predictive-model">
-   2. Creating predictive model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#train-test-split">
-   Train Test Split
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#encoding-age">
-     Encoding age
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-selection">
-   Model Selection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-tuning">
-   Model Tuning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-evaluation">
-   Model Evaluation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-importance">
-   Feature Importance
-  </a>
- </li>
-</ul>
-
-    </nav>
-</div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Predict the strength of concrete</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
+                        <div class="qe-page__toc-header">
+                            On this page
                         </div>
-                        <nav aria-label="Page">
+
+
+                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#background">
@@ -718,18 +297,53 @@ title="Print to PDF"
  </li>
 </ul>
 
+                            <p class="logo">
+                                
+                                    
+                                    <a href="../../intro.html"><img src="../../_static/cat.jpeg" class="logo" alt="logo"></a>
+                                    
+                                
+                            </p>
+
+                            <p class="powered">Powered by <a href="https://jupyterbook.org/">Jupyter Book</a></p>
+
                         </nav>
+
+                        <div class="qe-page__toc-footer">
+                            
+                            
+                            <p><a href="#top"><strong>Back to top</strong></a></p>
+                        </div>
+
                     </div>
+
                 </div>
-            </div>
-            <main id="main-content" role="main">
+
+                <div class="qe-page__header">
+
+                    <div class="qe-page__header-copy">
+
+                        <p class="qe-page__header-heading"><a href="../../intro.html">shpg-dsprojects</a></p>
+
+                        <p class="qe-page__header-subheading">Predict the strength of concrete</p>
+
+                    </div>
+
+                    <p class="qe-page__header-authors">Patrick Guo</p>
+
+                </div> <!-- .page__header -->
+
+
+
                 
-              <div>
-                
-  <section class="tex2jax_ignore mathjax_ignore" id="predict-the-strength-of-concrete">
-<h1><a class="reference external" href="https://app.datacamp.com/workspace/w/6062fa1f-85aa-48e2-a156-66a5fba7ff2a">Predict the strength of concrete</a><a class="headerlink" href="#predict-the-strength-of-concrete" title="Permalink to this headline">#</a></h1>
-<section id="background">
-<h2>📖 Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+                <main class="qe-page__content" role="main">
+                    
+                    <div>
+                        
+  <div class="tex2jax_ignore mathjax_ignore section" id="predict-the-strength-of-concrete">
+<h1><a class="reference external" href="https://app.datacamp.com/workspace/w/6062fa1f-85aa-48e2-a156-66a5fba7ff2a">Predict the strength of concrete</a><a class="headerlink" href="#predict-the-strength-of-concrete" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="background">
+<h2>📖 Background<a class="headerlink" href="#background" title="Permalink to this headline">¶</a></h2>
 <p>Concrete is the most widely used building material in the world. It is a mix of cement and water with gravel and sand. It can also include other materials like fly ash, blast furnace slag, and additives.</p>
 <p>The compressive strength of concrete is a function of components and age, the team is testing different combinations of ingredients at different time intervals.</p>
 <p>Find a simple way to estimate strength to predict how a particular sample is expected to perform.</p>
@@ -739,12 +353,12 @@ title="Print to PDF"
 <li><p>The coefficients of regression model using the formula that provided us:
 <img alt="Strength Equation" src="../../_images/str_eq.png" /></p></li>
 </ol>
-</section>
-<section id="the-data">
-<h2>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="the-data">
+<h2>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this headline">¶</a></h2>
 <p>The team has already tested more than a thousand samples (<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength">source</a>):</p>
-<section id="compressive-strength-data">
-<h3>Compressive strength data:<a class="headerlink" href="#compressive-strength-data" title="Permalink to this headline">#</a></h3>
+<div class="section" id="compressive-strength-data">
+<h3>Compressive strength data:<a class="headerlink" href="#compressive-strength-data" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>“cement” - Portland cement in kg/m3</p></li>
 <li><p>“slag” - Blast furnace slag in kg/m3</p></li>
@@ -757,10 +371,10 @@ title="Print to PDF"
 <li><p>“strength” - Concrete compressive strength in megapascals (MPa)</p></li>
 </ul>
 <p><em><strong>Acknowledgments</strong>: I-Cheng Yeh, “Modeling of strength of high-performance concrete using artificial neural networks,” Cement and Concrete Research, Vol. 28, No. 12, pp. 1797-1808 (1998)</em>.</p>
-</section>
-</section>
-<section id="import-libraries">
-<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="import-libraries">
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -784,23 +398,23 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-28 10:34:26.382031: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-10 06:01:12.471912: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-09-28 10:34:26.523955: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-09-28 10:34:26.523979: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2022-09-28 10:34:26.555765: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-10-10 06:01:12.636576: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-10-10 06:01:12.636602: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-10-10 06:01:12.673248: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-09-28 10:34:27.301411: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-09-28 10:34:27.301519: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-09-28 10:34:27.301527: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-10 06:01:13.673247: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-10-10 06:01:13.673414: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-10-10 06:01:13.673430: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="load-data">
-<h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="load-data">
+<h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/concrete_data.csv&#39;</span><span class="p">)</span>
@@ -903,11 +517,11 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="data-preprocessing">
-<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">#</a></h2>
-<section id="data-size-and-structure">
-<h3>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="data-preprocessing">
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-size-and-structure">
+<h3>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Dataset comprises of 1030 observations.</p></li>
 <li><p>8 features and 1 target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code>.</p></li>
@@ -944,9 +558,9 @@ memory usage: 72.5 KB
 </div>
 </div>
 </div>
-</section>
-<section id="duplicated-data">
-<h3>Duplicated Data<a class="headerlink" href="#duplicated-data" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="duplicated-data">
+<h3>Duplicated Data<a class="headerlink" href="#duplicated-data" title="Permalink to this headline">¶</a></h3>
 <p>A small 2.43% of the dataset are duplicated. I decided to drop these, so now the dataset has 1005 observations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -964,9 +578,9 @@ df shape after removing duplicates: (1005, 9)
 </div>
 </div>
 </div>
-</section>
-<section id="outliers">
-<h3>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="outliers">
+<h3>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">¶</a></h3>
 <p>Boxplots show that there are outliers in our data, but not many.
 We will be replacing these outliers with their median.</p>
 <div class="cell docutils container">
@@ -994,9 +608,9 @@ We will be replacing these outliers with their median.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="summary-statistics">
-<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="summary-statistics">
+<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">¶</a></h3>
 <p>Variance, skew, and kurtosis is also included. <br>
 We can see that all variables have skew are in asymmetric form.</p>
 <div class="cell docutils container">
@@ -1172,12 +786,12 @@ We can see that all variables have skew are in asymmetric form.</p>
 </table>
 </div></div></div>
 </div>
-</section>
-</section>
-<section id="exploratory-data-analysis">
-<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h2>
-<section id="correlation-matrix">
-<h3>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">#</a></h3>
+</div>
+</div>
+<div class="section" id="exploratory-data-analysis">
+<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="correlation-matrix">
+<h3>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">¶</a></h3>
 <p>Let’s look at the relationship between all the variables and their correlation. <br>
 From the heatmap, we observe target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code> has a high positive correlation <code class="docutils literal notranslate"><span class="pre">cement</span></code> 0.49, <code class="docutils literal notranslate"><span class="pre">superplasticizer</span></code> 0.32, and <code class="docutils literal notranslate"><span class="pre">age</span></code> 0.5. <br>
 There is a strong negative correlation (-0.61) between <code class="docutils literal notranslate"><span class="pre">superplasticizer</span></code> and <code class="docutils literal notranslate"><span class="pre">water</span></code>.</p>
@@ -1194,9 +808,9 @@ There is a strong negative correlation (-0.61) between <code class="docutils lit
 <img alt="../../_images/concrete_strength_17_0.png" src="../../_images/concrete_strength_17_0.png" />
 </div>
 </div>
-</section>
-<section id="age">
-<h3>Age<a class="headerlink" href="#age" title="Permalink to this headline">#</a></h3>
+</div>
+<div class="section" id="age">
+<h3>Age<a class="headerlink" href="#age" title="Permalink to this headline">¶</a></h3>
 <p>Age is a very important characteristic that affects concrete strength.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1231,76 +845,76 @@ The 28 days time frame is significant because this is the period for concrete to
 </div>
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_d3e9d">
+<table id="T_65a7d">
   <caption>Average concrete strength at different ages (Days):</caption>
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_d3e9d_level0_col0" class="col_heading level0 col0" >age</th>
-      <th id="T_d3e9d_level0_col1" class="col_heading level0 col1" >mean</th>
-      <th id="T_d3e9d_level0_col2" class="col_heading level0 col2" >count</th>
+      <th id="T_65a7d_level0_col0" class="col_heading level0 col0" >age</th>
+      <th id="T_65a7d_level0_col1" class="col_heading level0 col1" >mean</th>
+      <th id="T_65a7d_level0_col2" class="col_heading level0 col2" >count</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_d3e9d_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_d3e9d_row0_col0" class="data row0 col0" >1</td>
-      <td id="T_d3e9d_row0_col1" class="data row0 col1" >9.452716</td>
-      <td id="T_d3e9d_row0_col2" class="data row0 col2" >2</td>
+      <th id="T_65a7d_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_65a7d_row0_col0" class="data row0 col0" >1</td>
+      <td id="T_65a7d_row0_col1" class="data row0 col1" >9.452716</td>
+      <td id="T_65a7d_row0_col2" class="data row0 col2" >2</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_d3e9d_row1_col0" class="data row1 col0" >3</td>
-      <td id="T_d3e9d_row1_col1" class="data row1 col1" >18.378023</td>
-      <td id="T_d3e9d_row1_col2" class="data row1 col2" >129</td>
+      <th id="T_65a7d_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_65a7d_row1_col0" class="data row1 col0" >3</td>
+      <td id="T_65a7d_row1_col1" class="data row1 col1" >18.378023</td>
+      <td id="T_65a7d_row1_col2" class="data row1 col2" >129</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_d3e9d_row2_col0" class="data row2 col0" >7</td>
-      <td id="T_d3e9d_row2_col1" class="data row2 col1" >25.181843</td>
-      <td id="T_d3e9d_row2_col2" class="data row2 col2" >122</td>
+      <th id="T_65a7d_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_65a7d_row2_col0" class="data row2 col0" >7</td>
+      <td id="T_65a7d_row2_col1" class="data row2 col1" >25.181843</td>
+      <td id="T_65a7d_row2_col2" class="data row2 col2" >122</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_d3e9d_row3_col0" class="data row3 col0" >14</td>
-      <td id="T_d3e9d_row3_col1" class="data row3 col1" >28.751038</td>
-      <td id="T_d3e9d_row3_col2" class="data row3 col2" >62</td>
+      <th id="T_65a7d_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_65a7d_row3_col0" class="data row3 col0" >14</td>
+      <td id="T_65a7d_row3_col1" class="data row3 col1" >28.751038</td>
+      <td id="T_65a7d_row3_col2" class="data row3 col2" >62</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_d3e9d_row4_col0" class="data row4 col0" >28</td>
-      <td id="T_d3e9d_row4_col1" class="data row4 col1" >37.383788</td>
-      <td id="T_d3e9d_row4_col2" class="data row4 col2" >478</td>
+      <th id="T_65a7d_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_65a7d_row4_col0" class="data row4 col0" >28</td>
+      <td id="T_65a7d_row4_col1" class="data row4 col1" >37.383788</td>
+      <td id="T_65a7d_row4_col2" class="data row4 col2" >478</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_d3e9d_row5_col0" class="data row5 col0" >56</td>
-      <td id="T_d3e9d_row5_col1" class="data row5 col1" >50.715152</td>
-      <td id="T_d3e9d_row5_col2" class="data row5 col2" >86</td>
+      <th id="T_65a7d_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_65a7d_row5_col0" class="data row5 col0" >56</td>
+      <td id="T_65a7d_row5_col1" class="data row5 col1" >50.715152</td>
+      <td id="T_65a7d_row5_col2" class="data row5 col2" >86</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_d3e9d_row6_col0" class="data row6 col0" >90</td>
-      <td id="T_d3e9d_row6_col1" class="data row6 col1" >40.480809</td>
-      <td id="T_d3e9d_row6_col2" class="data row6 col2" >54</td>
+      <th id="T_65a7d_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_65a7d_row6_col0" class="data row6 col0" >90</td>
+      <td id="T_65a7d_row6_col1" class="data row6 col1" >40.480809</td>
+      <td id="T_65a7d_row6_col2" class="data row6 col2" >54</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_d3e9d_row7_col0" class="data row7 col0" >91</td>
-      <td id="T_d3e9d_row7_col1" class="data row7 col1" >68.674649</td>
-      <td id="T_d3e9d_row7_col2" class="data row7 col2" >17</td>
+      <th id="T_65a7d_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_65a7d_row7_col0" class="data row7 col0" >91</td>
+      <td id="T_65a7d_row7_col1" class="data row7 col1" >68.674649</td>
+      <td id="T_65a7d_row7_col2" class="data row7 col2" >17</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_d3e9d_row8_col0" class="data row8 col0" >100</td>
-      <td id="T_d3e9d_row8_col1" class="data row8 col1" >47.668780</td>
-      <td id="T_d3e9d_row8_col2" class="data row8 col2" >52</td>
+      <th id="T_65a7d_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_65a7d_row8_col0" class="data row8 col0" >100</td>
+      <td id="T_65a7d_row8_col1" class="data row8 col1" >47.668780</td>
+      <td id="T_65a7d_row8_col2" class="data row8 col2" >52</td>
     </tr>
     <tr>
-      <th id="T_d3e9d_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_d3e9d_row9_col0" class="data row9 col0" >120</td>
-      <td id="T_d3e9d_row9_col1" class="data row9 col1" >39.647168</td>
-      <td id="T_d3e9d_row9_col2" class="data row9 col2" >3</td>
+      <th id="T_65a7d_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_65a7d_row9_col0" class="data row9 col0" >120</td>
+      <td id="T_65a7d_row9_col1" class="data row9 col1" >39.647168</td>
+      <td id="T_65a7d_row9_col2" class="data row9 col2" >3</td>
     </tr>
   </tbody>
 </table>
@@ -1323,10 +937,10 @@ The 28 days time frame is significant because this is the period for concrete to
 </div>
 </div>
 <p>In this boxplot, concrete strength is the highest at 91 days. They have the highest median strenght with a narrow variation. We can also see that strength has the largest variation at 28 days.</p>
-</section>
-</section>
-<section id="average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
-<h2>1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.<a class="headerlink" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
+<h2>1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.<a class="headerlink" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age" title="Permalink to this headline">¶</a></h2>
 <p>Average strength of concrete is the lowest after 1 day and increases significantly after 7 days. Strength continues to increase in MPa after 14 and 28 days.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1351,14 +965,14 @@ Average strength of the concrete sample is 37.38 MPa at 28 days.
 </div>
 </div>
 </div>
-</section>
-<section id="creating-predictive-model">
-<h2>2. Creating predictive model<a class="headerlink" href="#creating-predictive-model" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="creating-predictive-model">
+<h2>2. Creating predictive model<a class="headerlink" href="#creating-predictive-model" title="Permalink to this headline">¶</a></h2>
 <p>Now let’s help our colleages in the engineering department find out the coefficients <span class="math notranslate nohighlight">\(\beta_{0}\)</span>, <span class="math notranslate nohighlight">\(\beta_{1}\)</span> … <span class="math notranslate nohighlight">\(\beta_{8}\)</span>, to use in the following formula:</p>
 <p><img alt="Strength Equation" src="../../_images/str_eq.png" /></p>
-</section>
-<section id="train-test-split">
-<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="train-test-split">
+<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">¶</a></h2>
 <p>Split the data to train (80%) and test (20%) to estimate the performance of machine learning algorithms when they are used to make predictions on data not used to train the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1390,8 +1004,8 @@ y test data  (201,)
 </div>
 </div>
 </div>
-<section id="encoding-age">
-<h3>Encoding age<a class="headerlink" href="#encoding-age" title="Permalink to this headline">#</a></h3>
+<div class="section" id="encoding-age">
+<h3>Encoding age<a class="headerlink" href="#encoding-age" title="Permalink to this headline">¶</a></h3>
 <p>We observed that <code class="docutils literal notranslate"><span class="pre">age</span></code> is a variabel comprised of a finite set of discrete values with a ranked ordering between values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1417,10 +1031,10 @@ y test data  (201,)
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="model-selection">
-<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline">#</a></h2>
+</div>
+</div>
+<div class="section" id="model-selection">
+<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline">¶</a></h2>
 <p>We will be using a supervised regression model since the target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code> is labeled and continuous. <br>
 Using k-folds cross validation to estimate and compare the performance of models on out-of-sample data using r2 score. This enables us to identify which model is worth improving upon. <br>
 GradientBoostRegressor gives the best results out of models, with the highest r2score of 0.89.</p>
@@ -1500,40 +1114,40 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
     <tr>
       <th>3</th>
       <td>DecisionTreeRegressor</td>
-      <td>0.803288</td>
-      <td>0.026538</td>
+      <td>0.802830</td>
+      <td>0.025641</td>
     </tr>
     <tr>
       <th>4</th>
       <td>AdaboostRegressor</td>
-      <td>0.773730</td>
-      <td>0.013713</td>
+      <td>0.775010</td>
+      <td>0.013054</td>
     </tr>
     <tr>
       <th>5</th>
       <td>RandomForestRegressor</td>
-      <td>0.880426</td>
-      <td>0.011559</td>
+      <td>0.882407</td>
+      <td>0.014330</td>
     </tr>
     <tr>
       <th>6</th>
       <td>BaggingRegressor</td>
-      <td>0.873072</td>
-      <td>0.026142</td>
+      <td>0.866996</td>
+      <td>0.011777</td>
     </tr>
     <tr>
       <th>7</th>
       <td>GradientBoostRegressor</td>
-      <td>0.885572</td>
-      <td>0.011506</td>
+      <td>0.885866</td>
+      <td>0.012046</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-</section>
-<section id="model-tuning">
-<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="model-tuning">
+<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this headline">¶</a></h2>
 <p>Using Grid Search to tune hyperparameters of Gradient Boosting Regressor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1588,9 +1202,9 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 </div>
 </div>
 </div>
-</section>
-<section id="model-evaluation">
-<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="model-evaluation">
+<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">¶</a></h2>
 <p>Let’s evaluate the model’s performance on the testing data to assess the likely future performance of a model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1602,17 +1216,17 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 6.933661061304483
-Mean Squared Error (MSE): 73.01911465828591
-RMSE: 8.545122272869238
-R2 Score: 0.7151818777040508
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 6.364977851376063
+Mean Squared Error (MSE): 64.84343857490654
+RMSE: 8.052542367159985
+R2 Score: 0.74707189337276
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="feature-importance">
-<h2>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="feature-importance">
+<h2>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">¶</a></h2>
 <p>Using the feature importance of the model, we get the coefficients <span class="math notranslate nohighlight">\(\beta_{0}\)</span>, <span class="math notranslate nohighlight">\(\beta_{1}\)</span> … <span class="math notranslate nohighlight">\(\beta_{8}\)</span>, to use in the following formula:
 <img alt="Strength Equation" src="../../_images/str_eq.png" /></p>
 <div class="cell docutils container">
@@ -1642,21 +1256,21 @@ R2 Score: 0.7151818777040508
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -162.37153262904795 +
-0.2268579111124566 * cement +
-0.06122384735397296 * slag +
-0.04851176564592267 * fly_ash +
-0.12785812641978384 * water +
-0.07472542944268609 * superplasticizer +
-0.040080167413770615 * coarse_aggregate +
-0.06898218734184954 * fine_aggregate +
-0.3517605652695578 * age
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -171.13887446849907 +
+0.2183639840076969 * cement +
+0.050171743457583 * slag +
+0.05584269544664494 * fly_ash +
+0.12985384214626958 * water +
+0.06825113974736331 * superplasticizer +
+0.04775503361495485 * coarse_aggregate +
+0.0736082195577202 * fine_aggregate +
+0.3561533420217672 * age
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -1678,50 +1292,297 @@ R2 Score: 0.7151818777040508
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
-              
-            </main>
-            <footer class="footer-article noprint">
+                    </div>
+                    
+                </main> <!-- .page__content -->
                 
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../inn_the_neighborhood/inn_the_neighborhood.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Inn the Neighborhood - Rental Price Prediction</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="../chocolate_bars/chocolate_bars.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Finding the best chocolate bars</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Patrick Guo<br/>
-  
-      &copy; Copyright 2022.<br/>
+
+
+                <footer class="qe-page__footer">
+
+                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
+
+                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
+
+                </footer> <!-- .page__footer -->
+
+            </div> <!-- .page -->
+
+            
+
+            
+            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
+
+                <div class="qe-sidebar__header">
+
+
+                    Contents
+
+                </div>
+
+                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
+                    <ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../intro.html">
+   Welcome
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Projects
+ </span>
 </p>
-        </footer>
-    </div>
+<ul class="current nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../doctor_segmentation/doctor_segmentation.html">
+   Customer Segmentation for Medical Device Manufacturer
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
+   Rental Price Prediction
+  </a>
+ </li>
+ <li class="toctree-l1 current active active">
+  <a class="current reference internal" href="#">
+   Predict Concrete Strength
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../chocolate_bars/chocolate_bars.html">
+   Finding the best Chocolate Bars
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../travel_assured/travel_assured.html">
+   Travel Insurance Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../exam_scores/exam_scores.html">
+   Do test preparation courses help you prepare for exams?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../viral_tweets/README.html">
+   Viral Tweets
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
+   Stock Sentiment Analysis from News Headlines
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../BCG/README.html">
+   PowerCo - Is Churn driven by price sensitivity?
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/PowerCo_email.html">
+     PowerCo - Proposal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../BCG/eda.html">
+     PowerCo - EDA
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../sms_classifier/README.html">
+   SMS Text Classification
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../sms_classifier/sms_classification.html">
+     Neural Network - SMS Text Classification
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Achievements
+ </span>
+</p>
+<ul class="nav bd-sidenav nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../achievements/certificates.html">
+   Certifications
+  </a>
+ </li>
+</ul>
+
+                </nav>
+
+                <div class="qe-sidebar__footer">
+
+                </div>
+
+            </div> <!-- .sidebar -->
+            
+        </div> <!-- .main -->
+
+        <div class="qe-toolbar">
+
+            <div class="qe-toolbar__inner">
+
+                <ul class="qe-toolbar__main">
+                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
+                    <li data-tippy-content="Home"><a href="../../intro.html"><i data-feather="home"></i></a></li>
+                    <li class="btn__qelogo"><a href="" title=""><span class="show-for-sr"></span></a></li>
+                    <!-- <li class="btn__search">
+                        <form action="../../search.html" method="get">
+                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
+                            <i data-feather="search"></i>
+                        </form>
+                    </li> -->
+                </ul>
+
+                <ul class="qe-toolbar__links">
+                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
+                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
+                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
+                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
+                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
+                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/shpatrickguo/dsprojects/tree/main/projects/concrete_strength/concrete_strength.ipynb" download><i data-feather="github"></i></a></li>
+                </ul>
+
+            </div>
+
+        </div> <!-- .toolbar -->
+        <div id="downloadPDFModal" style="display: none;">
+            <ul class="pdf-options" style="display: block;">
+                <li class="download-pdf-book" onClick="window.print()">
+                    <p>Lecture (PDF)</p>
+                </li>
+                <li class="download-pdf-file">
+                    <a href="" download><p>Book (PDF)</p></a>
+                </li>
+            </ul>
+        </div>
+        <div id="settingsModal" style="display: none;">
+            <p class="modal-title"> Notebook Launcher </p>
+            <div class="modal-desc">
+            <p>
+                Choose public or private cloud service for "Launch" button.
+            </p>
+            </div>
+            <p class="modal-subtitle">Select a server</p>
+            <ul class="modal-servers">
+            <li class="active launcher-public">
+                <span class="label">Public</span>
+                <select id="launcher-public-input">
+                
+                </select>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            <li class="launcher-private">
+                <span class="label">Private</span>
+                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
+                <i class="fas fa-check-circle"></i>
+            </li>
+            </ul>
+            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
+            <script>
+                // QuantEcon Notebook Launcher
+                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
+                // Highlight the server type if previous selection exists
+                if (typeof localStorage.launcherType !== 'undefined') {
+                  for (var i = 0; i < launcherTypeElements.length; i++) {
+                    launcherTypeElements[i].classList.remove('active');
+                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
+                      launcherTypeElements[i].classList.add('active');
+                    }
+                  }
+                }
+                // Highlight server type on click and set local storage value
+                for (var i = 0; i < launcherTypeElements.length; i++) {
+                  launcherTypeElements[i].addEventListener('click', function() {
+                    for (var j = 0; j < launcherTypeElements.length; j++) {
+                      launcherTypeElements[j].classList.remove('active');
+                    }
+                    this.classList.add('active');
+                    if ( this.classList.contains('launcher-private') ) {
+                      localStorage.launcherType = 'launcher-private';
+                    } else if ( this.classList.contains('launcher-public') ) {
+                      localStorage.launcherType = 'launcher-public';
+                    }
+                    setLaunchServer();
+                  })
+                }
+                const launcherPublic = document.getElementById('launcher-public-input');
+                const launcherPrivate = document.getElementById('launcher-private-input');
+                const pageName = "projects/concrete_strength/concrete_strength";
+                const repoURL = "";
+                const urlPath = "";
+                const branch = ""
+                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+
+                // Highlight public server option if previous selection exists
+                if (typeof localStorage.launcherPublic !== 'undefined') {
+                  launcherPublic.value = localStorage.launcherPublic;
+                }
+                // Update local storage upon public server selection
+                launcherPublic.addEventListener('change', (event) => {
+                  setLaunchServer();
+                });
+                // Populate private server input if previous entry exists
+                if (typeof localStorage.launcherPrivate !== 'undefined') {
+                  launcherPrivate.value = localStorage.launcherPrivate;
+                }
+                // Update local storage when a private server is entered
+                launcherPrivate.addEventListener('input', (event) => {
+                  setLaunchServer();
+                });
+
+                // Function to update the "Launch Notebook" link href
+                function setLaunchServer() {
+                  launchNotebookLink.removeAttribute("style")
+                  if ( localStorage.launcherType == 'launcher-private' ) {
+                    let repoPrefix = "/jupyter/hub/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
+                    launcherPrivateValue = launcherPrivate.value
+                    if (!launcherPrivateValue) {
+                        launchNotebookLink.removeAttribute("href")
+                        launchNotebookLink.style.background = "grey"
+                        return
+                    }
+                    localStorage.launcherPrivate = launcherPrivateValue;
+                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
+                    if (!privateServer.includes("http")) {
+                        privateServer = "http://" + privateServer
+                    }
+                    launchNotebookLinkURL = privateServer + repoPrefix;
+                  } else if ( localStorage.launcherType == 'launcher-public' ) {
+                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
+                    localStorage.launcherPublic = launcherPublicValue;
+                    launchNotebookLinkURL = localStorage.launcherPublic;
+                  }
+                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
+                }
+                // Check if user has previously selected a server
+                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
+                  setLaunchServer();
+                }
+                </script>
+
+        </div>
+
+    </div> <!-- .wrapper-->
     
-</div>
-
-
-      </div>
-    </div>
-  
-  <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-
-
   </body>
 </html>
