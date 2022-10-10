@@ -63,3 +63,7 @@ html:
 launch_buttons:
   notebook_interface: "jupyterlab"
   colab_url: "https://colab.research.google.com"
+
+sphinx:
+    config:
+        html_theme: quantecon_book_theme
