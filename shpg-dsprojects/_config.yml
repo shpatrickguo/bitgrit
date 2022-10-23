@@ -65,4 +65,4 @@ launch_buttons:
 
 sphinx:
     config:
-        html_theme: quantecon_book_theme
+        html_theme: pydata_sphinx_theme
