@@ -446,16 +446,16 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-10 07:02:58.534750: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-23 22:40:50.181437: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-10-10 07:02:58.712543: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-10-10 07:02:58.712620: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2022-10-10 07:02:58.754830: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-10-23 22:40:50.318374: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-10-23 22:40:50.318396: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-10-23 22:40:50.350273: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-10 07:02:59.740971: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-10-10 07:02:59.741138: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-10-10 07:02:59.741154: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-23 22:40:51.044927: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-10-23 22:40:51.045031: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-10-23 22:40:51.045041: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
 </pre></div>
 </div>
 </div>
@@ -969,69 +969,7 @@ Recall that outliers have already been removed from <code class="docutils litera
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of Price&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histplot of Price&#39;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/seaborn/distributions.py:1418,</span> in <span class="ni">histplot</span><span class="nt">(data, x, y, hue, weights, stat, bins, binwidth, binrange, discrete, cumulative, common_bins, common_norm, multiple, element, fill, shrink, kde, kde_kws, line_kws, thresh, pthresh, pmax, cbar, cbar_ax, cbar_kws, palette, hue_order, hue_norm, color, log_scale, legend, ax, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1416</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1417</span>         <span class="n">method</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span>
-<span class="ne">-&gt; </span><span class="mi">1418</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">_default_color</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1420</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">has_xy_data</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1421</span>     <span class="k">return</span> <span class="n">ax</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/seaborn/utils.py:139,</span> in <span class="ni">_default_color</span><span class="nt">(method, hue, color, kws)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">scout</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">elif</span> <span class="n">method</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span> 
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="c1"># bar() needs masked, not empty data, to generate a patch</span>
-<span class="ne">--&gt; </span><span class="mi">139</span>     <span class="n">scout</span><span class="p">,</span> <span class="o">=</span> <span class="n">method</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">to_rgb</span><span class="p">(</span><span class="n">scout</span><span class="o">.</span><span class="n">get_facecolor</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="n">scout</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/__init__.py:1423,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1420</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1421</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1422</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1423</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1425</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1426</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1427</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/axes/_axes.py:2373,</span> in <span class="ni">Axes.bar</span><span class="nt">(self, x, height, width, bottom, align, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2371</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
-<span class="g g-Whitespace">   </span><span class="mi">2372</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="ne">-&gt; </span><span class="mi">2373</span> <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_dx</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2374</span> <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2375</span>     <span class="n">xerr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_dx</span><span class="p">(</span><span class="n">xerr</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/axes/_axes.py:2182,</span> in <span class="ni">Axes._convert_dx</span><span class="nt">(dx, x0, xconv, convert)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2170</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2171</span>     <span class="c1"># attempt to add the width to x0; this works for</span>
-<span class="g g-Whitespace">   </span><span class="mi">2172</span>     <span class="c1"># datetime+timedelta, for instance</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2179</span>     <span class="c1"># removes the units from unit packages like `pint` that</span>
-<span class="g g-Whitespace">   </span><span class="mi">2180</span>     <span class="c1"># wrap numpy arrays.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2181</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2182</span>         <span class="n">x0</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">_safe_first_finite</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2183</span>     <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2184</span>         <span class="k">pass</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/cbook/__init__.py:1749,</span> in <span class="ni">_safe_first_finite</span><span class="nt">(obj, skip_nonfinite)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1746</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;matplotlib does not &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1747</span>                        <span class="s2">&quot;support generators as input&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1748</span> <span class="k">else</span><span class="p">:</span>
-<span class="nn">-&gt; 1749     return next(val for val</span> in <span class="ni">obj if safe_isfinite</span><span class="nt">(val))</span>
-
-<span class="ne">StopIteration</span>: 
-</pre></div>
-</div>
-<img alt="../../_images/inn_the_neighborhood_22_1.png" src="../../_images/inn_the_neighborhood_22_1.png" />
+<img alt="../../_images/inn_the_neighborhood_22_0.png" src="../../_images/inn_the_neighborhood_22_0.png" />
 </div>
 </div>
 </div>
@@ -1243,7 +1181,7 @@ Scatterplot does not show distinct price clusters based on latitude and longitud
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1449, Baker Street, Western Addition, San Francisco, California, 94115, United States
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2258, 25th Avenue, San Francisco, CAL Fire Northern Region, California, 94116, United States
 </pre></div>
 </div>
 <img alt="../../_images/inn_the_neighborhood_38_1.png" src="../../_images/inn_the_neighborhood_38_1.png" />
@@ -1438,15 +1376,6 @@ Non-important features are removed.</p>
 <span class="n">sel_lasso</span> <span class="o">=</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">))</span>
 <span class="n">sel_lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">sel_lasso</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
-        True, False, False, False,  True, False, False, False,  True,
-        True,  True,  True,  True, False, False,  True,  True,  True,
-        True, False,  True, False,  True,  True,  True,  True,  True,
-        True])
 </pre></div>
 </div>
 </div>

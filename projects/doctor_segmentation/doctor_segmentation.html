@@ -2638,69 +2638,7 @@ Name: Incidence rate, dtype: float64
 Skew: 5.607171363436355
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StopIteration</span><span class="g g-Whitespace">                             </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1"># Assigning a graph to each ax</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Incidence rate&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_merged</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_box</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Incidence rate&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_merged</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax_hist</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># Remove x axis name for the boxplot</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">ax_box</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Boxplot and Histogram of Incidence rate&quot;</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/seaborn/distributions.py:1418,</span> in <span class="ni">histplot</span><span class="nt">(data, x, y, hue, weights, stat, bins, binwidth, binrange, discrete, cumulative, common_bins, common_norm, multiple, element, fill, shrink, kde, kde_kws, line_kws, thresh, pthresh, pmax, cbar, cbar_ax, cbar_kws, palette, hue_order, hue_norm, color, log_scale, legend, ax, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1416</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1417</span>         <span class="n">method</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span>
-<span class="ne">-&gt; </span><span class="mi">1418</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">_default_color</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1420</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">p</span><span class="o">.</span><span class="n">has_xy_data</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1421</span>     <span class="k">return</span> <span class="n">ax</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/seaborn/utils.py:139,</span> in <span class="ni">_default_color</span><span class="nt">(method, hue, color, kws)</span>
-<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="n">scout</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span> <span class="k">elif</span> <span class="n">method</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;bar&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span> 
-<span class="g g-Whitespace">    </span><span class="mi">138</span>     <span class="c1"># bar() needs masked, not empty data, to generate a patch</span>
-<span class="ne">--&gt; </span><span class="mi">139</span>     <span class="n">scout</span><span class="p">,</span> <span class="o">=</span> <span class="n">method</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="o">**</span><span class="n">kws</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>     <span class="n">color</span> <span class="o">=</span> <span class="n">to_rgb</span><span class="p">(</span><span class="n">scout</span><span class="o">.</span><span class="n">get_facecolor</span><span class="p">())</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="n">scout</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/__init__.py:1423,</span> in <span class="ni">_preprocess_data.&lt;locals&gt;.inner</span><span class="nt">(ax, data, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1420</span> <span class="nd">@functools</span><span class="o">.</span><span class="n">wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1421</span> <span class="k">def</span> <span class="nf">inner</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1422</span>     <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1423</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="nb">map</span><span class="p">(</span><span class="n">sanitize_sequence</span><span class="p">,</span> <span class="n">args</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1425</span>     <span class="n">bound</span> <span class="o">=</span> <span class="n">new_sig</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1426</span>     <span class="n">auto_label</span> <span class="o">=</span> <span class="p">(</span><span class="n">bound</span><span class="o">.</span><span class="n">arguments</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1427</span>                   <span class="ow">or</span> <span class="n">bound</span><span class="o">.</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">label_namer</span><span class="p">))</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/axes/_axes.py:2373,</span> in <span class="ni">Axes.bar</span><span class="nt">(self, x, height, width, bottom, align, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2371</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">x</span>
-<span class="g g-Whitespace">   </span><span class="mi">2372</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="ne">-&gt; </span><span class="mi">2373</span> <span class="n">width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_dx</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2374</span> <span class="k">if</span> <span class="n">xerr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2375</span>     <span class="n">xerr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_convert_dx</span><span class="p">(</span><span class="n">xerr</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_xunits</span><span class="p">)</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/axes/_axes.py:2182,</span> in <span class="ni">Axes._convert_dx</span><span class="nt">(dx, x0, xconv, convert)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2170</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2171</span>     <span class="c1"># attempt to add the width to x0; this works for</span>
-<span class="g g-Whitespace">   </span><span class="mi">2172</span>     <span class="c1"># datetime+timedelta, for instance</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2179</span>     <span class="c1"># removes the units from unit packages like `pint` that</span>
-<span class="g g-Whitespace">   </span><span class="mi">2180</span>     <span class="c1"># wrap numpy arrays.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2181</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2182</span>         <span class="n">x0</span> <span class="o">=</span> <span class="n">cbook</span><span class="o">.</span><span class="n">_safe_first_finite</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2183</span>     <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">IndexError</span><span class="p">,</span> <span class="ne">KeyError</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2184</span>         <span class="k">pass</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/matplotlib/cbook/__init__.py:1749,</span> in <span class="ni">_safe_first_finite</span><span class="nt">(obj, skip_nonfinite)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1746</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;matplotlib does not &quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1747</span>                        <span class="s2">&quot;support generators as input&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1748</span> <span class="k">else</span><span class="p">:</span>
-<span class="nn">-&gt; 1749     return next(val for val</span> in <span class="ni">obj if safe_isfinite</span><span class="nt">(val))</span>
-
-<span class="ne">StopIteration</span>: 
-</pre></div>
-</div>
-<img alt="../../_images/doctor_segmentation_35_3.png" src="../../_images/doctor_segmentation_35_3.png" />
+<img alt="../../_images/doctor_segmentation_35_2.png" src="../../_images/doctor_segmentation_35_2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3552,9 +3490,13 @@ Name: Complaint Type, dtype: int64
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Rank&#39;, 0.3462422263806552), (&#39;R rate&#39;, 0.060365456749001456), (&#39;Category_General Practitioner&#39;, 0.05741863343778913)]
 [(&#39;Rank&#39;, 0.36374424881372586), (&#39;Purchases&#39;, 0.08363203178543055), (&#39;Region_1 8 T3&#39;, 0.06992636245787862)]
-[(&#39;Rank&#39;, 0.16906243640382515), (&#39;Category_Missing&#39;, 0.16547351972134908), (&#39;Purchases&#39;, 0.16081255501034938)]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Rank&#39;, 0.16906243640382515), (&#39;Category_Missing&#39;, 0.16547351972134908), (&#39;Purchases&#39;, 0.16081255501034938)]
 [(&#39;Rank&#39;, 0.44233890242367024), (&#39;Purchases&#39;, 0.16679337117408138), (&#39;R rate&#39;, 0.06584395381200006)]
-[(&#39;Rank&#39;, 0.3689971859520564), (&#39;Purchases&#39;, 0.10372479238158124), (&#39;R rate&#39;, 0.09107045419109543)]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Rank&#39;, 0.3689971859520564), (&#39;Purchases&#39;, 0.10372479238158124), (&#39;R rate&#39;, 0.09107045419109543)]
 </pre></div>
 </div>
 </div>
