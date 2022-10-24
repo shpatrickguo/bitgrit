@@ -4,52 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Neural Network - SMS Text Classification &#8212; shpg-dsprojects</title>
-    <script src="https://unpkg.com/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://unpkg.com/tippy.js@6.3.1/dist/tippy-bundle.umd.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     
-        <script>
-            MathJax = {
-            loader: {load: ['[tex]/boldsymbol', '[tex]/textmacros']},
-            tex: {
-                packages: {'[+]': ['boldsymbol', 'textmacros']},
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                processEscapes: true,
-                macros: {
-                    "argmax" : "arg\\,max",
-                    "argmin" : "arg\\,min",
-                    "col"    : "col",
-                    "Span"   :  "span",
-                    "epsilon": "\\varepsilon",
-                    "EE": "\\mathbb{E}",
-                    "PP": "\\mathbb{P}",
-                    "RR": "\\mathbb{R}",
-                    "NN": "\\mathbb{N}",
-                    "ZZ": "\\mathbb{Z}",
-                    "aA": "\\mathcal{A}",
-                    "bB": "\\mathcal{B}",
-                    "cC": "\\mathcal{C}",
-                    "dD": "\\mathcal{D}",
-                    "eE": "\\mathcal{E}",
-                    "fF": "\\mathcal{F}",
-                    "gG": "\\mathcal{G}",
-                    "hH": "\\mathcal{H}",
-                }
-            },
-            svg: {
-                fontCache: 'global',
-                scale: 0.92,
-                displayAlign: "center",
-            },
-            };
-        </script>
-    
-    
-    
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -59,21 +20,15 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/quantecon-book-theme.1ef59f8f4e91ec8319176e8479c6af4e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
-
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -81,6 +36,7 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -121,8 +77,7 @@ var addUtterances = () => {
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script src="../../_static/quantecon-book-theme.15b0c36fffe88f468997fa7b698991d3.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -133,53 +88,173 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Certificates" href="../../achievements/certificates.html" />
     <link rel="prev" title="Neural Network SMS Text Classifier" href="README.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
 
-<!-- Normal Meta Tags -->
-<meta name="author" context="Patrick Guo" />
-<meta name="keywords" content="" />
-<meta name="description" content=Neural Network - SMS Text Classification  Create a machine learning model that will classify SMS messages as either “ham” or “spam”. A “ham” message is a normal />
-
-<!-- Twitter tags -->
-<meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@" />
-<meta name="twitter:title" content="Neural Network - SMS Text Classification"/>
-<meta name="twitter:description" content="Neural Network - SMS Text Classification  Create a machine learning model that will classify SMS messages as either “ham” or “spam”. A “ham” message is a normal">
-<meta name="twitter:creator" content="@">
-<meta name="twitter:image" content="">
-
-<!-- Opengraph tags -->
-<meta property="og:title" content="Neural Network - SMS Text Classification" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="None" />
-<meta property="og:image" content="" />
-<meta property="og:description" content="Neural Network - SMS Text Classification  Create a machine learning model that will classify SMS messages as either “ham” or “spam”. A “ham” message is a normal" />
-<meta property="og:site_name" content="shpg-dsprojects" />
-<meta name="theme-color" content="#ffffff" />
-
+    <!-- Google Analytics -->
+    
   </head>
-<body>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../intro.html">
+  <img src="../../_static/cat.jpeg" class="logo" alt="logo">
+</a>
 
 
-    <span id="top"></span>
+    
+  </div>
 
-    <div class="qe-wrapper">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        <div class="qe-main">
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../abalone_age/abalone_age.html">
+  Estimate Abalone's age
+ </a>
+</li>
 
-            <div class="qe-page" id=projects/sms_classifier/sms_classification>
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../doctor_segmentation/doctor_segmentation.html">
+  Customer Segmentation for Medical Device Manufacturer
+ </a>
+</li>
 
-                <div class="qe-page__toc">
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../inn_the_neighborhood/inn_the_neighborhood.html">
+  Rental Price Prediction
+ </a>
+</li>
 
-                    <div class="inner">
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../concrete_strength/concrete_strength.html">
+  Predict Concrete Strength
+ </a>
+</li>
 
-                        
-                        <div class="qe-page__toc-header">
-                            On this page
-                        </div>
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../chocolate_bars/chocolate_bars.html">
+  Finding the best Chocolate Bars
+ </a>
+</li>
 
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../travel_assured/travel_assured.html">
+  Travel Insurance Analysis
+ </a>
+</li>
 
-                        <nav id="bd-toc-nav" class="qe-page__toc-nav">
-                            <ul class="visible nav section-nav flex-column">
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../exam_scores/exam_scores.html">
+  Do test preparation courses help you prepare for exams?
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../viral_tweets/README.html">
+  Viral Tweets
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
+  Stock Sentiment Analysis from News Headlines
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../BCG/README.html">
+  PowerCo - Is Churn driven by price sensitivity?
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="README.html">
+  SMS Text Classification
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../achievements/certificates.html">
+  Certifications
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Neural Network - SMS Text Classification
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#">
    Neural Network - SMS Text Classification
@@ -258,51 +333,27 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-                            <p class="logo">
-                                
-                                    
-                                    <a href="../../intro.html"><img src="../../_static/cat.jpeg" class="logo" alt="logo"></a>
-                                    
-                                
-                            </p>
-
-                            <p class="powered">Powered by <a href="https://jupyterbook.org/">Jupyter Book</a></p>
-
-                        </nav>
-
-                        <div class="qe-page__toc-footer">
-                            
-                            
-                            <p><a href="#top"><strong>Back to top</strong></a></p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="qe-page__header">
-
-                    <div class="qe-page__header-copy">
-
-                        <p class="qe-page__header-heading"><a href="../../intro.html">shpg-dsprojects</a></p>
-
-                        <p class="qe-page__header-subheading">Neural Network - SMS Text Classification</p>
-
-                    </div>
-
-                    <p class="qe-page__header-authors">Patrick Guo</p>
-
-                </div> <!-- .page__header -->
-
-
-
+</nav>
+              </div>
+              
+              <div class="toc-item">
                 
-                <main class="qe-page__content" role="main">
-                    
-                    <div>
-                        
-  <div class="tex2jax_ignore mathjax_ignore section" id="neural-network-sms-text-classification">
-<h1>Neural Network - SMS Text Classification<a class="headerlink" href="#neural-network-sms-text-classification" title="Permalink to this headline">¶</a></h1>
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="neural-network-sms-text-classification">
+<h1>Neural Network - SMS Text Classification<a class="headerlink" href="#neural-network-sms-text-classification" title="Permalink to this headline">#</a></h1>
 <p>Create a machine learning model that will classify SMS messages as either “ham” or “spam”. A “ham” message is a normal message sent by a friend. A “spam” message is an advertisement or a message sent by a company.</p>
 <p>Create a function called <code class="docutils literal notranslate"><span class="pre">predict_message</span></code> that takes a message string as an argument and returns a list. The first element in the list should be a number between zero and one that indicates the likeliness of “ham” (0) or “spam” (1). The second element in the list should be the word “ham” or “spam”, depending on which is most likely.</p>
 <p>Data from <a class="reference external" href="http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/">SMS Spam Collection dataset</a>.</p>
@@ -352,7 +403,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-23 22:41:41.478792: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-10-24 07:27:32.055526: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.10.0
@@ -382,9 +433,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>The file is tab separated (\t) and I provide column names “Class” and “Message”.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis">
-<h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="exploratory-data-analysis">
+<h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_file</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -498,8 +549,8 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 </div></div></div>
 </div>
 <p>There are 3619 ham compared to 560 spam messages. This means the data is imbalanced. The most popular ham message “sorry, i’ll call later” occured 22 times. Whereas the most popular spam message “hmv bonus special 500 pounds of genuine hmv…” occured 3 times.</p>
-<div class="section" id="wordcloud">
-<h2>Wordcloud<a class="headerlink" href="#wordcloud" title="Permalink to this headline">¶</a></h2>
+<section id="wordcloud">
+<h2>Wordcloud<a class="headerlink" href="#wordcloud" title="Permalink to this headline">#</a></h2>
 <p>Wordcloud allows us to visualize the most frequent words in the given text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -547,12 +598,12 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 </div>
 </div>
 <p>The spam message WordCloud shows that “free”, “text”, “call” etc. are the most commonly appeared words in spam messages.</p>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="data-processing">
-<h1>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="data-imbalance">
-<h2>Data Imbalance<a class="headerlink" href="#data-imbalance" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-processing">
+<h1>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline">#</a></h1>
+<section id="data-imbalance">
+<h2>Data Imbalance<a class="headerlink" href="#data-imbalance" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of spam messages</span>
@@ -570,8 +621,8 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 </div>
 </div>
 <p>The bar chart shows that the classes are imbalanced. 85% of the messages are ham.</p>
-<div class="section" id="downsampling">
-<h3>Downsampling<a class="headerlink" href="#downsampling" title="Permalink to this headline">¶</a></h3>
+<section id="downsampling">
+<h3>Downsampling<a class="headerlink" href="#downsampling" title="Permalink to this headline">#</a></h3>
 <p>To handle the imbalance data, we downsample.
 Downsampling randomly deletes some of the observations from the majority class so that the numbers in majority and minority classes are matched.</p>
 <div class="cell docutils container">
@@ -610,10 +661,10 @@ Downsampling randomly deletes some of the observations from the majority class s
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="test-train-split">
-<h2>Test train split<a class="headerlink" href="#test-train-split" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="test-train-split">
+<h2>Test train split<a class="headerlink" href="#test-train-split" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map ham label as 0 and spam as 1</span>
@@ -629,9 +680,9 @@ Downsampling randomly deletes some of the observations from the majority class s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="tokenization">
-<h2>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="tokenization">
+<h2>Tokenization<a class="headerlink" href="#tokenization" title="Permalink to this headline">#</a></h2>
 <p>Tokenizer API from TensorFlow Keras splits sentences into words and encodes them into integers.</p>
 <ul class="simple">
 <li><p>Tokenize into words</p></li>
@@ -674,9 +725,9 @@ Downsampling randomly deletes some of the observations from the majority class s
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="sequencing-and-padding">
-<h2>Sequencing and Padding<a class="headerlink" href="#sequencing-and-padding" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sequencing-and-padding">
+<h2>Sequencing and Padding<a class="headerlink" href="#sequencing-and-padding" title="Permalink to this headline">#</a></h2>
 <p>Use texts_tosequences() to espresent each sentence by sequences of numbers from tokenizer object.</p>
 <p>Use pad_sequences() so that each sequences have the same length.</p>
 <div class="cell docutils container">
@@ -706,10 +757,10 @@ Shape of testing tensor:  (374, 50)
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="dense-spam-detection-model">
-<h1>Dense Spam Detection Model<a class="headerlink" href="#dense-spam-detection-model" title="Permalink to this headline">¶</a></h1>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="dense-spam-detection-model">
+<h1>Dense Spam Detection Model<a class="headerlink" href="#dense-spam-detection-model" title="Permalink to this headline">#</a></h1>
 <p>Train model using a Dense architecture followed by LSTM and Bi-LSTM.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,181 +808,181 @@ Shape of testing tensor:  (374, 50)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 1s - loss: 0.6895 - accuracy: 0.6884 - val_loss: 0.6839 - val_accuracy: 0.8316 - 719ms/epoch - 21ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 1s - loss: 0.6868 - accuracy: 0.6875 - val_loss: 0.6764 - val_accuracy: 0.8583 - 517ms/epoch - 15ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6764 - accuracy: 0.7857 - val_loss: 0.6636 - val_accuracy: 0.8102 - 80ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6619 - accuracy: 0.8652 - val_loss: 0.6405 - val_accuracy: 0.8717 - 47ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6429 - accuracy: 0.7875 - val_loss: 0.6173 - val_accuracy: 0.7807 - 71ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6094 - accuracy: 0.8714 - val_loss: 0.5729 - val_accuracy: 0.8690 - 59ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5847 - accuracy: 0.8027 - val_loss: 0.5487 - val_accuracy: 0.8289 - 72ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5309 - accuracy: 0.8857 - val_loss: 0.4842 - val_accuracy: 0.8824 - 62ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5171 - accuracy: 0.8438 - val_loss: 0.4815 - val_accuracy: 0.8636 - 80ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.4375 - accuracy: 0.8911 - val_loss: 0.3938 - val_accuracy: 0.8877 - 61ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.4436 - accuracy: 0.8732 - val_loss: 0.4200 - val_accuracy: 0.8797 - 81ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3517 - accuracy: 0.8991 - val_loss: 0.3228 - val_accuracy: 0.8957 - 47ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 7/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3815 - accuracy: 0.9000 - val_loss: 0.3669 - val_accuracy: 0.8877 - 80ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2817 - accuracy: 0.9214 - val_loss: 0.2726 - val_accuracy: 0.8984 - 60ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 8/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3290 - accuracy: 0.9045 - val_loss: 0.3180 - val_accuracy: 0.8957 - 69ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2389 - accuracy: 0.9223 - val_loss: 0.2340 - val_accuracy: 0.9091 - 61ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 9/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2757 - accuracy: 0.9250 - val_loss: 0.2718 - val_accuracy: 0.9064 - 70ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2040 - accuracy: 0.9330 - val_loss: 0.2066 - val_accuracy: 0.9144 - 51ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 10/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2372 - accuracy: 0.9312 - val_loss: 0.2352 - val_accuracy: 0.9091 - 79ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1739 - accuracy: 0.9464 - val_loss: 0.1850 - val_accuracy: 0.9225 - 62ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 11/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2044 - accuracy: 0.9393 - val_loss: 0.2069 - val_accuracy: 0.9198 - 70ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1535 - accuracy: 0.9554 - val_loss: 0.1687 - val_accuracy: 0.9251 - 61ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 12/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1788 - accuracy: 0.9482 - val_loss: 0.1835 - val_accuracy: 0.9251 - 69ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1385 - accuracy: 0.9607 - val_loss: 0.1564 - val_accuracy: 0.9332 - 47ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 13/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1586 - accuracy: 0.9527 - val_loss: 0.1666 - val_accuracy: 0.9305 - 71ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1285 - accuracy: 0.9607 - val_loss: 0.1444 - val_accuracy: 0.9412 - 63ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1405 - accuracy: 0.9589 - val_loss: 0.1544 - val_accuracy: 0.9332 - 70ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1162 - accuracy: 0.9607 - val_loss: 0.1373 - val_accuracy: 0.9412 - 49ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1268 - accuracy: 0.9634 - val_loss: 0.1435 - val_accuracy: 0.9439 - 79ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1063 - accuracy: 0.9705 - val_loss: 0.1310 - val_accuracy: 0.9465 - 62ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1177 - accuracy: 0.9688 - val_loss: 0.1340 - val_accuracy: 0.9439 - 69ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0981 - accuracy: 0.9679 - val_loss: 0.1238 - val_accuracy: 0.9545 - 61ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1065 - accuracy: 0.9670 - val_loss: 0.1277 - val_accuracy: 0.9519 - 71ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0966 - accuracy: 0.9714 - val_loss: 0.1191 - val_accuracy: 0.9545 - 60ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0980 - accuracy: 0.9679 - val_loss: 0.1213 - val_accuracy: 0.9545 - 69ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0861 - accuracy: 0.9741 - val_loss: 0.1154 - val_accuracy: 0.9599 - 47ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0946 - accuracy: 0.9670 - val_loss: 0.1179 - val_accuracy: 0.9545 - 77ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0834 - accuracy: 0.9732 - val_loss: 0.1117 - val_accuracy: 0.9572 - 47ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0886 - accuracy: 0.9723 - val_loss: 0.1152 - val_accuracy: 0.9599 - 68ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0754 - accuracy: 0.9759 - val_loss: 0.1093 - val_accuracy: 0.9599 - 47ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 21/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0832 - accuracy: 0.9723 - val_loss: 0.1128 - val_accuracy: 0.9599 - 70ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0726 - accuracy: 0.9768 - val_loss: 0.1126 - val_accuracy: 0.9572 - 60ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 22/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0753 - accuracy: 0.9750 - val_loss: 0.1103 - val_accuracy: 0.9599 - 80ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0728 - accuracy: 0.9750 - val_loss: 0.1080 - val_accuracy: 0.9599 - 48ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 23/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0747 - accuracy: 0.9732 - val_loss: 0.1065 - val_accuracy: 0.9599 - 70ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0677 - accuracy: 0.9804 - val_loss: 0.1042 - val_accuracy: 0.9652 - 47ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 24/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0705 - accuracy: 0.9777 - val_loss: 0.1063 - val_accuracy: 0.9599 - 81ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0631 - accuracy: 0.9795 - val_loss: 0.1072 - val_accuracy: 0.9599 - 60ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 25/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0648 - accuracy: 0.9750 - val_loss: 0.1059 - val_accuracy: 0.9652 - 72ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0587 - accuracy: 0.9812 - val_loss: 0.1024 - val_accuracy: 0.9679 - 60ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 26/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0623 - accuracy: 0.9804 - val_loss: 0.1031 - val_accuracy: 0.9599 - 79ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0579 - accuracy: 0.9857 - val_loss: 0.1019 - val_accuracy: 0.9599 - 47ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 27/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0574 - accuracy: 0.9812 - val_loss: 0.1034 - val_accuracy: 0.9599 - 69ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0551 - accuracy: 0.9821 - val_loss: 0.0997 - val_accuracy: 0.9652 - 60ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 28/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0572 - accuracy: 0.9839 - val_loss: 0.1042 - val_accuracy: 0.9599 - 69ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0517 - accuracy: 0.9821 - val_loss: 0.0993 - val_accuracy: 0.9652 - 46ms/epoch - 1ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 29/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0545 - accuracy: 0.9821 - val_loss: 0.1019 - val_accuracy: 0.9599 - 78ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0543 - accuracy: 0.9812 - val_loss: 0.1016 - val_accuracy: 0.9599 - 61ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 30/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0553 - accuracy: 0.9804 - val_loss: 0.1032 - val_accuracy: 0.9626 - 69ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0472 - accuracy: 0.9857 - val_loss: 0.0970 - val_accuracy: 0.9679 - 60ms/epoch - 2ms/step
 </pre></div>
 </div>
 </div>
@@ -944,14 +995,14 @@ Shape of testing tensor:  (374, 50)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1679 - accuracy: 0.9375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1384 - accuracy: 0.9375
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 1ms/step - loss: 0.1032 - accuracy: 0.9626
+12/12 [==============================] - 0s 825us/step - loss: 0.0970 - accuracy: 0.9679
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.10319054126739502, 0.9625668525695801]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.09704800695180893, 0.9679144620895386]
 </pre></div>
 </div>
 </div>
@@ -979,9 +1030,9 @@ Shape of testing tensor:  (374, 50)
 <img alt="../../_images/sms_classification_39_1.png" src="../../_images/sms_classification_39_1.png" />
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="long-short-term-memory-lstm-model">
-<h1>Long Short Term Memory (LSTM) Model<a class="headerlink" href="#long-short-term-memory-lstm-model" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="long-short-term-memory-lstm-model">
+<h1>Long Short Term Memory (LSTM) Model<a class="headerlink" href="#long-short-term-memory-lstm-model" title="Permalink to this headline">#</a></h1>
 <p>This neural network is capable of learning order dependence in sequence prediction problems.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1045,9 +1096,9 @@ Shape of testing tensor:  (374, 50)
 <img alt="../../_images/sms_classification_45_1.png" src="../../_images/sms_classification_45_1.png" />
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="bi-directional-long-short-term-memory-bilstm-model">
-<h1>Bi-directional Long Short Term Memory (BiLSTM) Model<a class="headerlink" href="#bi-directional-long-short-term-memory-bilstm-model" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="bi-directional-long-short-term-memory-bilstm-model">
+<h1>Bi-directional Long Short Term Memory (BiLSTM) Model<a class="headerlink" href="#bi-directional-long-short-term-memory-bilstm-model" title="Permalink to this headline">#</a></h1>
 <p>Bi-LSTM learns patterns from before and after a given token.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1104,9 +1155,9 @@ Shape of testing tensor:  (374, 50)
 <img alt="../../_images/sms_classification_50_1.png" src="../../_images/sms_classification_50_1.png" />
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="choose-model">
-<h1>Choose Model<a class="headerlink" href="#choose-model" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="choose-model">
+<h1>Choose Model<a class="headerlink" href="#choose-model" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparing three different models</span>
@@ -1117,44 +1168,40 @@ Shape of testing tensor:  (374, 50)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1679 - accuracy: 0.9375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1384 - accuracy: 0.9375
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 1ms/step - loss: 0.1032 - accuracy: 0.9626
+12/12 [==============================] - 0s 833us/step - loss: 0.0970 - accuracy: 0.9679
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dense architecture loss and accuracy: [0.10319054126739502, 0.9625668525695801] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dense architecture loss and accuracy: [0.09704800695180893, 0.9679144620895386] 
 
- 1/12 [=&gt;............................] - ETA: 0s - loss: 0.5111 - accuracy: 0.8125
+ 1/12 [=&gt;............................] - ETA: 0s - loss: 0.4518 - accuracy: 0.8750
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-10/12 [========================&gt;.....] - ETA: 0s - loss: 0.3049 - accuracy: 0.9031
+12/12 [==============================] - 0s 4ms/step - loss: 0.1861 - accuracy: 0.9439
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 6ms/step - loss: 0.2673 - accuracy: 0.9171
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LSTM architecture loss and accuracy: [0.26732736825942993, 0.9171122908592224] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LSTM architecture loss and accuracy: [0.18612119555473328, 0.9438502788543701] 
 
- 1/12 [=&gt;............................] - ETA: 0s - loss: 0.2385 - accuracy: 0.9375
+ 1/12 [=&gt;............................] - ETA: 0s - loss: 0.3080 - accuracy: 0.9062
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 4ms/step - loss: 0.1260 - accuracy: 0.9519
+12/12 [==============================] - 0s 3ms/step - loss: 0.1132 - accuracy: 0.9545
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bi-LSTM architecture loss and accuracy: [0.12602239847183228, 0.9518716335296631] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bi-LSTM architecture loss and accuracy: [0.11322792619466782, 0.9545454382896423] 
 </pre></div>
 </div>
 </div>
 </div>
 <p>Based on loss, accuracy and the plots above, we select the Dense architecture as the final model for classifying whether messages are spam or ham.</p>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="prediction">
-<h1>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">¶</a></h1>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="prediction">
+<h1>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to predict messages based on model</span>
@@ -1182,10 +1229,10 @@ Shape of testing tensor:  (374, 50)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 77ms/step
+1/1 [==============================] - 0s 61ms/step
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0073198224, &#39;ham&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.007049328, &#39;ham&#39;]
 </pre></div>
 </div>
 </div>
@@ -1225,49 +1272,49 @@ Shape of testing tensor:  (374, 50)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - 0s 12ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - 0s 12ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - 0s 12ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 18ms/step
+1/1 [==============================] - 0s 13ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - 0s 13ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - 0s 12ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 16ms/step
+1/1 [==============================] - 0s 12ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You passed the challenge. Great job!
@@ -1275,7 +1322,7 @@ Shape of testing tensor:  (374, 50)
 </div>
 </div>
 </div>
-</div>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1297,297 +1344,51 @@ Shape of testing tensor:  (374, 50)
     </script>
     <script>kernelName = 'python3'</script>
 
-                    </div>
-                    
-                </main> <!-- .page__content -->
-                
-
-
-                <footer class="qe-page__footer">
-
-                    <p><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://licensebuttons.net/l/by-sa/4.0/80x15.png"></a></p>
-
-                    <p>Creative Commons License &ndash; This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International.</p>
-
-                </footer> <!-- .page__footer -->
-
-            </div> <!-- .page -->
-
-            
-
-            
-            <div class="qe-sidebar bd-sidebar inactive" id="site-navigation">
-
-                <div class="qe-sidebar__header">
-
-
-                    Contents
-
-                </div>
-
-                <nav class="qe-sidebar__nav" id="qe-sidebar-nav" aria-label="Main navigation">
-                    <ul class="nav bd-sidenav nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../intro.html">
-   Welcome
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Projects
- </span>
-</p>
-<ul class="current nav bd-sidenav nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../doctor_segmentation/doctor_segmentation.html">
-   Customer Segmentation for Medical Device Manufacturer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
-   Rental Price Prediction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../concrete_strength/concrete_strength.html">
-   Predict Concrete Strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chocolate_bars/chocolate_bars.html">
-   Finding the best Chocolate Bars
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../travel_assured/travel_assured.html">
-   Travel Insurance Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exam_scores/exam_scores.html">
-   Do test preparation courses help you prepare for exams?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../viral_tweets/README.html">
-   Viral Tweets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
-   Stock Sentiment Analysis from News Headlines
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../BCG/README.html">
-   PowerCo - Is Churn driven by price sensitivity?
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/PowerCo_email.html">
-     PowerCo - Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/eda.html">
-     PowerCo - EDA
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children active">
-  <a class="reference internal" href="README.html">
-   SMS Text Classification
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active active">
-    <a class="current reference internal" href="#">
-     Neural Network - SMS Text Classification
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Achievements
- </span>
-</p>
-<ul class="nav bd-sidenav nav sidenav_l1">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../achievements/certificates.html">
-   Certifications
-  </a>
- </li>
-</ul>
-
-                </nav>
-
-                <div class="qe-sidebar__footer">
-
-                </div>
-
-            </div> <!-- .sidebar -->
-            
-        </div> <!-- .main -->
-
-        <div class="qe-toolbar">
-
-            <div class="qe-toolbar__inner">
-
-                <ul class="qe-toolbar__main">
-                    <li data-tippy-content="Table of Contents" class="btn__sidebar"><i data-feather="menu"></i></li>
-                    <li data-tippy-content="Home"><a href="../../intro.html"><i data-feather="home"></i></a></li>
-                    <li class="btn__qelogo"><a href="" title=""><span class="show-for-sr"></span></a></li>
-                    <!-- <li class="btn__search">
-                        <form action="../../search.html" method="get">
-                            <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off">
-                            <i data-feather="search"></i>
-                        </form>
-                    </li> -->
-                </ul>
-
-                <ul class="qe-toolbar__links">
-                    <li data-tippy-content="Fullscreen" class="btn__fullscreen"><i data-feather="maximize"></i></li>
-                    <li data-tippy-content="Increase font size" class="btn__plus"><i data-feather="plus-circle"></i></li>
-                    <li data-tippy-content="Decrease font size" class="btn__minus"><i data-feather="minus-circle"></i></li>
-                    <li data-tippy-content="Change contrast" class="btn__contrast"><i data-feather="sunset"></i></li>
-                        <li data-tippy-content="Download PDF" onClick="window.print()"><i data-feather="file"></i></li>
-                    <li data-tippy-content="View Source"><a target="_blank" href="https://github.com/shpatrickguo/dsprojects/tree/main/projects/sms_classifier/sms_classification.ipynb" download><i data-feather="github"></i></a></li>
-                </ul>
-
-            </div>
-
-        </div> <!-- .toolbar -->
-        <div id="downloadPDFModal" style="display: none;">
-            <ul class="pdf-options" style="display: block;">
-                <li class="download-pdf-book" onClick="window.print()">
-                    <p>Lecture (PDF)</p>
-                </li>
-                <li class="download-pdf-file">
-                    <a href="" download><p>Book (PDF)</p></a>
-                </li>
-            </ul>
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="README.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="xref myst">Neural Network SMS Text Classifier</span></p>
         </div>
-        <div id="settingsModal" style="display: none;">
-            <p class="modal-title"> Notebook Launcher </p>
-            <div class="modal-desc">
-            <p>
-                Choose public or private cloud service for "Launch" button.
-            </p>
-            </div>
-            <p class="modal-subtitle">Select a server</p>
-            <ul class="modal-servers">
-            <li class="active launcher-public">
-                <span class="label">Public</span>
-                <select id="launcher-public-input">
-                
-                </select>
-                <i class="fas fa-check-circle"></i>
-            </li>
-            <li class="launcher-private">
-                <span class="label">Private</span>
-                <input type="text" id="launcher-private-input" data-repourl="" data-urlpath="" data-branch=>
-                <i class="fas fa-check-circle"></i>
-            </li>
-            </ul>
-            <p class="launch"><a href="" id="advancedLaunchButton" target="_blank">Launch Notebook</a></p>
-            <script>
-                // QuantEcon Notebook Launcher
-                const launcherTypeElements = document.querySelectorAll('#settingsModal .modal-servers li');
-                // Highlight the server type if previous selection exists
-                if (typeof localStorage.launcherType !== 'undefined') {
-                  for (var i = 0; i < launcherTypeElements.length; i++) {
-                    launcherTypeElements[i].classList.remove('active');
-                    if ( launcherTypeElements[i].classList.contains(localStorage.launcherType) ) {
-                      launcherTypeElements[i].classList.add('active');
-                    }
-                  }
-                }
-                // Highlight server type on click and set local storage value
-                for (var i = 0; i < launcherTypeElements.length; i++) {
-                  launcherTypeElements[i].addEventListener('click', function() {
-                    for (var j = 0; j < launcherTypeElements.length; j++) {
-                      launcherTypeElements[j].classList.remove('active');
-                    }
-                    this.classList.add('active');
-                    if ( this.classList.contains('launcher-private') ) {
-                      localStorage.launcherType = 'launcher-private';
-                    } else if ( this.classList.contains('launcher-public') ) {
-                      localStorage.launcherType = 'launcher-public';
-                    }
-                    setLaunchServer();
-                  })
-                }
-                const launcherPublic = document.getElementById('launcher-public-input');
-                const launcherPrivate = document.getElementById('launcher-private-input');
-                const pageName = "projects/sms_classifier/sms_classification";
-                const repoURL = "";
-                const urlPath = "";
-                const branch = ""
-                const launchNotebookLink = document.getElementById('advancedLaunchButton');
+    </a>
+    <a class='right-next' id="next-link" href="../../achievements/certificates.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Certificates</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
 
-                // Highlight public server option if previous selection exists
-                if (typeof localStorage.launcherPublic !== 'undefined') {
-                  launcherPublic.value = localStorage.launcherPublic;
-                }
-                // Update local storage upon public server selection
-                launcherPublic.addEventListener('change', (event) => {
-                  setLaunchServer();
-                });
-                // Populate private server input if previous entry exists
-                if (typeof localStorage.launcherPrivate !== 'undefined') {
-                  launcherPrivate.value = localStorage.launcherPrivate;
-                }
-                // Update local storage when a private server is entered
-                launcherPrivate.addEventListener('input', (event) => {
-                  setLaunchServer();
-                });
-
-                // Function to update the "Launch Notebook" link href
-                function setLaunchServer() {
-                  launchNotebookLink.removeAttribute("style")
-                  if ( localStorage.launcherType == 'launcher-private' ) {
-                    let repoPrefix = "/jupyter/hub/user-redirect/git-pull?repo=" + repoURL + "&branch=" + branch + "&urlpath=" + urlPath;
-                    launcherPrivateValue = launcherPrivate.value
-                    if (!launcherPrivateValue) {
-                        launchNotebookLink.removeAttribute("href")
-                        launchNotebookLink.style.background = "grey"
-                        return
-                    }
-                    localStorage.launcherPrivate = launcherPrivateValue;
-                    privateServer = localStorage.launcherPrivate.replace(/\/$/, "")
-                    if (!privateServer.includes("http")) {
-                        privateServer = "http://" + privateServer
-                    }
-                    launchNotebookLinkURL = privateServer + repoPrefix;
-                  } else if ( localStorage.launcherType == 'launcher-public' ) {
-                    launcherPublicValue = launcherPublic.options[launcherPublic.selectedIndex].value;
-                    localStorage.launcherPublic = launcherPublicValue;
-                    launchNotebookLinkURL = localStorage.launcherPublic;
-                  }
-                  if (launchNotebookLinkURL) launchNotebookLink.href = launchNotebookLinkURL;
-                }
-                // Check if user has previously selected a server
-                if ( (typeof localStorage.launcherPrivate !== 'undefined') || (typeof localStorage.launcherPublic !== 'undefined') ) {
-                  setLaunchServer();
-                }
-                </script>
-
-        </div>
-
-    </div> <!-- .wrapper-->
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
     
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
   </body>
 </html>
