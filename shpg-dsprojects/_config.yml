@@ -63,6 +63,6 @@ launch_buttons:
   notebook_interface: "jupyterlab"
   colab_url: "https://colab.research.google.com"
 
-sphinx:
-    config:
-        html_theme: pydata_sphinx_theme
+#sphinx:
+#    config:
+#        html_theme: pydata_sphinx_theme
