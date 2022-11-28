@@ -768,36 +768,36 @@ title="Print to PDF"
 <h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span><span class="p">,</span> <span class="n">OrdinalEncoder</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">AdaBoostRegressor</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.preprocessing import StandardScaler, OrdinalEncoder
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import AdaBoostRegressor, RandomForestRegressor, BaggingRegressor, GradientBoostingRegressor
+from sklearn.svm import SVR
+from sklearn.model_selection import GridSearchCV
+import tensorflow as tf
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+import warnings
+warnings.filterwarnings(&quot;ignore&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-22 23:08:01.638970: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-28 21:28:12.247669: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-11-22 23:08:01.776048: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:08:01.776080: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-11-28 21:28:12.393270: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:12.393290: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-22 23:08:02.574022: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:08:02.574113: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:08:02.574122: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-28 21:28:13.147079: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:13.147169: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:13.147176: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
 </pre></div>
 </div>
 </div>
@@ -807,8 +807,8 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/concrete_data.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = pd.read_csv(&#39;data/concrete_data.csv&#39;)
+df.head()
 </pre></div>
 </div>
 </div>
@@ -920,8 +920,8 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shape: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&#39;Shape: {df.shape} \n&#39;)
+df.info()
 </pre></div>
 </div>
 </div>
@@ -954,10 +954,10 @@ memory usage: 72.5 KB
 <p>A small 2.43% of the dataset are duplicated. I decided to drop these, so now the dataset has 1005 observations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dup_perc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Duplicated percentage: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">dup_perc</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;df shape after removing duplicates: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dup_perc = df.duplicated().sum() / len(df) * 100
+print(f&#39;Duplicated percentage: {np.round(dup_perc, 2)}%&#39;)
+df.drop_duplicates(inplace=True)
+print(f&#39;df shape after removing duplicates: {df.shape}&#39;)
 </pre></div>
 </div>
 </div>
@@ -975,9 +975,9 @@ df shape after removing duplicates: (1005, 9)
 We will be replacing these outliers with their median.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;Set3&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(12,6))
+sns.boxplot(data=df, orient=&quot;h&quot;, palette=&quot;Set3&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -987,13 +987,13 @@ We will be replacing these outliers with their median.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
-    <span class="n">q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-    <span class="n">q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
-    <span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
-    <span class="n">low</span> <span class="o">=</span> <span class="n">q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span>
-    <span class="n">high</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">low</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">high</span><span class="p">),</span> <span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>for col_name in df.columns[:-1]:
+    q1 = df[col_name].quantile(0.25)
+    q3 = df[col_name].quantile(0.75)
+    iqr = q3 - q1
+    low = q1 - 1.5 * iqr
+    high = q3 + 1.5 * iqr
+    df.loc[(df[col_name] &lt; low) | (df[col_name] &gt; high), col_name] = df[col_name].median()
 </pre></div>
 </div>
 </div>
@@ -1005,11 +1005,11 @@ We will be replacing these outliers with their median.</p>
 We can see that all variables have skew are in asymmetric form.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">desc</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
-<span class="n">desc</span><span class="p">[</span><span class="s1">&#39;var&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">desc</span><span class="p">[</span><span class="s1">&#39;skew&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">desc</span><span class="p">[</span><span class="s1">&#39;kurtosis&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">desc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>desc = df.describe().T
+desc[&#39;var&#39;] = df.var(axis=0)
+desc[&#39;skew&#39;] = df.skew(axis=0)
+desc[&#39;kurtosis&#39;] = df.kurtosis(axis=0)
+desc
 </pre></div>
 </div>
 </div>
@@ -1187,10 +1187,10 @@ From the heatmap, we observe target variable <code class="docutils literal notra
 There is a strong negative correlation (-0.61) between <code class="docutils literal notranslate"><span class="pre">superplasticizer</span></code> and <code class="docutils literal notranslate"><span class="pre">water</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Heatmap of correlation with all features&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(12,6))
+sns.heatmap(df.corr(), annot=True)
+plt.title(&#39;Heatmap of correlation with all features&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1204,11 +1204,11 @@ There is a strong negative correlation (-0.61) between <code class="docutils lit
 <p>Age is a very important characteristic that affects concrete strength.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Count of ages of concrete&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Age (Days)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(12,6))
+sns.countplot(x=&#39;age&#39;, data=df)
+plt.title(label=&quot;Count of ages of concrete&quot;)
+plt.xlabel(&quot;Age (Days)&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1220,12 +1220,12 @@ There is a strong negative correlation (-0.61) between <code class="docutils lit
 The 28 days time frame is significant because this is the period for concrete to reach 99% of it’s strength. While the concrete continuous to gain strength after that period, the rate of gain is much less compared to that in 28 days.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_str_by_day</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">])[</span><span class="s1">&#39;strength&#39;</span><span class="p">]</span>
-<span class="n">avg_str_by_day</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">avg_str_by_day</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">avg_str_by_day</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<span class="n">avg_str_by_day</span> <span class="o">=</span> <span class="n">avg_str_by_day</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;Average concrete strength at different ages (Days):&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average concrete strength: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">strength</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">avg_str_by_day</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>avg_str_by_day = df.groupby(&#39;age&#39;).agg([&#39;mean&#39;, &#39;count&#39;])[&#39;strength&#39;]
+avg_str_by_day.reset_index(inplace=True)
+avg_str_by_day.age = avg_str_by_day.age.astype(int)
+avg_str_by_day = avg_str_by_day.style.set_caption(&quot;Average concrete strength at different ages (Days):&quot;)
+print(f&#39;Average concrete strength: {df.strength.mean()} \n&#39;)
+avg_str_by_day
 </pre></div>
 </div>
 </div>
@@ -1235,76 +1235,76 @@ The 28 days time frame is significant because this is the period for concrete to
 </div>
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_bd6dd">
+<table id="T_92a5d">
   <caption>Average concrete strength at different ages (Days):</caption>
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_bd6dd_level0_col0" class="col_heading level0 col0" >age</th>
-      <th id="T_bd6dd_level0_col1" class="col_heading level0 col1" >mean</th>
-      <th id="T_bd6dd_level0_col2" class="col_heading level0 col2" >count</th>
+      <th id="T_92a5d_level0_col0" class="col_heading level0 col0" >age</th>
+      <th id="T_92a5d_level0_col1" class="col_heading level0 col1" >mean</th>
+      <th id="T_92a5d_level0_col2" class="col_heading level0 col2" >count</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_bd6dd_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_bd6dd_row0_col0" class="data row0 col0" >1</td>
-      <td id="T_bd6dd_row0_col1" class="data row0 col1" >9.452716</td>
-      <td id="T_bd6dd_row0_col2" class="data row0 col2" >2</td>
+      <th id="T_92a5d_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_92a5d_row0_col0" class="data row0 col0" >1</td>
+      <td id="T_92a5d_row0_col1" class="data row0 col1" >9.452716</td>
+      <td id="T_92a5d_row0_col2" class="data row0 col2" >2</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_bd6dd_row1_col0" class="data row1 col0" >3</td>
-      <td id="T_bd6dd_row1_col1" class="data row1 col1" >18.378023</td>
-      <td id="T_bd6dd_row1_col2" class="data row1 col2" >129</td>
+      <th id="T_92a5d_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_92a5d_row1_col0" class="data row1 col0" >3</td>
+      <td id="T_92a5d_row1_col1" class="data row1 col1" >18.378023</td>
+      <td id="T_92a5d_row1_col2" class="data row1 col2" >129</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_bd6dd_row2_col0" class="data row2 col0" >7</td>
-      <td id="T_bd6dd_row2_col1" class="data row2 col1" >25.181843</td>
-      <td id="T_bd6dd_row2_col2" class="data row2 col2" >122</td>
+      <th id="T_92a5d_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_92a5d_row2_col0" class="data row2 col0" >7</td>
+      <td id="T_92a5d_row2_col1" class="data row2 col1" >25.181843</td>
+      <td id="T_92a5d_row2_col2" class="data row2 col2" >122</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_bd6dd_row3_col0" class="data row3 col0" >14</td>
-      <td id="T_bd6dd_row3_col1" class="data row3 col1" >28.751038</td>
-      <td id="T_bd6dd_row3_col2" class="data row3 col2" >62</td>
+      <th id="T_92a5d_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_92a5d_row3_col0" class="data row3 col0" >14</td>
+      <td id="T_92a5d_row3_col1" class="data row3 col1" >28.751038</td>
+      <td id="T_92a5d_row3_col2" class="data row3 col2" >62</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_bd6dd_row4_col0" class="data row4 col0" >28</td>
-      <td id="T_bd6dd_row4_col1" class="data row4 col1" >37.383788</td>
-      <td id="T_bd6dd_row4_col2" class="data row4 col2" >478</td>
+      <th id="T_92a5d_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_92a5d_row4_col0" class="data row4 col0" >28</td>
+      <td id="T_92a5d_row4_col1" class="data row4 col1" >37.383788</td>
+      <td id="T_92a5d_row4_col2" class="data row4 col2" >478</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_bd6dd_row5_col0" class="data row5 col0" >56</td>
-      <td id="T_bd6dd_row5_col1" class="data row5 col1" >50.715152</td>
-      <td id="T_bd6dd_row5_col2" class="data row5 col2" >86</td>
+      <th id="T_92a5d_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_92a5d_row5_col0" class="data row5 col0" >56</td>
+      <td id="T_92a5d_row5_col1" class="data row5 col1" >50.715152</td>
+      <td id="T_92a5d_row5_col2" class="data row5 col2" >86</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_bd6dd_row6_col0" class="data row6 col0" >90</td>
-      <td id="T_bd6dd_row6_col1" class="data row6 col1" >40.480809</td>
-      <td id="T_bd6dd_row6_col2" class="data row6 col2" >54</td>
+      <th id="T_92a5d_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_92a5d_row6_col0" class="data row6 col0" >90</td>
+      <td id="T_92a5d_row6_col1" class="data row6 col1" >40.480809</td>
+      <td id="T_92a5d_row6_col2" class="data row6 col2" >54</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_bd6dd_row7_col0" class="data row7 col0" >91</td>
-      <td id="T_bd6dd_row7_col1" class="data row7 col1" >68.674649</td>
-      <td id="T_bd6dd_row7_col2" class="data row7 col2" >17</td>
+      <th id="T_92a5d_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_92a5d_row7_col0" class="data row7 col0" >91</td>
+      <td id="T_92a5d_row7_col1" class="data row7 col1" >68.674649</td>
+      <td id="T_92a5d_row7_col2" class="data row7 col2" >17</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_bd6dd_row8_col0" class="data row8 col0" >100</td>
-      <td id="T_bd6dd_row8_col1" class="data row8 col1" >47.668780</td>
-      <td id="T_bd6dd_row8_col2" class="data row8 col2" >52</td>
+      <th id="T_92a5d_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_92a5d_row8_col0" class="data row8 col0" >100</td>
+      <td id="T_92a5d_row8_col1" class="data row8 col1" >47.668780</td>
+      <td id="T_92a5d_row8_col2" class="data row8 col2" >52</td>
     </tr>
     <tr>
-      <th id="T_bd6dd_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_bd6dd_row9_col0" class="data row9 col0" >120</td>
-      <td id="T_bd6dd_row9_col1" class="data row9 col1" >39.647168</td>
-      <td id="T_bd6dd_row9_col2" class="data row9 col2" >3</td>
+      <th id="T_92a5d_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_92a5d_row9_col0" class="data row9 col0" >120</td>
+      <td id="T_92a5d_row9_col1" class="data row9 col1" >39.647168</td>
+      <td id="T_92a5d_row9_col2" class="data row9 col2" >3</td>
     </tr>
   </tbody>
 </table>
@@ -1313,12 +1313,12 @@ The 28 days time frame is significant because this is the period for concrete to
 <p>From the table we can see that average concrete strength at 28 days is similar to the average strength of the entire dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;strength&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Boxplot of concrete strength at different ages&quot;</span><span class="p">)</span>   
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Age (Days)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Strength&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(12,6))
+sns.boxplot(x=&#39;age&#39;, y=&#39;strength&#39;, data=df);
+plt.title(label=&quot;Boxplot of concrete strength at different ages&quot;)   
+plt.xlabel(&quot;Age (Days)&quot;)
+plt.ylabel(&quot;Strength&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1334,15 +1334,15 @@ The 28 days time frame is significant because this is the period for concrete to
 <p>Average strength of concrete is the lowest after 1 day and increases significantly after 7 days. Strength continues to increase in MPa after 14 and 28 days.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">28</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ages = [1, 7, 14, 28]
 
-<span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">ages</span><span class="p">:</span>
-    <span class="n">cond</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">age</span> <span class="o">==</span> <span class="n">age</span>
-    <span class="n">avg_str</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cond</span><span class="p">]</span><span class="o">.</span><span class="n">strength</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">age</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average strength of the concrete sample is </span><span class="si">{</span><span class="n">avg_str</span><span class="si">}</span><span class="s1"> MPa at </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> day.&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average strength of the concrete sample is </span><span class="si">{</span><span class="n">avg_str</span><span class="si">}</span><span class="s1"> MPa at </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> days.&#39;</span><span class="p">)</span>
+for age in ages:
+    cond = df.age == age
+    avg_str = df[cond].strength.mean().round(2)
+    if age == 1:
+        print(f&#39;Average strength of the concrete sample is {avg_str} MPa at {age} day.&#39;)
+    else:
+        print(f&#39;Average strength of the concrete sample is {avg_str} MPa at {age} days.&#39;)
 </pre></div>
 </div>
 </div>
@@ -1366,22 +1366,22 @@ Average strength of the concrete sample is 37.38 MPa at 28 days.
 <p>Split the data to train (80%) and test (20%) to estimate the performance of machine learning algorithms when they are used to make predictions on data not used to train the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cement&#39;</span><span class="p">,</span> <span class="s1">&#39;slag&#39;</span><span class="p">,</span> <span class="s1">&#39;fly_ash&#39;</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">,</span> <span class="s1">&#39;superplasticizer&#39;</span><span class="p">,</span> <span class="s1">&#39;coarse_aggregate&#39;</span><span class="p">,</span> <span class="s1">&#39;fine_aggregate&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">]</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">features</span><span class="p">]</span> <span class="c1"># Features</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;strength&#39;</span><span class="p">]</span> <span class="c1"># Target</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>features = [&#39;cement&#39;, &#39;slag&#39;, &#39;fly_ash&#39;, &#39;water&#39;, &#39;superplasticizer&#39;, &#39;coarse_aggregate&#39;, &#39;fine_aggregate&#39;, &#39;age&#39;]
+X = df[features] # Features
+y = df[&#39;strength&#39;] # Target
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train Test Split</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Train Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=2022)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X train data </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y train data </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X test data  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y test data  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+print(&#39;X train data {}&#39;.format(X_train.shape))
+print(&#39;y train data {}&#39;.format(y_train.shape))
+print(&#39;X test data  {}&#39;.format(X_test.shape))
+print(&#39;y test data  {}&#39;.format(y_test.shape))
 </pre></div>
 </div>
 </div>
@@ -1399,24 +1399,24 @@ y test data  (201,)
 <p>We observed that <code class="docutils literal notranslate"><span class="pre">age</span></code> is a variabel comprised of a finite set of discrete values with a ranked ordering between values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">ordinal_encoding_feature</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">feature</span><span class="p">):</span>    
-    <span class="sd">&#39;&#39;&#39;Transform selected column with ordinal encoder</span>
-<span class="sd">    </span>
-<span class="sd">    INPUTS:</span>
-<span class="sd">    data: dataframe</span>
-<span class="sd">    feature: column name</span>
-<span class="sd">    </span>
-<span class="sd">    OUTPUT:</span>
-<span class="sd">    d: dataframe with feature ordinally encoded</span>
-<span class="sd">    &#39;&#39;&#39;</span>  
-    <span class="n">d</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">encoder</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
-    <span class="c1"># Reshape because only one column is transformed</span>
-    <span class="n">encoder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">d</span><span class="p">[</span><span class="n">feature</span><span class="p">]</span><span class="o">=</span> <span class="n">encoder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">age</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">d</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">ordinal_encoding_feature</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">)</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">ordinal_encoding_feature</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def ordinal_encoding_feature(data, feature):    
+    &#39;&#39;&#39;Transform selected column with ordinal encoder
+    
+    INPUTS:
+    data: dataframe
+    feature: column name
+    
+    OUTPUT:
+    d: dataframe with feature ordinally encoded
+    &#39;&#39;&#39;  
+    d = data.copy()
+    encoder = OrdinalEncoder()
+    # Reshape because only one column is transformed
+    encoder.fit(data[feature].values.reshape(-1,1))
+    d[feature]= encoder.transform(data.age.values.reshape(-1,1))
+    return d
+X_train = X_train.pipe(ordinal_encoding_feature, &#39;age&#39;)
+X_test = X_test.pipe(ordinal_encoding_feature, &#39;age&#39;)
 </pre></div>
 </div>
 </div>
@@ -1430,31 +1430,31 @@ Using k-folds cross validation to estimate and compare the performance of models
 GradientBoostRegressor gives the best results out of models, with the highest r2score of 0.89.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipelines</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;Linear Regression&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;KNN Regressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;KNNR&#39;</span><span class="p">,</span> <span class="n">KNeighborsRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;SupportVectorRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;SVR&#39;</span><span class="p">,</span> <span class="n">SVR</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;DecisionTreeRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;DTR&#39;</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;AdaboostRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;ABR&#39;</span><span class="p">,</span> <span class="n">AdaBoostRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;RandomForestRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;RBR&#39;</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;BaggingRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;BGR&#39;</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;GradientBoostRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;GBR&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">())])))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pipelines = []
+pipelines.append((&#39;Linear Regression&#39;, Pipeline([(&#39;scaler&#39;, StandardScaler()), (&#39;LR&#39;, LinearRegression())])))
+pipelines.append((&#39;KNN Regressor&#39;, Pipeline([(&#39;scaler&#39;, StandardScaler()), (&#39;KNNR&#39;, KNeighborsRegressor())])))
+pipelines.append((&#39;SupportVectorRegressor&#39;, Pipeline([(&#39;scaler&#39;, StandardScaler()), (&#39;SVR&#39;, SVR())])))
+pipelines.append((&#39;DecisionTreeRegressor&#39;, Pipeline([(&#39;scaler&#39;, StandardScaler()), (&#39;DTR&#39;, DecisionTreeRegressor())])))
+pipelines.append((&#39;AdaboostRegressor&#39;, Pipeline([(&#39;scaler&#39;, StandardScaler()), (&#39;ABR&#39;, AdaBoostRegressor())])))
+pipelines.append((&#39;RandomForestRegressor&#39;, Pipeline([(&#39;scaler&#39;, StandardScaler()), (&#39;RBR&#39;, RandomForestRegressor())])))
+pipelines.append((&#39;BaggingRegressor&#39;, Pipeline([(&#39;scaler&#39;, StandardScaler()), (&#39;BGR&#39;, BaggingRegressor())])))
+pipelines.append((&#39;GradientBoostRegressor&#39;, Pipeline([(&#39;scaler&#39;, StandardScaler()), (&#39;GBR&#39;, GradientBoostingRegressor())])))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty dataframe to store the results</span>
-<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Regressor&#39;</span><span class="p">:[],</span> <span class="s1">&#39;R2&#39;</span><span class="p">:[],</span> <span class="s1">&#39;Std&#39;</span><span class="p">:[]})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create empty dataframe to store the results
+cv_scores = pd.DataFrame({&#39;Regressor&#39;:[], &#39;R2&#39;:[], &#39;Std&#39;:[]})
 
-<span class="c1"># Cross-validation score for each pipeline for training data</span>
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pipelines</span><span class="p">):</span>
-    <span class="n">name</span><span class="p">,</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">val</span>
-    <span class="n">kfold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> 
-    <span class="n">score</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;r2&quot;</span><span class="p">)</span>
-    <span class="n">cv_scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">score</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">score</span><span class="o">.</span><span class="n">std</span><span class="p">()]</span>
-<span class="n">cv_scores</span>
+# Cross-validation score for each pipeline for training data
+for ind, val in enumerate(pipelines):
+    name, pipeline = val
+    kfold = KFold(n_splits=5) 
+    score = cross_val_score(pipeline, X_train, y_train, cv=kfold, scoring=&quot;r2&quot;)
+    cv_scores.loc[ind] = [name, score.mean(), score.std()]
+cv_scores
 </pre></div>
 </div>
 </div>
@@ -1504,32 +1504,32 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
     <tr>
       <th>3</th>
       <td>DecisionTreeRegressor</td>
-      <td>0.806379</td>
-      <td>0.021959</td>
+      <td>0.806990</td>
+      <td>0.017309</td>
     </tr>
     <tr>
       <th>4</th>
       <td>AdaboostRegressor</td>
-      <td>0.768302</td>
-      <td>0.016394</td>
+      <td>0.769967</td>
+      <td>0.013100</td>
     </tr>
     <tr>
       <th>5</th>
       <td>RandomForestRegressor</td>
-      <td>0.882457</td>
-      <td>0.014334</td>
+      <td>0.879482</td>
+      <td>0.012890</td>
     </tr>
     <tr>
       <th>6</th>
       <td>BaggingRegressor</td>
-      <td>0.872205</td>
-      <td>0.020601</td>
+      <td>0.869928</td>
+      <td>0.025889</td>
     </tr>
     <tr>
       <th>7</th>
       <td>GradientBoostRegressor</td>
-      <td>0.885749</td>
-      <td>0.011895</td>
+      <td>0.885649</td>
+      <td>0.011474</td>
     </tr>
   </tbody>
 </table>
@@ -1541,19 +1541,19 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 <p>Using Grid Search to tune hyperparameters of Gradient Boosting Regressor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">steps</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;GBR&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">())]</span>
-<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>steps = [(&#39;scaler&#39;, StandardScaler()), (&#39;GBR&#39;, GradientBoostingRegressor())]
+pipeline = Pipeline(steps)
 
-<span class="n">param_grid</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;GBR__n_estimators&#39;</span><span class="p">:[</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">1000</span><span class="p">],</span> 
-             <span class="s1">&#39;GBR__learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.02</span><span class="p">,</span><span class="mf">0.01</span><span class="p">],</span> 
-             <span class="s1">&#39;GBR__max_depth&#39;</span><span class="p">:[</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> 
-             <span class="s1">&#39;GBR__min_samples_leaf&#39;</span><span class="p">:[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">17</span><span class="p">],</span> 
-             <span class="s1">&#39;GBR__max_features&#39;</span><span class="p">:[</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]</span> <span class="p">}]</span>
+param_grid=[{&#39;GBR__n_estimators&#39;:[100,500,1000], 
+             &#39;GBR__learning_rate&#39;: [0.1,0.05,0.02,0.01], 
+             &#39;GBR__max_depth&#39;:[4,6], 
+             &#39;GBR__min_samples_leaf&#39;:[3,5,9,17], 
+             &#39;GBR__max_features&#39;:[1.0,0.3,0.1] }]
 
-<span class="c1">#search = GridSearchCV(pipeline, param_grid, cv = 5, scoring = &#39;r2&#39;, n_jobs=-1, verbose=1)</span>
-<span class="c1">#search.fit(X_train, y_train)</span>
-<span class="c1">#print(search.best_estimator_) </span>
-<span class="c1">#print(&quot;R Squared:&quot;, search.best_score_)</span>
+#search = GridSearchCV(pipeline, param_grid, cv = 5, scoring = &#39;r2&#39;, n_jobs=-1, verbose=1)
+#search.fit(X_train, y_train)
+#print(search.best_estimator_) 
+#print(&quot;R Squared:&quot;, search.best_score_)
 </pre></div>
 </div>
 </div>
@@ -1561,17 +1561,17 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 <p>Now that we have identified the best model, let’s use it to predict on our unseen data <code class="docutils literal notranslate"><span class="pre">X_test</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#best_model = search.best_estimator_</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#best_model = search.best_estimator_
 
-<span class="c1"># Let&#39;s hardcode the parameters to save time</span>
-<span class="n">best_model</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">steps</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;GBR&#39;</span><span class="p">,</span>
-                 <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span>
-                                           <span class="n">max_features</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span>
-                                           <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span>
-                                           <span class="n">n_estimators</span><span class="o">=</span><span class="mi">1000</span><span class="p">))])</span>
+# Let&#39;s hardcode the parameters to save time
+best_model = Pipeline(steps=[(&#39;GBR&#39;,
+                 GradientBoostingRegressor(learning_rate=0.05, max_depth=6,
+                                           max_features=0.3,
+                                           min_samples_leaf=17,
+                                           n_estimators=1000))])
 
-<span class="n">es</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span> <span class="o">=</span> <span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">,</span><span class="n">patience</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">best_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+es = tf.keras.callbacks.EarlyStopping(monitor = &#39;val_loss&#39;, mode=&#39;min&#39;,patience=5, verbose=1)
+best_model.fit(X_train, y_train)
 </pre></div>
 </div>
 </div>
@@ -1587,7 +1587,7 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">best_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_pred = best_model.predict(X_test)
 </pre></div>
 </div>
 </div>
@@ -1598,18 +1598,18 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 <p>Let’s evaluate the model’s performance on the testing data to assess the likely future performance of a model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Absolute Error (MAE): </span><span class="si">{</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean Squared Error (MSE): </span><span class="si">{</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;RMSE: </span><span class="si">{</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;R2 Score: </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&#39;Mean Absolute Error (MAE): {mean_absolute_error(y_test, y_pred)}&#39;)
+print(f&#39;Mean Squared Error (MSE): {mean_squared_error(y_test, y_pred)}&#39;)
+print(f&#39;RMSE: {mean_squared_error(y_test, y_pred)**0.5}&#39;)
+print(f&#39;R2 Score: {r2_score(y_test, y_pred)}&#39;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 6.767109719185391
-Mean Squared Error (MSE): 72.74808419537918
-RMSE: 8.529248747420795
-R2 Score: 0.7162390582504234
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 6.649171520555303
+Mean Squared Error (MSE): 69.30591676164084
+RMSE: 8.32501752320323
+R2 Score: 0.7296655654012381
 </pre></div>
 </div>
 </div>
@@ -1621,10 +1621,10 @@ R2 Score: 0.7162390582504234
 <img alt="Strength Equation" src="../../_images/str_eq.png" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">betas</span> <span class="o">=</span> <span class="n">best_model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">feature_importances_</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">betas</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>betas = best_model[0].feature_importances_
+plt.figure(figsize=(12,6))
+plt.barh(features, betas)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1634,27 +1634,27 @@ R2 Score: 0.7162390582504234
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">betas_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">betas</span><span class="p">))</span>
-<span class="n">beta_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="o">*</span><span class="n">betas</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Concrete Strength = </span><span class="si">{</span><span class="n">beta_0</span><span class="si">}</span><span class="s2"> +&quot;</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">betas_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-    <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">betas_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">betas_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2"> * </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> +&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>betas_dict = dict(zip(features, betas))
+beta_0 = np.mean(y - np.sum(X*betas, axis=1))
+print(f&quot;Concrete Strength = {beta_0} +&quot;)
+for key in betas_dict.keys():
+    if key == &quot;age&quot;:
+        print(f&quot;{betas_dict[key]} * {key}&quot;)
+    else:
+        print(f&quot;{betas_dict[key]} * {key} +&quot;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -169.78041420471993 +
-0.23349000446498896 * cement +
-0.05821289007390674 * slag +
-0.038281779982487836 * fly_ash +
-0.14190237857931753 * water +
-0.07097175920590955 * superplasticizer +
-0.043600488228550754 * coarse_aggregate +
-0.06979834096522704 * fine_aggregate +
-0.34374235849961154 * age
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -162.45417221454716 +
+0.23977360983957227 * cement +
+0.06277426047015729 * slag +
+0.04198506290191486 * fly_ash +
+0.12163950236353648 * water +
+0.0683185832405521 * superplasticizer +
+0.04690387539721827 * coarse_aggregate +
+0.057255116207595144 * fine_aggregate +
+0.36134998957945363 * age
 </pre></div>
 </div>
 </div>

@@ -662,46 +662,46 @@ title="Print to PDF"
 <p>Data from <a class="reference external" href="http://www.dt.fee.unicamp.br/~tiago/smsspamcollection/">SMS Spam Collection dataset</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#try:</span>
-  <span class="c1"># %tensorflow_version only exists in Colab.</span>
-<span class="c1">#  !pip install tf-nightly</span>
-<span class="c1">#except Exception:</span>
-<span class="c1">#  pass</span>
-<span class="c1">#!pip install tensorflow-datasets</span>
-<span class="c1">#!pip install wordcloud</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#try:
+  # %tensorflow_version only exists in Colab.
+#  !pip install tf-nightly
+#except Exception:
+#  pass
+#!pip install tensorflow-datasets
+#!pip install wordcloud
 
-<span class="c1">#!pip install --upgrade numpy</span>
-<span class="c1">#!pip install --upgrade pandas</span>
+#!pip install --upgrade numpy
+#!pip install --upgrade pandas
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import libraries</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;TF_CPP_MIN_LOG_LEVEL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># import libraries
+import os
+os.environ[&#39;TF_CPP_MIN_LOG_LEVEL&#39;] = &#39;2&#39;
 
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
-<span class="kn">import</span> <span class="nn">tensorflow_datasets</span> <span class="k">as</span> <span class="nn">tfds</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+import tensorflow as tf
+import pandas as pd
+from tensorflow import keras
+import tensorflow_datasets as tfds
+import numpy as np
+import matplotlib.pyplot as plt
 
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">wordcloud</span> <span class="kn">import</span> <span class="n">WordCloud</span><span class="p">,</span> <span class="n">STOPWORDS</span><span class="p">,</span> <span class="n">ImageColorGenerator</span>
+import seaborn as sns
+from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.text</span> <span class="kn">import</span> <span class="n">Tokenizer</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing.sequence</span> <span class="kn">import</span> <span class="n">pad_sequences</span>
+from sklearn.model_selection import train_test_split
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
 
-<span class="c1"># Modeling </span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Embedding</span><span class="p">,</span> <span class="n">GlobalAveragePooling1D</span><span class="p">,</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span><span class="p">,</span> <span class="n">LSTM</span><span class="p">,</span> <span class="n">Bidirectional</span><span class="p">,</span> <span class="n">Flatten</span>
+# Modeling 
+from tensorflow.keras.callbacks import EarlyStopping
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Embedding, GlobalAveragePooling1D, Dense, Dropout, LSTM, Bidirectional, Flatten
 
-<span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+print(tf.__version__)
 </pre></div>
 </div>
 </div>
@@ -713,21 +713,21 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get data files</span>
-<span class="c1">#!wget https://cdn.freecodecamp.org/project-data/sms/train-data.tsv</span>
-<span class="c1">#!wget https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># get data files
+#!wget https://cdn.freecodecamp.org/project-data/sms/train-data.tsv
+#!wget https://cdn.freecodecamp.org/project-data/sms/valid-data.tsv
 
-<span class="n">train_file_path</span> <span class="o">=</span> <span class="s2">&quot;data/train-data.tsv&quot;</span>
-<span class="n">test_file_path</span> <span class="o">=</span> <span class="s2">&quot;data/valid-data.tsv&quot;</span>
+train_file_path = &quot;data/train-data.tsv&quot;
+test_file_path = &quot;data/valid-data.tsv&quot;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load data files</span>
-<span class="n">train_file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">train_file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">,</span> <span class="s2">&quot;Message&quot;</span><span class="p">])</span>
-<span class="n">test_file</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">test_file_path</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Class&quot;</span><span class="p">,</span> <span class="s2">&quot;Message&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># load data files
+train_file = pd.read_csv(train_file_path, sep=&#39;\t&#39;, names=[&quot;Class&quot;, &quot;Message&quot;])
+test_file = pd.read_csv(test_file_path, sep=&#39;\t&#39;, names=[&quot;Class&quot;, &quot;Message&quot;])
 </pre></div>
 </div>
 </div>
@@ -738,7 +738,7 @@ title="Print to PDF"
 <h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_file</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>train_file.describe()
 </pre></div>
 </div>
 </div>
@@ -794,7 +794,7 @@ title="Print to PDF"
 The top class is “ham” and the top message is “sorry, i’ll call later”.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_file</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;Class&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>train_file.groupby(&quot;Class&quot;).describe().T
 </pre></div>
 </div>
 </div>
@@ -854,25 +854,25 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 <p>Wordcloud allows us to visualize the most frequent words in the given text.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get all the ham and spam emails</span>
-<span class="n">train_ham</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[</span><span class="n">train_file</span><span class="o">.</span><span class="n">Class</span> <span class="o">==</span><span class="s1">&#39;ham&#39;</span><span class="p">]</span>
-<span class="n">train_spam</span> <span class="o">=</span> <span class="n">train_file</span><span class="p">[</span><span class="n">train_file</span><span class="o">.</span><span class="n">Class</span> <span class="o">==</span><span class="s1">&#39;spam&#39;</span><span class="p">]</span>
-<span class="c1"># Create numpy list to visualize using wordcloud</span>
-<span class="n">train_ham_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train_ham</span><span class="o">.</span><span class="n">Message</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
-<span class="n">train_spam_text</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">train_spam</span><span class="o">.</span><span class="n">Message</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Get all the ham and spam emails
+train_ham = train_file[train_file.Class ==&#39;ham&#39;]
+train_spam = train_file[train_file.Class ==&#39;spam&#39;]
+# Create numpy list to visualize using wordcloud
+train_ham_text = &quot; &quot;.join(train_ham.Message.to_numpy().tolist())
+train_spam_text = &quot; &quot;.join(train_spam.Message.to_numpy().tolist())
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wordcloud of ham messages</span>
-<span class="n">ham_msg_cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">520</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">260</span><span class="p">,</span> <span class="n">stopwords</span><span class="o">=</span><span class="n">STOPWORDS</span><span class="p">,</span> <span class="n">max_font_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
-                          <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">train_ham_text</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">ham_msg_cloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># turn off axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># wordcloud of ham messages
+ham_msg_cloud = WordCloud(width=520, height=260, stopwords=STOPWORDS, max_font_size=50, 
+                          background_color=&quot;black&quot;, colormap=&#39;Blues&#39;).generate(train_ham_text)
+plt.figure(figsize=(16,10))
+plt.imshow(ham_msg_cloud, interpolation=&#39;bilinear&#39;)
+plt.axis(&#39;off&#39;) # turn off axis
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -883,13 +883,13 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 <p>The ham message WordCloud shows that “love”, “going”, “come”, “home”, etc. are the most commonly appeared words in ham messages.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wordcloud of spam messages</span>
-<span class="n">spam_msg_cloud</span> <span class="o">=</span> <span class="n">WordCloud</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">520</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">260</span><span class="p">,</span> <span class="n">stopwords</span><span class="o">=</span><span class="n">STOPWORDS</span><span class="p">,</span> <span class="n">max_font_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> 
-                           <span class="n">background_color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span><span class="n">train_spam_text</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">spam_msg_cloud</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;bilinear&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span> <span class="c1"># turn off axis</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># wordcloud of spam messages
+spam_msg_cloud = WordCloud(width=520, height=260, stopwords=STOPWORDS, max_font_size=50, 
+                           background_color=&quot;black&quot;, colormap=&#39;Blues&#39;).generate(train_spam_text)
+plt.figure(figsize=(16,10))
+plt.imshow(spam_msg_cloud, interpolation=&#39;bilinear&#39;)
+plt.axis(&#39;off&#39;) # turn off axis
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -906,13 +906,13 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 <h2>Data Imbalance<a class="headerlink" href="#data-imbalance" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of spam messages</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">train_spam</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">train_ham</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span> <span class="c1"># 15.48%</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Percentage of spam messages
+len(train_spam)/len(train_ham)*100 # 15.48%
 
-<span class="c1"># Countplot showing imbalance data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Class&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">train_file</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+# Countplot showing imbalance data
+plt.figure(figsize=(8,6))
+sns.countplot(x=&quot;Class&quot;, data=train_file)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -927,11 +927,11 @@ The top class is “ham” and the top message is “sorry, i’ll call later”
 Downsampling randomly deletes some of the observations from the majority class so that the numbers in majority and minority classes are matched.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Downsample the ham msg for train</span>
-<span class="n">train_ham_df</span> <span class="o">=</span> <span class="n">train_ham</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_spam</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">44</span><span class="p">)</span>
-<span class="n">train_spam_df</span> <span class="o">=</span> <span class="n">train_spam</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">train_ham_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">train_spam_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">train_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">train_ham_df</span><span class="p">,</span> <span class="n">train_spam_df</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Downsample the ham msg for train
+train_ham_df = train_ham.sample(n = len(train_spam), random_state = 44)
+train_spam_df = train_spam
+print(train_ham_df.shape, train_spam_df.shape)
+train_df = pd.concat([train_ham_df, train_spam_df]).reset_index(drop=True)
 </pre></div>
 </div>
 </div>
@@ -943,15 +943,15 @@ Downsampling randomly deletes some of the observations from the majority class s
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Downsample for test file</span>
-<span class="n">test_ham</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[</span><span class="n">test_file</span><span class="o">.</span><span class="n">Class</span> <span class="o">==</span><span class="s1">&#39;ham&#39;</span><span class="p">]</span>
-<span class="n">test_spam</span> <span class="o">=</span> <span class="n">test_file</span><span class="p">[</span><span class="n">test_file</span><span class="o">.</span><span class="n">Class</span> <span class="o">==</span><span class="s1">&#39;spam&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Downsample for test file
+test_ham = test_file[test_file.Class ==&#39;ham&#39;]
+test_spam = test_file[test_file.Class ==&#39;spam&#39;]
 
-<span class="c1"># Downsample the ham msg for test</span>
-<span class="n">test_ham_df</span> <span class="o">=</span> <span class="n">test_ham</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">test_spam</span><span class="p">),</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">44</span><span class="p">)</span>
-<span class="n">test_spam_df</span> <span class="o">=</span> <span class="n">test_spam</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">test_ham_df</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">test_spam_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">test_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">test_ham_df</span><span class="p">,</span> <span class="n">test_spam_df</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+# Downsample the ham msg for test
+test_ham_df = test_ham.sample(n = len(test_spam), random_state = 44)
+test_spam_df = test_spam
+print(test_ham_df.shape, test_spam_df.shape)
+test_df = pd.concat([test_ham_df, test_spam_df]).reset_index(drop=True)
 </pre></div>
 </div>
 </div>
@@ -967,15 +967,15 @@ Downsampling randomly deletes some of the observations from the majority class s
 <h2>Test train split<a class="headerlink" href="#test-train-split" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Map ham label as 0 and spam as 1</span>
-<span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;msg_type&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;ham&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
-<span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;msg_type&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="s1">&#39;ham&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Map ham label as 0 and spam as 1
+train_df[&#39;msg_type&#39;]= train_df[&#39;Class&#39;].map({&#39;ham&#39;: 0, &#39;spam&#39;: 1})
+test_df[&#39;msg_type&#39;]= test_df[&#39;Class&#39;].map({&#39;ham&#39;: 0, &#39;spam&#39;: 1})
 
 
-<span class="n">train_msg</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;Message&#39;</span><span class="p">]</span>
-<span class="n">train_labels</span> <span class="o">=</span> <span class="n">train_df</span><span class="p">[</span><span class="s1">&#39;msg_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">test_msg</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;Message&#39;</span><span class="p">]</span>
-<span class="n">test_labels</span> <span class="o">=</span> <span class="n">test_df</span><span class="p">[</span><span class="s1">&#39;msg_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+train_msg = train_df[&#39;Message&#39;]
+train_labels = train_df[&#39;msg_type&#39;].values
+test_msg = test_df[&#39;Message&#39;]
+test_labels = test_df[&#39;msg_type&#39;].values
 </pre></div>
 </div>
 </div>
@@ -991,31 +991,31 @@ Downsampling randomly deletes some of the observations from the majority class s
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defining tokenizer hyperparameters</span>
-<span class="n">max_len</span> <span class="o">=</span> <span class="mi">50</span> 
-<span class="n">trunc_type</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span> 
-<span class="n">padding_type</span> <span class="o">=</span> <span class="s2">&quot;post&quot;</span> 
-<span class="n">oov_tok</span> <span class="o">=</span> <span class="s2">&quot;&lt;OOV&gt;&quot;</span> 
-<span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">500</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Defining tokenizer hyperparameters
+max_len = 50 
+trunc_type = &quot;post&quot; 
+padding_type = &quot;post&quot; 
+oov_tok = &quot;&lt;OOV&gt;&quot; 
+vocab_size = 500
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokenizer</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">num_words</span> <span class="o">=</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">char_level</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">oov_token</span> <span class="o">=</span> <span class="n">oov_tok</span><span class="p">)</span>
-<span class="n">tokenizer</span><span class="o">.</span><span class="n">fit_on_texts</span><span class="p">(</span><span class="n">train_msg</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tokenizer = Tokenizer(num_words = vocab_size, char_level=False, oov_token = oov_tok)
+tokenizer.fit_on_texts(train_msg)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the word_index </span>
-<span class="n">word_index</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">word_index</span>
-<span class="c1"># How many words </span>
-<span class="n">tot_words</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There are </span><span class="si">%s</span><span class="s1"> unique tokens in training data. &#39;</span> <span class="o">%</span> <span class="n">tot_words</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Get the word_index 
+word_index = tokenizer.word_index
+# How many words 
+tot_words = len(word_index)
+print(&#39;There are %s unique tokens in training data. &#39; % tot_words)
 </pre></div>
 </div>
 </div>
@@ -1032,21 +1032,21 @@ Downsampling randomly deletes some of the observations from the majority class s
 <p>Use pad_sequences() so that each sequences have the same length.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sequencing and padding on training and testing </span>
-<span class="n">training_sequences</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">train_msg</span><span class="p">)</span>
-<span class="n">training_padded</span> <span class="o">=</span> <span class="n">pad_sequences</span> <span class="p">(</span><span class="n">training_sequences</span><span class="p">,</span> <span class="n">maxlen</span> <span class="o">=</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">padding</span> <span class="o">=</span> <span class="n">padding_type</span><span class="p">,</span> <span class="n">truncating</span> <span class="o">=</span> <span class="n">trunc_type</span><span class="p">)</span>
-<span class="n">testing_sequences</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">test_msg</span><span class="p">)</span>
-<span class="n">testing_padded</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">testing_sequences</span><span class="p">,</span> <span class="n">maxlen</span> <span class="o">=</span> <span class="n">max_len</span><span class="p">,</span>
-                                <span class="n">padding</span> <span class="o">=</span> <span class="n">padding_type</span><span class="p">,</span> <span class="n">truncating</span> <span class="o">=</span> <span class="n">trunc_type</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Sequencing and padding on training and testing 
+training_sequences = tokenizer.texts_to_sequences(train_msg)
+training_padded = pad_sequences (training_sequences, maxlen = max_len, padding = padding_type, truncating = trunc_type)
+testing_sequences = tokenizer.texts_to_sequences(test_msg)
+testing_padded = pad_sequences(testing_sequences, maxlen = max_len,
+                                padding = padding_type, truncating = trunc_type)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shape of train tensor</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of training tensor: &#39;</span><span class="p">,</span> <span class="n">training_padded</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of testing tensor: &#39;</span><span class="p">,</span> <span class="n">testing_padded</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Shape of train tensor
+print(&#39;Shape of training tensor: &#39;, training_padded.shape)
+print(&#39;Shape of testing tensor: &#39;, testing_padded.shape)
 </pre></div>
 </div>
 </div>
@@ -1064,43 +1064,43 @@ Shape of testing tensor:  (374, 50)
 <p>Train model using a Dense architecture followed by LSTM and Bi-LSTM.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hyper-parameters</span>
-<span class="n">vocab_size</span> <span class="o">=</span> <span class="mi">500</span> 
-<span class="n">embeding_dim</span> <span class="o">=</span> <span class="mi">16</span>
-<span class="n">drop_value</span> <span class="o">=</span> <span class="mf">0.2</span> 
-<span class="n">n_dense</span> <span class="o">=</span> <span class="mi">24</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># hyper-parameters
+vocab_size = 500 
+embeding_dim = 16
+drop_value = 0.2 
+n_dense = 24
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Dense model architecture</span>
-<span class="n">dense_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embeding_dim</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
-<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
-<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dropout</span><span class="p">(</span><span class="n">drop_value</span><span class="p">))</span>
-<span class="n">dense_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Dense model architecture
+dense_model = Sequential()
+dense_model.add(Embedding(vocab_size, embeding_dim, input_length=max_len))
+dense_model.add(GlobalAveragePooling1D())
+dense_model.add(Dense(24, activation=&#39;relu&#39;))
+dense_model.add(Dropout(drop_value))
+dense_model.add(Dense(1, activation=&#39;sigmoid&#39;))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dense_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dense_model.compile(loss=&#39;binary_crossentropy&#39;, optimizer=&#39;adam&#39;, metrics=[&#39;accuracy&#39;])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fitting a dense spam detector model</span>
-<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">dense_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> 
-                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> 
-                    <span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># fitting a dense spam detector model
+num_epochs = 30
+early_stop = EarlyStopping(monitor=&#39;val_loss&#39;, patience=3)
+history = dense_model.fit(training_padded, train_labels, epochs=num_epochs, 
+                    validation_data=(testing_padded, test_labels), 
+                    callbacks =[early_stop], verbose=2)
 </pre></div>
 </div>
 </div>
@@ -1108,220 +1108,220 @@ Shape of testing tensor:  (374, 50)
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 1s - loss: 0.6873 - accuracy: 0.5098 - val_loss: 0.6801 - val_accuracy: 0.5080 - 904ms/epoch - 26ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 1s - loss: 0.6875 - accuracy: 0.7152 - val_loss: 0.6781 - val_accuracy: 0.8556 - 825ms/epoch - 24ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 2/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6672 - accuracy: 0.6402 - val_loss: 0.6483 - val_accuracy: 0.7139 - 84ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6653 - accuracy: 0.8321 - val_loss: 0.6446 - val_accuracy: 0.8583 - 69ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 3/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6203 - accuracy: 0.7723 - val_loss: 0.5879 - val_accuracy: 0.8396 - 77ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.6162 - accuracy: 0.8732 - val_loss: 0.5800 - val_accuracy: 0.8690 - 78ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 4/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5489 - accuracy: 0.8482 - val_loss: 0.5046 - val_accuracy: 0.8636 - 82ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.5393 - accuracy: 0.8857 - val_loss: 0.4907 - val_accuracy: 0.8797 - 70ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 5/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.4600 - accuracy: 0.8821 - val_loss: 0.4201 - val_accuracy: 0.8824 - 81ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.4398 - accuracy: 0.9036 - val_loss: 0.3921 - val_accuracy: 0.8930 - 71ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 6/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3741 - accuracy: 0.8920 - val_loss: 0.3517 - val_accuracy: 0.8877 - 90ms/epoch - 3ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3428 - accuracy: 0.9134 - val_loss: 0.3153 - val_accuracy: 0.8984 - 70ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 7/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.3081 - accuracy: 0.9062 - val_loss: 0.2987 - val_accuracy: 0.8877 - 85ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2758 - accuracy: 0.9268 - val_loss: 0.2619 - val_accuracy: 0.9091 - 70ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 8/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2599 - accuracy: 0.9161 - val_loss: 0.2569 - val_accuracy: 0.9011 - 73ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2277 - accuracy: 0.9455 - val_loss: 0.2234 - val_accuracy: 0.9118 - 69ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 9/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.2194 - accuracy: 0.9312 - val_loss: 0.2266 - val_accuracy: 0.9118 - 81ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1946 - accuracy: 0.9491 - val_loss: 0.1962 - val_accuracy: 0.9225 - 79ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 10/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1930 - accuracy: 0.9375 - val_loss: 0.1996 - val_accuracy: 0.9144 - 83ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1654 - accuracy: 0.9554 - val_loss: 0.1745 - val_accuracy: 0.9251 - 70ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 11/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1665 - accuracy: 0.9473 - val_loss: 0.1782 - val_accuracy: 0.9278 - 78ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1458 - accuracy: 0.9571 - val_loss: 0.1589 - val_accuracy: 0.9358 - 70ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 12/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1466 - accuracy: 0.9545 - val_loss: 0.1613 - val_accuracy: 0.9305 - 78ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1328 - accuracy: 0.9580 - val_loss: 0.1451 - val_accuracy: 0.9412 - 68ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 13/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1307 - accuracy: 0.9625 - val_loss: 0.1499 - val_accuracy: 0.9358 - 84ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1217 - accuracy: 0.9652 - val_loss: 0.1373 - val_accuracy: 0.9439 - 69ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 14/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1204 - accuracy: 0.9652 - val_loss: 0.1393 - val_accuracy: 0.9385 - 74ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1124 - accuracy: 0.9679 - val_loss: 0.1285 - val_accuracy: 0.9545 - 80ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 15/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1116 - accuracy: 0.9634 - val_loss: 0.1317 - val_accuracy: 0.9412 - 88ms/epoch - 3ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0994 - accuracy: 0.9696 - val_loss: 0.1228 - val_accuracy: 0.9545 - 80ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 16/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.1011 - accuracy: 0.9705 - val_loss: 0.1259 - val_accuracy: 0.9465 - 88ms/epoch - 3ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0925 - accuracy: 0.9714 - val_loss: 0.1184 - val_accuracy: 0.9572 - 68ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 17/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0969 - accuracy: 0.9679 - val_loss: 0.1226 - val_accuracy: 0.9519 - 87ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0877 - accuracy: 0.9732 - val_loss: 0.1145 - val_accuracy: 0.9572 - 68ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 18/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0864 - accuracy: 0.9696 - val_loss: 0.1162 - val_accuracy: 0.9545 - 84ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0830 - accuracy: 0.9750 - val_loss: 0.1132 - val_accuracy: 0.9626 - 71ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 19/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0824 - accuracy: 0.9759 - val_loss: 0.1129 - val_accuracy: 0.9599 - 78ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0743 - accuracy: 0.9759 - val_loss: 0.1103 - val_accuracy: 0.9599 - 79ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 20/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0789 - accuracy: 0.9741 - val_loss: 0.1119 - val_accuracy: 0.9572 - 84ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0706 - accuracy: 0.9786 - val_loss: 0.1076 - val_accuracy: 0.9599 - 79ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 21/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0736 - accuracy: 0.9795 - val_loss: 0.1068 - val_accuracy: 0.9626 - 84ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0704 - accuracy: 0.9786 - val_loss: 0.1050 - val_accuracy: 0.9626 - 70ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 22/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0693 - accuracy: 0.9795 - val_loss: 0.1059 - val_accuracy: 0.9652 - 82ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0692 - accuracy: 0.9768 - val_loss: 0.1035 - val_accuracy: 0.9626 - 70ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 23/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0685 - accuracy: 0.9777 - val_loss: 0.1051 - val_accuracy: 0.9652 - 80ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0594 - accuracy: 0.9830 - val_loss: 0.1045 - val_accuracy: 0.9679 - 69ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 24/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0669 - accuracy: 0.9786 - val_loss: 0.1024 - val_accuracy: 0.9652 - 80ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0630 - accuracy: 0.9821 - val_loss: 0.1033 - val_accuracy: 0.9599 - 80ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 25/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0620 - accuracy: 0.9804 - val_loss: 0.1035 - val_accuracy: 0.9599 - 83ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0579 - accuracy: 0.9804 - val_loss: 0.1001 - val_accuracy: 0.9626 - 71ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 26/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0583 - accuracy: 0.9804 - val_loss: 0.1011 - val_accuracy: 0.9652 - 85ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0549 - accuracy: 0.9821 - val_loss: 0.0975 - val_accuracy: 0.9626 - 78ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 27/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0543 - accuracy: 0.9848 - val_loss: 0.1004 - val_accuracy: 0.9679 - 87ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0503 - accuracy: 0.9839 - val_loss: 0.1000 - val_accuracy: 0.9652 - 69ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 28/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0471 - accuracy: 0.9866 - val_loss: 0.1002 - val_accuracy: 0.9679 - 87ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0499 - accuracy: 0.9848 - val_loss: 0.0958 - val_accuracy: 0.9652 - 71ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 29/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0555 - accuracy: 0.9830 - val_loss: 0.0999 - val_accuracy: 0.9679 - 84ms/epoch - 2ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0482 - accuracy: 0.9866 - val_loss: 0.0943 - val_accuracy: 0.9706 - 69ms/epoch - 2ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 30/30
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0500 - accuracy: 0.9857 - val_loss: 0.1017 - val_accuracy: 0.9652 - 88ms/epoch - 3ms/step
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>35/35 - 0s - loss: 0.0397 - accuracy: 0.9902 - val_loss: 0.0962 - val_accuracy: 0.9679 - 77ms/epoch - 2ms/step
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Model performance on test data </span>
-<span class="n">dense_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Model performance on test data 
+dense_model.evaluate(testing_padded, test_labels)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1712 - accuracy: 0.9375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1349 - accuracy: 0.9375
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 1ms/step - loss: 0.1017 - accuracy: 0.9652
+12/12 [==============================] - 0s 1ms/step - loss: 0.0962 - accuracy: 0.9679
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.10171102732419968, 0.9652406573295593]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.09624862670898438, 0.9679144620895386]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read as a dataframe </span>
-<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
-<span class="c1"># Rename column</span>
-<span class="n">metrics</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;val_accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">plot_dense</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-    <span class="n">metrics</span><span class="p">[[</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Training and Validation &#39;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span> <span class="p">(</span><span class="s1">&#39;Number of epochs&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Read as a dataframe 
+metrics = pd.DataFrame(history.history)
+# Rename column
+metrics.rename(columns = {&#39;loss&#39;: &#39;Training_Loss&#39;, &#39;accuracy&#39;: &#39;Training_Accuracy&#39;, &#39;val_loss&#39;: &#39;Validation_Loss&#39;, &#39;val_accuracy&#39;: &#39;Validation_Accuracy&#39;}, inplace = True)
+def plot_dense(var1, var2, string):
+    metrics[[var1, var2]].plot()
+    plt.title(&#39;Training and Validation &#39; + string)
+    plt.xlabel (&#39;Number of epochs&#39;)
+    plt.ylabel(string)
+    plt.legend([var1, var2])
 
-<span class="n">plot_dense</span><span class="p">(</span><span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">)</span>
-<span class="n">plot_dense</span><span class="p">(</span><span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+plot_dense(&#39;Training_Loss&#39;, &#39;Validation_Loss&#39;, &#39;loss&#39;)
+plot_dense(&#39;Training_Accuracy&#39;, &#39;Validation_Accuracy&#39;, &#39;accuracy&#39;)
 </pre></div>
 </div>
 </div>
@@ -1336,58 +1336,58 @@ Shape of testing tensor:  (374, 50)
 <p>This neural network is capable of learning order dependence in sequence prediction problems.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LSTM hyperparameters</span>
-<span class="n">n_lstm</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">drop_lstm</span> <span class="o">=</span><span class="mf">0.2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># LSTM hyperparameters
+n_lstm = 20
+drop_lstm =0.2
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># LSTM Spam detection architecture</span>
-<span class="n">LSTM_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embeding_dim</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
-<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
-<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="n">LSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
-<span class="c1">#LSTM_model.add(Flatten())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># LSTM Spam detection architecture
+LSTM_model = Sequential()
+LSTM_model.add(Embedding(vocab_size, embeding_dim, input_length=max_len))
+LSTM_model.add(LSTM(n_lstm, dropout=drop_lstm, return_sequences=True))
+LSTM_model.add(LSTM(n_lstm, dropout=drop_lstm, return_sequences=True))
+LSTM_model.add(Dense(1, activation=&#39;sigmoid&#39;))
+LSTM_model.add(GlobalAveragePooling1D())
+#LSTM_model.add(Flatten())
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LSTM_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>LSTM_model.compile(loss = &#39;binary_crossentropy&#39;, optimizer = &#39;adam&#39;, metrics=[&#39;accuracy&#39;])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">LSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span> <span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>num_epochs = 30
+early_stop = EarlyStopping(monitor=&#39;val_loss&#39;, patience=2)
+history = LSTM_model.fit(training_padded, train_labels, epochs=num_epochs, validation_data=(testing_padded, test_labels), callbacks =[early_stop], verbose=0)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dataframe</span>
-<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
-<span class="c1"># Rename column</span>
-<span class="n">metrics</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span>
-                         <span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;val_accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">plot_LSTM</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-    <span class="n">metrics</span><span class="p">[[</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;LSTM Model: Training and Validation &#39;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span> <span class="p">(</span><span class="s1">&#39;Number of epochs&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">])</span>
-<span class="n">plot_LSTM</span><span class="p">(</span><span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">)</span>
-<span class="n">plot_LSTM</span><span class="p">(</span><span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create a dataframe
+metrics = pd.DataFrame(history.history)
+# Rename column
+metrics.rename(columns = {&#39;loss&#39;: &#39;Training_Loss&#39;, &#39;accuracy&#39;: &#39;Training_Accuracy&#39;,
+                         &#39;val_loss&#39;: &#39;Validation_Loss&#39;, &#39;val_accuracy&#39;: &#39;Validation_Accuracy&#39;}, inplace = True)
+def plot_LSTM(var1, var2, string):
+    metrics[[var1, var2]].plot()
+    plt.title(&#39;LSTM Model: Training and Validation &#39; + string)
+    plt.xlabel (&#39;Number of epochs&#39;)
+    plt.ylabel(string)
+    plt.legend([var1, var2])
+plot_LSTM(&#39;Training_Loss&#39;, &#39;Validation_Loss&#39;, &#39;loss&#39;)
+plot_LSTM(&#39;Training_Accuracy&#39;, &#39;Validation_Accuracy&#39;, &#39;accuracy&#39;)
 </pre></div>
 </div>
 </div>
@@ -1402,51 +1402,51 @@ Shape of testing tensor:  (374, 50)
 <p>Bi-LSTM learns patterns from before and after a given token.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Biderectional LSTM Spam detection architecture</span>
-<span class="n">biLSTM_model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embeding_dim</span><span class="p">,</span> <span class="n">input_length</span><span class="o">=</span><span class="n">max_len</span><span class="p">))</span>
-<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Bidirectional</span><span class="p">(</span><span class="n">LSTM</span><span class="p">(</span><span class="n">n_lstm</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="n">drop_lstm</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
-<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;sigmoid&#39;</span><span class="p">))</span>
-<span class="n">biLSTM_model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">GlobalAveragePooling1D</span><span class="p">())</span>
-<span class="c1">#biLSTM_model.add(Flatten())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Biderectional LSTM Spam detection architecture
+biLSTM_model = Sequential()
+biLSTM_model.add(Embedding(vocab_size, embeding_dim, input_length=max_len))
+biLSTM_model.add(Bidirectional(LSTM(n_lstm, dropout=drop_lstm, return_sequences=True)))
+biLSTM_model.add(Dense(1, activation=&#39;sigmoid&#39;))
+biLSTM_model.add(GlobalAveragePooling1D())
+#biLSTM_model.add(Flatten())
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biLSTM_model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span> <span class="o">=</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">optimizer</span> <span class="o">=</span> <span class="s1">&#39;adam&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>biLSTM_model.compile(loss = &#39;binary_crossentropy&#39;, optimizer = &#39;adam&#39;, metrics=[&#39;accuracy&#39;])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Training</span>
-<span class="n">num_epochs</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">early_stop</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">biLSTM_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">training_padded</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="n">num_epochs</span><span class="p">,</span> 
-                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">),</span><span class="n">callbacks</span> <span class="o">=</span><span class="p">[</span><span class="n">early_stop</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Training
+num_epochs = 30
+early_stop = EarlyStopping(monitor=&#39;val_loss&#39;, patience=2)
+history = biLSTM_model.fit(training_padded, train_labels, epochs=num_epochs, 
+                    validation_data=(testing_padded, test_labels),callbacks =[early_stop], verbose=0)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dataframe</span>
-<span class="n">metrics</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">)</span>
-<span class="c1"># Rename column</span>
-<span class="n">metrics</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span>
-                         <span class="s1">&#39;val_loss&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;val_accuracy&#39;</span><span class="p">:</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">},</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">plot_biLSTM</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span>
-    <span class="n">metrics</span><span class="p">[[</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;BiLSTM Model: Training and Validation &#39;</span> <span class="o">+</span> <span class="n">string</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span> <span class="p">(</span><span class="s1">&#39;Number of epochs&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">])</span>
-<span class="c1"># Plot</span>
-<span class="n">plot_biLSTM</span><span class="p">(</span><span class="s1">&#39;Training_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Loss&#39;</span><span class="p">,</span> <span class="s1">&#39;loss&#39;</span><span class="p">)</span>
-<span class="n">plot_biLSTM</span><span class="p">(</span><span class="s1">&#39;Training_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;Validation_Accuracy&#39;</span><span class="p">,</span> <span class="s1">&#39;accuracy&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create a dataframe
+metrics = pd.DataFrame(history.history)
+# Rename column
+metrics.rename(columns = {&#39;loss&#39;: &#39;Training_Loss&#39;, &#39;accuracy&#39;: &#39;Training_Accuracy&#39;,
+                         &#39;val_loss&#39;: &#39;Validation_Loss&#39;, &#39;val_accuracy&#39;: &#39;Validation_Accuracy&#39;}, inplace = True)
+def plot_biLSTM(var1, var2, string):
+    metrics[[var1, var2]].plot()
+    plt.title(&#39;BiLSTM Model: Training and Validation &#39; + string)
+    plt.xlabel (&#39;Number of epochs&#39;)
+    plt.ylabel(string)
+    plt.legend([var1, var2])
+# Plot
+plot_biLSTM(&#39;Training_Loss&#39;, &#39;Validation_Loss&#39;, &#39;loss&#39;)
+plot_biLSTM(&#39;Training_Accuracy&#39;, &#39;Validation_Accuracy&#39;, &#39;accuracy&#39;)
 </pre></div>
 </div>
 </div>
@@ -1460,49 +1460,44 @@ Shape of testing tensor:  (374, 50)
 <h1>Choose Model<a class="headerlink" href="#choose-model" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparing three different models</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dense architecture loss and accuracy: </span><span class="si">{</span><span class="n">dense_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;LSTM architecture loss and accuracy: </span><span class="si">{</span><span class="n">LSTM_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bi-LSTM architecture loss and accuracy: </span><span class="si">{</span><span class="n">biLSTM_model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">testing_padded</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Comparing three different models
+print(f&quot;Dense architecture loss and accuracy: {dense_model.evaluate(testing_padded, test_labels)} &quot; )
+print(f&quot;LSTM architecture loss and accuracy: {LSTM_model.evaluate(testing_padded, test_labels)} &quot; )
+print(f&quot;Bi-LSTM architecture loss and accuracy: {biLSTM_model.evaluate(testing_padded, test_labels)} &quot; )
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1712 - accuracy: 0.9375
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.1349 - accuracy: 0.9375
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 1ms/step - loss: 0.1017 - accuracy: 0.9652
+12/12 [==============================] - 0s 1ms/step - loss: 0.0962 - accuracy: 0.9679
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dense architecture loss and accuracy: [0.10171102732419968, 0.9652406573295593] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dense architecture loss and accuracy: [0.09624862670898438, 0.9679144620895386] 
 
- 1/12 [=&gt;............................] - ETA: 0s - loss: 0.4134 - accuracy: 0.8750
+ 1/12 [=&gt;............................] - ETA: 0s - loss: 0.3031 - accuracy: 0.9062
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
- 9/12 [=====================&gt;........] - ETA: 0s - loss: 0.2313 - accuracy: 0.9306
+10/12 [========================&gt;.....] - ETA: 0s - loss: 0.1597 - accuracy: 0.9625
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 6ms/step - loss: 0.1916 - accuracy: 0.9465
+12/12 [==============================] - 0s 6ms/step - loss: 0.1646 - accuracy: 0.9572
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LSTM architecture loss and accuracy: [0.1915590465068817, 0.9465240836143494] 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 1/12 [=&gt;............................] - ETA: 0s - loss: 0.3885 - accuracy: 0.9062
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - ETA: 0s - loss: 0.1384 - accuracy: 0.9492
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LSTM architecture loss and accuracy: [0.164596825838089, 0.9572192430496216] 
+
+ 1/12 [=&gt;............................] - ETA: 0s - loss: 0.2198 - accuracy: 0.8750
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-12/12 [==============================] - 0s 5ms/step - loss: 0.1384 - accuracy: 0.9492
+12/12 [==============================] - 0s 4ms/step - loss: 0.1282 - accuracy: 0.9439
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bi-LSTM architecture loss and accuracy: [0.13840851187705994, 0.9491978883743286] 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bi-LSTM architecture loss and accuracy: [0.12823329865932465, 0.9438502788543701] 
 </pre></div>
 </div>
 </div>
@@ -1513,23 +1508,23 @@ Shape of testing tensor:  (374, 50)
 <h1>Prediction<a class="headerlink" href="#prediction" title="Permalink to this headline">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to predict messages based on model</span>
-<span class="c1"># (should return list containing prediction and label, ex. [0.008318834938108921, &#39;ham&#39;])</span>
-<span class="k">def</span> <span class="nf">predict_message</span><span class="p">(</span><span class="n">pred_text</span><span class="p">):</span>
-    <span class="n">pred_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">pred_text</span><span class="p">]</span>
-    <span class="n">new_seq</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">texts_to_sequences</span><span class="p">(</span><span class="n">pred_text</span><span class="p">)</span>
-    <span class="n">padded</span> <span class="o">=</span> <span class="n">pad_sequences</span><span class="p">(</span><span class="n">new_seq</span><span class="p">,</span> <span class="n">maxlen</span><span class="o">=</span><span class="n">max_len</span><span class="p">,</span>
-                      <span class="n">padding</span> <span class="o">=</span> <span class="n">padding_type</span><span class="p">,</span>
-                      <span class="n">truncating</span><span class="o">=</span><span class="n">trunc_type</span><span class="p">)</span>
-    <span class="n">prediction</span> <span class="o">=</span> <span class="p">(</span><span class="n">dense_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">padded</span><span class="p">))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">prediction</span> <span class="o">&lt;</span> <span class="mf">0.5</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">prediction</span><span class="p">,</span> <span class="s1">&#39;ham&#39;</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">prediction</span><span class="p">,</span> <span class="s1">&#39;spam&#39;</span><span class="p">]</span>
-<span class="n">pred_text</span> <span class="o">=</span> <span class="s2">&quot;how are you doing today?&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># function to predict messages based on model
+# (should return list containing prediction and label, ex. [0.008318834938108921, &#39;ham&#39;])
+def predict_message(pred_text):
+    pred_text = [pred_text]
+    new_seq = tokenizer.texts_to_sequences(pred_text)
+    padded = pad_sequences(new_seq, maxlen=max_len,
+                      padding = padding_type,
+                      truncating=trunc_type)
+    prediction = (dense_model.predict(padded))[0][0]
+    if prediction &lt; 0.5:
+        return [prediction, &#39;ham&#39;]
+    else:
+        return [prediction, &#39;spam&#39;]
+pred_text = &quot;how are you doing today?&quot;
 
-<span class="n">prediction</span> <span class="o">=</span> <span class="n">predict_message</span><span class="p">(</span><span class="n">pred_text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">prediction</span><span class="p">)</span>
+prediction = predict_message(pred_text)
+print(prediction)
 </pre></div>
 </div>
 </div>
@@ -1538,41 +1533,41 @@ Shape of testing tensor:  (374, 50)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 78ms/step
+1/1 [==============================] - 0s 80ms/step
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.0076083457, &#39;ham&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.006999601, &#39;ham&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run this cell to test your function and model. </span>
-<span class="k">def</span> <span class="nf">test_predictions</span><span class="p">():</span>
-    <span class="n">test_messages</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;how are you doing today&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;sale today! to stop texts call 98912460324&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;i dont want to go. can we try it a different day? available sat&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;our new mobile video service is live. just install on your phone to start watching.&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;you have won £1000 cash! call to claim your prize.&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;i&#39;ll bring it tomorrow. don&#39;t forget the milk.&quot;</span><span class="p">,</span>
-                   <span class="s2">&quot;wow, is your arm alright. that happened to me one time too&quot;</span>
-                  <span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Run this cell to test your function and model. 
+def test_predictions():
+    test_messages = [&quot;how are you doing today&quot;,
+                   &quot;sale today! to stop texts call 98912460324&quot;,
+                   &quot;i dont want to go. can we try it a different day? available sat&quot;,
+                   &quot;our new mobile video service is live. just install on your phone to start watching.&quot;,
+                   &quot;you have won £1000 cash! call to claim your prize.&quot;,
+                   &quot;i&#39;ll bring it tomorrow. don&#39;t forget the milk.&quot;,
+                   &quot;wow, is your arm alright. that happened to me one time too&quot;
+                  ]
 
-    <span class="n">test_answers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">,</span> <span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">,</span> <span class="s2">&quot;spam&quot;</span><span class="p">,</span> <span class="s2">&quot;ham&quot;</span><span class="p">,</span> <span class="s2">&quot;ham&quot;</span><span class="p">]</span>
-    <span class="n">passed</span> <span class="o">=</span> <span class="kc">True</span>
+    test_answers = [&quot;ham&quot;, &quot;spam&quot;, &quot;ham&quot;, &quot;spam&quot;, &quot;spam&quot;, &quot;ham&quot;, &quot;ham&quot;]
+    passed = True
 
-    <span class="k">for</span> <span class="n">msg</span><span class="p">,</span> <span class="n">ans</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">test_messages</span><span class="p">,</span> <span class="n">test_answers</span><span class="p">):</span>
-        <span class="n">prediction</span> <span class="o">=</span> <span class="n">predict_message</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">prediction</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">ans</span><span class="p">:</span>
-            <span class="n">passed</span> <span class="o">=</span> <span class="kc">False</span>
+    for msg, ans in zip(test_messages, test_answers):
+        prediction = predict_message(msg)
+        if prediction[1] != ans:
+            passed = False
 
-    <span class="k">if</span> <span class="n">passed</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You passed the challenge. Great job!&quot;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;You haven&#39;t passed yet. Keep trying.&quot;</span><span class="p">)</span>
+    if passed:
+        print(&quot;You passed the challenge. Great job!&quot;)
+    else:
+        print(&quot;You haven&#39;t passed yet. Keep trying.&quot;)
 
-<span class="n">test_predictions</span><span class="p">()</span>
+test_predictions()
 </pre></div>
 </div>
 </div>
@@ -1609,7 +1604,7 @@ Shape of testing tensor:  (374, 50)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-1/1 [==============================] - 0s 17ms/step
+1/1 [==============================] - 0s 19ms/step
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1/1 [==============================] - ETA: 0s

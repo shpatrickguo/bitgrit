@@ -711,33 +711,33 @@ title="Print to PDF"
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">pearsonr</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">rc</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">:(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">)})</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from scipy.stats import pearsonr
+sns.set(rc = {&#39;figure.figsize&#39;:(20,5)})
+plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Function to display value on seaborn barplot</span>
-<span class="k">def</span> <span class="nf">show_values_on_bars</span><span class="p">(</span><span class="n">axs</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">_show_on_single_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">):</span>        
-        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">patches</span><span class="p">:</span>
-            <span class="n">_x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_x</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_width</span><span class="p">()</span> <span class="o">/</span> <span class="mi">2</span>
-            <span class="n">_y</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_y</span><span class="p">()</span> <span class="o">+</span> <span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">()</span> <span class="o">+</span> <span class="mf">0.05</span>
-            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_height</span><span class="p">())</span>
-            <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">_x</span><span class="p">,</span> <span class="n">_y</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Function to display value on seaborn barplot
+def show_values_on_bars(axs):
+    def _show_on_single_plot(ax):        
+        for p in ax.patches:
+            _x = p.get_x() + p.get_width() / 2
+            _y = p.get_y() + p.get_height() + 0.05
+            value = &#39;{:.2f}&#39;.format(p.get_height())
+            ax.text(_x, _y, value, ha=&quot;center&quot;) 
 
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndenumerate</span><span class="p">(</span><span class="n">axs</span><span class="p">):</span>
-            <span class="n">_show_on_single_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">_show_on_single_plot</span><span class="p">(</span><span class="n">axs</span><span class="p">)</span>
+    if isinstance(axs, np.ndarray):
+        for idx, ax in np.ndenumerate(axs):
+            _show_on_single_plot(ax)
+    else:
+        _show_on_single_plot(axs)
 </pre></div>
 </div>
 </div>
@@ -747,12 +747,12 @@ title="Print to PDF"
 <h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Reading in the data</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/chocolate_bars.csv&#39;</span><span class="p">)</span>
-<span class="c1"># Set id as index</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># Take a look at the first datapoints</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Reading in the data
+df = pd.read_csv(&#39;data/chocolate_bars.csv&#39;)
+# Set id as index
+df.set_index(&#39;id&#39;, inplace=True)
+# Take a look at the first datapoints
+df.head()
 </pre></div>
 </div>
 </div>
@@ -880,7 +880,7 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shape: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&#39;Shape: {df.shape}&#39;)
 </pre></div>
 </div>
 </div>
@@ -892,7 +892,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.info()
 </pre></div>
 </div>
 </div>
@@ -920,7 +920,7 @@ memory usage: 217.4+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.describe()
 </pre></div>
 </div>
 </div>
@@ -1012,7 +1012,7 @@ memory usage: 217.4+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.isnull().sum()
 </pre></div>
 </div>
 </div>
@@ -1034,7 +1034,7 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.duplicated().sum()
 </pre></div>
 </div>
 </div>
@@ -1050,7 +1050,7 @@ dtype: int64
 <p>For the 87 records that have missing information. If <code class="docutils literal notranslate"><span class="pre">ingredients</span></code> is NaN, then <code class="docutils literal notranslate"><span class="pre">num_ingredients</span></code> is also NaN. Therefore <code class="docutils literal notranslate"><span class="pre">num_ingredients</span></code> is MNAR (missing not at random).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">num_ingredients</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="o">&amp;</span> <span class="n">df</span><span class="o">.</span><span class="n">ingredients</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df[df.num_ingredients.isnull() &amp; df.ingredients.isnull()]
 </pre></div>
 </div>
 </div>
@@ -1254,14 +1254,14 @@ dtype: int64
 The country with the highest average rating is Tobago, whereas the lowest is Puerto Rico.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">avg_rating_by_origin</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">df</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">)</span>
-    <span class="o">.</span><span class="n">rating</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">avg_rating_by_origin</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>avg_rating_by_origin = (
+    df
+    .groupby(&quot;bean_origin&quot;)
+    .rating.mean()
+    .reset_index()
+    .sort_values(by=&quot;rating&quot;, ascending=False)
+)
+avg_rating_by_origin
 </pre></div>
 </div>
 </div>
@@ -1351,12 +1351,12 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">avg_rating_by_origin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">show_values_on_bars</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Top 8 average rating by country of origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Country of Origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Average rating&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ax = sns.barplot(x=&quot;bean_origin&quot;, y=&quot;rating&quot;, data=avg_rating_by_origin[0:8])
+show_values_on_bars(ax)
+plt.title(&quot;Top 8 average rating by country of origin&quot;, fontsize=20)
+plt.xlabel(&quot;Country of Origin&quot;, fontsize=16)
+plt.ylabel(&quot;Average rating&quot;, fontsize=16)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1370,14 +1370,14 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 <p>The highest numbers of bars were reviewed for the country Venezulea with 253 bars reviewed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bar_count_by_origin</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span>
-                       <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">)</span>
-                       <span class="o">.</span><span class="n">bar_name</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-                       <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-                       <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;bar_name&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-                       <span class="o">.</span><span class="n">rename</span><span class="p">({</span><span class="s2">&quot;bar_name&quot;</span><span class="p">:</span> <span class="s2">&quot;no. of bars reviewed&quot;</span><span class="p">},</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-                      <span class="p">)</span>
-<span class="n">bar_count_by_origin</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>bar_count_by_origin = (df
+                       .groupby(&quot;bean_origin&quot;)
+                       .bar_name.count()
+                       .reset_index()
+                       .sort_values(by=&#39;bar_name&#39;, ascending=False)
+                       .rename({&quot;bar_name&quot;: &quot;no. of bars reviewed&quot;}, axis=1)
+                      )
+bar_count_by_origin
 </pre></div>
 </div>
 </div>
@@ -1467,12 +1467,12 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;no. of bars reviewed&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">bar_count_by_origin</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">show_values_on_bars</span><span class="p">(</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Number of bars reviewed by country of origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Country of Origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of bars reviewed&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>ax = sns.barplot(x=&quot;bean_origin&quot;,y=&quot;no. of bars reviewed&quot;, data=bar_count_by_origin[0:8])
+show_values_on_bars(ax)
+plt.title(&quot;Number of bars reviewed by country of origin&quot;, fontsize=20)
+plt.xlabel(&quot;Country of Origin&quot;, fontsize=16)
+plt.ylabel(&quot;Number of bars reviewed&quot;, fontsize=16)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1486,12 +1486,12 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 <p>Cocoa bean’s country of origin is not an indicator of quality.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;bean_origin&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Rating of bean by country of origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Country of Origin&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Rating&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sns.boxplot(y=&quot;rating&quot;, x=&quot;bean_origin&quot;, data=df)
+plt.xticks(rotation=90)
+plt.title(&quot;Rating of bean by country of origin&quot;, fontsize=20)
+plt.xlabel(&quot;Country of Origin&quot;, fontsize=16)
+plt.ylabel(&quot;Rating&quot;, fontsize=16)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1505,15 +1505,15 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 <p><code class="docutils literal notranslate"><span class="pre">cocoa_percent</span></code> and <code class="docutils literal notranslate"><span class="pre">rating</span></code> is not correlated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate Pearson&#39;s correlation</span>
-<span class="n">corr</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pearsonr</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rating</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">cocoa_percent</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pearsons correlation: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">corr</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># calculate Pearson&#39;s correlation
+corr, _ = pearsonr(df.rating, df.cocoa_percent)
+print(&#39;Pearsons correlation: %.3f&#39; % corr)
 
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;rating&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;cocoa_percent&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Rating of bean by cocao content&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Cocao Content %&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Rating&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+sns.scatterplot(y=&quot;rating&quot;, x=&quot;cocoa_percent&quot;, data=df)
+plt.title(&quot;Rating of bean by cocao content&quot;, fontsize=20)
+plt.xlabel(&quot;Cocao Content %&quot;, fontsize=16)
+plt.ylabel(&quot;Rating&quot;, fontsize=16)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1529,7 +1529,7 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 <h2>4.5 What is the average cocoa content for bars with higher ratings (above 3.5)?<a class="headerlink" href="#what-is-the-average-cocoa-content-for-bars-with-higher-ratings-above-3-5" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rating&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mf">3.5</span><span class="p">]</span><span class="o">.</span><span class="n">cocoa_percent</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>np.round(df[df[&#39;rating&#39;]&gt;=3.5].cocoa_percent.mean(), 3)
 </pre></div>
 </div>
 </div>
@@ -1546,12 +1546,12 @@ The country with the highest average rating is Tobago, whereas the lowest is Pue
 <p>The average rating of bars without Lecithin is higher than bars with the ingredient.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
-<span class="n">contains_L</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;ingredients&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
-<span class="n">avg_rating_with_L</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">contains_L</span><span class="p">]</span><span class="o">.</span><span class="n">rating</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
-<span class="n">avg_rating_without_L</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">contains_L</span><span class="p">]</span><span class="o">.</span><span class="n">rating</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average rating with lecithin: </span><span class="si">{</span><span class="n">avg_rating_with_L</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average rating without lecithin: </span><span class="si">{</span><span class="n">avg_rating_without_L</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df = df.dropna()
+contains_L = df[&quot;ingredients&quot;].str.contains(&quot;L&quot;)
+avg_rating_with_L = round(df[contains_L].rating.mean(), 3)
+avg_rating_without_L = round(df[~contains_L].rating.mean(), 3)
+print(f&quot;Average rating with lecithin: {avg_rating_with_L}&quot;)
+print(f&quot;Average rating without lecithin: {avg_rating_without_L}&quot;)
 </pre></div>
 </div>
 </div>

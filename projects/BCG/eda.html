@@ -809,22 +809,22 @@ title="Print to PDF"
 <h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import pandas as pd
+import numpy as np
 
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="c1"># Show plots in jupyter notebook</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
+import seaborn as sns
+import matplotlib.pyplot as plt
+# Show plots in jupyter notebook
+%matplotlib inline
 
-<span class="kn">import</span> <span class="nn">missingno</span> <span class="k">as</span> <span class="nn">msno</span>
-<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">zscore</span> <span class="k">as</span> <span class="n">zscore</span>
+import missingno as msno
+from scipy.stats import zscore as zscore
 
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+import warnings
+warnings.filterwarnings(&quot;ignore&quot;)
 
-<span class="c1"># Set maximum number of columns to be displayed</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+# Set maximum number of columns to be displayed
+pd.set_option(&#39;display.max_columns&#39;, 100)
 </pre></div>
 </div>
 </div>
@@ -834,13 +834,13 @@ title="Print to PDF"
 <h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of dates</span>
-<span class="n">dt_lst</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date_activ&#39;</span><span class="p">,</span><span class="s1">&#39;date_end&#39;</span><span class="p">,</span><span class="s1">&#39;date_first_activ&#39;</span><span class="p">,</span><span class="s1">&#39;date_modif_prod&#39;</span><span class="p">,</span><span class="s1">&#39;date_renewal&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># list of dates
+dt_lst = [&#39;date_activ&#39;,&#39;date_end&#39;,&#39;date_first_activ&#39;,&#39;date_modif_prod&#39;,&#39;date_renewal&#39;]
      
-<span class="n">pco_main</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/ml_case_training_data.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="n">dt_lst</span><span class="p">)</span>
-<span class="n">pco_hist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/ml_case_training_hist_data.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price_date&#39;</span><span class="p">])</span>
-<span class="n">pco_output</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/ml_case_training_output.csv&#39;</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+pco_main = pd.read_csv(&#39;data/ml_case_training_data.csv&#39;, parse_dates=dt_lst)
+pco_hist = pd.read_csv(&#39;data/ml_case_training_hist_data.csv&#39;, parse_dates=[&#39;price_date&#39;])
+pco_output = pd.read_csv(&#39;data/ml_case_training_output.csv&#39;)
+pd.set_option(&#39;display.max_columns&#39;,None)
 </pre></div>
 </div>
 </div>
@@ -850,7 +850,7 @@ title="Print to PDF"
 <h2>Main Dataset<a class="headerlink" href="#main-dataset" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pco_main</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pco_main.head()
 </pre></div>
 </div>
 </div>
@@ -1089,7 +1089,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pco_main</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pco_main.info()
 </pre></div>
 </div>
 </div>
@@ -1139,9 +1139,9 @@ memory usage: 3.9+ MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of nullity by column</span>
-<span class="n">missing_perc</span> <span class="o">=</span> <span class="n">pco_main</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percentage of Missing Values:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">missing_perc</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Percentage of nullity by column
+missing_perc = pco_main.isnull().mean() * 100
+print(&#39;Percentage of Missing Values:\n&#39;, missing_perc)
 </pre></div>
 </div>
 </div>
@@ -1186,8 +1186,8 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descriptive statistics</span>
-<span class="n">pco_main</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Descriptive statistics
+pco_main.describe()
 </pre></div>
 </div>
 </div>
@@ -1453,7 +1453,7 @@ dtype: float64
 <h2>The History Dataset<a class="headerlink" href="#the-history-dataset" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pco_hist</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pco_hist.head()
 </pre></div>
 </div>
 </div>
@@ -1548,7 +1548,7 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pco_hist</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pco_hist.info()
 </pre></div>
 </div>
 </div>
@@ -1574,9 +1574,9 @@ memory usage: 11.8+ MB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of nullity by column</span>
-<span class="n">missing_perc</span> <span class="o">=</span> <span class="n">pco_hist</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percentage of Missing Values:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">missing_perc</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Percentage of nullity by column
+missing_perc = pco_hist.isnull().mean() * 100
+print(&#39;Percentage of Missing Values:\n&#39;, missing_perc)
 </pre></div>
 </div>
 </div>
@@ -1597,8 +1597,8 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descriptive statistics</span>
-<span class="n">pco_hist</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Descriptive statistics
+pco_hist.describe()
 </pre></div>
 </div>
 </div>
@@ -1718,7 +1718,7 @@ dtype: float64
 <h2>The Output Dataset<a class="headerlink" href="#the-output-dataset" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pco_output</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pco_output.head()
 </pre></div>
 </div>
 </div>
@@ -1777,7 +1777,7 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pco_output</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pco_output.info()
 </pre></div>
 </div>
 </div>
@@ -1797,9 +1797,9 @@ memory usage: 251.6+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of nullity by column</span>
-<span class="n">missing_perc</span> <span class="o">=</span> <span class="n">pco_output</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percentage of Missing Values:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">missing_perc</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Percentage of nullity by column
+missing_perc = pco_output.isnull().mean() * 100
+print(&#39;Percentage of Missing Values:\n&#39;, missing_perc)
 </pre></div>
 </div>
 </div>
@@ -1814,8 +1814,8 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Descriptive statistics</span>
-<span class="n">pco_output</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Descriptive statistics
+pco_output.describe()
 </pre></div>
 </div>
 </div>
@@ -1903,12 +1903,12 @@ There is a relationship between missingness and its values, missing or non-missi
 <h3>The History Dataset<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify negative columns</span>
-<span class="n">negative_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;price_p1_fix&#39;</span><span class="p">,</span><span class="s1">&#39;price_p2_fix&#39;</span><span class="p">,</span><span class="s1">&#39;price_p3_fix&#39;</span><span class="p">]</span>
-<span class="c1"># Convert to positive the negative columns in pco_hist</span>
-<span class="n">pco_hist</span><span class="p">[</span><span class="n">negative_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">pco_hist</span><span class="p">[</span><span class="n">negative_cols</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">abs</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Identify negative columns
+negative_cols = [&#39;price_p1_fix&#39;,&#39;price_p2_fix&#39;,&#39;price_p3_fix&#39;]
+# Convert to positive the negative columns in pco_hist
+pco_hist[negative_cols] = pco_hist[negative_cols].apply(abs)
 
-<span class="n">pco_hist</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+pco_hist.describe()
 </pre></div>
 </div>
 </div>
@@ -2018,9 +2018,9 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the completeness of the dataframe</span>
-<span class="n">msno</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pco_hist</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Visualize the completeness of the dataframe
+msno.bar(pco_hist)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -2030,10 +2030,10 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the locations of the missing values of the dataset</span>
-<span class="nb">sorted</span> <span class="o">=</span> <span class="n">pco_hist</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;price_date&#39;</span><span class="p">])</span>
-<span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="nb">sorted</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Visualize the locations of the missing values of the dataset
+sorted = pco_hist.sort_values(by = [&#39;id&#39;,&#39;price_date&#39;])
+msno.matrix(sorted)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -2043,9 +2043,9 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the correlation between the numeric variables of the dataframe</span>
-<span class="n">msno</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pco_hist</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Visualize the correlation between the numeric variables of the dataframe
+msno.heatmap(pco_hist)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -2055,14 +2055,14 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Identify the index of the IDs containing missing values.</span>
-<span class="n">hist_NAN_index</span> <span class="o">=</span> <span class="n">pco_hist</span><span class="p">[</span><span class="n">pco_hist</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Identify the index of the IDs containing missing values.
+hist_NAN_index = pco_hist[pco_hist.isnull().any(axis=1)].index.values.tolist()
 
-<span class="c1"># Obtain a dataframe with the missing values</span>
-<span class="n">pco_hist_missing</span> <span class="o">=</span> <span class="n">pco_hist</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">hist_NAN_index</span><span class="p">,:]</span>
+# Obtain a dataframe with the missing values
+pco_hist_missing = pco_hist.iloc[hist_NAN_index,:]
 
-<span class="c1"># Glimpse at the NaN cases of the pco_hist dataset</span>
-<span class="n">pco_hist_missing</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+# Glimpse at the NaN cases of the pco_hist dataset
+pco_hist_missing.head(10)
 </pre></div>
 </div>
 </div>
@@ -2212,15 +2212,15 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract the unique dates of missing data</span>
-<span class="n">date_lst</span> <span class="o">=</span> <span class="n">pco_hist_missing</span><span class="p">[</span><span class="s1">&#39;price_date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="n">id_lst</span> <span class="o">=</span> <span class="n">pco_hist_missing</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># extract the unique dates of missing data
+date_lst = pco_hist_missing[&#39;price_date&#39;].unique()
+id_lst = pco_hist_missing[&#39;id&#39;].unique()
 
-<span class="c1"># Create a time dataframe with the unique dates</span>
-<span class="n">time_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">date_lst</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price_date&#39;</span><span class="p">]</span> <span class="p">)</span>
+# Create a time dataframe with the unique dates
+time_df = pd.DataFrame(data=date_lst, columns=[&#39;price_date&#39;] )
 
-<span class="c1"># Glimpse the time dataframe</span>
-<span class="n">time_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price_date&#39;</span><span class="p">])</span>
+# Glimpse the time dataframe
+time_df.sort_values(by=[&#39;price_date&#39;])
 </pre></div>
 </div>
 </div>
@@ -2305,16 +2305,16 @@ There is a relationship between missingness and its values, missing or non-missi
 <p>We can use trend and cyclicality when imputing time series data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make a copy of pco_hist dataset</span>
-<span class="n">pco_hist_ff</span> <span class="o">=</span> <span class="n">pco_hist</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Make a copy of pco_hist dataset
+pco_hist_ff = pco_hist.copy(deep=True)
 
-<span class="c1"># Print prior to imputing missing values</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">pco_hist_ff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">hist_NAN_index</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+# Print prior to imputing missing values
+print(pco_hist_ff.iloc[hist_NAN_index,3:9].head())
 
-<span class="c1"># Fill NaNs using forward fill</span>
-<span class="n">pco_hist_ff</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;ffill&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+# Fill NaNs using forward fill
+pco_hist_ff.fillna(method = &#39;ffill&#39;, inplace=True)
 
-<span class="nb">print</span><span class="p">(</span><span class="n">pco_hist_ff</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">hist_NAN_index</span><span class="p">,</span><span class="mi">3</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+print(pco_hist_ff.iloc[hist_NAN_index,3:9].head())
 </pre></div>
 </div>
 </div>
@@ -2337,9 +2337,9 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge output dataset with historical forward fill dataset</span>
-<span class="n">pco_hist_ff_merged</span> <span class="o">=</span> <span class="n">pco_hist_ff</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="n">pco_output</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
-<span class="n">pco_hist_ff_merged</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Merge output dataset with historical forward fill dataset
+pco_hist_ff_merged = pco_hist_ff.merge(right=pco_output,on=[&#39;id&#39;])
+pco_hist_ff_merged.head()
 </pre></div>
 </div>
 </div>
@@ -2444,9 +2444,9 @@ There is a relationship between missingness and its values, missing or non-missi
 <h3>The Main Dataset<a class="headerlink" href="#the-main-dataset" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the completeness of the dataframe</span>
-<span class="n">msno</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pco_main</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Visualize the completeness of the dataframe
+msno.bar(pco_main)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -2456,9 +2456,9 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize the locations of the missing values of the dataset</span>
-<span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">pco_main</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Visualize the locations of the missing values of the dataset
+msno.matrix(pco_main)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -2468,8 +2468,8 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">msno</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pco_main</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>msno.heatmap(pco_main)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -2479,20 +2479,20 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstrate why the date_activ column cannot replace completely date_first_activ</span>
-<span class="n">activity</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date_activ&#39;</span><span class="p">,</span><span class="s1">&#39;date_first_activ&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Demonstrate why the date_activ column cannot replace completely date_first_activ
+activity = [&#39;date_activ&#39;,&#39;date_first_activ&#39;]
 
-<span class="c1"># Filter the columns of interest</span>
-<span class="n">pco_activity</span> <span class="o">=</span> <span class="n">pco_main</span><span class="p">[</span><span class="n">activity</span><span class="p">]</span>
+# Filter the columns of interest
+pco_activity = pco_main[activity]
 
-<span class="c1"># Obtain only the complete cases</span>
-<span class="n">pco_activity_cc</span> <span class="o">=</span> <span class="n">pco_activity</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;date_first_activ&#39;</span><span class="p">],</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+# Obtain only the complete cases
+pco_activity_cc = pco_activity.dropna(subset=[&#39;date_first_activ&#39;],how=&#39;any&#39;,inplace=False)
 
-<span class="c1"># Test whether two objects contain the same elements.</span>
-<span class="n">pco_activity_cc</span><span class="o">.</span><span class="n">date_activ</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">pco_activity_cc</span><span class="o">.</span><span class="n">date_first_activ</span><span class="p">)</span>
+# Test whether two objects contain the same elements.
+pco_activity_cc.date_activ.equals(pco_activity_cc.date_first_activ)
 
-<span class="c1"># Describe it</span>
-<span class="n">pco_activity_cc</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+# Describe it
+pco_activity_cc.describe()
 </pre></div>
 </div>
 </div>
@@ -2556,17 +2556,17 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop the column activity_new and campaign_disc_elec</span>
-<span class="n">pco_main_drop</span> <span class="o">=</span> <span class="n">pco_main</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;activity_new&#39;</span><span class="p">,</span><span class="s1">&#39;campaign_disc_ele&#39;</span><span class="p">]</span> <span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Drop the column activity_new and campaign_disc_elec
+pco_main_drop = pco_main.drop(labels= [&#39;activity_new&#39;,&#39;campaign_disc_ele&#39;] , axis=1)
 
-<span class="c1"># Remove date_end date_modif_prod date_renewal origin_up pow_max margin_gross_pow_ele margin_net_pow_ele net_margin</span>
-<span class="n">brush</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date_end&#39;</span><span class="p">,</span><span class="s1">&#39;date_modif_prod&#39;</span><span class="p">,</span><span class="s1">&#39;date_renewal&#39;</span><span class="p">,</span><span class="s1">&#39;origin_up&#39;</span><span class="p">,</span><span class="s1">&#39;pow_max&#39;</span><span class="p">,</span><span class="s1">&#39;margin_gross_pow_ele&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;margin_net_pow_ele&#39;</span><span class="p">,</span> <span class="s1">&#39;net_margin&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_discount_energy&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_price_energy_p1&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;forecast_price_energy_p2&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_price_pow_p1&#39;</span><span class="p">]</span>
-<span class="n">pco_main_drop</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">brush</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+# Remove date_end date_modif_prod date_renewal origin_up pow_max margin_gross_pow_ele margin_net_pow_ele net_margin
+brush = [&#39;date_end&#39;,&#39;date_modif_prod&#39;,&#39;date_renewal&#39;,&#39;origin_up&#39;,&#39;pow_max&#39;,&#39;margin_gross_pow_ele&#39;,
+         &#39;margin_net_pow_ele&#39;, &#39;net_margin&#39;,&#39;forecast_discount_energy&#39;,&#39;forecast_price_energy_p1&#39;,
+         &#39;forecast_price_energy_p2&#39;,&#39;forecast_price_pow_p1&#39;]
+pco_main_drop.dropna(subset=brush, how=&#39;any&#39;,inplace=True)
 
-<span class="n">msno</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">pco_main_drop</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+msno.matrix(pco_main_drop)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -2586,23 +2586,23 @@ There is a relationship between missingness and its values, missing or non-missi
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose the columns without missing values</span>
-<span class="n">incomplete_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;channel_sales&#39;</span><span class="p">,</span><span class="s1">&#39;date_first_activ&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_base_bill_ele&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_base_bill_year&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_bill_12m&#39;</span><span class="p">,</span><span class="s1">&#39;forecast_cons&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Choose the columns without missing values
+incomplete_cols = [&#39;channel_sales&#39;,&#39;date_first_activ&#39;,&#39;forecast_base_bill_ele&#39;,&#39;forecast_base_bill_year&#39;,&#39;forecast_bill_12m&#39;,&#39;forecast_cons&#39;]
 
-<span class="n">complete_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">pco_main_drop</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">incomplete_cols</span><span class="p">]</span>
+complete_cols = [column_name for column_name in pco_main_drop.columns if column_name not in incomplete_cols]
 
-<span class="n">pco_main_cc</span> <span class="o">=</span> <span class="n">pco_main_drop</span><span class="p">[</span><span class="n">complete_cols</span><span class="p">]</span>
+pco_main_cc = pco_main_drop[complete_cols]
 
-<span class="c1"># Fix negative numeric variables</span>
-<span class="n">numeric</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">pco_main_cc</span><span class="o">.</span><span class="n">columns</span>
-           <span class="k">if</span> <span class="n">pco_main_cc</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;float64&#39;</span> 
-           <span class="ow">or</span> <span class="n">pco_main_cc</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;int64&#39;</span><span class="p">]</span>
+# Fix negative numeric variables
+numeric = [column_name for column_name in pco_main_cc.columns
+           if pco_main_cc[column_name].dtype == &#39;float64&#39; 
+           or pco_main_cc[column_name].dtype == &#39;int64&#39;]
 
-<span class="c1"># Overwrite positive values on negative values</span>
-<span class="n">pco_main_cc</span><span class="p">[</span><span class="n">numeric</span><span class="p">]</span> <span class="o">=</span> <span class="n">pco_main_cc</span><span class="p">[</span><span class="n">numeric</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">abs</span><span class="p">)</span>
+# Overwrite positive values on negative values
+pco_main_cc[numeric] = pco_main_cc[numeric].apply(abs)
 
-<span class="c1"># Describe</span>
-<span class="n">pco_main_cc</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+# Describe
+pco_main_cc.describe()
 </pre></div>
 </div>
 </div>
@@ -2811,21 +2811,21 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert the has_gas column to  Yes/No</span>
-<span class="n">pco_main_cc</span><span class="p">[</span><span class="s1">&#39;has_gas&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pco_main_cc</span><span class="p">[</span><span class="s1">&#39;has_gas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;t&#39;</span><span class="p">:</span><span class="s1">&#39;Yes&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="s1">&#39;No&#39;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Convert the has_gas column to  Yes/No
+pco_main_cc[&#39;has_gas&#39;] = pco_main_cc[&#39;has_gas&#39;].replace({&#39;t&#39;:&#39;Yes&#39;,&#39;f&#39;:&#39;No&#39;})
 
-<span class="c1"># Merge the main dataset with the output dataset</span>
-<span class="n">pco_main_cc_merged</span> <span class="o">=</span> <span class="n">pco_main_cc</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="n">pco_output</span><span class="p">,</span><span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+# Merge the main dataset with the output dataset
+pco_main_cc_merged = pco_main_cc.merge(right=pco_output,on=[&#39;id&#39;])
 
-<span class="c1"># Convert the churn column to Churned/Stayed</span>
-<span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;churn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;churn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="s1">&#39;Churned&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="s1">&#39;Stayed&#39;</span><span class="p">})</span>
+# Convert the churn column to Churned/Stayed
+pco_main_cc_merged[&#39;churn&#39;] = pco_main_cc_merged[&#39;churn&#39;].replace({1:&#39;Churned&#39;,0:&#39;Stayed&#39;})
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pco_main_cc_merged</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pco_main_cc_merged.head()
 </pre></div>
 </div>
 </div>
@@ -3022,21 +3022,21 @@ There is a relationship between missingness and its values, missing or non-missi
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Obtain all the variables except for id</span>
-<span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">pco_main_cc_merged</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">column_name</span> <span class="o">!=</span> <span class="s1">&#39;id&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Obtain all the variables except for id
+variables = [column_name for column_name in pco_main_cc_merged.columns if column_name != &#39;id&#39;]
 
-<span class="c1"># Obtain all the categorical variables except for id</span>
-<span class="n">categorical</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">variables</span> <span class="k">if</span> <span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">]</span>
+# Obtain all the categorical variables except for id
+categorical = [column_name for column_name in variables if pco_main_cc_merged[column_name].dtype == &#39;object&#39;]
 
-<span class="c1"># Obtain all the Date Variables</span>
-<span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">variables</span> <span class="k">if</span> <span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="n">column_name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="s1">&#39;datetime64[ns]&#39;</span><span class="p">]</span>
+# Obtain all the Date Variables
+dates = [column_name for column_name in variables if pco_main_cc_merged[column_name].dtype == &#39;datetime64[ns]&#39;]
 
-<span class="c1"># Obtain all the numeric columns</span>
-<span class="n">numeric</span> <span class="o">=</span> <span class="p">[</span><span class="n">column_name</span> <span class="k">for</span> <span class="n">column_name</span> <span class="ow">in</span> <span class="n">variables</span>
-           <span class="k">if</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">categorical</span> 
-           <span class="ow">and</span> <span class="n">column_name</span> <span class="o">!=</span> <span class="s1">&#39;id&#39;</span>
-           <span class="ow">and</span> <span class="n">column_name</span> <span class="o">!=</span> <span class="s1">&#39;churn&#39;</span>
-           <span class="ow">and</span> <span class="n">column_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dates</span><span class="p">]</span>
+# Obtain all the numeric columns
+numeric = [column_name for column_name in variables
+           if column_name not in categorical 
+           and column_name != &#39;id&#39;
+           and column_name != &#39;churn&#39;
+           and column_name not in dates]
 </pre></div>
 </div>
 </div>
@@ -3050,22 +3050,22 @@ There is a relationship between missingness and its values, missing or non-missi
 <h3>The Output Dataset<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the zcores of tenure</span>
-<span class="n">tenure_zcores</span> <span class="o">=</span> <span class="n">zscore</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;num_years_antig&#39;</span><span class="p">])</span>
-<span class="c1"># Convert to absolute values</span>
-<span class="n">abs_tenure_zscores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tenure_zcores</span><span class="p">)</span>
-<span class="c1"># Extract Columns of interest</span>
-<span class="n">churn_tenure</span> <span class="o">=</span> <span class="n">pco_main_cc_merged</span><span class="p">[[</span><span class="s1">&#39;churn&#39;</span><span class="p">,</span><span class="s1">&#39;num_years_antig&#39;</span><span class="p">]]</span>
-<span class="c1"># Add z-score column</span>
-<span class="n">churn_tenure</span><span class="p">[</span><span class="s1">&#39;z_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">abs_tenure_zscores</span><span class="p">)</span>
-<span class="c1"># Remove outliers </span>
-<span class="n">churned_tenure_filtered</span> <span class="o">=</span> <span class="n">churn_tenure</span><span class="p">[</span><span class="n">churn_tenure</span><span class="p">[</span><span class="s1">&#39;z_score&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">]</span>
-<span class="c1"># Visualize tenure by retained customer and churner</span>
-<span class="n">vio</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span> <span class="n">y</span><span class="o">=</span><span class="n">churned_tenure_filtered</span><span class="p">[</span><span class="s2">&quot;churn&quot;</span><span class="p">],</span> <span class="n">x</span><span class="o">=</span><span class="n">churned_tenure_filtered</span><span class="p">[</span><span class="s2">&quot;num_years_antig&quot;</span><span class="p">]</span> <span class="p">)</span>
-<span class="c1"># Settings</span>
-<span class="n">vio</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Years&#39;</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-<span class="n">vio</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Customer Attrition by Tenure&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Calculate the zcores of tenure
+tenure_zcores = zscore(a=pco_main_cc_merged[&#39;num_years_antig&#39;])
+# Convert to absolute values
+abs_tenure_zscores = np.abs(tenure_zcores)
+# Extract Columns of interest
+churn_tenure = pco_main_cc_merged[[&#39;churn&#39;,&#39;num_years_antig&#39;]]
+# Add z-score column
+churn_tenure[&#39;z_score&#39;] = list(abs_tenure_zscores)
+# Remove outliers 
+churned_tenure_filtered = churn_tenure[churn_tenure[&#39;z_score&#39;] &lt; 3]
+# Visualize tenure by retained customer and churner
+vio = sns.violinplot( y=churned_tenure_filtered[&quot;churn&quot;], x=churned_tenure_filtered[&quot;num_years_antig&quot;] )
+# Settings
+vio.set(xlabel=&#39;Years&#39;, ylabel=&#39;&#39;)
+vio.set_title(&quot;Customer Attrition by Tenure&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -3086,10 +3086,10 @@ There is a relationship between missingness and its values, missing or non-missi
 <h3>The Main Dataset<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Most popular electricity campaign in the dataset</span>
-<span class="n">ele_nm</span> <span class="o">=</span> <span class="n">pco_main_cc_merged</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;churn&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="s1">&#39;Stayed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;origin_up&#39;</span><span class="p">,</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Most popular electricity campaign in the dataset
+ele_nm = pco_main_cc_merged.loc[(pco_main_cc_merged[&#39;churn&#39;]&gt;=&#39;Stayed&#39;) &amp; (pco_main_cc_merged[&#39;net_margin&#39;]&gt;0),[&#39;id&#39;, &#39;origin_up&#39;,&#39;net_margin&#39;]]
 
-<span class="n">ele_nm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;origin_up&#39;</span><span class="p">)[</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+ele_nm.groupby(&#39;origin_up&#39;)[&#39;net_margin&#39;].count().sort_values(ascending=False)
 </pre></div>
 </div>
 </div>
@@ -3107,8 +3107,8 @@ Name: net_margin, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Highest netting electricity subscription campaign</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ele_nm</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;origin_up&#39;</span><span class="p">)[</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Highest netting electricity subscription campaign
+print(ele_nm.groupby(&#39;origin_up&#39;)[&#39;net_margin&#39;].agg(&#39;sum&#39;).sort_values(ascending=False))
 </pre></div>
 </div>
 </div>
@@ -3131,11 +3131,11 @@ Name: net_margin, dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select current customers with positive net margins</span>
-<span class="n">top_customers</span> <span class="o">=</span> <span class="n">pco_main_cc_merged</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;churn&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="s1">&#39;Stayed&#39;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pco_main_cc_merged</span><span class="p">[</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">),[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span><span class="s1">&#39;num_years_antig&#39;</span><span class="p">,</span><span class="s1">&#39;net_margin&#39;</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Select current customers with positive net margins
+top_customers = pco_main_cc_merged.loc[(pco_main_cc_merged[&#39;churn&#39;]&gt;=&#39;Stayed&#39;) &amp; (pco_main_cc_merged[&#39;net_margin&#39;]&gt;0),[&#39;id&#39;,&#39;num_years_antig&#39;,&#39;net_margin&#39;]]
 
-<span class="c1"># Top 10 customers by net margin</span>
-<span class="n">top_customers</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;net_margin&#39;</span><span class="p">],</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+# Top 10 customers by net margin
+top_customers.sort_values(by=[&#39;net_margin&#39;],ascending=False).head(10)
 </pre></div>
 </div>
 </div>
@@ -3231,7 +3231,7 @@ Name: net_margin, dtype: float64
 <p>These are the most profitable customers for PowerCo in terms of net margin. Notet that most of them are within the likely tenure of attrition.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!jupyter-nbconvert --to PDFviaHTML BCG.ipynb</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>#!jupyter-nbconvert --to PDFviaHTML BCG.ipynb
 </pre></div>
 </div>
 </div>

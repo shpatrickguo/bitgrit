@@ -829,56 +829,56 @@ title="Print to PDF"
 <h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Installations</span>
-<span class="c1">#!pip install geopy lightgbm xgboost verstack --upgrade</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Installations
+#!pip install geopy lightgbm xgboost verstack --upgrade
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import warnings
+warnings.filterwarnings(&#39;ignore&#39;)
 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">from</span> <span class="nn">geopy.geocoders</span> <span class="kn">import</span> <span class="n">Nominatim</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;darkgrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;grid.color&quot;</span><span class="p">:</span> <span class="s2">&quot;.6&quot;</span><span class="p">,</span> <span class="s2">&quot;grid.linestyle&quot;</span><span class="p">:</span> <span class="s2">&quot;:&quot;</span><span class="p">})</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span>
-<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_transformer</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
-<span class="kn">from</span> <span class="nn">sklearn.inspection</span> <span class="kn">import</span> <span class="n">permutation_importance</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
-<span class="kn">from</span> <span class="nn">verstack</span> <span class="kn">import</span> <span class="n">LGBMTuner</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectFromModel</span>
-<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Lasso</span><span class="p">,</span> <span class="n">LogisticRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVR</span>
-<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeRegressor</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">AdaBoostRegressor</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span>
-<span class="kn">from</span> <span class="nn">xgboost</span> <span class="kn">import</span> <span class="n">XGBRegressor</span>
-<span class="kn">from</span> <span class="nn">lightgbm</span> <span class="kn">import</span> <span class="n">LGBMRegressor</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
+import pandas as pd
+import numpy as np
+import re
+from geopy.geocoders import Nominatim
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set_style(&quot;darkgrid&quot;, {&quot;grid.color&quot;: &quot;.6&quot;, &quot;grid.linestyle&quot;: &quot;:&quot;})
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.compose import make_column_transformer
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.inspection import permutation_importance
+from sklearn.model_selection import train_test_split, cross_val_score, KFold
+from verstack import LGBMTuner
+from sklearn.feature_selection import SelectFromModel
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import LinearRegression, Lasso, LogisticRegression
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.svm import SVR
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import AdaBoostRegressor, RandomForestRegressor, BaggingRegressor, GradientBoostingRegressor
+from xgboost import XGBRegressor
+from lightgbm import LGBMRegressor
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Activation
+from tensorflow.keras.optimizers import Adam
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-22 23:08:31.672453: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-28 21:28:40.685270: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-11-22 23:08:31.807005: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:08:31.807030: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-11-28 21:28:40.823978: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:40.823998: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-22 23:08:32.564549: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:08:32.564645: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:08:32.564654: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-28 21:28:41.536413: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:41.536498: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:41.536505: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
 </pre></div>
 </div>
 </div>
@@ -888,9 +888,9 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rentals_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/rentals.csv&#39;</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">rentals_csv</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rentals_csv = pd.read_csv(&#39;data/rentals.csv&#39;)
+df = rentals_csv.copy()
+df.head()
 </pre></div>
 </div>
 </div>
@@ -1006,7 +1006,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.info()
 </pre></div>
 </div>
 </div>
@@ -1033,31 +1033,31 @@ memory usage: 570.4+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set id as index</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Set id as index
+df.set_index(&#39;id&#39;, inplace=True)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="k">def</span> <span class="nf">remove_nonnumeric</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Remove non-numeric characters from string using regex.</span>
-<span class="sd">    </span>
-<span class="sd">    INPUTS:</span>
-<span class="sd">    string - str</span>
-<span class="sd">    </span>
-<span class="sd">    OUTPUT</span>
-<span class="sd">    output - str</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;[^0-9]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">output</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> def remove_nonnumeric(string):
+    &quot;&quot;&quot;Remove non-numeric characters from string using regex.
+    
+    INPUTS:
+    string - str
+    
+    OUTPUT
+    output - str
+    &quot;&quot;&quot;
+    output = re.sub(&quot;[^0-9]&quot;, &quot;&quot;, string)
+    return output
 
-<span class="c1"># Remove non-numeric characters</span>
-<span class="n">df</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">remove_nonnumeric</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+# Remove non-numeric characters
+df.price = df.price.apply(lambda x: remove_nonnumeric(x))
 
-<span class="c1"># Change dtype of price from str to float64 </span>
-<span class="n">df</span><span class="o">.</span><span class="n">price</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;float64&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+# Change dtype of price from str to float64 
+df.price = df.price.astype(&#39;float64&#39;) / 100
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1071,7 @@ memory usage: 570.4+ KB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.describe()
 </pre></div>
 </div>
 </div>
@@ -1181,19 +1181,19 @@ memory usage: 570.4+ KB
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove outliers in columns minimum_nights and price using IQR</span>
-<span class="n">quant_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;minimum_nights&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Remove outliers in columns minimum_nights and price using IQR
+quant_cols = [&quot;minimum_nights&quot;, &quot;price&quot;]
 
-<span class="k">for</span> <span class="n">col_name</span> <span class="ow">in</span> <span class="n">quant_cols</span><span class="p">:</span>
-    <span class="n">q1</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.25</span><span class="p">)</span>
-    <span class="n">q3</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.75</span><span class="p">)</span>
-    <span class="n">iqr</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">-</span> <span class="n">q1</span>
-    <span class="n">low</span> <span class="o">=</span> <span class="n">q1</span> <span class="o">-</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span>
-    <span class="n">high</span> <span class="o">=</span> <span class="n">q3</span> <span class="o">+</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">iqr</span>
+for col_name in quant_cols:
+    q1 = df[col_name].quantile(0.25)
+    q3 = df[col_name].quantile(0.75)
+    iqr = q3 - q1
+    low = q1 - 1.5 * iqr
+    high = q3 + 1.5 * iqr
 
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">high</span><span class="p">]</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">low</span><span class="p">]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+    df = df[df[col_name] &lt; high]
+    df = df[df[col_name] &gt; low]
+df.describe()
 </pre></div>
 </div>
 </div>
@@ -1310,8 +1310,8 @@ memory usage: 570.4+ KB
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of dataset is null</span>
-<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Percentage of dataset is null
+df.isnull().sum() / len(df) * 100
 </pre></div>
 </div>
 </div>
@@ -1331,8 +1331,8 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop null values</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Drop null values
+df = df.dropna()
 </pre></div>
 </div>
 </div>
@@ -1360,11 +1360,11 @@ dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualizing the correlations between numerical variables</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Correlations Between Variables&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Visualizing the correlations between numerical variables
+plt.figure(figsize=(10,8))
+sns.heatmap(df.corr(), cmap=&quot;RdBu&quot;, annot=True)
+plt.title(&quot;Correlations Between Variables&quot;, size=15)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1380,14 +1380,14 @@ The distribution is right skewed, with most properties costing around $100.00 pe
 Recall that outliers have already been removed from <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of Price&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histplot of Price&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, (ax1, ax2) = plt.subplots(1,2, figsize=(20,8))
+sns.boxplot(x=&#39;price&#39;, data=df, ax=ax1)
+sns.histplot(x=&#39;price&#39;, data=df, ax=ax2, kde=True)
+ax1.set_title(&#39;Box-plot of Price&#39;)
+ax2.set_title(&#39;Histplot of Price&#39;)
+ax1.set_xlabel(&#39;Price ($) per night&#39;)
+ax2.set_xlabel(&#39;Price ($) per night&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1403,14 +1403,14 @@ The distribution is right skewed, with most properties having 1 bathroom.
 Different variability of the price is present for each number of bedrooms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bedrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bedrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of no. of Bedrooms&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Countplot of no. of Bedrooms&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bedrooms&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bedrooms&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, (ax1, ax2) = plt.subplots(1,2, figsize=(20,8))
+sns.boxplot(x=&#39;bedrooms&#39;, data=df, ax=ax1)
+sns.countplot(x=&#39;bedrooms&#39;, data=df, ax=ax2)
+ax1.set_title(&#39;Box-plot of no. of Bedrooms&#39;)
+ax2.set_title(&#39;Countplot of no. of Bedrooms&#39;)
+ax1.set_xlabel(&#39;Bedrooms&#39;)
+ax2.set_xlabel(&#39;Bedrooms&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1420,13 +1420,13 @@ Different variability of the price is present for each number of bedrooms.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Price corresponding to no. of Bedrooms</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bedrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price ($) vs no. of Bedrooms&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bedrooms&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Price corresponding to no. of Bedrooms
+plt.figure(figsize=(10,8))
+ax = sns.barplot(y=&#39;price&#39;, x=&#39;bedrooms&#39;, data=df)
+ax.set_title(&#39;Price ($) vs no. of Bedrooms&#39;)
+ax.set_xlabel(&#39;Bedrooms&#39;)
+ax.set_ylabel(&#39;Price ($) per night&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1442,14 +1442,14 @@ Different variability of the price is present for each number of bedrooms.</p>
 The distribution is right skewed, with most properties having 1 bathroom. Different variability of the price is present for each number of bathrooms.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of no. of Bathrooms&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Countplot of no. of Bathrooms&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bathrooms&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bathrooms&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, (ax1, ax2) = plt.subplots(1,2, figsize=(20,8))
+sns.boxplot(x=&#39;bathrooms&#39;, data=df, ax=ax1)
+sns.countplot(x=&#39;bathrooms&#39;, data=df, ax=ax2)
+ax1.set_title(&#39;Box-plot of no. of Bathrooms&#39;)
+ax2.set_title(&#39;Countplot of no. of Bathrooms&#39;)
+ax1.set_xlabel(&#39;Bathrooms&#39;)
+ax2.set_xlabel(&#39;Bathrooms&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1459,13 +1459,13 @@ The distribution is right skewed, with most properties having 1 bathroom. Differ
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Price corresponding to no. of Bathrooms</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;bathrooms&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price ($) vs no. of Bathrooms&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Bathrooms&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Price corresponding to no. of Bathrooms
+plt.figure(figsize=(10,8))
+ax = sns.barplot(y=&#39;price&#39;, x=&#39;bathrooms&#39;, data=df)
+ax.set_title(&#39;Price ($) vs no. of Bathrooms&#39;)
+ax.set_xlabel(&#39;Bathrooms&#39;)
+ax.set_ylabel(&#39;Price ($) per night&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1481,14 +1481,14 @@ The distribution is right skewed and bimodal, with most properties requiring a m
 Recall that outliers have already been removed from <code class="docutils literal notranslate"><span class="pre">Minimum</span> <span class="pre">Nights</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;minimum_nights&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;minimum_nights&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Box-plot of no. of Minimum Nights&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Countplot of no. of Minimum Nights&#39;</span><span class="p">)</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Minimum Nights&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Minimum Nights&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, (ax1, ax2) = plt.subplots(1,2, figsize=(20,8))
+sns.boxplot(x=&#39;minimum_nights&#39;, data=df, ax=ax1)
+sns.countplot(x=&#39;minimum_nights&#39;, data=df, ax=ax2)
+ax1.set_title(&#39;Box-plot of no. of Minimum Nights&#39;)
+ax2.set_title(&#39;Countplot of no. of Minimum Nights&#39;)
+ax1.set_xlabel(&#39;Minimum Nights&#39;)
+ax2.set_xlabel(&#39;Minimum Nights&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1504,14 +1504,14 @@ Most properties are Apartments. The most expensive type being resorts, and the c
 Different variability of the price is present for each property type. For example, cottages has a wide range of prices, whereas apartments have a narrow range.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No. of property types: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;No. of property types: {len(df[&#39;property_type&#39;].unique())}&quot;)
 
-<span class="c1"># Frequency of each property type</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of Property Types&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Property Type&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+# Frequency of each property type
+plt.figure(figsize=(10,8))
+ax = sns.countplot(y=&#39;property_type&#39;, data=df, order = df[&#39;property_type&#39;].value_counts().index)
+ax.set_title(&#39;Frequency of Property Types&#39;)
+ax.set_ylabel(&#39;Property Type&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1524,13 +1524,13 @@ Different variability of the price is present for each property type. For exampl
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Price of each property type</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;property_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price vs Property Types&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Property Type&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Price of each property type
+plt.figure(figsize=(10,8))
+ax = sns.barplot(x=&#39;price&#39;, y=&#39;property_type&#39;, data=df, order = df[&#39;property_type&#39;].value_counts().index)
+ax.set_title(&#39;Price vs Property Types&#39;)
+ax.set_ylabel(&#39;Property Type&#39;)
+ax.set_xlabel(&#39;Price ($) per night&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1545,14 +1545,14 @@ Different variability of the price is present for each property type. For exampl
 Most rooms are Entire home/apt. The most expensive type being Entire home/apt, and the cheapest being Shared Room.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No. of room types: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;No. of room types: {len(df[&#39;room_type&#39;].unique())}&quot;)
 
-<span class="c1"># Frequency of each room type</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of Room Types&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Room Type&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+# Frequency of each room type
+plt.figure(figsize=(10,8))
+ax = sns.countplot(y=&#39;room_type&#39;, data=df, order = df[&#39;room_type&#39;].value_counts().index)
+ax.set_title(&#39;Frequency of Room Types&#39;)
+ax.set_ylabel(&#39;Room Type&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1565,13 +1565,13 @@ Most rooms are Entire home/apt. The most expensive type being Entire home/apt, a
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Price of each room type</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;room_type&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;room_type&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price vs Room Types&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Room Type&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Price ($) per night&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Price of each room type
+plt.figure(figsize=(10,8))
+ax = sns.barplot(x=&#39;price&#39;, y=&#39;room_type&#39;, data=df, order = df[&#39;room_type&#39;].value_counts().index)
+ax.set_title(&#39;Price vs Room Types&#39;)
+ax.set_ylabel(&#39;Room Type&#39;)
+ax.set_xlabel(&#39;Price ($) per night&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1586,25 +1586,25 @@ Most rooms are Entire home/apt. The most expensive type being Entire home/apt, a
 Scatterplot does not show distinct price clusters based on latitude and longitude.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get address from Latitude and Longitude</span>
-<span class="n">geolocator</span> <span class="o">=</span> <span class="n">Nominatim</span><span class="p">(</span><span class="n">user_agent</span><span class="o">=</span><span class="s2">&quot;geoapi&quot;</span><span class="p">)</span>
-<span class="n">sample_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">Latitude</span><span class="p">,</span> <span class="n">Longitude</span> <span class="o">=</span> <span class="n">sample_df</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">sample_df</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
-<span class="n">location</span> <span class="o">=</span> <span class="n">geolocator</span><span class="o">.</span><span class="n">reverse</span><span class="p">(</span><span class="n">Latitude</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span> <span class="o">+</span> <span class="n">Longitude</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Get address from Latitude and Longitude
+geolocator = Nominatim(user_agent=&quot;geoapi&quot;)
+sample_df = df.sample(1)
+Latitude, Longitude = sample_df[&#39;latitude&#39;].astype(str), sample_df[&#39;longitude&#39;].astype(str)
+location = geolocator.reverse(Latitude + &quot;,&quot; + Longitude)
+print(location)
 
-<span class="c1"># Visualization of latitude and longitude</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;longitude&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;price&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Scatterplot of Latitude and Longitude, colored by Price&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Longitude&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Latitude&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+# Visualization of latitude and longitude
+plt.figure(figsize=(10,8))
+sns.scatterplot(data=df, x=&#39;longitude&#39;, y=&#39;latitude&#39;, hue=&#39;price&#39;)
+plt.title(&#39;Scatterplot of Latitude and Longitude, colored by Price&#39;)
+plt.xlabel(&#39;Longitude&#39;)
+plt.ylabel(&#39;Latitude&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>178, Maynard Street, St. Mary&#39;s Park, San Francisco, CAL Fire Northern Region, California, 94112, United States
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Handlery Union Square Hotel, O&#39;Farrell Street, Union Square, San Francisco, CAL Fire Northern Region, California, 94107, United States
 </pre></div>
 </div>
 <img alt="../../_images/inn_the_neighborhood_38_1.png" src="../../_images/inn_the_neighborhood_38_1.png" />
@@ -1617,21 +1617,21 @@ Scatterplot does not show distinct price clusters based on latitude and longitud
 <p>Split the data to train (80%) and test (20%) to estimate the performance of machine learning algorithms when they are used to make predictions on data not used to train the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># Features</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span> <span class="c1"># Target</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>X = df.iloc[:, :-1] # Features
+y = df[&#39;price&#39;] # Target
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train Test Split</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Train Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=2022)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X train data </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y train data </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;X test data  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y test data  </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+print(&#39;X train data {}&#39;.format(X_train.shape))
+print(&#39;y train data {}&#39;.format(y_train.shape))
+print(&#39;X test data  {}&#39;.format(X_test.shape))
+print(&#39;y test data  {}&#39;.format(y_test.shape))
 </pre></div>
 </div>
 </div>
@@ -1657,54 +1657,54 @@ y test data  (1475,)
 <h3>One-Hot-Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Categorical Features</span>
-<span class="n">cat_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;property_type&#39;</span><span class="p">,</span> <span class="s1">&#39;room_type&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Categorical Features
+cat_cols = [&#39;property_type&#39;, &#39;room_type&#39;]
 
-<span class="c1"># Transformer Object</span>
-<span class="n">ohe</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">),</span> 
-     <span class="n">cat_cols</span><span class="p">))</span>
+# Transformer Object
+ohe = make_column_transformer(
+    (OneHotEncoder(handle_unknown=&#39;ignore&#39;), 
+     cat_cols))
 
-<span class="k">def</span> <span class="nf">encode</span><span class="p">(</span><span class="n">transformer</span><span class="p">,</span> <span class="n">df</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Apply transformer columns of a pandas DataFrame</span>
-<span class="sd">    </span>
-<span class="sd">    INPUTS:</span>
-<span class="sd">    transformer: transformer object</span>
-<span class="sd">    df: pandas DataFrame</span>
-<span class="sd">    </span>
-<span class="sd">    OUTPUT:</span>
-<span class="sd">    transformed_df: transformed pandas DataFrame</span>
-<span class="sd">    </span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">transformed</span> <span class="o">=</span> <span class="n">transformer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">cat_cols</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-    <span class="n">transformed_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">transformed</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">transformer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">transformed_df</span>
+def encode(transformer, df):
+    &quot;&quot;&quot; Apply transformer columns of a pandas DataFrame
+    
+    INPUTS:
+    transformer: transformer object
+    df: pandas DataFrame
+    
+    OUTPUT:
+    transformed_df: transformed pandas DataFrame
+    
+    &quot;&quot;&quot;
+    transformed = transformer.fit_transform(df[cat_cols]).toarray()
+    transformed_df = pd.DataFrame(transformed, columns=transformer.get_feature_names())
+    return transformed_df
 
-<span class="c1"># Apply transformation on both Train and Test set</span>
-<span class="n">encoded_train</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">ohe</span><span class="p">,</span> <span class="n">X_train</span><span class="p">)</span>
-<span class="n">encoded_train</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">index</span>
-<span class="n">encoded_test</span> <span class="o">=</span> <span class="n">encode</span><span class="p">(</span><span class="n">ohe</span><span class="p">,</span> <span class="n">X_test</span><span class="p">)</span>
-<span class="n">encoded_test</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">index</span>
+# Apply transformation on both Train and Test set
+encoded_train = encode(ohe, X_train)
+encoded_train.index = X_train.index
+encoded_test = encode(ohe, X_test)
+encoded_test.index = X_test.index
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;encoded_train shape: </span><span class="si">{</span><span class="n">encoded_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;encoded_test shape: </span><span class="si">{</span><span class="n">encoded_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;encoded_train shape: {encoded_train.shape}&quot;)
+print(f&quot;encoded_test shape: {encoded_test.shape}&quot;)
 
-<span class="c1"># Join encoded cols to Train and Test set, drop original column</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoded_train</span><span class="p">)</span>
-<span class="n">X_train</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">cat_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encoded_test</span><span class="p">)</span>
-<span class="n">X_test</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">cat_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+# Join encoded cols to Train and Test set, drop original column
+X_train = X_train.join(encoded_train)
+X_train.drop(cat_cols, axis=1, inplace=True)
+X_test = X_test.join(encoded_test)
+X_test.drop(cat_cols, axis=1, inplace=True)
 
-<span class="c1"># Ensure Train and Test have the same no. of columns</span>
-<span class="n">train_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">test_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">X_test</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-<span class="n">cols_not_in_test</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">train_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">test_cols</span><span class="p">}</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">**</span><span class="n">cols_not_in_test</span><span class="p">)</span>
-<span class="n">cols_not_in_train</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span><span class="mi">0</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">test_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">train_cols</span><span class="p">}</span>
-<span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="o">**</span><span class="n">cols_not_in_train</span><span class="p">)</span>
+# Ensure Train and Test have the same no. of columns
+train_cols = list(X_train.columns)
+test_cols = list(X_test.columns)
+cols_not_in_test = {c:0 for c in train_cols if c not in test_cols}
+X_test = X_test.assign(**cols_not_in_test)
+cols_not_in_train = {c:0 for c in test_cols if c not in train_cols}
+X_train = X_train.assign(**cols_not_in_train)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;X_train shape: {X_train.shape}&quot;)
+print(f&quot;X_test shape: {X_test.shape}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1723,31 +1723,31 @@ X_test shape: (1475, 35)
 <p>Transform Cartesian coordinates into polar coordinates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geospatial Features</span>
-<span class="n">geo_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Geospatial Features
+geo_cols = [&#39;latitude&#39;, &#39;longitude&#39;]
 
-<span class="k">def</span> <span class="nf">cart2pol</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Convert cartesian coordinates into polar coordinates</span>
-<span class="sd">    </span>
-<span class="sd">    INPUT</span>
-<span class="sd">    x, y: Cartesian coorindates</span>
-<span class="sd">    </span>
-<span class="sd">    OUTPUT</span>
-<span class="sd">    rho, phi: Polar coordinates</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">rho</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">rho</span><span class="p">,</span> <span class="n">phi</span>
+def cart2pol(x, y):
+    &quot;&quot;&quot; Convert cartesian coordinates into polar coordinates
+    
+    INPUT
+    x, y: Cartesian coorindates
+    
+    OUTPUT
+    rho, phi: Polar coordinates
+    &quot;&quot;&quot;
+    rho = np.sqrt(x**2 + y**2)
+    phi = np.arctan2(y, x)
+    return rho, phi
 
-<span class="n">rho</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">cart2pol</span><span class="p">(</span><span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">],</span> <span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">])</span>
-<span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span>
-<span class="n">X_train</span><span class="p">[</span><span class="s1">&#39;phi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span>
-<span class="n">rho</span><span class="p">,</span> <span class="n">phi</span> <span class="o">=</span> <span class="n">cart2pol</span><span class="p">(</span><span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">],</span> <span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">])</span>
-<span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rho</span>
-<span class="n">X_test</span><span class="p">[</span><span class="s1">&#39;phi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">phi</span>
+rho, phi = cart2pol(X_train[&#39;longitude&#39;], X_train[&#39;latitude&#39;])
+X_train[&#39;rho&#39;] = rho
+X_train[&#39;phi&#39;] = phi
+rho, phi = cart2pol(X_test[&#39;longitude&#39;], X_test[&#39;latitude&#39;])
+X_test[&#39;rho&#39;] = rho
+X_test[&#39;phi&#39;] = phi
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;X_train shape: {X_train.shape}&quot;)
+print(f&quot;X_test shape: {X_test.shape}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1766,20 +1766,20 @@ X_test shape: (1475, 37)
 According to the random forest, <code class="docutils literal notranslate"><span class="pre">bedrooms</span></code> is the most important feature. This is expected because it has the highest correlation to the <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">)</span>
-<span class="n">rf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">perm_importance</span> <span class="o">=</span> <span class="n">permutation_importance</span><span class="p">(</span><span class="n">rf</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>rf = RandomForestRegressor(n_estimators=100, random_state=2022)
+rf.fit(X_train, y_train)
+perm_importance = permutation_importance(rf, X_test, y_test)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">sorted_idx</span> <span class="o">=</span> <span class="n">perm_importance</span><span class="o">.</span><span class="n">importances_mean</span><span class="o">.</span><span class="n">argsort</span><span class="p">()[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">sorted_idx</span><span class="p">],</span> <span class="n">perm_importance</span><span class="o">.</span><span class="n">importances_mean</span><span class="p">[</span><span class="n">sorted_idx</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Random Forest Feature Importance&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize=(10,8))
+sorted_idx = perm_importance.importances_mean.argsort()[-5:]
+plt.barh(X_train.columns[sorted_idx], perm_importance.importances_mean[sorted_idx])
+plt.title(&quot;Random Forest Feature Importance&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1795,22 +1795,22 @@ Using Lasso Regularization to identify and select a subset of input variables th
 Non-important features are removed.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lasso Regularization</span>
-<span class="n">sel_lasso</span> <span class="o">=</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">))</span>
-<span class="n">sel_lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-<span class="n">sel_lasso</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Lasso Regularization
+sel_lasso = SelectFromModel(LogisticRegression(C=1, penalty=&#39;l1&#39;, solver=&#39;liblinear&#39;, random_state=2022))
+sel_lasso.fit(X_train, y_train)
+sel_lasso.get_support()
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a list with the selected features and print the outputs</span>
-<span class="n">selected_feat</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span><span class="p">[(</span><span class="n">sel_lasso</span><span class="o">.</span><span class="n">get_support</span><span class="p">())]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># make a list with the selected features and print the outputs
+selected_feat = X_train.columns[(sel_lasso.get_support())]
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;total features: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;selected features: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">selected_feat</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;features with coefficients shrank to zero: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sel_lasso</span><span class="o">.</span><span class="n">estimator_</span><span class="o">.</span><span class="n">coef_</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)))</span>
+print(&#39;total features: {}&#39;.format((X_train.shape[1])))
+print(&#39;selected features: {}&#39;.format(len(selected_feat)))
+print(&#39;features with coefficients shrank to zero: {}&#39;.format(np.sum(sel_lasso.estimator_.coef_ == 0)))
 </pre></div>
 </div>
 </div>
@@ -1824,10 +1824,10 @@ features with coefficients shrank to zero: 10531
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span> <span class="o">=</span> <span class="n">X_train</span><span class="p">[</span><span class="n">selected_feat</span><span class="p">]</span>
-<span class="n">X_test</span> <span class="o">=</span> <span class="n">X_test</span><span class="p">[</span><span class="n">selected_feat</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_train shape: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X_test shape: </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>X_train = X_train[selected_feat]
+X_test = X_test[selected_feat]
+print(f&quot;X_train shape: {X_train.shape}&quot;)
+print(f&quot;X_test shape: {X_test.shape}&quot;)
 </pre></div>
 </div>
 </div>
@@ -1846,35 +1846,35 @@ Using k-folds cross validation to estimate and compare the performance of models
 LGBMRegressor - (Microsoft’s implementation of gradient boosted machines) - gives the best results out of models.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">neural_network</span><span class="p">():</span>
-    <span class="c1"># No. of neuron based on the number of available features</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">26</span><span class="p">,</span><span class="n">activation</span><span class="o">=</span><span class="s1">&#39;relu&#39;</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;Adam&#39;</span><span class="p">,</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">model</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def neural_network():
+    # No. of neuron based on the number of available features
+    model = Sequential()
+    model.add(Dense(26,activation=&#39;relu&#39;))
+    model.add(Dense(26,activation=&#39;relu&#39;))
+    model.add(Dense(26,activation=&#39;relu&#39;))
+    model.add(Dense(26,activation=&#39;relu&#39;))
+    model.add(Dense(1))
+    model.compile(optimizer=&#39;Adam&#39;,loss=&#39;mse&#39;)
+    return model
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Pipelines for Machine Learning models</span>
-<span class="n">pipelines</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;Linear Regression&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;LR&#39;</span><span class="p">,</span> <span class="n">LinearRegression</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;KNN Regressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;KNNR&#39;</span><span class="p">,</span> <span class="n">KNeighborsRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;SupportVectorRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;SVR&#39;</span><span class="p">,</span> <span class="n">SVR</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;DecisionTreeRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;DTR&#39;</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;AdaboostRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;ABR&#39;</span><span class="p">,</span> <span class="n">AdaBoostRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;RandomForestRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;RBR&#39;</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;BaggingRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;BGR&#39;</span><span class="p">,</span> <span class="n">BaggingRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;GradientBoostRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;GBR&#39;</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;LGBMRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;lightGBM&#39;</span><span class="p">,</span> <span class="n">LGBMRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;XGBRegressor&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;XGB&#39;</span><span class="p">,</span> <span class="n">XGBRegressor</span><span class="p">())])))</span>
-<span class="n">pipelines</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="s1">&#39;Neural Network&#39;</span><span class="p">,</span> <span class="n">Pipeline</span><span class="p">([(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">MinMaxScaler</span><span class="p">()),</span> <span class="p">(</span><span class="s1">&#39;NN&#39;</span><span class="p">,</span> <span class="n">neural_network</span><span class="p">())])))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Pipelines for Machine Learning models
+pipelines = []
+pipelines.append((&#39;Linear Regression&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;LR&#39;, LinearRegression())])))
+pipelines.append((&#39;KNN Regressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;KNNR&#39;, KNeighborsRegressor())])))
+pipelines.append((&#39;SupportVectorRegressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;SVR&#39;, SVR())])))
+pipelines.append((&#39;DecisionTreeRegressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;DTR&#39;, DecisionTreeRegressor())])))
+pipelines.append((&#39;AdaboostRegressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;ABR&#39;, AdaBoostRegressor())])))
+pipelines.append((&#39;RandomForestRegressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;RBR&#39;, RandomForestRegressor())])))
+pipelines.append((&#39;BaggingRegressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;BGR&#39;, BaggingRegressor())])))
+pipelines.append((&#39;GradientBoostRegressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;GBR&#39;, GradientBoostingRegressor())])))
+pipelines.append((&#39;LGBMRegressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;lightGBM&#39;, LGBMRegressor())])))
+pipelines.append((&#39;XGBRegressor&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;XGB&#39;, XGBRegressor())])))
+pipelines.append((&#39;Neural Network&#39;, Pipeline([(&#39;scaler&#39;, MinMaxScaler()), (&#39;NN&#39;, neural_network())])))
 </pre></div>
 </div>
 </div>
@@ -1890,16 +1890,16 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create empty dataframe to store the results</span>
-<span class="n">cv_scores</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Regressor&#39;</span><span class="p">:[],</span> <span class="s1">&#39;RMSE&#39;</span><span class="p">:[],</span> <span class="s1">&#39;Std&#39;</span><span class="p">:[]})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create empty dataframe to store the results
+cv_scores = pd.DataFrame({&#39;Regressor&#39;:[], &#39;RMSE&#39;:[], &#39;Std&#39;:[]})
 
-<span class="c1"># Cross-validation score for each pipeline for training data</span>
-<span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">pipelines</span><span class="p">):</span>
-    <span class="n">name</span><span class="p">,</span> <span class="n">pipeline</span> <span class="o">=</span> <span class="n">val</span>
-    <span class="n">kfold</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span> 
-    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="o">-</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kfold</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">))</span>
-    <span class="n">cv_scores</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="p">,</span> <span class="n">rmse</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">rmse</span><span class="o">.</span><span class="n">std</span><span class="p">()]</span>
-<span class="n">cv_scores</span>
+# Cross-validation score for each pipeline for training data
+for ind, val in enumerate(pipelines):
+    name, pipeline = val
+    kfold = KFold(n_splits=10) 
+    rmse = np.sqrt(-cross_val_score(pipeline, X_train, y_train, cv=kfold, scoring=&quot;neg_mean_squared_error&quot;))
+    cv_scores.loc[ind] = [name, rmse.mean(), rmse.std()]
+cv_scores
 </pre></div>
 </div>
 </div>
@@ -2022,8 +2022,8 @@ Using Root Mean Squared Error as the metric for 500 trials.</p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tuner</span> <span class="o">=</span> <span class="n">LGBMTuner</span><span class="p">(</span><span class="n">metric</span> <span class="o">=</span> <span class="s1">&#39;rmse&#39;</span><span class="p">,</span> <span class="n">trials</span> <span class="o">=</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">tuner</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tuner = LGBMTuner(metric = &#39;rmse&#39;, trials = 500)
+tuner.fit(X_train, y_train)
 </pre></div>
 </div>
 </div>
@@ -2094,8 +2094,8 @@ Time elapsed for fit execution: 20 min 4.296 sec
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Best Performing Model</span>
-<span class="n">LGBMRegressor</span><span class="p">(</span><span class="o">**</span><span class="n">tuner</span><span class="o">.</span><span class="n">best_params</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Best Performing Model
+LGBMRegressor(**tuner.best_params)
 </pre></div>
 </div>
 </div>
@@ -2112,8 +2112,8 @@ Time elapsed for fit execution: 20 min 4.296 sec
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">tuner</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-<span class="n">y_pred</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y_pred = tuner.predict(X_test)
+y_pred
 </pre></div>
 </div>
 </div>
@@ -2138,14 +2138,14 @@ Time elapsed for fit execution: 20 min 4.296 sec
 Nevertheless, the RMSE scores is greater than 25 indicating that the model fails to predict price within 25 dollars off of the actual price.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">performance_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;MSE&#39;</span><span class="p">:</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> 
-                    <span class="s1">&#39;RMSE&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)),</span>
-                    <span class="s1">&#39;MAE&#39;</span><span class="p">:</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">),</span> 
-                    <span class="s1">&#39;R2 Score&#39;</span><span class="p">:</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-                   <span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>performance_dict = {&#39;MSE&#39;: mean_squared_error(y_test, y_pred), 
+                    &#39;RMSE&#39;: np.sqrt(mean_squared_error(y_test, y_pred)),
+                    &#39;MAE&#39;: mean_absolute_error(y_test, y_pred), 
+                    &#39;R2 Score&#39;: r2_score(y_test, y_pred)
+                   }
 
-<span class="n">performance_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">performance_dict</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Metric&#39;</span><span class="p">,</span> <span class="s1">&#39;Score&#39;</span><span class="p">])</span>
-<span class="n">performance_df</span>
+performance_df = pd.DataFrame(performance_dict.items(), columns=[&#39;Metric&#39;, &#39;Score&#39;])
+performance_df
 </pre></div>
 </div>
 </div>

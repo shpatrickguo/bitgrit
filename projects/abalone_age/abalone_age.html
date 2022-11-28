@@ -615,151 +615,151 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%capture</span>
-<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">watermark</span>
-<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">shap</span>
-<span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">shutup</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%capture
+%pip install watermark
+%pip install shap
+%pip install shutup
 
-<span class="kn">import</span> <span class="nn">shutup</span><span class="p">;</span> <span class="n">shutup</span><span class="o">.</span><span class="n">please</span><span class="p">()</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">watermark</span> <span class="kn">import</span> <span class="n">watermark</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_transformer</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">OneHotEncoder</span>
-<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.callbacks</span> <span class="kn">import</span> <span class="n">LearningRateScheduler</span><span class="p">,</span> <span class="n">EarlyStopping</span>
-<span class="kn">import</span> <span class="nn">sklearn.metrics</span> <span class="k">as</span> <span class="nn">metrics</span>
-<span class="kn">import</span> <span class="nn">shap</span>
+import shutup; shutup.please()
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from watermark import watermark
+from sklearn.model_selection import train_test_split
+from sklearn.compose import make_column_transformer
+from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
+import tensorflow as tf
+from tensorflow.keras import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.callbacks import LearningRateScheduler, EarlyStopping
+import sklearn.metrics as metrics
+import shap
 
-<span class="c1"># Set style</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;fivethirtyeight&#39;</span><span class="p">)</span>
+# Set style
+plt.style.use(&#39;fivethirtyeight&#39;)
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-22 23:07:50.253796: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-28 21:28:01.446528: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-11-22 23:07:50.390763: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:07:50.390784: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-11-28 21:28:01.586686: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:01.586709: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-22 23:07:51.195914: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:07:51.196029: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
-2022-11-22 23:07:51.196038: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2022-11-28 21:28:02.375269: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:02.375364: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.14/x64/lib
+2022-11-28 21:28:02.375372: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creates function to generate a data quality report</span>
-<span class="k">def</span> <span class="nf">dqr</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Generate a data quality report</span>
-<span class="sd">    </span>
-<span class="sd">    ARGS:</span>
-<span class="sd">    df (dataframe): Pandas dataframe</span>
-<span class="sd">    </span>
-<span class="sd">    OUTPUT:</span>
-<span class="sd">    dq_report: First few rows of dataframe, descriptive statistics, and other info such as missing data and unique values etc.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-    <span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Creates function to generate a data quality report
+def dqr(df):
+    &quot;&quot;&quot;
+    Generate a data quality report
     
-    <span class="c1"># data type</span>
-    <span class="n">data_types</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Data Type&#39;</span><span class="p">])</span>
+    ARGS:
+    df (dataframe): Pandas dataframe
+    
+    OUTPUT:
+    dq_report: First few rows of dataframe, descriptive statistics, and other info such as missing data and unique values etc.
+    &quot;&quot;&quot;
+    display(df.head())
+    display(df.describe().round(1).T)
+    
+    # data type
+    data_types = pd.DataFrame(df.dtypes, columns=[&#39;Data Type&#39;])
   
-    <span class="c1"># missing data</span>
-    <span class="n">missing_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Missing Values&#39;</span><span class="p">])</span>
+    # missing data
+    missing_data = pd.DataFrame(df.isnull().sum(), columns=[&#39;Missing Values&#39;])
 
-    <span class="c1"># unique values</span>
-    <span class="n">unique_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Unique Values&#39;</span><span class="p">])</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
-        <span class="n">unique_values</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">nunique</span><span class="p">()]</span>
+    # unique values
+    unique_values = pd.DataFrame(columns=[&#39;Unique Values&#39;])
+    for row in list(df.columns.values):
+        unique_values.loc[row] = [df[row].nunique()]
     
-    <span class="c1"># number of records</span>
-    <span class="n">count_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Records&#39;</span><span class="p">])</span>
-    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
-        <span class="n">count_values</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">row</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">row</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()]</span>
+    # number of records
+    count_values = pd.DataFrame(columns=[&#39;Records&#39;])
+    for row in list(df.columns.values):
+        count_values.loc[row] = [df[row].count()]
         
-    <span class="c1"># join columns </span>
-    <span class="n">dq_report</span> <span class="o">=</span> <span class="n">data_types</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">count_values</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">missing_data</span><span class="p">)</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">unique_values</span><span class="p">)</span>
+    # join columns 
+    dq_report = data_types.join(count_values).join(missing_data).join(unique_values)
   
-    <span class="c1"># percentage missing</span>
-    <span class="n">dq_report</span><span class="p">[</span><span class="s1">&#39;Missing %&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dq_report</span><span class="p">[</span><span class="s1">&#39;Missing Values&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    # percentage missing
+    dq_report[&#39;Missing %&#39;] = (dq_report[&#39;Missing Values&#39;] / len(df) *100).round(2)
   
-    <span class="c1"># change order of columns</span>
-    <span class="n">dq_report</span> <span class="o">=</span> <span class="n">dq_report</span><span class="p">[[</span><span class="s1">&#39;Data Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Records&#39;</span><span class="p">,</span> <span class="s1">&#39;Unique Values&#39;</span><span class="p">,</span> <span class="s1">&#39;Missing Values&#39;</span><span class="p">,</span> <span class="s1">&#39;Missing %&#39;</span><span class="p">]]</span>
+    # change order of columns
+    dq_report = dq_report[[&#39;Data Type&#39;, &#39;Records&#39;, &#39;Unique Values&#39;, &#39;Missing Values&#39;, &#39;Missing %&#39;]]
 
-    <span class="k">return</span> <span class="n">dq_report</span>
+    return dq_report
 
-<span class="c1"># Plot the validation and training data separately</span>
-<span class="k">def</span> <span class="nf">plot_loss_curves</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="n">metric</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Returns separate loss curves for training and validation metrics.</span>
-<span class="sd">    &quot;&quot;&quot;</span> 
-    <span class="n">loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]</span>
-    <span class="n">val_loss</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">]</span>
+# Plot the validation and training data separately
+def plot_loss_curves(history, metric):
+    &quot;&quot;&quot;
+    Returns separate loss curves for training and validation metrics.
+    &quot;&quot;&quot; 
+    loss = history.history[&#39;loss&#39;]
+    val_loss = history.history[&#39;val_loss&#39;]
 
-    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="n">metric</span><span class="p">]</span>
-    <span class="n">val_accuracy</span> <span class="o">=</span> <span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;val_</span><span class="si">{</span><span class="n">metric</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span>
+    accuracy = history.history[metric]
+    val_accuracy = history.history[f&#39;val_{metric}&#39;]
 
-    <span class="n">epochs</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">]))</span>
+    epochs = range(len(history.history[&#39;loss&#39;]))
 
-    <span class="c1"># Plot loss</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;training_loss&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_loss</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Loss&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epochs&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    # Plot loss
+    plt.plot(epochs, loss, label=&#39;training_loss&#39;)
+    plt.plot(epochs, val_loss, label=&#39;val_loss&#39;)
+    plt.title(&#39;Loss&#39;)
+    plt.xlabel(&#39;Epochs&#39;)
+    plt.legend()
     
-    <span class="c1"># Plot metric</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">accuracy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;training_</span><span class="si">{</span><span class="n">metric</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">epochs</span><span class="p">,</span> <span class="n">val_accuracy</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;val_</span><span class="si">{</span><span class="n">metric</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">metric</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Epochs&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    # Plot metric
+    plt.figure()
+    plt.plot(epochs, accuracy, label=f&#39;training_{metric}&#39;)
+    plt.plot(epochs, val_accuracy, label=f&#39;val_{metric}&#39;)
+    plt.title(f&#39;{metric}&#39;)
+    plt.xlabel(&#39;Epochs&#39;)
+    plt.legend()
 
-<span class="k">def</span> <span class="nf">plot_predictions</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> 
-                     <span class="n">train_labels</span><span class="p">,</span>
-                     <span class="n">test_data</span><span class="p">,</span> 
-                     <span class="n">test_labels</span><span class="p">,</span> 
-                     <span class="n">predictions</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Plots training data, test data and compares predictions.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-    <span class="c1"># Plot training data in blue</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">train_labels</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Training data&quot;</span><span class="p">)</span>
-    <span class="c1"># Plot test data in green</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">test_labels</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Testing data&quot;</span><span class="p">)</span>
-    <span class="c1"># Plot the predictions in red (predictions were made on the test data)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">test_data</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predictions&quot;</span><span class="p">)</span>
-    <span class="c1"># Show the legend</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+def plot_predictions(train_data, 
+                     train_labels,
+                     test_data, 
+                     test_labels, 
+                     predictions):
+    &quot;&quot;&quot;
+    Plots training data, test data and compares predictions.
+    &quot;&quot;&quot;
+    plt.figure(figsize=(10, 7))
+    # Plot training data in blue
+    plt.scatter(train_data, train_labels, c=&quot;b&quot;, label=&quot;Training data&quot;)
+    # Plot test data in green
+    plt.scatter(test_data, test_labels, c=&quot;g&quot;, label=&quot;Testing data&quot;)
+    # Plot the predictions in red (predictions were made on the test data)
+    plt.scatter(test_data, predictions, c=&quot;r&quot;, label=&quot;Predictions&quot;)
+    # Show the legend
+    plt.legend()
     
-<span class="k">def</span> <span class="nf">regression_results</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+def regression_results(y_true, y_pred):
 
-    <span class="c1"># Regression metrics</span>
-    <span class="n">explained_variance</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">explained_variance_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-    <span class="n">mean_absolute_error</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> 
-    <span class="n">mse</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span> 
-    <span class="n">mean_squared_log_error</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_log_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-    <span class="n">median_absolute_error</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">median_absolute_error</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
-    <span class="n">r2</span><span class="o">=</span><span class="n">metrics</span><span class="o">.</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+    # Regression metrics
+    explained_variance=metrics.explained_variance_score(y_true, y_pred)
+    mean_absolute_error=metrics.mean_absolute_error(y_true, y_pred) 
+    mse=metrics.mean_squared_error(y_true, y_pred) 
+    mean_squared_log_error=metrics.mean_squared_log_error(y_true, y_pred)
+    median_absolute_error=metrics.median_absolute_error(y_true, y_pred)
+    r2=metrics.r2_score(y_true, y_pred)
 
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;explained_variance: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">explained_variance</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>    
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;mean_squared_log_error: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean_squared_log_error</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;r2: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">r2</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MAE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;MSE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mse</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;RMSE: &#39;</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mse</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+    print(&#39;explained_variance: &#39;, round(explained_variance,4))    
+    print(&#39;mean_squared_log_error: &#39;, round(mean_squared_log_error,4))
+    print(&#39;r2: &#39;, round(r2,4))
+    print(&#39;MAE: &#39;, round(mean_absolute_error,4))
+    print(&#39;MSE: &#39;, round(mse,4))
+    print(&#39;RMSE: &#39;, round(np.sqrt(mse),4))
 </pre></div>
 </div>
 </div>
@@ -789,8 +789,8 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abalone</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./data/abalone.csv&#39;</span><span class="p">)</span>
-<span class="n">dqr</span><span class="p">(</span><span class="n">abalone</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>abalone = pd.read_csv(&#39;./data/abalone.csv&#39;)
+dqr(abalone)
 </pre></div>
 </div>
 </div>
@@ -1138,15 +1138,15 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 <code class="docutils literal notranslate"><span class="pre">height</span></code> has the highest skewness of 3.13. Hints that there are outliers in height, which we can remove using the IQR algorithm before modeling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numerics</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;int16&#39;</span><span class="p">,</span> <span class="s1">&#39;int32&#39;</span><span class="p">,</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;float16&#39;</span><span class="p">,</span> <span class="s1">&#39;float32&#39;</span><span class="p">,</span> <span class="s1">&#39;float64&#39;</span><span class="p">]</span>
-<span class="n">objects</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;object&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>numerics = [&#39;int16&#39;, &#39;int32&#39;, &#39;int64&#39;, &#39;float16&#39;, &#39;float32&#39;, &#39;float64&#39;]
+objects = [&#39;object&#39;]
 
-<span class="c1"># Minimum of each numerical columns</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">abalone</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">numerics</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">abalone</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">numerics</span><span class="p">)[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+# Minimum of each numerical columns
+for i in abalone.select_dtypes(include=numerics).columns:
+    print(i, abalone.select_dtypes(include=numerics)[f&#39;{i}&#39;].min())
 
-<span class="c1"># Rows with height of 0.0</span>
-<span class="n">display</span><span class="p">(</span><span class="n">abalone</span><span class="p">[</span><span class="n">abalone</span><span class="o">.</span><span class="n">height</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">])</span>
+# Rows with height of 0.0
+display(abalone[abalone.height == 0.0])
 </pre></div>
 </div>
 </div>
@@ -1225,15 +1225,15 @@ age 2.5
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove rows with 0 height from dataset</span>
-<span class="n">abalone</span> <span class="o">=</span> <span class="n">abalone</span><span class="p">[</span><span class="n">abalone</span><span class="o">.</span><span class="n">height</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Remove rows with 0 height from dataset
+abalone = abalone[abalone.height != 0]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abalone</span><span class="o">.</span><span class="n">skew</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>abalone.skew().sort_values(ascending = False)
 </pre></div>
 </div>
 </div>
@@ -1254,9 +1254,9 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">abalone</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">annot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>corr = abalone.corr()
+plt.figure(figsize = (20,10))
+ax = sns.heatmap(corr, vmin = -1, center = 0, annot = True)
 </pre></div>
 </div>
 </div>
@@ -1267,12 +1267,12 @@ dtype: float64
 <p>There are no negative correlations. There is a high correlations between <code class="docutils literal notranslate"><span class="pre">length</span></code>, <code class="docutils literal notranslate"><span class="pre">diameter</span></code>, <code class="docutils literal notranslate"><span class="pre">height</span></code>, <code class="docutils literal notranslate"><span class="pre">whole-wt</span></code>, <code class="docutils literal notranslate"><span class="pre">shucked_wt</span></code>, <code class="docutils literal notranslate"><span class="pre">viscera_wt</span></code>, and <code class="docutils literal notranslate"><span class="pre">shell_wt</span></code>. Let’s remove the highly correlated variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Remove highly correlated columns</span>
-<span class="n">upper_tri</span> <span class="o">=</span> <span class="n">corr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">corr</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">))</span>
-<span class="n">columns_to_drop</span> <span class="o">=</span> <span class="p">[</span><span class="n">column</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">upper_tri</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">upper_tri</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.95</span><span class="p">)]</span>
-<span class="n">columns_to_drop</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Columns dropped:&quot;</span><span class="p">,</span> <span class="n">columns_to_drop</span><span class="p">)</span>
-<span class="n">abalone</span> <span class="o">=</span> <span class="n">abalone</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns_to_drop</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Remove highly correlated columns
+upper_tri = corr.where(np.triu(np.ones(corr.shape),k=1).astype(np.bool))
+columns_to_drop = [column for column in upper_tri.columns if any(upper_tri[column] &gt; 0.95)]
+columns_to_drop.remove(&#39;age&#39;)
+print(&quot;Columns dropped:&quot;, columns_to_drop)
+abalone = abalone.drop(columns_to_drop, axis=1)
 </pre></div>
 </div>
 </div>
@@ -1287,19 +1287,19 @@ dtype: float64
 <h2>Weight-by-age per sex analysis<a class="headerlink" href="#weight-by-age-per-sex-analysis" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">abalone</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">abalone</span><span class="p">[</span><span class="s2">&quot;whole_wt&quot;</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">abalone</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Age vs Whole Weight by sex&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Whole Weight&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plt.figure(figsize = (20,10))
+sns.boxplot(abalone[&#39;age&#39;], abalone[&quot;whole_wt&quot;], hue = abalone[&#39;sex&#39;])
+plt.title(f&#39;Age vs Whole Weight by sex&#39;)
+plt.ylabel(f&#39;Whole Weight&#39;)
+plt.xlabel(&#39;Age&#39;)
+plt.show()
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">abalone</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">],</span> <span class="n">abalone</span><span class="p">[</span><span class="s2">&quot;whole_wt&quot;</span><span class="p">],</span> <span class="n">hue</span> <span class="o">=</span> <span class="n">abalone</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">])</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Age vs Whole Weight by sex&#39;</span><span class="p">)</span>
@@ -1323,39 +1323,39 @@ dtype: float64
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_col</span> <span class="o">=</span> <span class="s1">&#39;age&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>target_col = &#39;age&#39;
 
-<span class="c1"># Create X &amp; y</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">abalone</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">abalone</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
+# Create X &amp; y
+X = abalone.drop(target_col, axis=1)
+y = abalone[target_col]
 
-<span class="n">num_cols</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">numerics</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">cat_cols</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">objects</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+num_cols = X.select_dtypes(include=numerics).columns.tolist()
+cat_cols = X.select_dtypes(include=objects).columns.tolist()
 
-<span class="c1"># Create column transformer (this will help us normalize/preprocess our data)</span>
-<span class="n">ct</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">MinMaxScaler</span><span class="p">(),</span> <span class="n">num_cols</span><span class="p">),</span> <span class="c1"># get all values between 0 and 1</span>
-    <span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">),</span> <span class="n">cat_cols</span><span class="p">)</span>
-<span class="p">)</span>
+# Create column transformer (this will help us normalize/preprocess our data)
+ct = make_column_transformer(
+    (MinMaxScaler(), num_cols), # get all values between 0 and 1
+    (OneHotEncoder(handle_unknown=&quot;ignore&quot;), cat_cols)
+)
 
-<span class="c1"># Build our train and test sets (use random state to ensure same split as before)</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+# Build our train and test sets (use random state to ensure same split as before)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-<span class="c1"># Build our val and test sets (use random state to ensure same split as before)</span>
-<span class="n">X_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+# Build our val and test sets (use random state to ensure same split as before)
+X_val, X_test, y_val, y_test = train_test_split(X_test, y_test, test_size=0.5, random_state=42)
 
-<span class="c1"># Fit column transformer on the training data only (doing so on test data would result in data leakage)</span>
-<span class="n">ct</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+# Fit column transformer on the training data only (doing so on test data would result in data leakage)
+ct.fit(X_train)
 
-<span class="c1"># Get Feature Names</span>
-<span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+# Get Feature Names
+feature_names = list(ct.get_feature_names_out())
 
-<span class="c1"># Transform training, validation and test data with normalization (MinMaxScalar) and one hot encoding (OneHotEncoder)</span>
-<span class="n">X_train_normal</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_val_normal</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
-<span class="n">X_test_normal</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+# Transform training, validation and test data with normalization (MinMaxScalar) and one hot encoding (OneHotEncoder)
+X_train_normal = ct.transform(X_train)
+X_val_normal = ct.transform(X_val)
+X_test_normal = ct.transform(X_test)
 
-<span class="n">X_train_normal</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_val_normal</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test_normal</span><span class="o">.</span><span class="n">shape</span>
+X_train_normal.shape, X_val_normal.shape, X_test_normal.shape
 </pre></div>
 </div>
 </div>
@@ -1370,30 +1370,30 @@ dtype: float64
 <h2>Build model<a class="headerlink" href="#build-model" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set random seed</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Set random seed
+tf.random.set_seed(42)
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
-    <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-    <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="p">])</span>
+model = Sequential([
+    Dense(10),
+    Dense(1)
+])
 
-<span class="c1"># Compile the model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span>
-                <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
-                <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mae&#39;</span><span class="p">])</span>
+# Compile the model
+model.compile(loss=&#39;mae&#39;,
+                optimizer=tf.keras.optimizers.SGD(lr=0.01),
+                metrics=[&#39;mae&#39;])
 
-<span class="n">early_stopping</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># Fit the model</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> 
-                    <span class="n">epochs</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
-                    <span class="n">steps_per_epoch</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">),</span>
-                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_val_normal</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span>
-                    <span class="n">validation_steps</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_val_normal</span><span class="p">),</span> 
-                    <span class="n">callbacks</span><span class="o">=</span><span class="n">early_stopping</span><span class="p">,</span>
-                    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
-                   <span class="p">)</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_normal</span><span class="p">)</span>
+early_stopping = EarlyStopping(monitor=&#39;loss&#39;, patience=3)
+# Fit the model
+history = model.fit(X_train_normal, y_train, 
+                    epochs=70,
+                    steps_per_epoch=len(X_train_normal),
+                    validation_data=(X_val_normal, y_val),
+                    validation_steps=len(X_val_normal), 
+                    callbacks=early_stopping,
+                    verbose=0
+                   )
+y_pred = model.predict(X_test_normal)
 </pre></div>
 </div>
 </div>
@@ -1413,7 +1413,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_loss_curves</span><span class="p">(</span><span class="n">history</span><span class="p">,</span> <span class="s1">&#39;mae&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>plot_loss_curves(history, &#39;mae&#39;)
 </pre></div>
 </div>
 </div>
@@ -1424,7 +1424,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>model.summary()
 </pre></div>
 </div>
 </div>
@@ -1448,7 +1448,7 @@ _________________________________________________________________
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regression_results</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>regression_results(y_test, y_pred)
 </pre></div>
 </div>
 </div>
@@ -1469,10 +1469,10 @@ RMSE:  0.0608
 <h2>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">initjs</span><span class="p">()</span>
-<span class="c1"># Compute SHAP values</span>
-<span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">DeepExplainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train_normal</span><span class="p">)</span>
-<span class="n">shap_values</span> <span class="o">=</span> <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_test_normal</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>shap.initjs()
+# Compute SHAP values
+explainer = shap.DeepExplainer(model, X_train_normal)
+shap_values = explainer.shap_values(X_test_normal)
 </pre></div>
 </div>
 </div>
@@ -1511,7 +1511,7 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_type</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">feature_names</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>shap.summary_plot(shap_values[0], plot_type = &#39;bar&#39;, feature_names = feature_names)
 </pre></div>
 </div>
 </div>
@@ -1522,65 +1522,65 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 <p>As expected, the number of rings is the most important feature and has the greatest impact on predicting age.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create X &amp; y</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">abalone</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">target_col</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;rings&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">abalone</span><span class="p">[</span><span class="n">target_col</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Create X &amp; y
+X = abalone.drop(target_col, axis=1).drop(&#39;rings&#39;, axis=1)
+y = abalone[target_col]
 
-<span class="n">num_cols</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">numerics</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span class="n">cat_cols</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="n">objects</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+num_cols = X.select_dtypes(include=numerics).columns.tolist()
+cat_cols = X.select_dtypes(include=objects).columns.tolist()
 
-<span class="c1"># Create column transformer (this will help us normalize/preprocess our data)</span>
-<span class="n">ct</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">MinMaxScaler</span><span class="p">(),</span> <span class="n">num_cols</span><span class="p">),</span> <span class="c1"># get all values between 0 and 1</span>
-    <span class="p">(</span><span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">),</span> <span class="n">cat_cols</span><span class="p">)</span>
-<span class="p">)</span>
+# Create column transformer (this will help us normalize/preprocess our data)
+ct = make_column_transformer(
+    (MinMaxScaler(), num_cols), # get all values between 0 and 1
+    (OneHotEncoder(handle_unknown=&quot;ignore&quot;), cat_cols)
+)
 
-<span class="c1"># Build our train and test sets (use random state to ensure same split as before)</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+# Build our train and test sets (use random state to ensure same split as before)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-<span class="c1"># Build our val and test sets (use random state to ensure same split as before)</span>
-<span class="n">X_val</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_val</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+# Build our val and test sets (use random state to ensure same split as before)
+X_val, X_test, y_val, y_test = train_test_split(X_test, y_test, test_size=0.5, random_state=42)
 
-<span class="c1"># Fit column transformer on the training data only (doing so on test data would result in data leakage)</span>
-<span class="n">ct</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+# Fit column transformer on the training data only (doing so on test data would result in data leakage)
+ct.fit(X_train)
 
-<span class="c1"># Get Feature Names</span>
-<span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
+# Get Feature Names
+feature_names = list(ct.get_feature_names_out())
 
-<span class="c1"># Transform training, validation and test data with normalization (MinMaxScalar) and one hot encoding (OneHotEncoder)</span>
-<span class="n">X_train_normal</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="n">X_val_normal</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_val</span><span class="p">)</span>
-<span class="n">X_test_normal</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+# Transform training, validation and test data with normalization (MinMaxScalar) and one hot encoding (OneHotEncoder)
+X_train_normal = ct.transform(X_train)
+X_val_normal = ct.transform(X_val)
+X_test_normal = ct.transform(X_test)
 
-<span class="c1"># Set random seed</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">set_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+# Set random seed
+tf.random.set_seed(42)
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span>
-    <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
-    <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="p">])</span>
+model = Sequential([
+    Dense(10),
+    Dense(1)
+])
 
-<span class="c1"># Compile the model</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mae&#39;</span><span class="p">,</span>
-                <span class="n">optimizer</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">),</span>
-                <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mae&#39;</span><span class="p">])</span>
+# Compile the model
+model.compile(loss=&#39;mae&#39;,
+                optimizer=tf.keras.optimizers.SGD(lr=0.01),
+                metrics=[&#39;mae&#39;])
 
-<span class="n">early_stopping</span> <span class="o">=</span> <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="c1"># Fit the model</span>
-<span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> 
-                    <span class="n">epochs</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
-                    <span class="n">steps_per_epoch</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_train_normal</span><span class="p">),</span>
-                    <span class="n">validation_data</span><span class="o">=</span><span class="p">(</span><span class="n">X_val_normal</span><span class="p">,</span> <span class="n">y_val</span><span class="p">),</span>
-                    <span class="n">validation_steps</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_val_normal</span><span class="p">),</span> 
-                    <span class="n">callbacks</span><span class="o">=</span><span class="n">early_stopping</span><span class="p">,</span>
-                    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span>
-                   <span class="p">)</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_normal</span><span class="p">)</span>
+early_stopping = EarlyStopping(monitor=&#39;loss&#39;, patience=3)
+# Fit the model
+history = model.fit(X_train_normal, y_train, 
+                    epochs=70,
+                    steps_per_epoch=len(X_train_normal),
+                    validation_data=(X_val_normal, y_val),
+                    validation_steps=len(X_val_normal), 
+                    callbacks=early_stopping,
+                    verbose=0
+                   )
+y_pred = model.predict(X_test_normal)
 
-<span class="n">explainer</span> <span class="o">=</span> <span class="n">shap</span><span class="o">.</span><span class="n">DeepExplainer</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X_train_normal</span><span class="p">)</span>
-<span class="n">shap_values</span> <span class="o">=</span> <span class="n">explainer</span><span class="o">.</span><span class="n">shap_values</span><span class="p">(</span><span class="n">X_test_normal</span><span class="p">)</span>
+explainer = shap.DeepExplainer(model, X_train_normal)
+shap_values = explainer.shap_values(X_test_normal)
 
-<span class="n">shap</span><span class="o">.</span><span class="n">summary_plot</span><span class="p">(</span><span class="n">shap_values</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_type</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">feature_names</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">)</span>
+shap.summary_plot(shap_values[0], plot_type = &#39;bar&#39;, feature_names = feature_names)
 </pre></div>
 </div>
 </div>
@@ -1597,8 +1597,8 @@ n===t._wrapperState.initialValue&&(e.value=n)}});t.exports=l},function(t,e,n){"u
 <h2>Appendix<a class="headerlink" href="#appendix" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> watermark
-<span class="o">%</span><span class="k">watermark</span> --iversions
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%load_ext watermark
+%watermark --iversions
 </pre></div>
 </div>
 </div>

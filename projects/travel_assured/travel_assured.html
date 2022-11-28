@@ -599,13 +599,13 @@ title="Print to PDF"
 <p>Let us set up all the objects (packages, and modules) that we will need to explore the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import necessary modules</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;ggplot&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Import necessary modules
+import numpy as np
+import pandas as pd
+%matplotlib inline
+import matplotlib.pyplot as plt
+import seaborn as sns
+plt.style.use(&#39;ggplot&#39;)
 </pre></div>
 </div>
 </div>
@@ -615,13 +615,13 @@ title="Print to PDF"
 <h2>Load the Data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read file</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/travel_insurance.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Read file
+df = pd.read_csv(&#39;data/travel_insurance.csv&#39;)
 
-<span class="c1"># Split the data in two subgroups, to compare data with/without Travel Insurance</span>
-<span class="n">insured_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;TravelInsurance&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">uninsured_df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;TravelInsurance&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+# Split the data in two subgroups, to compare data with/without Travel Insurance
+insured_df = df[df[&#39;TravelInsurance&#39;] == 1]
+uninsured_df = df[df[&#39;TravelInsurance&#39;] == 0]
+df.head()
 </pre></div>
 </div>
 </div>
@@ -735,10 +735,10 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the size and datatypes of the DataFrame</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape: </span><span class="si">{</span><span class="n">df</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Check the size and datatypes of the DataFrame
+print(f&quot;Shape: {df.shape}&quot;)
+print(&#39;\n&#39;)
+print(df.info())
 </pre></div>
 </div>
 </div>
@@ -769,14 +769,14 @@ None
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># For all categorical data columns</span>
-<span class="c1"># Print categories and the number of times they appear</span>
-<span class="c1"># ChornicDiseases and TravelInsurance at categorical because 1 and 0 represent yes and no</span>
-<span class="n">CAT_COLS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Employment Type&#39;</span><span class="p">,</span> <span class="s1">&#39;GraduateOrNot&#39;</span><span class="p">,</span> <span class="s2">&quot;ChronicDiseases&quot;</span><span class="p">,</span> <span class="s2">&quot;FrequentFlyer&quot;</span><span class="p">,</span> <span class="s2">&quot;EverTravelledAbroad&quot;</span><span class="p">,</span> <span class="s2">&quot;TravelInsurance&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># For all categorical data columns
+# Print categories and the number of times they appear
+# ChornicDiseases and TravelInsurance at categorical because 1 and 0 represent yes and no
+CAT_COLS = [&#39;Employment Type&#39;, &#39;GraduateOrNot&#39;, &quot;ChronicDiseases&quot;, &quot;FrequentFlyer&quot;, &quot;EverTravelledAbroad&quot;, &quot;TravelInsurance&quot;]
 
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">CAT_COLS</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">())</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+for col in df[CAT_COLS]:
+    print(df[col].value_counts())
+    print(&#39;\n&#39;)
 </pre></div>
 </div>
 </div>
@@ -815,7 +815,7 @@ Name: TravelInsurance, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df.describe()
 </pre></div>
 </div>
 </div>
@@ -916,8 +916,8 @@ Name: TravelInsurance, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Percentage of dataset is null</span>
-<span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Percentage of dataset is null
+df.isnull().sum() / len(df) * 100
 </pre></div>
 </div>
 </div>
@@ -938,7 +938,7 @@ dtype: float64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;EverTravelledAbroad&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>insured_df.value_counts(&#39;EverTravelledAbroad&#39;)
 </pre></div>
 </div>
 </div>
@@ -957,43 +957,43 @@ dtype: int64
 <p>Now let’s first look at the how many people have travel insurance and their travel habits.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">LABELS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">,</span> <span class="s1">&#39;Yes&#39;</span><span class="p">]</span> 
-<span class="n">EMPLOYMENT_LABELS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Private Sector/Self Employed&#39;</span><span class="p">,</span> <span class="s1">&#39;Government Sector&#39;</span><span class="p">]</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>LABELS = [&#39;No&#39;, &#39;Yes&#39;] 
+EMPLOYMENT_LABELS = [&#39;Private Sector/Self Employed&#39;, &#39;Government Sector&#39;] 
 
-<span class="k">def</span> <span class="nf">label_fontsize</span><span class="p">(</span><span class="n">fontsize</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">([</span><span class="n">ax</span><span class="o">.</span><span class="n">title</span><span class="p">,</span> <span class="n">ax</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">label</span><span class="p">,</span> <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">label</span><span class="p">]</span> <span class="o">+</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">()</span> <span class="o">+</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">()):</span>
-        <span class="n">item</span><span class="o">.</span><span class="n">set_fontsize</span><span class="p">(</span><span class="n">fontsize</span><span class="p">)</span>
+def label_fontsize(fontsize):
+    for item in ([ax.title, ax.xaxis.label, ax.yaxis.label] + ax.get_xticklabels() + ax.get_yticklabels()):
+        item.set_fontsize(fontsize)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_travelled</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;EverTravelledAbroad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">uninsured_travelled</span> <span class="o">=</span> <span class="n">uninsured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;EverTravelledAbroad&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>insured_travelled = insured_df.value_counts(&#39;EverTravelledAbroad&#39;).values
+uninsured_travelled = uninsured_df.value_counts(&#39;EverTravelledAbroad&#39;).values
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">LABELS</span><span class="p">))</span>  <span class="c1"># the label locations</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>  <span class="c1"># the width of the bars</span>
+x = np.arange(len(LABELS))  # the label locations
+width = 0.35  # the width of the bars
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">rects1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">insured_travelled</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Insured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;forestgreen&#39;</span><span class="p">)</span>
-<span class="n">rects2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">uninsured_travelled</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Uninsured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(15, 8))
+rects1 = ax.bar(x + width/2, insured_travelled, width, label=&#39;Insured&#39;, color=&#39;forestgreen&#39;)
+rects2 = ax.bar(x - width/2, uninsured_travelled, width, label=&#39;Uninsured&#39;, color=&#39;firebrick&#39;)
 
-<span class="c1"># Add some text for labels, title and custom x-axis tick labels, etc.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Ever travelled abroad&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Count of people that have travelled abroad by whether they are insured&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">LABELS</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_xlabel(&#39;Ever travelled abroad&#39;)
+ax.set_ylabel(&#39;Count&#39;)
+ax.set_title(&#39;Count of people that have travelled abroad by whether they are insured&#39;)
+ax.set_xticks(x)
+ax.set_xticklabels(LABELS)
+ax.legend(prop={&#39;size&#39;: 20})
 
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+ax.bar_label(rects1, padding=3, fontsize=20)
+ax.bar_label(rects2, padding=3, fontsize=20)
 
-<span class="n">label_fontsize</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+label_fontsize(20)
 
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig.tight_layout()
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1003,31 +1003,31 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_freqfly</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;FrequentFlyer&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">uninsured_freqfly</span> <span class="o">=</span> <span class="n">uninsured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;FrequentFlyer&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>insured_freqfly = insured_df.value_counts(&#39;FrequentFlyer&#39;).values
+uninsured_freqfly = uninsured_df.value_counts(&#39;FrequentFlyer&#39;).values
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">LABELS</span><span class="p">))</span>  <span class="c1"># the label locations</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>  <span class="c1"># the width of the bars</span>
+x = np.arange(len(LABELS))  # the label locations
+width = 0.35  # the width of the bars
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">rects1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">insured_freqfly</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Insured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;forestgreen&#39;</span><span class="p">)</span>
-<span class="n">rects2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">uninsured_freqfly</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Uninsured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(15, 8))
+rects1 = ax.bar(x + width/2, insured_freqfly, width, label=&#39;Insured&#39;, color=&#39;forestgreen&#39;)
+rects2 = ax.bar(x - width/2, uninsured_freqfly, width, label=&#39;Uninsured&#39;, color=&#39;firebrick&#39;)
 
-<span class="c1"># Add some text for labels, title and custom x-axis tick labels, etc.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequent Flyer&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Count of people that are frequent flyers by whether they are insured&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">LABELS</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_xlabel(&#39;Frequent Flyer&#39;)
+ax.set_ylabel(&#39;Count&#39;)
+ax.set_title(&#39;Count of people that are frequent flyers by whether they are insured&#39;)
+ax.set_xticks(x)
+ax.set_xticklabels(LABELS)
+ax.legend(prop={&#39;size&#39;: 20})
 
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+ax.bar_label(rects1, padding=3, fontsize=20)
+ax.bar_label(rects2, padding=3, fontsize=20)
 
-<span class="n">label_fontsize</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+label_fontsize(20)
 
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig.tight_layout()
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1042,29 +1042,29 @@ dtype: int64
 <p>Now that we have an understanding of their travel habits, let’s explore other demographic information.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_chronic</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;ChronicDiseases&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">uninsured_chronic</span> <span class="o">=</span> <span class="n">uninsured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;ChronicDiseases&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>insured_chronic = insured_df.value_counts(&#39;ChronicDiseases&#39;).values
+uninsured_chronic = uninsured_df.value_counts(&#39;ChronicDiseases&#39;).values
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">LABELS</span><span class="p">))</span>  <span class="c1"># the label locations</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>  <span class="c1"># the width of the bars</span>
+x = np.arange(len(LABELS))  # the label locations
+width = 0.35  # the width of the bars
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">rects1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">insured_chronic</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Insured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;forestgreen&#39;</span><span class="p">)</span>
-<span class="n">rects2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">uninsured_chronic</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Uninsured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(15, 8))
+rects1 = ax.bar(x + width/2, insured_chronic, width, label=&#39;Insured&#39;, color=&#39;forestgreen&#39;)
+rects2 = ax.bar(x - width/2, uninsured_chronic, width, label=&#39;Uninsured&#39;, color=&#39;firebrick&#39;)
 
-<span class="c1"># Add some text for labels, title and custom x-axis tick labels, etc.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Has a chronic disease&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Count of people that have a chronic disease by whether they are insured&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">LABELS</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">label_fontsize</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_xlabel(&#39;Has a chronic disease&#39;)
+ax.set_ylabel(&#39;Count&#39;)
+ax.set_title(&#39;Count of people that have a chronic disease by whether they are insured&#39;)
+ax.set_xticks(x)
+ax.set_xticklabels(LABELS)
+ax.legend(prop={&#39;size&#39;: 20})
+ax.bar_label(rects1, padding=3, fontsize=20)
+ax.bar_label(rects2, padding=3, fontsize=20)
+label_fontsize(20)
 
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig.tight_layout()
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1075,14 +1075,14 @@ dtype: int64
 <p>This countplot shows that between people who do and don’t have a chronic disease, most do not have travel insurance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;FamilyMembers&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;TravelInsurance&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of family members&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Frequency of family size by whether they are insured&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Insured&quot;</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">LABELS</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">title_fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">label_fontsize</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize=(15, 8))
+ax = sns.countplot(x=&quot;FamilyMembers&quot;, data=df, hue=&quot;TravelInsurance&quot;, palette=[&quot;red&quot;, &quot;green&quot;])
+ax.set_xlabel(&#39;Number of family members&#39;)
+ax.set_title(&#39;Frequency of family size by whether they are insured&#39;)
+ax.legend(title=&quot;Insured&quot;, labels=LABELS, fontsize=20, title_fontsize=20)
+label_fontsize(20)
+fig.tight_layout()
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1093,17 +1093,17 @@ dtype: int64
 <p>In this countplot fort each family size there are more people uninsured than insured. However the gap between the two counts seem to decrease as the family size increases. Let’s look at this closer using proportions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_fam_prop</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;FamilyMembers&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;FamilyMembers&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>insured_fam_prop = insured_df.value_counts(&#39;FamilyMembers&#39;) / df.value_counts(&#39;FamilyMembers&#39;)
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">insured_fam_prop</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">insured_fam_prop</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;royalblue&#39;</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(15, 8))
+ax.bar(insured_fam_prop.index, insured_fam_prop, color=&#39;royalblue&#39;)
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Number of family members&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Proportion insured&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Proportion of the insured by family size&#39;</span><span class="p">)</span>
-<span class="n">label_fontsize</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+ax.set_xlabel(&#39;Number of family members&#39;)
+ax.set_ylabel(&#39;Proportion insured&#39;)
+ax.set_title(&#39;Proportion of the insured by family size&#39;)
+label_fontsize(20)
+fig.tight_layout()
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1114,37 +1114,37 @@ dtype: int64
 <p>This bar chart shows the proportion of people insured for each family size. The proportion does increase as the family size increases, however the margin does not increase significantly. Further exploration may be needed to identify whether this increase is statistically significant.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize=[16,7])
 
-<span class="c1"># plot histogram comparing the density distribution of the Annual Income in each groups</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">insured_df</span><span class="p">[</span><span class="s1">&#39;AnnualIncome&#39;</span><span class="p">],</span> 
-             <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> 
-             <span class="n">hatch</span><span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> 
-             <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
-             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> 
-             <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
-             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> 
-             <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-            <span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">uninsured_df</span><span class="p">[</span><span class="s1">&#39;AnnualIncome&#39;</span><span class="p">],</span>
-             <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> 
-             <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="p">)</span>
+# plot histogram comparing the density distribution of the Annual Income in each groups
+_ = plt.hist(insured_df[&#39;AnnualIncome&#39;], 
+             histtype=&#39;step&#39;, 
+             hatch=&#39;/&#39;, 
+             density=True, 
+             color=&#39;green&#39;, 
+             bins=10, 
+             linestyle=&#39;--&#39;, 
+             linewidth=2,
+            )
+_ = plt.hist(uninsured_df[&#39;AnnualIncome&#39;],
+             density=True,
+             color=&#39;red&#39;, 
+             bins=10,
+            )
 
-<span class="c1"># put a title, label the axes, define the legend and display</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;PDF of Annual Income by whether they are insured&quot;</span><span class="p">,</span> 
-                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> 
-                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
-                 <span class="n">x</span><span class="o">=</span><span class="mf">0.52</span><span class="p">,</span>
-                 <span class="n">y</span><span class="o">=</span><span class="mf">0.92</span><span class="p">,</span>
-                <span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Annual Income&#39;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density Function (PDF)&#39;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Insured&#39;</span><span class="p">,</span> <span class="s1">&#39;Uninsured&#39;</span><span class="p">])</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+# put a title, label the axes, define the legend and display
+_ = plt.suptitle(&quot;PDF of Annual Income by whether they are insured&quot;, 
+                 fontsize=20, 
+                 color=&#39;black&#39;,
+                 x=0.52,
+                 y=0.92,
+                )
+_ = plt.xlabel(&#39;Annual Income&#39;)
+_ = plt.ylabel(&#39;Probability Density Function (PDF)&#39;)
+_ = plt.legend([&#39;Insured&#39;, &#39;Uninsured&#39;])
+_ = plt.ticklabel_format(axis=&quot;x&quot;, style=&quot;plain&quot;)
+_ = plt.ticklabel_format(axis=&quot;y&quot;, style=&quot;plain&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1156,31 +1156,31 @@ dtype: int64
 <p>But histograms are affected by a binning bias (i.e. the visualization depends on the number of bins chosen). In this case, the histogram has only 10 bins to make it easier to understand.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_grad</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;GraduateOrNot&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">uninsured_grad</span> <span class="o">=</span> <span class="n">uninsured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;GraduateOrNot&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>insured_grad = insured_df.value_counts(&#39;GraduateOrNot&#39;).values
+uninsured_grad = uninsured_df.value_counts(&#39;GraduateOrNot&#39;).values
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">LABELS</span><span class="p">))</span>  <span class="c1"># the label locations</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>  <span class="c1"># the width of the bars</span>
+x = np.arange(len(LABELS))  # the label locations
+width = 0.35  # the width of the bars
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">rects1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">insured_grad</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Insured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;forestgreen&#39;</span><span class="p">)</span>
-<span class="n">rects2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">uninsured_grad</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Uninsured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(15, 8))
+rects1 = ax.bar(x + width/2, insured_grad, width, label=&#39;Insured&#39;, color=&#39;forestgreen&#39;)
+rects2 = ax.bar(x - width/2, uninsured_grad, width, label=&#39;Uninsured&#39;, color=&#39;firebrick&#39;)
 
-<span class="c1"># Add some text for labels, title and custom x-axis tick labels, etc.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;College Graduate&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Count of people that are college graduates by whether they are insured&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">LABELS</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_xlabel(&#39;College Graduate&#39;)
+ax.set_ylabel(&#39;Count&#39;)
+ax.set_title(&#39;Count of people that are college graduates by whether they are insured&#39;)
+ax.set_xticks(x)
+ax.set_xticklabels(LABELS)
+ax.legend(prop={&#39;size&#39;: 20})
 
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+ax.bar_label(rects1, padding=3, fontsize=20)
+ax.bar_label(rects2, padding=3, fontsize=20)
 
-<span class="n">label_fontsize</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+label_fontsize(20)
 
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig.tight_layout()
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1191,31 +1191,31 @@ dtype: int64
 <p>This countplot shows that between people who are and aren’t have a college graduate, most do not have travel insurance.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">insured_employ_type</span> <span class="o">=</span> <span class="n">insured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;Employment Type&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-<span class="n">uninsured_employ_type</span> <span class="o">=</span> <span class="n">uninsured_df</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="s1">&#39;GraduateOrNot&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>insured_employ_type = insured_df.value_counts(&#39;Employment Type&#39;).values
+uninsured_employ_type = uninsured_df.value_counts(&#39;GraduateOrNot&#39;).values
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">EMPLOYMENT_LABELS</span><span class="p">))</span>  <span class="c1"># the label locations</span>
-<span class="n">width</span> <span class="o">=</span> <span class="mf">0.35</span>  <span class="c1"># the width of the bars</span>
+x = np.arange(len(EMPLOYMENT_LABELS))  # the label locations
+width = 0.35  # the width of the bars
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">rects1</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">insured_employ_type</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Insured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;forestgreen&#39;</span><span class="p">)</span>
-<span class="n">rects2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">uninsured_employ_type</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Uninsured&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">)</span>
+fig, ax = plt.subplots(figsize=(15, 8))
+rects1 = ax.bar(x + width/2, insured_employ_type, width, label=&#39;Insured&#39;, color=&#39;forestgreen&#39;)
+rects2 = ax.bar(x - width/2, uninsured_employ_type, width, label=&#39;Uninsured&#39;, color=&#39;firebrick&#39;)
 
-<span class="c1"># Add some text for labels, title and custom x-axis tick labels, etc.</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Employment Type&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Count of employment type by whether they are insured&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">EMPLOYMENT_LABELS</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">prop</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_xlabel(&#39;Employment Type&#39;)
+ax.set_ylabel(&#39;Count&#39;)
+ax.set_title(&#39;Count of employment type by whether they are insured&#39;)
+ax.set_xticks(x)
+ax.set_xticklabels(EMPLOYMENT_LABELS)
+ax.legend(prop={&#39;size&#39;: 20})
 
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects1</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">bar_label</span><span class="p">(</span><span class="n">rects2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+ax.bar_label(rects1, padding=3, fontsize=20)
+ax.bar_label(rects2, padding=3, fontsize=20)
 
-<span class="n">label_fontsize</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+label_fontsize(20)
 
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+fig.tight_layout()
+plt.show()
 </pre></div>
 </div>
 </div>
@@ -1225,37 +1225,37 @@ dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span><span class="mi">7</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize=[16,7])
 
-<span class="c1"># plot histogram comparing the density distribution of the Annual Income in each groups</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">insured_df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span> 
-             <span class="n">histtype</span><span class="o">=</span><span class="s1">&#39;step&#39;</span><span class="p">,</span> 
-             <span class="n">hatch</span><span class="o">=</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> 
-             <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
-             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> 
-             <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
-             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> 
-             <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-            <span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">uninsured_df</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">],</span>
-             <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> 
-             <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-            <span class="p">)</span>
+# plot histogram comparing the density distribution of the Annual Income in each groups
+_ = plt.hist(insured_df[&#39;Age&#39;], 
+             histtype=&#39;step&#39;, 
+             hatch=&#39;/&#39;, 
+             density=True, 
+             color=&#39;green&#39;, 
+             bins=10, 
+             linestyle=&#39;--&#39;, 
+             linewidth=2,
+            )
+_ = plt.hist(uninsured_df[&#39;Age&#39;],
+             density=True,
+             color=&#39;red&#39;, 
+             bins=10,
+            )
 
-<span class="c1"># put a title, label the axes, define the legend and display</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;PDF of Age by whether they are insured&quot;</span><span class="p">,</span> 
-                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> 
-                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
-                 <span class="n">x</span><span class="o">=</span><span class="mf">0.52</span><span class="p">,</span>
-                 <span class="n">y</span><span class="o">=</span><span class="mf">0.92</span><span class="p">,</span>
-                <span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Age&#39;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probability Density Function (PDF)&#39;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Insured&#39;</span><span class="p">,</span> <span class="s1">&#39;Uninsured&#39;</span><span class="p">])</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">ticklabel_format</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+# put a title, label the axes, define the legend and display
+_ = plt.suptitle(&quot;PDF of Age by whether they are insured&quot;, 
+                 fontsize=20, 
+                 color=&#39;black&#39;,
+                 x=0.52,
+                 y=0.92,
+                )
+_ = plt.xlabel(&#39;Age&#39;)
+_ = plt.ylabel(&#39;Probability Density Function (PDF)&#39;)
+_ = plt.legend([&#39;Insured&#39;, &#39;Uninsured&#39;])
+_ = plt.ticklabel_format(axis=&quot;x&quot;, style=&quot;plain&quot;)
+_ = plt.ticklabel_format(axis=&quot;y&quot;, style=&quot;plain&quot;)
+plt.show()
 </pre></div>
 </div>
 </div>

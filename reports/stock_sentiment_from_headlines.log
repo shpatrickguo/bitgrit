@@ -50,7 +50,7 @@ File [0;32mpandas/_libs/hashtable_class_helper.pxi:5753[0m, in [0;36mpandas._
 The above exception was the direct cause of the following exception:
 
 [0;31mKeyError[0m                                  Traceback (most recent call last)
-Cell [0;32mIn [9], line 6[0m
+Cell [0;32mIn[9], line 6[0m
 [1;32m      4[0m mean_c [38;5;241m=[39m mean_c[38;5;241m.[39munstack(level[38;5;241m=[39m[38;5;241m1[39m)
 [1;32m      5[0m [38;5;66;03m# Get the cross-section of compound in the 'columns' axis[39;00m
 [0;32m----> 6[0m mean_c [38;5;241m=[39m [43mmean_c[49m[38;5;241;43m.[39;49m[43mxs[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mcompound[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43maxis[49m[38;5;241;43m=[39;49m[38;5;241;43m1[39;49m[43m)[49m
@@ -64,19 +64,19 @@ File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/p
 [1;32m   4042[0m     index [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns
 [1;32m   4043[0m [38;5;28;01melse[39;00m:
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/frame.py:3803[0m, in [0;36mDataFrame.__getitem__[0;34m(self, key)[0m
-[1;32m   3801[0m [38;5;28;01mif[39;00m is_single_key:
-[1;32m   3802[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mnlevels [38;5;241m>[39m [38;5;241m1[39m:
-[0;32m-> 3803[0m         [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_multilevel[49m[43m([49m[43mkey[49m[43m)[49m
-[1;32m   3804[0m     indexer [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mget_loc(key)
-[1;32m   3805[0m     [38;5;28;01mif[39;00m is_integer(indexer):
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/frame.py:3804[0m, in [0;36mDataFrame.__getitem__[0;34m(self, key)[0m
+[1;32m   3802[0m [38;5;28;01mif[39;00m is_single_key:
+[1;32m   3803[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mnlevels [38;5;241m>[39m [38;5;241m1[39m:
+[0;32m-> 3804[0m         [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_getitem_multilevel[49m[43m([49m[43mkey[49m[43m)[49m
+[1;32m   3805[0m     indexer [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns[38;5;241m.[39mget_loc(key)
+[1;32m   3806[0m     [38;5;28;01mif[39;00m is_integer(indexer):
 
-File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/frame.py:3854[0m, in [0;36mDataFrame._getitem_multilevel[0;34m(self, key)[0m
-[1;32m   3852[0m [38;5;28;01mdef[39;00m [38;5;21m_getitem_multilevel[39m([38;5;28mself[39m, key):
-[1;32m   3853[0m     [38;5;66;03m# self.columns is a MultiIndex[39;00m
-[0;32m-> 3854[0m     loc [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolumns[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mkey[49m[43m)[49m
-[1;32m   3855[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(loc, ([38;5;28mslice[39m, np[38;5;241m.[39mndarray)):
-[1;32m   3856[0m         new_columns [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns[loc]
+File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/frame.py:3855[0m, in [0;36mDataFrame._getitem_multilevel[0;34m(self, key)[0m
+[1;32m   3853[0m [38;5;28;01mdef[39;00m [38;5;21m_getitem_multilevel[39m([38;5;28mself[39m, key):
+[1;32m   3854[0m     [38;5;66;03m# self.columns is a MultiIndex[39;00m
+[0;32m-> 3855[0m     loc [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mcolumns[49m[38;5;241;43m.[39;49m[43mget_loc[49m[43m([49m[43mkey[49m[43m)[49m
+[1;32m   3856[0m     [38;5;28;01mif[39;00m [38;5;28misinstance[39m(loc, ([38;5;28mslice[39m, np[38;5;241m.[39mndarray)):
+[1;32m   3857[0m         new_columns [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mcolumns[loc]
 
 File [0;32m/opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:2916[0m, in [0;36mMultiIndex.get_loc[0;34m(self, key, method)[0m
 [1;32m   2913[0m     [38;5;28;01mreturn[39;00m mask
