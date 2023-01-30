@@ -565,27 +565,27 @@ FinViz makes market information accessible and provides a lot of data in visual 
 <br>
 <p><strong>Disclaimer: Investing in the stock market involves risk and can lead to monetary loss. The content in this notebook is purely for educational purposes and should not to be taken as financial advice.</strong> </p><div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Import libraries
-import pandas as pd
-import numpy as np
-from datetime import datetime
-import matplotlib.pyplot as plt
-plt.style.use(&quot;fivethirtyeight&quot;)
-import seaborn as sns
-%matplotlib inline
-# https://github.com/mariostoev/finviz
-import finviz
-import nltk
-# NLTK VADER for sentiment analysis
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;fivethirtyeight&quot;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="c1"># https://github.com/mariostoev/finviz</span>
+<span class="kn">import</span> <span class="nn">finviz</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="c1"># NLTK VADER for sentiment analysis</span>
+<span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="kn">import</span> <span class="n">SentimentIntensityAnalyzer</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Tickers of Stocks we want to investigate
-TICKER_LIST = [&#39;AMZN&#39;, &#39;GOOG&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tickers of Stocks we want to investigate</span>
+<span class="n">TICKER_LIST</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;AMZN&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -602,42 +602,42 @@ TICKER_LIST = [&#39;AMZN&#39;, &#39;GOOG&#39;]
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def get_news(ticker):
-    &quot;&quot;&quot;
-    Returns a list of sets containing news headline and url
-    
-    :param ticker: stock symbol
-    :return: list
-    &quot;&quot;&quot;
-    news = finviz.get_news(ticker)
-    return news
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_news</span><span class="p">(</span><span class="n">ticker</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Returns a list of sets containing news headline and url</span>
+<span class="sd">    </span>
+<span class="sd">    :param ticker: stock symbol</span>
+<span class="sd">    :return: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">news</span> <span class="o">=</span> <span class="n">finviz</span><span class="o">.</span><span class="n">get_news</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">news</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Hold the parsed news into a list
-parsed_news = []
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hold the parsed news into a list</span>
+<span class="n">parsed_news</span> <span class="o">=</span> <span class="p">[]</span>
 
-for ticker in TICKER_LIST:
-    try:
-        news_array = get_news(ticker)
-        for news_set in news_array:
-            datetime = datetime.strptime(news_set[0], &#39;%Y-%m-%d %H:%M&#39;)
-            date = datetime.date()
-            time = datetime.time()
-            headline = news_set[1]
-            parsed_news.append([ticker, date, time, headline])
-    except:
-        pass
+<span class="k">for</span> <span class="n">ticker</span> <span class="ow">in</span> <span class="n">TICKER_LIST</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">news_array</span> <span class="o">=</span> <span class="n">get_news</span><span class="p">(</span><span class="n">ticker</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">news_set</span> <span class="ow">in</span> <span class="n">news_array</span><span class="p">:</span>
+            <span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">news_set</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">)</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">()</span>
+            <span class="n">time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+            <span class="n">headline</span> <span class="o">=</span> <span class="n">news_set</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">parsed_news</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">ticker</span><span class="p">,</span> <span class="n">date</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">headline</span><span class="p">])</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>parsed_news[:3]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parsed_news</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -654,7 +654,7 @@ for ticker in TICKER_LIST:
 <p>Financial journalists have their own lingo. Let’s add some new words and sentiment values to our lexicon to make NLTK think like a financial journalist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>nltk.download(&#39;vader_lexicon&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;vader_lexicon&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -670,18 +670,18 @@ for ticker in TICKER_LIST:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># New words and values
-new_words = {
-    &#39;crushes&#39;: 10,
-    &#39;beats&#39;: 5,
-    &#39;misses&#39;: -5,
-    &#39;trouble&#39;: -10,
-    &#39;falls&#39;: -100,
-}
-# Instantiate the sentiment intensity analyzer with the existing lexicon
-vader = SentimentIntensityAnalyzer()
-# Update the lexicon
-vader.lexicon.update(new_words)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># New words and values</span>
+<span class="n">new_words</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;crushes&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;beats&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s1">&#39;misses&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span>
+    <span class="s1">&#39;trouble&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;falls&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="c1"># Instantiate the sentiment intensity analyzer with the existing lexicon</span>
+<span class="n">vader</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span>
+<span class="c1"># Update the lexicon</span>
+<span class="n">vader</span><span class="o">.</span><span class="n">lexicon</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new_words</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -693,53 +693,53 @@ vader.lexicon.update(new_words)
 <p>The tool will generate a compound score, which is the sum of positive, negative &amp; neutral scores which is then normalized between -1(most extreme negative) and +1 (most extreme positive).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Use these column names
-columns = [&#39;ticker&#39;, &#39;date&#39;, &#39;time&#39;, &#39;headline&#39;]
-# Convert the list of lists into a DataFrame
-scored_news = pd.DataFrame(parsed_news, columns=columns)
-# Iterate through the headlines and get the polarity scores
-scores = [vader.polarity_scores(headline) for headline in scored_news.headline.values]
-# Convert the list of dicts into a DataFrame
-scores_df = pd.DataFrame(scores)
-# Join the DataFrames
-scored_news = pd.concat([scored_news, scores_df], axis=1)
-# Convert the date column from string to datetime
-scored_news[&#39;date&#39;] = scored_news.date
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use these column names</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;headline&#39;</span><span class="p">]</span>
+<span class="c1"># Convert the list of lists into a DataFrame</span>
+<span class="n">scored_news</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">parsed_news</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<span class="c1"># Iterate through the headlines and get the polarity scores</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="n">vader</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="n">headline</span><span class="p">)</span> <span class="k">for</span> <span class="n">headline</span> <span class="ow">in</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">headline</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="c1"># Convert the list of dicts into a DataFrame</span>
+<span class="n">scores_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+<span class="c1"># Join the DataFrames</span>
+<span class="n">scored_news</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">scored_news</span><span class="p">,</span> <span class="n">scores_df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Convert the date column from string to datetime</span>
+<span class="n">scored_news</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">date</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Group by date and ticker columns from scored_news and calculate the mean
-mean_c = scored_news.groupby([&#39;date&#39;, &#39;ticker&#39;]).mean()
-# Unstack the column ticker
-mean_c = mean_c.unstack(level=1)
-# Get the cross-section of compound in the &#39;columns&#39; axis
-mean_c = mean_c.xs(&#39;compound&#39;, axis=1)
-# Plot a bar chart with pandas
-mean_c.plot.bar()
-plt.title(&quot;Vader compound scores by date for each ticker&quot;, fontsize=16)
-plt.ylabel(&quot;score&quot;)
-plt.show()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group by date and ticker columns from scored_news and calculate the mean</span>
+<span class="n">mean_c</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;ticker&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1"># Unstack the column ticker</span>
+<span class="n">mean_c</span> <span class="o">=</span> <span class="n">mean_c</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Get the cross-section of compound in the &#39;columns&#39; axis</span>
+<span class="n">mean_c</span> <span class="o">=</span> <span class="n">mean_c</span><span class="o">.</span><span class="n">xs</span><span class="p">(</span><span class="s1">&#39;compound&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Plot a bar chart with pandas</span>
+<span class="n">mean_c</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Vader compound scores by date for each ticker&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;score&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2808/2633929423.py:2: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2704/2633929423.py:2: FutureWarning: The default value of numeric_only in DataFrameGroupBy.mean is deprecated. In a future version, numeric_only will default to False. Either specify numeric_only or select only columns which should be valid for the function.
   mean_c = scored_news.groupby([&#39;date&#39;, &#39;ticker&#39;]).mean()
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3803,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3802</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3803</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3804</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3802,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3801</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:138,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:138,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:165,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/_libs/index.pyx:165,</span> in <span class="ni">pandas._libs.index.IndexEngine.get_loc</span><span class="nt">()</span>
 
 <span class="nn">File pandas/_libs/hashtable_class_helper.pxi:5745,</span> in <span class="ni">pandas._libs.hashtable.PyObjectHashTable.get_item</span><span class="nt">()</span>
 
@@ -757,35 +757,35 @@ plt.show()
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># Plot a bar chart with pandas</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">mean_c</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/generic.py:4041,</span> in <span class="ni">NDFrame.xs</span><span class="nt">(self, key, axis, level, drop_level)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/generic.py:4041,</span> in <span class="ni">NDFrame.xs</span><span class="nt">(self, key, axis, level, drop_level)</span>
 <span class="g g-Whitespace">   </span><span class="mi">4039</span> <span class="k">if</span> <span class="n">axis</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">4040</span>     <span class="k">if</span> <span class="n">drop_level</span><span class="p">:</span>
 <span class="ne">-&gt; </span><span class="mi">4041</span>         <span class="k">return</span> <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 <span class="g g-Whitespace">   </span><span class="mi">4042</span>     <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span>
 <span class="g g-Whitespace">   </span><span class="mi">4043</span> <span class="k">else</span><span class="p">:</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/frame.py:3804,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3802</span> <span class="k">if</span> <span class="n">is_single_key</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3803</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3804</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3805</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3806</span>     <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/frame.py:3806,</span> in <span class="ni">DataFrame.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3804</span> <span class="k">if</span> <span class="n">is_single_key</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">nlevels</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3806</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_multilevel</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>     <span class="k">if</span> <span class="n">is_integer</span><span class="p">(</span><span class="n">indexer</span><span class="p">):</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/frame.py:3855,</span> in <span class="ni">DataFrame._getitem_multilevel</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3853</span> <span class="k">def</span> <span class="nf">_getitem_multilevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3854</span>     <span class="c1"># self.columns is a MultiIndex</span>
-<span class="ne">-&gt; </span><span class="mi">3855</span>     <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3856</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="p">(</span><span class="nb">slice</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
-<span class="g g-Whitespace">   </span><span class="mi">3857</span>         <span class="n">new_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/frame.py:3857,</span> in <span class="ni">DataFrame._getitem_multilevel</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3855</span> <span class="k">def</span> <span class="nf">_getitem_multilevel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3856</span>     <span class="c1"># self.columns is a MultiIndex</span>
+<span class="ne">-&gt; </span><span class="mi">3857</span>     <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3858</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="p">(</span><span class="nb">slice</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3859</span>         <span class="n">new_columns</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:2916,</span> in <span class="ni">MultiIndex.get_loc</span><span class="nt">(self, key, method)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:2916,</span> in <span class="ni">MultiIndex.get_loc</span><span class="nt">(self, key, method)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2913</span>     <span class="k">return</span> <span class="n">mask</span>
 <span class="g g-Whitespace">   </span><span class="mi">2915</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
 <span class="ne">-&gt; </span><span class="mi">2916</span>     <span class="n">loc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_level_indexer</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2917</span>     <span class="k">return</span> <span class="n">_maybe_to_slice</span><span class="p">(</span><span class="n">loc</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2919</span> <span class="n">keylen</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:3263,</span> in <span class="ni">MultiIndex._get_level_indexer</span><span class="nt">(self, key, level, indexer)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:3263,</span> in <span class="ni">MultiIndex._get_level_indexer</span><span class="nt">(self, key, level, indexer)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3259</span>         <span class="k">return</span> <span class="nb">slice</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3261</span> <span class="k">else</span><span class="p">:</span>
 <span class="ne">-&gt; </span><span class="mi">3263</span>     <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_loc_single_level_index</span><span class="p">(</span><span class="n">level_index</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
@@ -794,20 +794,20 @@ plt.show()
 <span class="g g-Whitespace">   </span><span class="mi">3267</span>         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
 <span class="g g-Whitespace">   </span><span class="mi">3268</span>             <span class="c1"># test_get_loc_partial_timestamp_multiindex</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:2849,</span> in <span class="ni">MultiIndex._get_loc_single_level_index</span><span class="nt">(self, level_index, key)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/indexes/multi.py:2849,</span> in <span class="ni">MultiIndex._get_loc_single_level_index</span><span class="nt">(self, level_index, key)</span>
 <span class="g g-Whitespace">   </span><span class="mi">2847</span>     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
 <span class="g g-Whitespace">   </span><span class="mi">2848</span> <span class="k">else</span><span class="p">:</span>
 <span class="ne">-&gt; </span><span class="mi">2849</span>     <span class="k">return</span> <span class="n">level_index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
-<span class="nn">File /opt/hostedtoolcache/Python/3.8.14/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3805,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3803</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3804</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">3805</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
-<span class="g g-Whitespace">   </span><span class="mi">3806</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3808</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
-<span class="g g-Whitespace">   </span><span class="mi">3809</span>     <span class="c1">#  the TypeError.</span>
-<span class="g g-Whitespace">   </span><span class="mi">3810</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.16/x64/lib/python3.8/site-packages/pandas/core/indexes/base.py:3804,</span> in <span class="ni">Index.get_loc</span><span class="nt">(self, key, method, tolerance)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3802</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">casted_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3803</span> <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">3804</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">key</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">err</span>
+<span class="g g-Whitespace">   </span><span class="mi">3805</span> <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3806</span>     <span class="c1"># If we have a listlike key, _check_indexing_error will raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3807</span>     <span class="c1">#  InvalidIndexError. Otherwise we fall through and re-raise</span>
+<span class="g g-Whitespace">   </span><span class="mi">3808</span>     <span class="c1">#  the TypeError.</span>
+<span class="g g-Whitespace">   </span><span class="mi">3809</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_check_indexing_error</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 
 <span class="ne">KeyError</span>: &#39;compound&#39;
 </pre></div>
@@ -820,14 +820,14 @@ plt.show()
 <p>Some headlines are the same news piece from different sources, the fact that they are written differently could provide different perspectives on the same story. Plus, when one piece of news is more important, it tends to get more headlines from multiple sources. Let’s get rid of is verbatim copied headlines, as these are very likely coming from the same journalist and are just being “forwarded” around.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Count the number of headlines in scored_news (store as integer)
-num_news_before = scored_news[&#39;headline&#39;].count()
-# Drop duplicates based on ticker and headline
-scored_news_clean = scored_news.drop_duplicates(subset=[&#39;ticker&#39;, &#39;headline&#39;])
-# Count number of headlines after dropping duplicates
-num_news_after = scored_news_clean[&#39;headline&#39;].count()
-# Print before and after numbers
-f&quot;Before we had {num_news_before} headlines, now we have {num_news_after}&quot;
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Count the number of headlines in scored_news (store as integer)</span>
+<span class="n">num_news_before</span> <span class="o">=</span> <span class="n">scored_news</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Drop duplicates based on ticker and headline</span>
+<span class="n">scored_news_clean</span> <span class="o">=</span> <span class="n">scored_news</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;headline&#39;</span><span class="p">])</span>
+<span class="c1"># Count number of headlines after dropping duplicates</span>
+<span class="n">num_news_after</span> <span class="o">=</span> <span class="n">scored_news_clean</span><span class="p">[</span><span class="s1">&#39;headline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<span class="c1"># Print before and after numbers</span>
+<span class="sa">f</span><span class="s2">&quot;Before we had </span><span class="si">{</span><span class="n">num_news_before</span><span class="si">}</span><span class="s2"> headlines, now we have </span><span class="si">{</span><span class="n">num_news_after</span><span class="si">}</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
 </div>
@@ -843,38 +843,38 @@ f&quot;Before we had {num_news_before} headlines, now we have {num_news_after}&q
 <p>Now let’s focus on one trading day and one single stock. We will make an informative plot where we will see the smallest grain possible: headline and subscores.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>STOCK = TICKER_LIST[0]
-DATE = list(scored_news.date)[-1]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">STOCK</span> <span class="o">=</span> <span class="n">TICKER_LIST</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">DATE</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">scored_news</span><span class="o">.</span><span class="n">date</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-# Set the index to ticker and date
-single_day = scored_news_clean.set_index([&#39;ticker&#39;, &#39;date&#39;])
-# Cross-section the STOCK row
-single_day = single_day.loc[STOCK]
-# Select the DATE
-single_day = single_day.loc[DATE]
-# Set the index to time and 
-single_day = single_day.set_index(&#39;time&#39;)
-# Sort it
-single_day = single_day.sort_index()
+<span class="c1"># Set the index to ticker and date</span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">scored_news_clean</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">])</span>
+<span class="c1"># Cross-section the STOCK row</span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">STOCK</span><span class="p">]</span>
+<span class="c1"># Select the DATE</span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">DATE</span><span class="p">]</span>
+<span class="c1"># Set the index to time and </span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="c1"># Sort it</span>
+<span class="n">single_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>TITLE = f&quot;Negative, neutral, and positive sentiment for {STOCK} on {DATE}&quot;
-COLORS = [&quot;red&quot;,&quot;orange&quot;, &quot;green&quot;]
-# Drop the columns that aren&#39;t useful for the plot
-plot_day = single_day.drop([&#39;headline&#39;, &#39;compound&#39;], axis=1)
-# Change the column names to &#39;negative&#39;, &#39;positive&#39;, and &#39;neutral&#39;
-plot_day.columns = [&#39;negative&#39;, &#39;neutral&#39;, &#39;positive&#39;]
-# Plot a stacked bar chart
-plot_day.plot.bar(stacked = True, 
-                  figsize=(10, 6), 
-                  title = TITLE, 
-                  color = COLORS).legend(bbox_to_anchor=(1.2, 0.5))
-plt.ylabel(&quot;scores&quot;)
-plt.show()
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TITLE</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Negative, neutral, and positive sentiment for </span><span class="si">{</span><span class="n">STOCK</span><span class="si">}</span><span class="s2"> on </span><span class="si">{</span><span class="n">DATE</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">COLORS</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">]</span>
+<span class="c1"># Drop the columns that aren&#39;t useful for the plot</span>
+<span class="n">plot_day</span> <span class="o">=</span> <span class="n">single_day</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;headline&#39;</span><span class="p">,</span> <span class="s1">&#39;compound&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Change the column names to &#39;negative&#39;, &#39;positive&#39;, and &#39;neutral&#39;</span>
+<span class="n">plot_day</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;negative&#39;</span><span class="p">,</span> <span class="s1">&#39;neutral&#39;</span><span class="p">,</span> <span class="s1">&#39;positive&#39;</span><span class="p">]</span>
+<span class="c1"># Plot a stacked bar chart</span>
+<span class="n">plot_day</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+                  <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> 
+                  <span class="n">title</span> <span class="o">=</span> <span class="n">TITLE</span><span class="p">,</span> 
+                  <span class="n">color</span> <span class="o">=</span> <span class="n">COLORS</span><span class="p">)</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;scores&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
