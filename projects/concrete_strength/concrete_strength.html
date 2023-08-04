@@ -1,43 +1,54 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Predict the strength of concrete &#8212; shpg-dsprojects</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -77,7 +88,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -87,61 +98,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/concrete_strength/concrete_strength';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Finding the best chocolate bars" href="../chocolate_bars/chocolate_bars.html" />
     <link rel="prev" title="Inn the Neighborhood - Rental Price Prediction" href="../inn_the_neighborhood/inn_the_neighborhood.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/cat.jpeg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/cat.jpeg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/cat.jpeg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -150,606 +193,320 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Projects
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../abalone_age/abalone_age.html">
-   Estimate Abalone's age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../doctor_segmentation/doctor_segmentation.html">
-   Customer Segmentation for Medical Device Manufacturer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
-   Rental Price Prediction
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Predict Concrete Strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chocolate_bars/chocolate_bars.html">
-   Finding the best Chocolate Bars
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../travel_assured/travel_assured.html">
-   Travel Insurance Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exam_scores/exam_scores.html">
-   Do test preparation courses help you prepare for exams?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../viral_tweets/README.html">
-   Viral Tweets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
-   Stock Sentiment Analysis from News Headlines
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../BCG/README.html">
-   PowerCo - Is Churn driven by price sensitivity?
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/PowerCo_email.html">
-     PowerCo - Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/eda.html">
-     PowerCo - EDA
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../sms_classifier/README.html">
-   SMS Text Classification
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sms_classifier/sms_classification.html">
-     Neural Network - SMS Text Classification
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../abalone_age/abalone_age.html">Estimate Abalone's age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doctor_segmentation/doctor_segmentation.html">Customer Segmentation for Medical Device Manufacturer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">Rental Price Prediction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Predict Concrete Strength</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chocolate_bars/chocolate_bars.html">Finding the best Chocolate Bars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../travel_assured/travel_assured.html">Travel Insurance Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exam_scores/exam_scores.html">Do test preparation courses help you prepare for exams?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../viral_tweets/README.html">Viral Tweets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">Stock Sentiment Analysis from News Headlines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../BCG/README.html">PowerCo - Is Churn driven by price sensitivity?</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../BCG/PowerCo_email.html">PowerCo - Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BCG/eda.html">PowerCo - EDA</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Achievements
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sms_classifier/README.html">SMS Text Classification</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sms_classifier/sms_classification.html">Neural Network - SMS Text Classification</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Achievements</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../achievements/certificates.html">
-   Certifications
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../achievements/certificates.html">Certifications</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=lab/tree/docs/projects/concrete_strength/concrete_strength.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/concrete_strength/concrete_strength.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/concrete_strength/concrete_strength.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/shpatrickguo/dsprojects" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/concrete_strength/concrete_strength.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/projects/concrete_strength/concrete_strength.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/concrete_strength/concrete_strength.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/projects/concrete_strength/concrete_strength.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   📖 Background
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-data">
-   💾 The data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compressive-strength-data">
-     Compressive strength data:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-libraries">
-   Import Libraries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-data">
-   Load Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-preprocessing">
-   Data Preprocessing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-size-and-structure">
-     Data Size and Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#duplicated-data">
-     Duplicated Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#outliers">
-     Outliers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-statistics">
-     Summary Statistics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis">
-   Exploratory Data Analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-matrix">
-     Correlation matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#age">
-     Age
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
-   1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-predictive-model">
-   2. Creating predictive model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#train-test-split">
-   Train Test Split
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#encoding-age">
-     Encoding age
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-selection">
-   Model Selection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-tuning">
-   Model Tuning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-evaluation">
-   Model Evaluation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-importance">
-   Feature Importance
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Predict the strength of concrete</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   📖 Background
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-data">
-   💾 The data
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compressive-strength-data">
-     Compressive strength data:
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-libraries">
-   Import Libraries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-data">
-   Load Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-preprocessing">
-   Data Preprocessing
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#data-size-and-structure">
-     Data Size and Structure
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#duplicated-data">
-     Duplicated Data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#outliers">
-     Outliers
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-statistics">
-     Summary Statistics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis">
-   Exploratory Data Analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation-matrix">
-     Correlation matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#age">
-     Age
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
-   1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#creating-predictive-model">
-   2. Creating predictive model
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#train-test-split">
-   Train Test Split
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#encoding-age">
-     Encoding age
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-selection">
-   Model Selection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-tuning">
-   Model Tuning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-evaluation">
-   Model Evaluation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-importance">
-   Feature Importance
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Predict the strength of concrete</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">📖 Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">💾 The data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compressive-strength-data">Compressive strength data:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-size-and-structure">Data Size and Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicated-data">Duplicated Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary Statistics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Correlation matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#age">Age</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-predictive-model">2. Creating predictive model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train Test Split</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-age">Encoding age</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tuning">Model Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">Model Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance">Feature Importance</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="predict-the-strength-of-concrete">
-<h1><a class="reference external" href="https://app.datacamp.com/workspace/w/6062fa1f-85aa-48e2-a156-66a5fba7ff2a">Predict the strength of concrete</a><a class="headerlink" href="#predict-the-strength-of-concrete" title="Permalink to this headline">#</a></h1>
+<h1><a class="reference external" href="https://app.datacamp.com/workspace/w/6062fa1f-85aa-48e2-a156-66a5fba7ff2a">Predict the strength of concrete</a><a class="headerlink" href="#predict-the-strength-of-concrete" title="Permalink to this heading">#</a></h1>
 <section id="background">
-<h2>📖 Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<h2>📖 Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
 <p>Concrete is the most widely used building material in the world. It is a mix of cement and water with gravel and sand. It can also include other materials like fly ash, blast furnace slag, and additives.</p>
 <p>The compressive strength of concrete is a function of components and age, the team is testing different combinations of ingredients at different time intervals.</p>
 <p>Find a simple way to estimate strength to predict how a particular sample is expected to perform.</p>
 <p>The objective is to answer:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The average strength of the concrete samples at 1, 7, 14, and 28 days of age.</p></li>
 <li><p>The coefficients of regression model using the formula that provided us:
 <img alt="Strength Equation" src="../../_images/str_eq.png" /></p></li>
 </ol>
 </section>
 <section id="the-data">
-<h2>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this headline">#</a></h2>
+<h2>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h2>
 <p>The team has already tested more than a thousand samples (<a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/concrete+compressive+strength">source</a>):</p>
 <section id="compressive-strength-data">
-<h3>Compressive strength data:<a class="headerlink" href="#compressive-strength-data" title="Permalink to this headline">#</a></h3>
+<h3>Compressive strength data:<a class="headerlink" href="#compressive-strength-data" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>“cement” - Portland cement in kg/m3</p></li>
 <li><p>“slag” - Blast furnace slag in kg/m3</p></li>
@@ -765,7 +522,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="import-libraries">
-<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">#</a></h2>
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -789,22 +546,20 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-01 04:41:08.746998: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2023-02-01 04:41:08.888280: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.16/x64/lib
-2023-02-01 04:41:08.888314: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-08-04 06:53:12.387008: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-08-04 06:53:12.438255: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-08-04 06:53:12.439635: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-01 04:41:09.637820: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.16/x64/lib
-2023-02-01 04:41:09.637931: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.16/x64/lib
-2023-02-01 04:41:09.637940: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-08-04 06:53:13.402062: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="load-data">
-<h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h2>
+<h2>Load Data<a class="headerlink" href="#load-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/concrete_data.csv&#39;</span><span class="p">)</span>
@@ -909,9 +664,9 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </section>
 <section id="data-preprocessing">
-<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this headline">#</a></h2>
+<h2>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Permalink to this heading">#</a></h2>
 <section id="data-size-and-structure">
-<h3>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this headline">#</a></h3>
+<h3>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Dataset comprises of 1030 observations.</p></li>
 <li><p>8 features and 1 target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code>.</p></li>
@@ -950,7 +705,7 @@ memory usage: 72.5 KB
 </div>
 </section>
 <section id="duplicated-data">
-<h3>Duplicated Data<a class="headerlink" href="#duplicated-data" title="Permalink to this headline">#</a></h3>
+<h3>Duplicated Data<a class="headerlink" href="#duplicated-data" title="Permalink to this heading">#</a></h3>
 <p>A small 2.43% of the dataset are duplicated. I decided to drop these, so now the dataset has 1005 observations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -970,7 +725,7 @@ df shape after removing duplicates: (1005, 9)
 </div>
 </section>
 <section id="outliers">
-<h3>Outliers<a class="headerlink" href="#outliers" title="Permalink to this headline">#</a></h3>
+<h3>Outliers<a class="headerlink" href="#outliers" title="Permalink to this heading">#</a></h3>
 <p>Boxplots show that there are outliers in our data, but not many.
 We will be replacing these outliers with their median.</p>
 <div class="cell docutils container">
@@ -982,7 +737,7 @@ We will be replacing these outliers with their median.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/concrete_strength_11_0.png" src="../../_images/concrete_strength_11_0.png" />
+<img alt="../../_images/177b85b3a3a53650d1f9e98f31b16f0b6679c1ccf03b43234757a8ee4a6c7212.png" src="../../_images/177b85b3a3a53650d1f9e98f31b16f0b6679c1ccf03b43234757a8ee4a6c7212.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1000,7 +755,7 @@ We will be replacing these outliers with their median.</p>
 </div>
 </section>
 <section id="summary-statistics">
-<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">#</a></h3>
+<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this heading">#</a></h3>
 <p>Variance, skew, and kurtosis is also included. <br>
 We can see that all variables have skew are in asymmetric form.</p>
 <div class="cell docutils container">
@@ -1179,9 +934,9 @@ We can see that all variables have skew are in asymmetric form.</p>
 </section>
 </section>
 <section id="exploratory-data-analysis">
-<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h2>
+<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h2>
 <section id="correlation-matrix">
-<h3>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this headline">#</a></h3>
+<h3>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this heading">#</a></h3>
 <p>Let’s look at the relationship between all the variables and their correlation. <br>
 From the heatmap, we observe target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code> has a high positive correlation <code class="docutils literal notranslate"><span class="pre">cement</span></code> 0.49, <code class="docutils literal notranslate"><span class="pre">superplasticizer</span></code> 0.32, and <code class="docutils literal notranslate"><span class="pre">age</span></code> 0.5. <br>
 There is a strong negative correlation (-0.61) between <code class="docutils literal notranslate"><span class="pre">superplasticizer</span></code> and <code class="docutils literal notranslate"><span class="pre">water</span></code>.</p>
@@ -1195,12 +950,12 @@ There is a strong negative correlation (-0.61) between <code class="docutils lit
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/concrete_strength_17_0.png" src="../../_images/concrete_strength_17_0.png" />
+<img alt="../../_images/6a0370f914b0a9eedbdc6729a3787157e06149ac29d311531533b8d2f1915ff8.png" src="../../_images/6a0370f914b0a9eedbdc6729a3787157e06149ac29d311531533b8d2f1915ff8.png" />
 </div>
 </div>
 </section>
 <section id="age">
-<h3>Age<a class="headerlink" href="#age" title="Permalink to this headline">#</a></h3>
+<h3>Age<a class="headerlink" href="#age" title="Permalink to this heading">#</a></h3>
 <p>Age is a very important characteristic that affects concrete strength.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1213,7 +968,7 @@ There is a strong negative correlation (-0.61) between <code class="docutils lit
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/concrete_strength_19_0.png" src="../../_images/concrete_strength_19_0.png" />
+<img alt="../../_images/06ff0da358e9d8515dfd98339d1b6755daffb5860c37bb08cdfb7d039a31880b.png" src="../../_images/06ff0da358e9d8515dfd98339d1b6755daffb5860c37bb08cdfb7d039a31880b.png" />
 </div>
 </div>
 <p>This bar plot shows that age is a categorical variable with a high number of observations at 28 days. <br>
@@ -1235,76 +990,76 @@ The 28 days time frame is significant because this is the period for concrete to
 </div>
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_11323">
+<table id="T_1c6fd">
   <caption>Average concrete strength at different ages (Days):</caption>
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
-      <th id="T_11323_level0_col0" class="col_heading level0 col0" >age</th>
-      <th id="T_11323_level0_col1" class="col_heading level0 col1" >mean</th>
-      <th id="T_11323_level0_col2" class="col_heading level0 col2" >count</th>
+      <th id="T_1c6fd_level0_col0" class="col_heading level0 col0" >age</th>
+      <th id="T_1c6fd_level0_col1" class="col_heading level0 col1" >mean</th>
+      <th id="T_1c6fd_level0_col2" class="col_heading level0 col2" >count</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th id="T_11323_level0_row0" class="row_heading level0 row0" >0</th>
-      <td id="T_11323_row0_col0" class="data row0 col0" >1</td>
-      <td id="T_11323_row0_col1" class="data row0 col1" >9.452716</td>
-      <td id="T_11323_row0_col2" class="data row0 col2" >2</td>
+      <th id="T_1c6fd_level0_row0" class="row_heading level0 row0" >0</th>
+      <td id="T_1c6fd_row0_col0" class="data row0 col0" >1</td>
+      <td id="T_1c6fd_row0_col1" class="data row0 col1" >9.452716</td>
+      <td id="T_1c6fd_row0_col2" class="data row0 col2" >2</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row1" class="row_heading level0 row1" >1</th>
-      <td id="T_11323_row1_col0" class="data row1 col0" >3</td>
-      <td id="T_11323_row1_col1" class="data row1 col1" >18.378023</td>
-      <td id="T_11323_row1_col2" class="data row1 col2" >129</td>
+      <th id="T_1c6fd_level0_row1" class="row_heading level0 row1" >1</th>
+      <td id="T_1c6fd_row1_col0" class="data row1 col0" >3</td>
+      <td id="T_1c6fd_row1_col1" class="data row1 col1" >18.378023</td>
+      <td id="T_1c6fd_row1_col2" class="data row1 col2" >129</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row2" class="row_heading level0 row2" >2</th>
-      <td id="T_11323_row2_col0" class="data row2 col0" >7</td>
-      <td id="T_11323_row2_col1" class="data row2 col1" >25.181843</td>
-      <td id="T_11323_row2_col2" class="data row2 col2" >122</td>
+      <th id="T_1c6fd_level0_row2" class="row_heading level0 row2" >2</th>
+      <td id="T_1c6fd_row2_col0" class="data row2 col0" >7</td>
+      <td id="T_1c6fd_row2_col1" class="data row2 col1" >25.181843</td>
+      <td id="T_1c6fd_row2_col2" class="data row2 col2" >122</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row3" class="row_heading level0 row3" >3</th>
-      <td id="T_11323_row3_col0" class="data row3 col0" >14</td>
-      <td id="T_11323_row3_col1" class="data row3 col1" >28.751038</td>
-      <td id="T_11323_row3_col2" class="data row3 col2" >62</td>
+      <th id="T_1c6fd_level0_row3" class="row_heading level0 row3" >3</th>
+      <td id="T_1c6fd_row3_col0" class="data row3 col0" >14</td>
+      <td id="T_1c6fd_row3_col1" class="data row3 col1" >28.751038</td>
+      <td id="T_1c6fd_row3_col2" class="data row3 col2" >62</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row4" class="row_heading level0 row4" >4</th>
-      <td id="T_11323_row4_col0" class="data row4 col0" >28</td>
-      <td id="T_11323_row4_col1" class="data row4 col1" >37.383788</td>
-      <td id="T_11323_row4_col2" class="data row4 col2" >478</td>
+      <th id="T_1c6fd_level0_row4" class="row_heading level0 row4" >4</th>
+      <td id="T_1c6fd_row4_col0" class="data row4 col0" >28</td>
+      <td id="T_1c6fd_row4_col1" class="data row4 col1" >37.383788</td>
+      <td id="T_1c6fd_row4_col2" class="data row4 col2" >478</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row5" class="row_heading level0 row5" >5</th>
-      <td id="T_11323_row5_col0" class="data row5 col0" >56</td>
-      <td id="T_11323_row5_col1" class="data row5 col1" >50.715152</td>
-      <td id="T_11323_row5_col2" class="data row5 col2" >86</td>
+      <th id="T_1c6fd_level0_row5" class="row_heading level0 row5" >5</th>
+      <td id="T_1c6fd_row5_col0" class="data row5 col0" >56</td>
+      <td id="T_1c6fd_row5_col1" class="data row5 col1" >50.715152</td>
+      <td id="T_1c6fd_row5_col2" class="data row5 col2" >86</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row6" class="row_heading level0 row6" >6</th>
-      <td id="T_11323_row6_col0" class="data row6 col0" >90</td>
-      <td id="T_11323_row6_col1" class="data row6 col1" >40.480809</td>
-      <td id="T_11323_row6_col2" class="data row6 col2" >54</td>
+      <th id="T_1c6fd_level0_row6" class="row_heading level0 row6" >6</th>
+      <td id="T_1c6fd_row6_col0" class="data row6 col0" >90</td>
+      <td id="T_1c6fd_row6_col1" class="data row6 col1" >40.480809</td>
+      <td id="T_1c6fd_row6_col2" class="data row6 col2" >54</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row7" class="row_heading level0 row7" >7</th>
-      <td id="T_11323_row7_col0" class="data row7 col0" >91</td>
-      <td id="T_11323_row7_col1" class="data row7 col1" >68.674649</td>
-      <td id="T_11323_row7_col2" class="data row7 col2" >17</td>
+      <th id="T_1c6fd_level0_row7" class="row_heading level0 row7" >7</th>
+      <td id="T_1c6fd_row7_col0" class="data row7 col0" >91</td>
+      <td id="T_1c6fd_row7_col1" class="data row7 col1" >68.674649</td>
+      <td id="T_1c6fd_row7_col2" class="data row7 col2" >17</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row8" class="row_heading level0 row8" >8</th>
-      <td id="T_11323_row8_col0" class="data row8 col0" >100</td>
-      <td id="T_11323_row8_col1" class="data row8 col1" >47.668780</td>
-      <td id="T_11323_row8_col2" class="data row8 col2" >52</td>
+      <th id="T_1c6fd_level0_row8" class="row_heading level0 row8" >8</th>
+      <td id="T_1c6fd_row8_col0" class="data row8 col0" >100</td>
+      <td id="T_1c6fd_row8_col1" class="data row8 col1" >47.668780</td>
+      <td id="T_1c6fd_row8_col2" class="data row8 col2" >52</td>
     </tr>
     <tr>
-      <th id="T_11323_level0_row9" class="row_heading level0 row9" >9</th>
-      <td id="T_11323_row9_col0" class="data row9 col0" >120</td>
-      <td id="T_11323_row9_col1" class="data row9 col1" >39.647168</td>
-      <td id="T_11323_row9_col2" class="data row9 col2" >3</td>
+      <th id="T_1c6fd_level0_row9" class="row_heading level0 row9" >9</th>
+      <td id="T_1c6fd_row9_col0" class="data row9 col0" >120</td>
+      <td id="T_1c6fd_row9_col1" class="data row9 col1" >39.647168</td>
+      <td id="T_1c6fd_row9_col2" class="data row9 col2" >3</td>
     </tr>
   </tbody>
 </table>
@@ -1323,14 +1078,14 @@ The 28 days time frame is significant because this is the period for concrete to
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/concrete_strength_23_0.png" src="../../_images/concrete_strength_23_0.png" />
+<img alt="../../_images/91293057d0c98d6698f542d012551c7cbcd8f0aa8f467d9fe2708f0e1cd690d9.png" src="../../_images/91293057d0c98d6698f542d012551c7cbcd8f0aa8f467d9fe2708f0e1cd690d9.png" />
 </div>
 </div>
 <p>In this boxplot, concrete strength is the highest at 91 days. They have the highest median strenght with a narrow variation. We can also see that strength has the largest variation at 28 days.</p>
 </section>
 </section>
 <section id="average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">
-<h2>1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.<a class="headerlink" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age" title="Permalink to this headline">#</a></h2>
+<h2>1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.<a class="headerlink" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age" title="Permalink to this heading">#</a></h2>
 <p>Average strength of concrete is the lowest after 1 day and increases significantly after 7 days. Strength continues to increase in MPa after 14 and 28 days.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1357,12 +1112,12 @@ Average strength of the concrete sample is 37.38 MPa at 28 days.
 </div>
 </section>
 <section id="creating-predictive-model">
-<h2>2. Creating predictive model<a class="headerlink" href="#creating-predictive-model" title="Permalink to this headline">#</a></h2>
+<h2>2. Creating predictive model<a class="headerlink" href="#creating-predictive-model" title="Permalink to this heading">#</a></h2>
 <p>Now let’s help our colleages in the engineering department find out the coefficients <span class="math notranslate nohighlight">\(\beta_{0}\)</span>, <span class="math notranslate nohighlight">\(\beta_{1}\)</span> … <span class="math notranslate nohighlight">\(\beta_{8}\)</span>, to use in the following formula:</p>
 <p><img alt="Strength Equation" src="../../_images/str_eq.png" /></p>
 </section>
 <section id="train-test-split">
-<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">#</a></h2>
+<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this heading">#</a></h2>
 <p>Split the data to train (80%) and test (20%) to estimate the performance of machine learning algorithms when they are used to make predictions on data not used to train the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1395,7 +1150,7 @@ y test data  (201,)
 </div>
 </div>
 <section id="encoding-age">
-<h3>Encoding age<a class="headerlink" href="#encoding-age" title="Permalink to this headline">#</a></h3>
+<h3>Encoding age<a class="headerlink" href="#encoding-age" title="Permalink to this heading">#</a></h3>
 <p>We observed that <code class="docutils literal notranslate"><span class="pre">age</span></code> is a variabel comprised of a finite set of discrete values with a ranked ordering between values.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1424,7 +1179,7 @@ y test data  (201,)
 </section>
 </section>
 <section id="model-selection">
-<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline">#</a></h2>
+<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this heading">#</a></h2>
 <p>We will be using a supervised regression model since the target variable <code class="docutils literal notranslate"><span class="pre">strength</span></code> is labeled and continuous. <br>
 Using k-folds cross validation to estimate and compare the performance of models on out-of-sample data using r2 score. This enables us to identify which model is worth improving upon. <br>
 GradientBoostRegressor gives the best results out of models, with the highest r2score of 0.89.</p>
@@ -1504,32 +1259,32 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
     <tr>
       <th>3</th>
       <td>DecisionTreeRegressor</td>
-      <td>0.804673</td>
-      <td>0.016702</td>
+      <td>0.807825</td>
+      <td>0.028218</td>
     </tr>
     <tr>
       <th>4</th>
       <td>AdaboostRegressor</td>
-      <td>0.771392</td>
-      <td>0.013572</td>
+      <td>0.774307</td>
+      <td>0.014645</td>
     </tr>
     <tr>
       <th>5</th>
       <td>RandomForestRegressor</td>
-      <td>0.881590</td>
-      <td>0.012140</td>
+      <td>0.880806</td>
+      <td>0.012104</td>
     </tr>
     <tr>
       <th>6</th>
       <td>BaggingRegressor</td>
-      <td>0.864021</td>
-      <td>0.011458</td>
+      <td>0.875016</td>
+      <td>0.013345</td>
     </tr>
     <tr>
       <th>7</th>
       <td>GradientBoostRegressor</td>
-      <td>0.885486</td>
-      <td>0.011543</td>
+      <td>0.885718</td>
+      <td>0.011869</td>
     </tr>
   </tbody>
 </table>
@@ -1537,7 +1292,7 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 </div>
 </section>
 <section id="model-tuning">
-<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this headline">#</a></h2>
+<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this heading">#</a></h2>
 <p>Using Grid Search to tune hyperparameters of Gradient Boosting Regressor.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1596,7 +1351,7 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 </div>
 </section>
 <section id="model-evaluation">
-<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">#</a></h2>
+<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h2>
 <p>Let’s evaluate the model’s performance on the testing data to assess the likely future performance of a model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1608,17 +1363,17 @@ GradientBoostRegressor gives the best results out of models, with the highest r2
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 6.766475999759855
-Mean Squared Error (MSE): 72.59797936223696
-RMSE: 8.520444786643298
-R2 Score: 0.7168245566767355
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Absolute Error (MAE): 6.488922305797657
+Mean Squared Error (MSE): 67.1600006765366
+RMSE: 8.195120540695944
+R2 Score: 0.7380359187371328
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="feature-importance">
-<h2>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this headline">#</a></h2>
+<h2>Feature Importance<a class="headerlink" href="#feature-importance" title="Permalink to this heading">#</a></h2>
 <p>Using the feature importance of the model, we get the coefficients <span class="math notranslate nohighlight">\(\beta_{0}\)</span>, <span class="math notranslate nohighlight">\(\beta_{1}\)</span> … <span class="math notranslate nohighlight">\(\beta_{8}\)</span>, to use in the following formula:
 <img alt="Strength Equation" src="../../_images/str_eq.png" /></p>
 <div class="cell docutils container">
@@ -1631,7 +1386,7 @@ R2 Score: 0.7168245566767355
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/concrete_strength_44_0.png" src="../../_images/concrete_strength_44_0.png" />
+<img alt="../../_images/56fcd272ded1d6fb2d715af75906494452aafe4245ab280d83ae7111febefb58.png" src="../../_images/56fcd272ded1d6fb2d715af75906494452aafe4245ab280d83ae7111febefb58.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1648,15 +1403,15 @@ R2 Score: 0.7168245566767355
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -170.25862123865184 +
-0.22473751013332305 * cement +
-0.060762153937967356 * slag +
-0.03805491126808483 * fly_ash +
-0.13283087422152076 * water +
-0.06813760002293884 * superplasticizer +
-0.04456272175986333 * coarse_aggregate +
-0.073752515485528 * fine_aggregate +
-0.3571617131707737 * age
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Concrete Strength = -175.08410704496362 +
+0.21511425222149458 * cement +
+0.049312746727285355 * slag +
+0.051659448681590864 * fly_ash +
+0.14022071431444338 * water +
+0.06729974521122457 * superplasticizer +
+0.055676198860235664 * coarse_aggregate +
+0.06796929914488115 * fine_aggregate +
+0.35274759483884444 * age
 </pre></div>
 </div>
 </div>
@@ -1676,7 +1431,7 @@ R2 Score: 0.7168245566767355
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./projects/concrete_strength"
         },
         predefinedOutput: true
@@ -1684,50 +1439,133 @@ R2 Score: 0.7168245566767355
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../inn_the_neighborhood/inn_the_neighborhood.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Inn the Neighborhood - Rental Price Prediction</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../inn_the_neighborhood/inn_the_neighborhood.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Inn the Neighborhood - Rental Price Prediction</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../chocolate_bars/chocolate_bars.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../chocolate_bars/chocolate_bars.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Finding the best chocolate bars</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Patrick Guo<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">📖 Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">💾 The data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compressive-strength-data">Compressive strength data:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-size-and-structure">Data Size and Structure</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#duplicated-data">Duplicated Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#outliers">Outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary Statistics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">Correlation matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#age">Age</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#average-strength-of-the-concrete-samples-at-1-7-14-and-28-days-of-age">1. Average strength of the concrete samples at 1, 7, 14, and 28 days of age.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-predictive-model">2. Creating predictive model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train Test Split</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding-age">Encoding age</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tuning">Model Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">Model Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-importance">Feature Importance</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Patrick Guo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

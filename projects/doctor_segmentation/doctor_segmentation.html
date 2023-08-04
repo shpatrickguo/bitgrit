@@ -1,43 +1,54 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Segmenting customers of medical device manufacturer &#8212; shpg-dsprojects</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -77,7 +88,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -85,61 +96,93 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/doctor_segmentation/doctor_segmentation';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Inn the Neighborhood - Rental Price Prediction" href="../inn_the_neighborhood/inn_the_neighborhood.html" />
     <link rel="prev" title="Estimate the age of an abalone using a neural network" href="../abalone_age/abalone_age.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/cat.jpeg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/cat.jpeg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/cat.jpeg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -148,805 +191,340 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Projects
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../abalone_age/abalone_age.html">
-   Estimate Abalone's age
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Customer Segmentation for Medical Device Manufacturer
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">
-   Rental Price Prediction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../concrete_strength/concrete_strength.html">
-   Predict Concrete Strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chocolate_bars/chocolate_bars.html">
-   Finding the best Chocolate Bars
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../travel_assured/travel_assured.html">
-   Travel Insurance Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exam_scores/exam_scores.html">
-   Do test preparation courses help you prepare for exams?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../viral_tweets/README.html">
-   Viral Tweets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
-   Stock Sentiment Analysis from News Headlines
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../BCG/README.html">
-   PowerCo - Is Churn driven by price sensitivity?
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/PowerCo_email.html">
-     PowerCo - Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/eda.html">
-     PowerCo - EDA
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../sms_classifier/README.html">
-   SMS Text Classification
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sms_classifier/sms_classification.html">
-     Neural Network - SMS Text Classification
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../abalone_age/abalone_age.html">Estimate Abalone's age</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Customer Segmentation for Medical Device Manufacturer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inn_the_neighborhood/inn_the_neighborhood.html">Rental Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concrete_strength/concrete_strength.html">Predict Concrete Strength</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chocolate_bars/chocolate_bars.html">Finding the best Chocolate Bars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../travel_assured/travel_assured.html">Travel Insurance Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exam_scores/exam_scores.html">Do test preparation courses help you prepare for exams?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../viral_tweets/README.html">Viral Tweets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">Stock Sentiment Analysis from News Headlines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../BCG/README.html">PowerCo - Is Churn driven by price sensitivity?</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../BCG/PowerCo_email.html">PowerCo - Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BCG/eda.html">PowerCo - EDA</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Achievements
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sms_classifier/README.html">SMS Text Classification</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sms_classifier/sms_classification.html">Neural Network - SMS Text Classification</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Achievements</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../achievements/certificates.html">
-   Certifications
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../achievements/certificates.html">Certifications</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=lab/tree/docs/projects/doctor_segmentation/doctor_segmentation.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/doctor_segmentation/doctor_segmentation.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/doctor_segmentation/doctor_segmentation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/shpatrickguo/dsprojects" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/doctor_segmentation/doctor_segmentation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/projects/doctor_segmentation/doctor_segmentation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/doctor_segmentation/doctor_segmentation.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/projects/doctor_segmentation/doctor_segmentation.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   1.1 Background
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#business-qustions">
-   1.2 Business Qustions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-dataset">
-   2 The dataset
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#imports">
-     2.1 Imports
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-data">
-     2.2 Load data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-data">
-     💾 The data
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor">
-       Doctors contains information on doctors. Each row represents one doctor.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders">
-       Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#complaints-collects-information-on-doctor-complaints">
-       Complaints collects information on doctor complaints.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders">
-       Instructions has information on whether the doctor includes special instructions on their orders.
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#buisness-questions">
-   3 Buisness Questions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-many-doctors-are-there-in-each-region">
-     3.1 How many doctors are there in each region?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-the-average-number-of-purchases-per-region">
-     3.2 What is the average number of purchases per region?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#can-you-find-a-relationship-between-purchases-and-complaints">
-     3.3 Can you find a relationship between purchases and complaints?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis-eda">
-   4 Exploratory Data Analysis (EDA)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#region">
-     4.1 Region
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#category">
-     4.2 Category
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank">
-     4.3 Rank
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#incidence-rate">
-     4.4 Incidence rate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#r-rate">
-     4.5 R rate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#satisfaction">
-     4.6 Satisfaction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#experience">
-     4.7 Experience
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#purchases">
-     4.8 Purchases
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#condition-a-j">
-     4.9 Condition A-J
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#complaint-type">
-     4.10 Complaint Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#qty">
-     4.11 Qty
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#instructions">
-     4.12 Instructions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-selection-and-engineering">
-   5 Feature Selection and Engineering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dropping-identifiers-filling-missing-values-and-encoding">
-     5.1 Dropping identifiers, filling missing values, and encoding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#feature-scaling">
-     5.2 Feature Scaling
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#principal-component-analysis-pca">
-     5.3 Principal Component Analysis (PCA)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#define-new-doctor-segments">
-   6 Define new doctor segments
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimal-number-of-clusters">
-     6.1 Optimal number of clusters
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kmeans-clustering">
-     6.2 KMeans clustering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#which-features-impact-the-new-segmentation-strategy-the-most">
-     6.3 Which features impact the new segmentation strategy the most
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#characteristics-that-distinguish-the-newly-defined-segments">
-   7 Characteristics that distinguish the newly defined segments
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank-vs-purchases">
-     7.1 Rank vs Purchases
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank-vs-incidence-rate-and-r-rate">
-     7.2 Rank vs Incidence rate and R rate
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   8. Conclusion
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#next-steps">
-     8.1 Next steps
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Segmenting customers of medical device manufacturer</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#background">
-   1.1 Background
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#business-qustions">
-   1.2 Business Qustions
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-dataset">
-   2 The dataset
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#imports">
-     2.1 Imports
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-data">
-     2.2 Load data
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-data">
-     💾 The data
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor">
-       Doctors contains information on doctors. Each row represents one doctor.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders">
-       Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#complaints-collects-information-on-doctor-complaints">
-       Complaints collects information on doctor complaints.
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders">
-       Instructions has information on whether the doctor includes special instructions on their orders.
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#buisness-questions">
-   3 Buisness Questions
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#how-many-doctors-are-there-in-each-region">
-     3.1 How many doctors are there in each region?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#what-is-the-average-number-of-purchases-per-region">
-     3.2 What is the average number of purchases per region?
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#can-you-find-a-relationship-between-purchases-and-complaints">
-     3.3 Can you find a relationship between purchases and complaints?
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis-eda">
-   4 Exploratory Data Analysis (EDA)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#region">
-     4.1 Region
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#category">
-     4.2 Category
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank">
-     4.3 Rank
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#incidence-rate">
-     4.4 Incidence rate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#r-rate">
-     4.5 R rate
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#satisfaction">
-     4.6 Satisfaction
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#experience">
-     4.7 Experience
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#purchases">
-     4.8 Purchases
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#condition-a-j">
-     4.9 Condition A-J
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#complaint-type">
-     4.10 Complaint Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#qty">
-     4.11 Qty
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#instructions">
-     4.12 Instructions
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-selection-and-engineering">
-   5 Feature Selection and Engineering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dropping-identifiers-filling-missing-values-and-encoding">
-     5.1 Dropping identifiers, filling missing values, and encoding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#feature-scaling">
-     5.2 Feature Scaling
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#principal-component-analysis-pca">
-     5.3 Principal Component Analysis (PCA)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#define-new-doctor-segments">
-   6 Define new doctor segments
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimal-number-of-clusters">
-     6.1 Optimal number of clusters
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#kmeans-clustering">
-     6.2 KMeans clustering
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#which-features-impact-the-new-segmentation-strategy-the-most">
-     6.3 Which features impact the new segmentation strategy the most
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#characteristics-that-distinguish-the-newly-defined-segments">
-   7 Characteristics that distinguish the newly defined segments
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank-vs-purchases">
-     7.1 Rank vs Purchases
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#rank-vs-incidence-rate-and-r-rate">
-     7.2 Rank vs Incidence rate and R rate
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conclusion">
-   8. Conclusion
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#next-steps">
-     8.1 Next steps
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Segmenting customers of medical device manufacturer</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1.1 Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-qustions">1.2 Business Qustions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dataset">2 The dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">2.1 Imports</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">2.2 Load data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">💾 The data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor">Doctors contains information on doctors. Each row represents one doctor.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders">Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complaints-collects-information-on-doctor-complaints">Complaints collects information on doctor complaints.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders">Instructions has information on whether the doctor includes special instructions on their orders.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buisness-questions">3 Buisness Questions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-doctors-are-there-in-each-region">3.1 How many doctors are there in each region?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-average-number-of-purchases-per-region">3.2 What is the average number of purchases per region?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-find-a-relationship-between-purchases-and-complaints">3.3 Can you find a relationship between purchases and complaints?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis-eda">4 Exploratory Data Analysis (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region">4.1 Region</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#category">4.2 Category</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank">4.3 Rank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incidence-rate">4.4 Incidence rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r-rate">4.5 R rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satisfaction">4.6 Satisfaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experience">4.7 Experience</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purchases">4.8 Purchases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-a-j">4.9 Condition A-J</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complaint-type">4.10 Complaint Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qty">4.11 Qty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">4.12 Instructions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-and-engineering">5 Feature Selection and Engineering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dropping-identifiers-filling-missing-values-and-encoding">5.1 Dropping identifiers, filling missing values, and encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-scaling">5.2 Feature Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">5.3 Principal Component Analysis (PCA)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-new-doctor-segments">6 Define new doctor segments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-number-of-clusters">6.1 Optimal number of clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">6.2 KMeans clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-features-impact-the-new-segmentation-strategy-the-most">6.3 Which features impact the new segmentation strategy the most</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-that-distinguish-the-newly-defined-segments">7 Characteristics that distinguish the newly defined segments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-vs-purchases">7.1 Rank vs Purchases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-vs-incidence-rate-and-r-rate">7.2 Rank vs Incidence rate and R rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">8. Conclusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">8.1 Next steps</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="segmenting-customers-of-medical-device-manufacturer">
-<h1><a class="reference external" href="https://app.datacamp.com/workspace/w/340ba6a8-af75-4ee0-99f5-cb1a22acffba">Segmenting customers of medical device manufacturer</a><a class="headerlink" href="#segmenting-customers-of-medical-device-manufacturer" title="Permalink to this headline">#</a></h1>
+<h1><a class="reference external" href="https://app.datacamp.com/workspace/w/340ba6a8-af75-4ee0-99f5-cb1a22acffba">Segmenting customers of medical device manufacturer</a><a class="headerlink" href="#segmenting-customers-of-medical-device-manufacturer" title="Permalink to this heading">#</a></h1>
 <section id="background">
-<h2>1.1 Background<a class="headerlink" href="#background" title="Permalink to this headline">#</a></h2>
+<h2>1.1 Background<a class="headerlink" href="#background" title="Permalink to this heading">#</a></h2>
 <p>A medical device manufacturer in Switzerland manufactures orthopedic devices and sells them worldwide. The company sells directly to individual doctors who use them on rehabilitation and physical therapy patients. <br>
 Historically, the sales and customer support departments have grouped doctors by geography. However, the region is not a good predictor of the number of purchases a doctor will make or their support needs. <br>
 The team wants to use a data-centric approach to segmenting doctors to improve marketing, customer service, and product planning.</p>
 </section>
 <section id="business-qustions">
-<h2>1.2 Business Qustions<a class="headerlink" href="#business-qustions" title="Permalink to this headline">#</a></h2>
+<h2>1.2 Business Qustions<a class="headerlink" href="#business-qustions" title="Permalink to this heading">#</a></h2>
 <p>Before making a segmentation to the team, we shall focus on answering the following five business questions:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>How many doctors are there in each region? What is the average number of purchases per region?</p></li>
 <li><p>Can you find a relationship between purchases and complaints?</p></li>
 <li><p>Define new doctor segments that help the company improve marketing efforts and customer service.</p></li>
@@ -955,9 +533,9 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </ol>
 </section>
 <section id="the-dataset">
-<h2>2 The dataset<a class="headerlink" href="#the-dataset" title="Permalink to this headline">#</a></h2>
+<h2>2 The dataset<a class="headerlink" href="#the-dataset" title="Permalink to this heading">#</a></h2>
 <section id="imports">
-<h3>2.1 Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h3>
+<h3>2.1 Imports<a class="headerlink" href="#imports" title="Permalink to this heading">#</a></h3>
 <p>First, let’s load all the modules that will be used in this report.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1086,14 +664,14 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </div>
 </section>
 <section id="load-data">
-<h3>2.2 Load data<a class="headerlink" href="#load-data" title="Permalink to this headline">#</a></h3>
+<h3>2.2 Load data<a class="headerlink" href="#load-data" title="Permalink to this heading">#</a></h3>
 <p>Next, let’s load the data and explore the basic contents for each dataframe: the type of the variables, whether there are null values.</p>
 </section>
 <section id="the-data">
-<h3>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this headline">#</a></h3>
+<h3>💾 The data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h3>
 <p>The company stores the information you need in the following four tables. Some of the fields are anonymized to comply with privacy regulations.</p>
 <section id="doctors-contains-information-on-doctors-each-row-represents-one-doctor">
-<h4>Doctors contains information on doctors. Each row represents one doctor.<a class="headerlink" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor" title="Permalink to this headline">#</a></h4>
+<h4>Doctors contains information on doctors. Each row represents one doctor.<a class="headerlink" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>“DoctorID” - is a unique identifier for each doctor.</p></li>
 <li><p>“Region” - the current geographical region of the doctor.</p></li>
@@ -1106,7 +684,7 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </ul>
 </section>
 <section id="orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders">
-<h4>Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.<a class="headerlink" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders" title="Permalink to this headline">#</a></h4>
+<h4>Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.<a class="headerlink" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>“DoctorID” - doctor id (matches the other tables).</p></li>
 <li><p>“OrderID” - order identifier.</p></li>
@@ -1115,7 +693,7 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </ul>
 </section>
 <section id="complaints-collects-information-on-doctor-complaints">
-<h4>Complaints collects information on doctor complaints.<a class="headerlink" href="#complaints-collects-information-on-doctor-complaints" title="Permalink to this headline">#</a></h4>
+<h4>Complaints collects information on doctor complaints.<a class="headerlink" href="#complaints-collects-information-on-doctor-complaints" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>“DoctorID” - doctor id (matches the other tables).</p></li>
 <li><p>“Complaint Type” - the company’s classification of the complaints.</p></li>
@@ -1123,7 +701,7 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </ul>
 </section>
 <section id="instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders">
-<h4>Instructions has information on whether the doctor includes special instructions on their orders.<a class="headerlink" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders" title="Permalink to this headline">#</a></h4>
+<h4>Instructions has information on whether the doctor includes special instructions on their orders.<a class="headerlink" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>“DoctorID” - doctor id (matches the other tables).</p></li>
 <li><p>“Instructions” - ‘Yes’ when the doctor includes special instructions, ‘No’ when they do not.</p></li>
@@ -2075,10 +1653,10 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </section>
 </section>
 <section id="buisness-questions">
-<h2>3 Buisness Questions<a class="headerlink" href="#buisness-questions" title="Permalink to this headline">#</a></h2>
+<h2>3 Buisness Questions<a class="headerlink" href="#buisness-questions" title="Permalink to this heading">#</a></h2>
 <p>The sales and customer support departments have previously grouped doctors by geography. Let’s look into region information to see whether there are any signs that it is a good indicator.</p>
 <section id="how-many-doctors-are-there-in-each-region">
-<h3>3.1 How many doctors are there in each region?<a class="headerlink" href="#how-many-doctors-are-there-in-each-region" title="Permalink to this headline">#</a></h3>
+<h3>3.1 How many doctors are there in each region?<a class="headerlink" href="#how-many-doctors-are-there-in-each-region" title="Permalink to this heading">#</a></h3>
 <p>We can find region information in the doctors table. Since each row represent one doctor, we then perform a groupby operation to count how many doctors there are in each region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2211,13 +1789,13 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/doctor_segmentation_15_0.png" src="../../_images/doctor_segmentation_15_0.png" />
+<img alt="../../_images/97c84fda606d48054fbd05d81d672dd953acbc4e279d5b0155df3bad88d64812.png" src="../../_images/97c84fda606d48054fbd05d81d672dd953acbc4e279d5b0155df3bad88d64812.png" />
 </div>
 </div>
 <p>The barplot above compares the number of doctors in each region. Region <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">13</span></code> has the most number of doctors, followed by <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">9</span></code> and <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">14</span></code>. The counts range from 1 to 34. The mean number of doctors across all regions is <code class="docutils literal notranslate"><span class="pre">10</span></code>, while the median is <code class="docutils literal notranslate"><span class="pre">6</span></code>. There is no observerable direct relationship between number of doctors and region.</p>
 </section>
 <section id="what-is-the-average-number-of-purchases-per-region">
-<h3>3.2 What is the average number of purchases per region?<a class="headerlink" href="#what-is-the-average-number-of-purchases-per-region" title="Permalink to this headline">#</a></h3>
+<h3>3.2 What is the average number of purchases per region?<a class="headerlink" href="#what-is-the-average-number-of-purchases-per-region" title="Permalink to this heading">#</a></h3>
 <p>We can find region and purchases information in the doctors table. We will perform a groupby operation to aggregate the average number of purchases in each region.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2350,13 +1928,13 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/doctor_segmentation_19_0.png" src="../../_images/doctor_segmentation_19_0.png" />
+<img alt="../../_images/d2566ac51d53ae23e0b961c7864e048b0a3cb207eefe48a738b93b737598df0d.png" src="../../_images/d2566ac51d53ae23e0b961c7864e048b0a3cb207eefe48a738b93b737598df0d.png" />
 </div>
 </div>
 <p>The barplot above compares the average number of purchases in each region. Region <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">19</span> <span class="pre">20</span></code> has the highest average number of purchases of 129, however it can also be treated as a outlier because it is much larger than the other values in the dataset. The next highest region is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">13</span> <span class="pre">T4</span></code> with 30 average purchases. The average number of purchases range from 3 to 129. Across the dataset, the mean number of purchases across all region is <code class="docutils literal notranslate"><span class="pre">13</span></code>, while the median is <code class="docutils literal notranslate"><span class="pre">10</span></code>. There is no observerable direct relationship between number of purchases and region.</p>
 </section>
 <section id="can-you-find-a-relationship-between-purchases-and-complaints">
-<h3>3.3 Can you find a relationship between purchases and complaints?<a class="headerlink" href="#can-you-find-a-relationship-between-purchases-and-complaints" title="Permalink to this headline">#</a></h3>
+<h3>3.3 Can you find a relationship between purchases and complaints?<a class="headerlink" href="#can-you-find-a-relationship-between-purchases-and-complaints" title="Permalink to this heading">#</a></h3>
 <p>Complaints information can be found complaints table. First let’s sum the quantity of complaints to <code class="docutils literal notranslate"><span class="pre">DoctorID</span></code>, then merge the complaints table with doctors table. There are also outliers, which are data values that are far away from other data values, which can strongly affect results. We will remove these outliers and calculate the correlation between the two variables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2402,6 +1980,7 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
     <tr style="text-align: right;">
       <th></th>
       <th>DoctorID</th>
+      <th>Complaint Type</th>
       <th>Qty</th>
       <th>Purchases</th>
     </tr>
@@ -2410,30 +1989,35 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
     <tr>
       <th>0</th>
       <td>AAAEAH</td>
+      <td>Correct</td>
       <td>1</td>
       <td>20.0</td>
     </tr>
     <tr>
       <th>1</th>
       <td>AABDHC</td>
+      <td>Incorrect</td>
       <td>1</td>
       <td>10.0</td>
     </tr>
     <tr>
       <th>2</th>
       <td>AABGAB</td>
+      <td>CorrectUnknown</td>
       <td>4</td>
       <td>4.0</td>
     </tr>
     <tr>
       <th>3</th>
       <td>AADDIG</td>
+      <td>Incorrect</td>
       <td>1</td>
       <td>5.0</td>
     </tr>
     <tr>
       <th>4</th>
       <td>AAEIEG</td>
+      <td>CorrectIncorrectR&amp;RUnknown</td>
       <td>2</td>
       <td>11.0</td>
     </tr>
@@ -2443,7 +2027,7 @@ The team wants to use a data-centric approach to segmenting doctors to improve m
 Correlation between purchases and quantity of complaints: 0.01839142745208687
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_22_2.png" src="../../_images/doctor_segmentation_22_2.png" />
+<img alt="../../_images/c3f78dd05fbcce017884376111c789d9e9682bb79aebf1ec122cbe0a30981595.png" src="../../_images/c3f78dd05fbcce017884376111c789d9e9682bb79aebf1ec122cbe0a30981595.png" />
 </div>
 </div>
 <p>Pearson’s Correlation coefficient is a measure for the strength of a linear relationship between two variables. A coefficient between 0.3 and 0.5 is generally considered as weak, meaning that the two variables show no strong linear relationship. A coefficient between 0.5 and 0.7 is considered as moderate, whereas a correlation between 0.7 and 0.9 is considered strong. The correlation number and regression plot shows the no relationship between number of purchases and quantity of complaints.</p>
@@ -2451,7 +2035,7 @@ Correlation between purchases and quantity of complaints: 0.01839142745208687
 </section>
 </section>
 <section id="exploratory-data-analysis-eda">
-<h2>4 Exploratory Data Analysis (EDA)<a class="headerlink" href="#exploratory-data-analysis-eda" title="Permalink to this headline">#</a></h2>
+<h2>4 Exploratory Data Analysis (EDA)<a class="headerlink" href="#exploratory-data-analysis-eda" title="Permalink to this heading">#</a></h2>
 <p>Let’s start by merging the four dataframes together. Next we will explore each column in the merged dataframe to better understand their type, distribution or frequency, and possible methods of addressing missing information.</p>
 <p><strong>Summary</strong>:</p>
 <ul class="simple">
@@ -2945,12 +2529,12 @@ Correlation between purchases and quantity of complaints: 0.01839142745208687
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/doctor_segmentation_26_0.png" src="../../_images/doctor_segmentation_26_0.png" />
+<img alt="../../_images/0b8dacc2213dfde165e88673738205a9f6d9ddc64241a6f5340c63b6e42dd74b.png" src="../../_images/0b8dacc2213dfde165e88673738205a9f6d9ddc64241a6f5340c63b6e42dd74b.png" />
 </div>
 </div>
 <p>The y-axis scale ranges from 0.0 to 1.0, where 1.0 represents 100% data completeness. If the bar is less than this, it indicates that we have missing values within that column. <code class="docutils literal notranslate"><span class="pre">DoctorID</span></code> has 100% completeness while <code class="docutils literal notranslate"><span class="pre">Instructions</span></code> have the most number of missing values. This is expected because we used an outer join to merge the dataframes together.</p>
 <section id="region">
-<h3>4.1 Region<a class="headerlink" href="#region" title="Permalink to this headline">#</a></h3>
+<h3>4.1 Region<a class="headerlink" href="#region" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Categorical variable</p></li>
 <li><p>Convert missing values to “Missing” variable or drop those rows</p></li>
@@ -2975,7 +2559,7 @@ Name: Region, dtype: object
 </div>
 </section>
 <section id="category">
-<h3>4.2 Category<a class="headerlink" href="#category" title="Permalink to this headline">#</a></h3>
+<h3>4.2 Category<a class="headerlink" href="#category" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Categorical variable, two categories: Specialist, or General Practitioner</p></li>
 <li><p>Convert missing values to “Missing” variable or drop those rows</p></li>
@@ -3017,17 +2601,18 @@ Name: Category, dtype: object
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Specialist              707
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Category
+Specialist              707
 General Practitioner     79
-Name: Category, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_31_5.png" src="../../_images/doctor_segmentation_31_5.png" />
+<img alt="../../_images/38fa7af2758891f3c48501a0425740c650a4d2d870d082c83909c17844ded769.png" src="../../_images/38fa7af2758891f3c48501a0425740c650a4d2d870d082c83909c17844ded769.png" />
 </div>
 </div>
 </section>
 <section id="rank">
-<h3>4.3 Rank<a class="headerlink" href="#rank" title="Permalink to this headline">#</a></h3>
+<h3>4.3 Rank<a class="headerlink" href="#rank" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Ordered Categorical variable, there are nine categories.</p></li>
 <li><p>The highest rank is Ambassadors, followed by Titanium Plus, Titanium, Platinum Plus, Platinum, Gold Plus, Gold, Silver Plus, and the lowest level is Silver.</p></li>
@@ -3073,7 +2658,8 @@ Name: Rank, dtype: object
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ambassador       277
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rank
+Ambassador       277
 Platinum         146
 Titanium         128
 Gold Plus         79
@@ -3082,15 +2668,15 @@ Silver Plus       50
 Gold              27
 Silver             3
 Titanium Plus      1
-Name: Rank, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_33_5.png" src="../../_images/doctor_segmentation_33_5.png" />
+<img alt="../../_images/2c54fb7d7155efa98c43766613efe05f30f88a75c0fc78504617a00e3bb5960e.png" src="../../_images/2c54fb7d7155efa98c43766613efe05f30f88a75c0fc78504617a00e3bb5960e.png" />
 </div>
 </div>
 </section>
 <section id="incidence-rate">
-<h3>4.4 Incidence rate<a class="headerlink" href="#incidence-rate" title="Permalink to this headline">#</a></h3>
+<h3>4.4 Incidence rate<a class="headerlink" href="#incidence-rate" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Numerical variable</p></li>
 <li><p>Impute missing values with 0 or drop rows</p></li>
@@ -3132,7 +2718,7 @@ Name: Incidence rate, dtype: float64
 Skew: 5.607171363436355
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_35_2.png" src="../../_images/doctor_segmentation_35_2.png" />
+<img alt="../../_images/60d9d2f12c53f49fe6cbf616abab69522cfba0271ab5d147081dec22eb1a5c51.png" src="../../_images/60d9d2f12c53f49fe6cbf616abab69522cfba0271ab5d147081dec22eb1a5c51.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3159,12 +2745,12 @@ Skew of square-root transform: 2.619246516085647
 Skew of cube-root transform: 2.025533508846419
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_36_1.png" src="../../_images/doctor_segmentation_36_1.png" />
+<img alt="../../_images/8c9dd75fd6b592b8782bc59826ef488d348e8506ee4e39b538e3d89d016c93f7.png" src="../../_images/8c9dd75fd6b592b8782bc59826ef488d348e8506ee4e39b538e3d89d016c93f7.png" />
 </div>
 </div>
 </section>
 <section id="r-rate">
-<h3>4.5 R rate<a class="headerlink" href="#r-rate" title="Permalink to this headline">#</a></h3>
+<h3>4.5 R rate<a class="headerlink" href="#r-rate" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Numerical variable</p></li>
 <li><p>Only positive values</p></li>
@@ -3206,12 +2792,12 @@ Name: R rate, dtype: float64
 Skew: 1.8086653960068204
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_38_2.png" src="../../_images/doctor_segmentation_38_2.png" />
+<img alt="../../_images/a9573b6c9817ed55c0a69ff8914d5a53a423fbc03397a95c9dd3ac7b16efb652.png" src="../../_images/a9573b6c9817ed55c0a69ff8914d5a53a423fbc03397a95c9dd3ac7b16efb652.png" />
 </div>
 </div>
 </section>
 <section id="satisfaction">
-<h3>4.6 Satisfaction<a class="headerlink" href="#satisfaction" title="Permalink to this headline">#</a></h3>
+<h3>4.6 Satisfaction<a class="headerlink" href="#satisfaction" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Numerical variable, spanning from -100 to 100</p></li>
 <li><p>Contains some – characters, fill missing values with 0 or drop rows</p></li>
@@ -3261,12 +2847,12 @@ max      100.000000
 Name: Satisfaction, dtype: float64
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_40_2.png" src="../../_images/doctor_segmentation_40_2.png" />
+<img alt="../../_images/45bed4e36723a1677c677175200cce947cdcb79ed5b0d1b23af369a7317ff323.png" src="../../_images/45bed4e36723a1677c677175200cce947cdcb79ed5b0d1b23af369a7317ff323.png" />
 </div>
 </div>
 </section>
 <section id="experience">
-<h3>4.7 Experience<a class="headerlink" href="#experience" title="Permalink to this headline">#</a></h3>
+<h3>4.7 Experience<a class="headerlink" href="#experience" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Numerical variable</p></li>
 <li><p>Only positive values as expected</p></li>
@@ -3308,12 +2894,12 @@ Name: Experience, dtype: float64
 Skew: 2.711810861459008
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_42_2.png" src="../../_images/doctor_segmentation_42_2.png" />
+<img alt="../../_images/eea41b2a04471619c8c1ba5fa2b6976fee41d961e7643e9820d548f908406e98.png" src="../../_images/eea41b2a04471619c8c1ba5fa2b6976fee41d961e7643e9820d548f908406e98.png" />
 </div>
 </div>
 </section>
 <section id="purchases">
-<h3>4.8 Purchases<a class="headerlink" href="#purchases" title="Permalink to this headline">#</a></h3>
+<h3>4.8 Purchases<a class="headerlink" href="#purchases" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Discrete Numerical variable</p></li>
 <li><p>Only positive values as expected</p></li>
@@ -3355,12 +2941,12 @@ Name: Purchases, dtype: float64
 Skew: 2.8726322076942634
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_44_2.png" src="../../_images/doctor_segmentation_44_2.png" />
+<img alt="../../_images/5decd8c488ed1bc039dc0d2afa964f9763859116523a4b0532ed2e54e66964cf.png" src="../../_images/5decd8c488ed1bc039dc0d2afa964f9763859116523a4b0532ed2e54e66964cf.png" />
 </div>
 </div>
 </section>
 <section id="condition-a-j">
-<h3>4.9 Condition A-J<a class="headerlink" href="#condition-a-j" title="Permalink to this headline">#</a></h3>
+<h3>4.9 Condition A-J<a class="headerlink" href="#condition-a-j" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>No Condition E</p></li>
 <li><p>Boolean variable</p></li>
@@ -3389,12 +2975,12 @@ Skew: 2.8726322076942634
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/doctor_segmentation_46_0.png" src="../../_images/doctor_segmentation_46_0.png" />
+<img alt="../../_images/1264f4cb21997c60d7309752057ee1948d66bb04ad62977eca7ef0e2e6f486bc.png" src="../../_images/1264f4cb21997c60d7309752057ee1948d66bb04ad62977eca7ef0e2e6f486bc.png" />
 </div>
 </div>
 </section>
 <section id="complaint-type">
-<h3>4.10 Complaint Type<a class="headerlink" href="#complaint-type" title="Permalink to this headline">#</a></h3>
+<h3>4.10 Complaint Type<a class="headerlink" href="#complaint-type" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Categorical variable</p></li>
 <li><p>Most common complaint type is “Correct”</p></li>
@@ -3415,20 +3001,21 @@ Skew: 2.8726322076942634
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Correct      355
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Complaint Type
+Correct      355
 Incorrect    220
 Unknown      152
 Specific      11
 R&amp;R            2
-Name: Complaint Type, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_48_1.png" src="../../_images/doctor_segmentation_48_1.png" />
+<img alt="../../_images/a453141fce7ee8a64a67044cd1a7950d06d01c3816a9016c8e62da2fc7781dd0.png" src="../../_images/a453141fce7ee8a64a67044cd1a7950d06d01c3816a9016c8e62da2fc7781dd0.png" />
 </div>
 </div>
 </section>
 <section id="qty">
-<h3>4.11 Qty<a class="headerlink" href="#qty" title="Permalink to this headline">#</a></h3>
+<h3>4.11 Qty<a class="headerlink" href="#qty" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Discrete numerical variable</p></li>
 <li><p>Right skewed distribution, ranging from 1 to 15.</p></li>
@@ -3453,12 +3040,12 @@ Name: Complaint Type, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/doctor_segmentation_50_0.png" src="../../_images/doctor_segmentation_50_0.png" />
+<img alt="../../_images/89eab1e7dd5fdda991d44a2dbc89e7fdd9bd429389f0c47f2908fc79af91a7e8.png" src="../../_images/89eab1e7dd5fdda991d44a2dbc89e7fdd9bd429389f0c47f2908fc79af91a7e8.png" />
 </div>
 </div>
 </section>
 <section id="instructions">
-<h3>4.12 Instructions<a class="headerlink" href="#instructions" title="Permalink to this headline">#</a></h3>
+<h3>4.12 Instructions<a class="headerlink" href="#instructions" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Binary variable</p></li>
 <li><p>Fill missing with “No”</p></li>
@@ -3477,13 +3064,13 @@ Name: Complaint Type, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/doctor_segmentation_52_0.png" src="../../_images/doctor_segmentation_52_0.png" />
+<img alt="../../_images/22ad347779a221fc4e4e1f8b715db609b84cb4c2b574f8a4946f04b4cc7395f1.png" src="../../_images/22ad347779a221fc4e4e1f8b715db609b84cb4c2b574f8a4946f04b4cc7395f1.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="feature-selection-and-engineering">
-<h2>5 Feature Selection and Engineering<a class="headerlink" href="#feature-selection-and-engineering" title="Permalink to this headline">#</a></h2>
+<h2>5 Feature Selection and Engineering<a class="headerlink" href="#feature-selection-and-engineering" title="Permalink to this heading">#</a></h2>
 <p>Based on our EDA, we recognize the dataset contains a mixture of identifier, categorical and continuous data, as well as missing values. We will now perform data preprocessing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3496,7 +3083,7 @@ Name: Complaint Type, dtype: int64
 </div>
 </div>
 <section id="dropping-identifiers-filling-missing-values-and-encoding">
-<h3>5.1 Dropping identifiers, filling missing values, and encoding<a class="headerlink" href="#dropping-identifiers-filling-missing-values-and-encoding" title="Permalink to this headline">#</a></h3>
+<h3>5.1 Dropping identifiers, filling missing values, and encoding<a class="headerlink" href="#dropping-identifiers-filling-missing-values-and-encoding" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Drop ID columns</p></li>
 <li><p>Fill in missing values</p></li>
@@ -3680,16 +3267,16 @@ Name: Complaint Type, dtype: int64
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>1</th>
@@ -3704,16 +3291,16 @@ Name: Complaint Type, dtype: int64
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>2</th>
@@ -3728,16 +3315,16 @@ Name: Complaint Type, dtype: int64
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>3</th>
@@ -3752,16 +3339,16 @@ Name: Complaint Type, dtype: int64
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
     <tr>
       <th>4</th>
@@ -3776,16 +3363,16 @@ Name: Complaint Type, dtype: int64
       <td>0.0</td>
       <td>0.0</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>True</td>
+      <td>False</td>
+      <td>False</td>
+      <td>False</td>
     </tr>
   </tbody>
 </table>
@@ -3794,7 +3381,7 @@ Name: Complaint Type, dtype: int64
 </div>
 </section>
 <section id="feature-scaling">
-<h3>5.2 Feature Scaling<a class="headerlink" href="#feature-scaling" title="Permalink to this headline">#</a></h3>
+<h3>5.2 Feature Scaling<a class="headerlink" href="#feature-scaling" title="Permalink to this heading">#</a></h3>
 <p>Using <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html">MinMaxScaler</a> to make sure features with different scales don’t introduce bias into clustering</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3809,7 +3396,7 @@ Name: Complaint Type, dtype: int64
 </div>
 </section>
 <section id="principal-component-analysis-pca">
-<h3>5.3 Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this headline">#</a></h3>
+<h3>5.3 Principal Component Analysis (PCA)<a class="headerlink" href="#principal-component-analysis-pca" title="Permalink to this heading">#</a></h3>
 <p>This method is used to reduce the dimensionality of the dataset. Let have set up a loop function to identify number of principal components that explain at least 85% of the variance in the dataset.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3891,10 +3478,10 @@ Name: Complaint Type, dtype: int64
 </section>
 </section>
 <section id="define-new-doctor-segments">
-<h2>6 Define new doctor segments<a class="headerlink" href="#define-new-doctor-segments" title="Permalink to this headline">#</a></h2>
+<h2>6 Define new doctor segments<a class="headerlink" href="#define-new-doctor-segments" title="Permalink to this heading">#</a></h2>
 <p>Our objective is to help the company improve their marketing efforts and customer service by creating new doctor segments from an unlabeled dataset, hence an unsupervised machine learning and clustering appears to be the most reasonable choice of the model. Clustering divides a set of objects or observations (in this case doctors) into different groups based on their features or properties. The division is done in such that the observations are as similar as possible to each other within the same cluster. In addition, each cluster should be as far away from the others as possible.</p>
 <section id="optimal-number-of-clusters">
-<h3>6.1 Optimal number of clusters<a class="headerlink" href="#optimal-number-of-clusters" title="Permalink to this headline">#</a></h3>
+<h3>6.1 Optimal number of clusters<a class="headerlink" href="#optimal-number-of-clusters" title="Permalink to this heading">#</a></h3>
 <p>We will use the elbow method to determe the optimal number of clusters. The method calculates the Within-Cluster-Sum of Squared Errors (WSS) for different number of clusters (k) and selecting the k for which change in WSS first starts to diminish.</p>
 <ul class="simple">
 <li><p>Based on the distortion score at different k, 5 is the optimal number of clusters.</p></li>
@@ -3913,12 +3500,12 @@ Name: Complaint Type, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/doctor_segmentation_64_0.png" src="../../_images/doctor_segmentation_64_0.png" />
+<img alt="../../_images/b7d95c2841155b5242a32e2c01a2bf4f5dc95760618413af6a626560eb9a560f.png" src="../../_images/b7d95c2841155b5242a32e2c01a2bf4f5dc95760618413af6a626560eb9a560f.png" />
 </div>
 </div>
 </section>
 <section id="kmeans-clustering">
-<h3>6.2 KMeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this headline">#</a></h3>
+<h3>6.2 KMeans clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this heading">#</a></h3>
 <p>KMeans is an iterative algorithm that partitions the dataset into K pre-defined distinct non-overlapping subgroups (clusters) where each data point belongs to only one group.</p>
 <p>The graph shows the scatter plot of the data colored by the cluster they belong to based on their similarity.</p>
 <div class="cell docutils container">
@@ -3942,14 +3529,14 @@ Name: Complaint Type, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/doctor_segmentation_66_0.png" src="../../_images/doctor_segmentation_66_0.png" />
+<img alt="../../_images/8336535aecfc774fec5083b44410e7fe5e9a34a9f4203c4e118a505904270e90.png" src="../../_images/8336535aecfc774fec5083b44410e7fe5e9a34a9f4203c4e118a505904270e90.png" />
 </div>
 </div>
 </section>
 <section id="which-features-impact-the-new-segmentation-strategy-the-most">
-<h3>6.3 Which features impact the new segmentation strategy the most<a class="headerlink" href="#which-features-impact-the-new-segmentation-strategy-the-most" title="Permalink to this headline">#</a></h3>
+<h3>6.3 Which features impact the new segmentation strategy the most<a class="headerlink" href="#which-features-impact-the-new-segmentation-strategy-the-most" title="Permalink to this heading">#</a></h3>
 <p>Now that we have identified our clusters, let’s extract each cluster’s most important features. One approach is to convert the unsupervised clustering problem into a One-vs-All supervised classification problem.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>Change the cluster labels into One-vs-All binary labels</p></li>
 <li><p>Train a classifier to discriminate between each cluster and all other clusters</p></li>
 <li><p>Extract the feature importances from the model (We will be using sklearn.ensemble.RandomForestClassifier)</p></li>
@@ -3998,7 +3585,7 @@ Name: Complaint Type, dtype: int64
 </section>
 </section>
 <section id="characteristics-that-distinguish-the-newly-defined-segments">
-<h2>7 Characteristics that distinguish the newly defined segments<a class="headerlink" href="#characteristics-that-distinguish-the-newly-defined-segments" title="Permalink to this headline">#</a></h2>
+<h2>7 Characteristics that distinguish the newly defined segments<a class="headerlink" href="#characteristics-that-distinguish-the-newly-defined-segments" title="Permalink to this heading">#</a></h2>
 <p>Now that we have identified new doctor segments, let’s identify their characteristics.</p>
 <p>Each cluster contains the following groups of <code class="docutils literal notranslate"><span class="pre">Ranks</span></code>:</p>
 <ul class="simple">
@@ -4033,7 +3620,7 @@ Name: Complaint Type, dtype: int64
           7.0      1
 4         4.0    146
           3.0     79
-Name: Rank, dtype: int64
+Name: count, dtype: int64
 </pre></div>
 </div>
 <div class="output text_html"><div>
@@ -4089,7 +3676,7 @@ Name: Rank, dtype: int64
 </div></div></div>
 </div>
 <section id="rank-vs-purchases">
-<h3>7.1 Rank vs Purchases<a class="headerlink" href="#rank-vs-purchases" title="Permalink to this headline">#</a></h3>
+<h3>7.1 Rank vs Purchases<a class="headerlink" href="#rank-vs-purchases" title="Permalink to this heading">#</a></h3>
 <p>From the violin plot, we can see there is a positive relationship between Rank and Purchases, where the higher Ranks have a higher number of purchases. This is also seen in the median number of purchases of each rank,  with the exception of Silver Rank. Therefore, Rank is helpful indicator in predicting the number of purchases a doctor will make. Ambassador Rank has the highest number of purchases, with a high of 129 purchases. Titanium Plus looks like an outlier on the violin plot, but this can be attributed to having a small sample size of doctors in that rank.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4147,12 +3734,12 @@ Ambassador       129.0
 Name: Purchases, dtype: float64
 </pre></div>
 </div>
-<img alt="../../_images/doctor_segmentation_72_4.png" src="../../_images/doctor_segmentation_72_4.png" />
+<img alt="../../_images/63101aa489f96daf3e697249a1546dad9529a936697217545c186e11ea467074.png" src="../../_images/63101aa489f96daf3e697249a1546dad9529a936697217545c186e11ea467074.png" />
 </div>
 </div>
 </section>
 <section id="rank-vs-incidence-rate-and-r-rate">
-<h3>7.2 Rank vs Incidence rate and R rate<a class="headerlink" href="#rank-vs-incidence-rate-and-r-rate" title="Permalink to this headline">#</a></h3>
+<h3>7.2 Rank vs Incidence rate and R rate<a class="headerlink" href="#rank-vs-incidence-rate-and-r-rate" title="Permalink to this heading">#</a></h3>
 <p>On the other hand, it is less certain whether there is a clear trend between Rank and Incidence rate or Rank and R rate. Therefore, Rank is a moderate indicator on the amount of rework a doctor generates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4192,7 +3779,7 @@ Name: R rate, dtype: float64
 </section>
 </section>
 <section id="conclusion">
-<h2>8. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this headline">#</a></h2>
+<h2>8. Conclusion<a class="headerlink" href="#conclusion" title="Permalink to this heading">#</a></h2>
 <p>From our analysis in 3.2 we consider that grouping doctors by geography is a poor predictor of the number of purchases a doctor will make or their support needs. In addition, there is no relationship between number of purchases and number of complaints as seen in 3.3.</p>
 <p>We move to use a data-centric approach to segment the doctors by using unsupervised machine learning to cluster them based on their features from the tables <code class="docutils literal notranslate"><span class="pre">Doctors</span></code>, <code class="docutils literal notranslate"><span class="pre">Orders</span></code>, <code class="docutils literal notranslate"><span class="pre">Complaints</span></code>, <code class="docutils literal notranslate"><span class="pre">Instructions</span></code>. The model we use for clustering is KMeans and it has grouped the doctors into 5 clusters as seen in section 6. We find that <code class="docutils literal notranslate"><span class="pre">Rank</span></code> impacts the new segmentation strategy the most and also detect a positive relationship between <code class="docutils literal notranslate"><span class="pre">Rank</span></code> and <code class="docutils literal notranslate"><span class="pre">Purchases</span></code>.</p>
 <p><strong>Clusters based on Rank:</strong></p>
@@ -4210,7 +3797,7 @@ Name: R rate, dtype: float64
 <li><p>While Ordinal encoding of Rank captured the ordering of the variable, it assumes that each rank is of equal distance to each other. Perhaps the gap between Titanium and Titanium Plus is small, however the jump to Ambassador is much larger etc. and the encoding does not represent that.</p></li>
 </ul>
 <section id="next-steps">
-<h3>8.1 Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h3>
+<h3>8.1 Next steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h3>
 <p>To build upon this analysis, we recommend doing the following:</p>
 <ul class="simple">
 <li><p>Understand how <code class="docutils literal notranslate"><span class="pre">Rank</span></code> is generated</p></li>
@@ -4235,7 +3822,7 @@ Name: R rate, dtype: float64
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./projects/doctor_segmentation"
         },
         predefinedOutput: true
@@ -4243,50 +3830,160 @@ Name: R rate, dtype: float64
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../abalone_age/abalone_age.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Estimate the age of an abalone using a neural network</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../abalone_age/abalone_age.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Estimate the age of an abalone using a neural network</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../inn_the_neighborhood/inn_the_neighborhood.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../inn_the_neighborhood/inn_the_neighborhood.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Inn the Neighborhood - Rental Price Prediction</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Patrick Guo<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background">1.1 Background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#business-qustions">1.2 Business Qustions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dataset">2 The dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#imports">2.1 Imports</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">2.2 Load data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">💾 The data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#doctors-contains-information-on-doctors-each-row-represents-one-doctor">Doctors contains information on doctors. Each row represents one doctor.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#orders-contains-details-on-orders-each-row-represents-one-order-a-doctor-can-place-multiple-orders">Orders contains details on orders. Each row represents one order; a doctor can place multiple orders.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complaints-collects-information-on-doctor-complaints">Complaints collects information on doctor complaints.</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions-has-information-on-whether-the-doctor-includes-special-instructions-on-their-orders">Instructions has information on whether the doctor includes special instructions on their orders.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#buisness-questions">3 Buisness Questions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-many-doctors-are-there-in-each-region">3.1 How many doctors are there in each region?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-average-number-of-purchases-per-region">3.2 What is the average number of purchases per region?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#can-you-find-a-relationship-between-purchases-and-complaints">3.3 Can you find a relationship between purchases and complaints?</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis-eda">4 Exploratory Data Analysis (EDA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#region">4.1 Region</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#category">4.2 Category</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank">4.3 Rank</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#incidence-rate">4.4 Incidence rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#r-rate">4.5 R rate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#satisfaction">4.6 Satisfaction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#experience">4.7 Experience</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#purchases">4.8 Purchases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#condition-a-j">4.9 Condition A-J</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complaint-type">4.10 Complaint Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#qty">4.11 Qty</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">4.12 Instructions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection-and-engineering">5 Feature Selection and Engineering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dropping-identifiers-filling-missing-values-and-encoding">5.1 Dropping identifiers, filling missing values, and encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-scaling">5.2 Feature Scaling</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-component-analysis-pca">5.3 Principal Component Analysis (PCA)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#define-new-doctor-segments">6 Define new doctor segments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-number-of-clusters">6.1 Optimal number of clusters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">6.2 KMeans clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#which-features-impact-the-new-segmentation-strategy-the-most">6.3 Which features impact the new segmentation strategy the most</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristics-that-distinguish-the-newly-defined-segments">7 Characteristics that distinguish the newly defined segments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-vs-purchases">7.1 Rank vs Purchases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-vs-incidence-rate-and-r-rate">7.2 Rank vs Incidence rate and R rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">8. Conclusion</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">8.1 Next steps</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Patrick Guo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

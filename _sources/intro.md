@@ -12,7 +12,7 @@ Feel free to reach out and contact me through [mail](mailto:shpatrickguo@gmail.c
 
 ## Project List
 
-````{card} Estimate abalone_age
+````{card} Estimate abalone age
 :link: projects/abalone_age/abalone_age.html
 :link-type: url
 {bdg-info-line}`Python` {bdg-primary-line}`Data Manipulation` {bdg-primary-line}`Data Visualization` {bdg-primary-line}`Machine Learning` {bdg-primary-line}`Neural Network` {bdg-secondary-line}`Competition`

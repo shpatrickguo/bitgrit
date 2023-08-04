@@ -1,43 +1,54 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Inn the Neighborhood - Rental Price Prediction &#8212; shpg-dsprojects</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -77,7 +88,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -87,61 +98,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'projects/inn_the_neighborhood/inn_the_neighborhood';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Predict the strength of concrete" href="../concrete_strength/concrete_strength.html" />
     <link rel="prev" title="Segmenting customers of medical device manufacturer" href="../doctor_segmentation/doctor_segmentation.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/cat.jpeg" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">shpg-dsprojects</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/cat.jpeg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/cat.jpeg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -150,657 +193,310 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Projects
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Projects</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../abalone_age/abalone_age.html">
-   Estimate Abalone's age
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../doctor_segmentation/doctor_segmentation.html">
-   Customer Segmentation for Medical Device Manufacturer
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Rental Price Prediction
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../concrete_strength/concrete_strength.html">
-   Predict Concrete Strength
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../chocolate_bars/chocolate_bars.html">
-   Finding the best Chocolate Bars
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../travel_assured/travel_assured.html">
-   Travel Insurance Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../exam_scores/exam_scores.html">
-   Do test preparation courses help you prepare for exams?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../viral_tweets/README.html">
-   Viral Tweets
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">
-   Stock Sentiment Analysis from News Headlines
-  </a>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../BCG/README.html">
-   PowerCo - Is Churn driven by price sensitivity?
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/PowerCo_email.html">
-     PowerCo - Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../BCG/eda.html">
-     PowerCo - EDA
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../sms_classifier/README.html">
-   SMS Text Classification
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../sms_classifier/sms_classification.html">
-     Neural Network - SMS Text Classification
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../abalone_age/abalone_age.html">Estimate Abalone's age</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../doctor_segmentation/doctor_segmentation.html">Customer Segmentation for Medical Device Manufacturer</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Rental Price Prediction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concrete_strength/concrete_strength.html">Predict Concrete Strength</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chocolate_bars/chocolate_bars.html">Finding the best Chocolate Bars</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../travel_assured/travel_assured.html">Travel Insurance Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exam_scores/exam_scores.html">Do test preparation courses help you prepare for exams?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../viral_tweets/README.html">Viral Tweets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stock_sentiment_from_headlines/stock_sentiment_from_headlines.html">Stock Sentiment Analysis from News Headlines</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../BCG/README.html">PowerCo - Is Churn driven by price sensitivity?</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../BCG/PowerCo_email.html">PowerCo - Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../BCG/eda.html">PowerCo - EDA</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Achievements
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sms_classifier/README.html">SMS Text Classification</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sms_classifier/sms_classification.html">Neural Network - SMS Text Classification</a></li>
+
+
+
+
+
+
+
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Achievements</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../achievements/certificates.html">
-   Certifications
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../achievements/certificates.html">Certifications</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/shpatrickguo/dsprojects/main?urlpath=lab/tree/docs/projects/inn_the_neighborhood/inn_the_neighborhood.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/inn_the_neighborhood/inn_the_neighborhood.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/shpatrickguo/dsprojects/blob/main/docs/projects/inn_the_neighborhood/inn_the_neighborhood.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/shpatrickguo/dsprojects" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/inn_the_neighborhood/inn_the_neighborhood.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/projects/inn_the_neighborhood/inn_the_neighborhood.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/shpatrickguo/dsprojects/issues/new?title=Issue%20on%20page%20%2Fprojects/inn_the_neighborhood/inn_the_neighborhood.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/projects/inn_the_neighborhood/inn_the_neighborhood.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#project-brief">
-   Project Brief
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-data">
-   The Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-libraries">
-   Import Libraries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-the-data">
-   Load the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-size-and-structure">
-   Data Size and Structure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-statistics">
-     Summary Statistics
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#completeness-of-data">
-     Completeness of Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-cleaning-summary">
-   Data Cleaning Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis">
-   Exploratory Data Analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation">
-     Correlation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#price">
-     Price
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bedrooms">
-     Bedrooms
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bathrooms">
-     Bathrooms
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#minimum-nights">
-     Minimum Nights
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#property-type">
-     Property Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#room-type">
-     Room Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#latitude-and-longitude">
-     Latitude and Longitude
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#train-test-split">
-   Train Test Split
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-engineering">
-   Feature Engineering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-hot-encoding">
-     One-Hot-Encoding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geospaital-features">
-     Geospaital Features
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variable-importance-with-random-forest">
-   Variable Importance with Random Forest
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-selection">
-   Feature Selection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-selection">
-   Model Selection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-tuning">
-   Model Tuning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-evaluation">
-   Model Evaluation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outcome-summary">
-   Outcome Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#next-steps">
-   Next steps
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Inn the Neighborhood - Rental Price Prediction</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#project-brief">
-   Project Brief
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#the-data">
-   The Data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#import-libraries">
-   Import Libraries
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#load-the-data">
-   Load the data
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-size-and-structure">
-   Data Size and Structure
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#summary-statistics">
-     Summary Statistics
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#completeness-of-data">
-     Completeness of Data
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data-cleaning-summary">
-   Data Cleaning Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exploratory-data-analysis">
-   Exploratory Data Analysis
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#correlation">
-     Correlation
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#price">
-     Price
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bedrooms">
-     Bedrooms
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bathrooms">
-     Bathrooms
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#minimum-nights">
-     Minimum Nights
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#property-type">
-     Property Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#room-type">
-     Room Type
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#latitude-and-longitude">
-     Latitude and Longitude
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#train-test-split">
-   Train Test Split
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-engineering">
-   Feature Engineering
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#one-hot-encoding">
-     One-Hot-Encoding
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#geospaital-features">
-     Geospaital Features
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variable-importance-with-random-forest">
-   Variable Importance with Random Forest
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#feature-selection">
-   Feature Selection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-selection">
-   Model Selection
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-tuning">
-   Model Tuning
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#model-evaluation">
-   Model Evaluation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#outcome-summary">
-   Outcome Summary
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#next-steps">
-   Next steps
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Inn the Neighborhood - Rental Price Prediction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-brief">Project Brief</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">Load the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-size-and-structure">Data Size and Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completeness-of-data">Completeness of Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-summary">Data Cleaning Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#price">Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedrooms">Bedrooms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bathrooms">Bathrooms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-nights">Minimum Nights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-type">Property Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#room-type">Room Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latitude-and-longitude">Latitude and Longitude</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train Test Split</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-engineering">Feature Engineering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-Hot-Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geospaital-features">Geospaital Features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-importance-with-random-forest">Variable Importance with Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection">Feature Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tuning">Model Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">Model Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcome-summary">Outcome Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="inn-the-neighborhood-rental-price-prediction">
-<h1>Inn the Neighborhood - Rental Price Prediction<a class="headerlink" href="#inn-the-neighborhood-rental-price-prediction" title="Permalink to this headline">#</a></h1>
+<h1>Inn the Neighborhood - Rental Price Prediction<a class="headerlink" href="#inn-the-neighborhood-rental-price-prediction" title="Permalink to this heading">#</a></h1>
 <section id="project-brief">
-<h2>Project Brief<a class="headerlink" href="#project-brief" title="Permalink to this headline">#</a></h2>
+<h2>Project Brief<a class="headerlink" href="#project-brief" title="Permalink to this heading">#</a></h2>
 <p>Inn the Neighborhood is an online platform that allows people to rent out their properties for short stays. Currently, the webpage for renters has a conversion rate of 2%. This means that most people leave the platform without signing up.</p>
 <p>The product manager would like to increase this conversion rate. They are interested in developing an application to help people estimate the money they could earn renting out their living space. They hope that this would make people more likely to sign up.</p>
 <p>The company has a dataset that includes details about each property rented, as well as the price charged per night. They want to avoid estimating prices that are more than 25 dollars off of the actual price, as this may discourage people.</p>
@@ -812,7 +508,7 @@ title="Print to PDF"
 <p>The data for this analysis can be accessed here: <code class="docutils literal notranslate"><span class="pre">&quot;data/rentals.csv&quot;</span></code></p>
 </section>
 <section id="the-data">
-<h2>The Data<a class="headerlink" href="#the-data" title="Permalink to this headline">#</a></h2>
+<h2>The Data<a class="headerlink" href="#the-data" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: Numeric, the unique identification number of the property</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">latitude</span></code>: Numeric, the latitude of the property</p></li>
@@ -826,7 +522,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="import-libraries">
-<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">#</a></h2>
+<h2>Import Libraries<a class="headerlink" href="#import-libraries" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Installations</span>
@@ -870,22 +566,20 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-01 04:41:39.968185: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 AVX512F FMA
-To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2023-02-01 04:41:40.108732: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libcudart.so.11.0&#39;; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.16/x64/lib
-2023-02-01 04:41:40.108757: I tensorflow/compiler/xla/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-08-04 06:53:42.816374: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-08-04 06:53:42.866515: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2023-08-04 06:53:42.868095: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-02-01 04:41:40.896016: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer.so.7&#39;; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.16/x64/lib
-2023-02-01 04:41:40.896111: W tensorflow/compiler/xla/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library &#39;libnvinfer_plugin.so.7&#39;; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.8.16/x64/lib
-2023-02-01 04:41:40.896120: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-08-04 06:53:43.878417: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="load-the-data">
-<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this headline">#</a></h2>
+<h2>Load the data<a class="headerlink" href="#load-the-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rentals_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/rentals.csv&#39;</span><span class="p">)</span>
@@ -991,7 +685,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </section>
 <section id="data-size-and-structure">
-<h2>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this headline">#</a></h2>
+<h2>Data Size and Structure<a class="headerlink" href="#data-size-and-structure" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Dataset comprises of 8111 observations and 7 characteristics.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> can be treated as the index</p></li>
@@ -1063,7 +757,7 @@ memory usage: 570.4+ KB
 </div>
 </div>
 <section id="summary-statistics">
-<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this headline">#</a></h3>
+<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Features have different scales and units.</p></li>
 <li><p>There is a narrow distribution of latitude and longitude values, which suggest the dataset contains properties in the same region.</p></li>
@@ -1303,7 +997,7 @@ memory usage: 570.4+ KB
 </div>
 </section>
 <section id="completeness-of-data">
-<h3>Completeness of Data<a class="headerlink" href="#completeness-of-data" title="Permalink to this headline">#</a></h3>
+<h3>Completeness of Data<a class="headerlink" href="#completeness-of-data" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Less than 0.2% of missing values present in columns bathroom and bedrooms</p></li>
 <li><p>Since, the missing observations only account for a small amount of the dataset, we can drop these observations.</p></li>
@@ -1340,7 +1034,7 @@ dtype: float64
 </section>
 </section>
 <section id="data-cleaning-summary">
-<h2>Data Cleaning Summary<a class="headerlink" href="#data-cleaning-summary" title="Permalink to this headline">#</a></h2>
+<h2>Data Cleaning Summary<a class="headerlink" href="#data-cleaning-summary" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Set <code class="docutils literal notranslate"><span class="pre">id</span></code> as index.</p></li>
 <li><p>Removed non-numeric characters from <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p></li>
@@ -1349,9 +1043,9 @@ dtype: float64
 </ul>
 </section>
 <section id="exploratory-data-analysis">
-<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">#</a></h2>
+<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this heading">#</a></h2>
 <section id="correlation">
-<h3>Correlation<a class="headerlink" href="#correlation" title="Permalink to this headline">#</a></h3>
+<h3>Correlation<a class="headerlink" href="#correlation" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>There is a positive correlation between number of bathrooms and bedrooms.</p></li>
 <li><p>Price has the highest positive correlation with the number of bedrooms.</p></li>
@@ -1369,12 +1063,55 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_20_0.png" src="../../_images/inn_the_neighborhood_20_0.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Visualizing the correlations between numerical variables</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Correlations Between Variables&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.17/x64/lib/python3.8/site-packages/pandas/core/frame.py:10054,</span> in <span class="ni">DataFrame.corr</span><span class="nt">(self, method, min_periods, numeric_only)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10052</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+<span class="g g-Whitespace">  </span><span class="mi">10053</span> <span class="n">idx</span> <span class="o">=</span> <span class="n">cols</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="ne">&gt; </span><span class="mi">10054</span> <span class="n">mat</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">  </span><span class="mi">10056</span> <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s2">&quot;pearson&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">  </span><span class="mi">10057</span>     <span class="n">correl</span> <span class="o">=</span> <span class="n">libalgos</span><span class="o">.</span><span class="n">nancorr</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">minp</span><span class="o">=</span><span class="n">min_periods</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.17/x64/lib/python3.8/site-packages/pandas/core/frame.py:1838,</span> in <span class="ni">DataFrame.to_numpy</span><span class="nt">(self, dtype, copy, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1836</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1837</span>     <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1838</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mgr</span><span class="o">.</span><span class="n">as_array</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="n">copy</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1839</span> <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">dtype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">dtype</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1840</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.17/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:1732,</span> in <span class="ni">BlockManager.as_array</span><span class="nt">(self, dtype, copy, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1730</span>         <span class="n">arr</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">writeable</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1731</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1732</span>     <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_interleave</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">na_value</span><span class="o">=</span><span class="n">na_value</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1733</span>     <span class="c1"># The underlying data was copied within _interleave, so no need</span>
+<span class="g g-Whitespace">   </span><span class="mi">1734</span>     <span class="c1"># to further copy if copy=True or setting na_value</span>
+<span class="g g-Whitespace">   </span><span class="mi">1736</span> <span class="k">if</span> <span class="n">na_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">lib</span><span class="o">.</span><span class="n">no_default</span><span class="p">:</span>
+
+<span class="nn">File /opt/hostedtoolcache/Python/3.8.17/x64/lib/python3.8/site-packages/pandas/core/internals/managers.py:1794,</span> in <span class="ni">BlockManager._interleave</span><span class="nt">(self, dtype, na_value)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1792</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1793</span>         <span class="n">arr</span> <span class="o">=</span> <span class="n">blk</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1794</span>     <span class="n">result</span><span class="p">[</span><span class="n">rl</span><span class="o">.</span><span class="n">indexer</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
+<span class="g g-Whitespace">   </span><span class="mi">1795</span>     <span class="n">itemmask</span><span class="p">[</span><span class="n">rl</span><span class="o">.</span><span class="n">indexer</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="g g-Whitespace">   </span><span class="mi">1797</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">itemmask</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+
+<span class="ne">ValueError</span>: could not convert string to float: &#39;Apartment&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1000x800 with 0 Axes&gt;
+</pre></div>
+</div>
 </div>
 </div>
 </section>
 <section id="price">
-<h3>Price<a class="headerlink" href="#price" title="Permalink to this headline">#</a></h3>
+<h3>Price<a class="headerlink" href="#price" title="Permalink to this heading">#</a></h3>
 <p>Our target variable <code class="docutils literal notranslate"><span class="pre">price</span></code> is a continuous numerical variable. <br>
 The distribution is right skewed, with most properties costing around $100.00 per night. <br>
 Recall that outliers have already been removed from <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p>
@@ -1392,12 +1129,12 @@ Recall that outliers have already been removed from <code class="docutils litera
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_22_0.png" src="../../_images/inn_the_neighborhood_22_0.png" />
+<img alt="../../_images/73c9dc2b842dc8086a9bfe279bac7cf3ed6fe2215338e9bb4301eeb0fb9cfc02.png" src="../../_images/73c9dc2b842dc8086a9bfe279bac7cf3ed6fe2215338e9bb4301eeb0fb9cfc02.png" />
 </div>
 </div>
 </section>
 <section id="bedrooms">
-<h3>Bedrooms<a class="headerlink" href="#bedrooms" title="Permalink to this headline">#</a></h3>
+<h3>Bedrooms<a class="headerlink" href="#bedrooms" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">bedrooms</span></code> is a discrete numerical variable. It has the highest positive correlation with <code class="docutils literal notranslate"><span class="pre">price</span></code>. <br>
 The distribution is right skewed, with most properties having 1 bathroom.
 Different variability of the price is present for each number of bedrooms.</p>
@@ -1415,7 +1152,7 @@ Different variability of the price is present for each number of bedrooms.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_24_0.png" src="../../_images/inn_the_neighborhood_24_0.png" />
+<img alt="../../_images/f017908420ca8c267952fc2cf34d372f3794c8c16cf2d9b2fd793019bb39d859.png" src="../../_images/f017908420ca8c267952fc2cf34d372f3794c8c16cf2d9b2fd793019bb39d859.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1431,12 +1168,12 @@ Different variability of the price is present for each number of bedrooms.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_25_0.png" src="../../_images/inn_the_neighborhood_25_0.png" />
+<img alt="../../_images/36beb2832b3cf72c460db765909763f0b02194504a83c0cf24e66d3a6756f4cd.png" src="../../_images/36beb2832b3cf72c460db765909763f0b02194504a83c0cf24e66d3a6756f4cd.png" />
 </div>
 </div>
 </section>
 <section id="bathrooms">
-<h3>Bathrooms<a class="headerlink" href="#bathrooms" title="Permalink to this headline">#</a></h3>
+<h3>Bathrooms<a class="headerlink" href="#bathrooms" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">bathrooms</span></code> is a discrete numerical variable. It has a weak positive correlation with bedrooms.<br>
 <strong>Contextual information:</strong> A full bathroom has a sink, toilet, and either a tub/shower combo or separate tub and shower. Whereas, a half-bath has a sink and a toilet - no tub or shower.<br>
 The distribution is right skewed, with most properties having 1 bathroom. Different variability of the price is present for each number of bathrooms.</p>
@@ -1454,7 +1191,7 @@ The distribution is right skewed, with most properties having 1 bathroom. Differ
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_27_0.png" src="../../_images/inn_the_neighborhood_27_0.png" />
+<img alt="../../_images/13f1f9ded2008e697caa39d8b51a45c7a514efb42741af6b1e12bc471d2df609.png" src="../../_images/13f1f9ded2008e697caa39d8b51a45c7a514efb42741af6b1e12bc471d2df609.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1470,12 +1207,12 @@ The distribution is right skewed, with most properties having 1 bathroom. Differ
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_28_0.png" src="../../_images/inn_the_neighborhood_28_0.png" />
+<img alt="../../_images/8f3b147e7ec36124ac239358e0ae5da39f39598816da3b54aa2a61ea5c6623ea.png" src="../../_images/8f3b147e7ec36124ac239358e0ae5da39f39598816da3b54aa2a61ea5c6623ea.png" />
 </div>
 </div>
 </section>
 <section id="minimum-nights">
-<h3>Minimum Nights<a class="headerlink" href="#minimum-nights" title="Permalink to this headline">#</a></h3>
+<h3>Minimum Nights<a class="headerlink" href="#minimum-nights" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">minimum_nights</span></code> is a discrete numerical variable. <br>
 The distribution is right skewed and bimodal, with most properties requiring a minimum of 30 or 1-3 nights of stay. <br>
 Recall that outliers have already been removed from <code class="docutils literal notranslate"><span class="pre">Minimum</span> <span class="pre">Nights</span></code>.</p>
@@ -1493,12 +1230,12 @@ Recall that outliers have already been removed from <code class="docutils litera
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_30_0.png" src="../../_images/inn_the_neighborhood_30_0.png" />
+<img alt="../../_images/ebcadb765c07b1a9b03494c2d3e0efc685758bacd671b0dff4869ebeb70d1c8f.png" src="../../_images/ebcadb765c07b1a9b03494c2d3e0efc685758bacd671b0dff4869ebeb70d1c8f.png" />
 </div>
 </div>
 </section>
 <section id="property-type">
-<h3>Property Type<a class="headerlink" href="#property-type" title="Permalink to this headline">#</a></h3>
+<h3>Property Type<a class="headerlink" href="#property-type" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">property_type</span></code> is a categorical variable. There are 26 property types.<br>
 Most properties are Apartments. The most expensive type being resorts, and the cheapest being Camper/RV. <br>
 Different variability of the price is present for each property type. For example, cottages has a wide range of prices, whereas apartments have a narrow range.</p>
@@ -1519,7 +1256,7 @@ Different variability of the price is present for each property type. For exampl
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No. of property types: 26
 </pre></div>
 </div>
-<img alt="../../_images/inn_the_neighborhood_32_1.png" src="../../_images/inn_the_neighborhood_32_1.png" />
+<img alt="../../_images/ad4b5a217cbf6092ef32f1a05dace1b30313935e843a4c829cefe67827582f9a.png" src="../../_images/ad4b5a217cbf6092ef32f1a05dace1b30313935e843a4c829cefe67827582f9a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1535,12 +1272,12 @@ Different variability of the price is present for each property type. For exampl
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_33_0.png" src="../../_images/inn_the_neighborhood_33_0.png" />
+<img alt="../../_images/0adfc76611ccfdefaee37c88a28559f5a0bf146fe49371c2b7e9b117d81148a7.png" src="../../_images/0adfc76611ccfdefaee37c88a28559f5a0bf146fe49371c2b7e9b117d81148a7.png" />
 </div>
 </div>
 </section>
 <section id="room-type">
-<h3>Room Type<a class="headerlink" href="#room-type" title="Permalink to this headline">#</a></h3>
+<h3>Room Type<a class="headerlink" href="#room-type" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">room_type</span></code> is a categorical variable. There are 4 room types. <br>
 Most rooms are Entire home/apt. The most expensive type being Entire home/apt, and the cheapest being Shared Room.</p>
 <div class="cell docutils container">
@@ -1560,7 +1297,7 @@ Most rooms are Entire home/apt. The most expensive type being Entire home/apt, a
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>No. of room types: 4
 </pre></div>
 </div>
-<img alt="../../_images/inn_the_neighborhood_35_1.png" src="../../_images/inn_the_neighborhood_35_1.png" />
+<img alt="../../_images/003723738de3f678b535b36e7acabc3a4a12c181ca5254f6b9df1d61dee5129f.png" src="../../_images/003723738de3f678b535b36e7acabc3a4a12c181ca5254f6b9df1d61dee5129f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1576,12 +1313,12 @@ Most rooms are Entire home/apt. The most expensive type being Entire home/apt, a
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_36_0.png" src="../../_images/inn_the_neighborhood_36_0.png" />
+<img alt="../../_images/d4e3d600ab44db607b1979d2bba256b4de270b53a83ad9a95e3dba2c478f08c8.png" src="../../_images/d4e3d600ab44db607b1979d2bba256b4de270b53a83ad9a95e3dba2c478f08c8.png" />
 </div>
 </div>
 </section>
 <section id="latitude-and-longitude">
-<h3>Latitude and Longitude<a class="headerlink" href="#latitude-and-longitude" title="Permalink to this headline">#</a></h3>
+<h3>Latitude and Longitude<a class="headerlink" href="#latitude-and-longitude" title="Permalink to this heading">#</a></h3>
 <p>Properties are located near San Francisco. <br>
 Scatterplot does not show distinct price clusters based on latitude and longitude.</p>
 <div class="cell docutils container">
@@ -1604,16 +1341,16 @@ Scatterplot does not show distinct price clusters based on latitude and longitud
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>601, Van Ness Avenue, Civic Center, San Francisco, CAL Fire Northern Region, California, 94102, United States
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1449, Baker Street, Western Addition, San Francisco, California, 94115, United States
 </pre></div>
 </div>
-<img alt="../../_images/inn_the_neighborhood_38_1.png" src="../../_images/inn_the_neighborhood_38_1.png" />
+<img alt="../../_images/f28b9af03323223c95652413a6de324bd52b5766938dc7a37dba829387d8c9a4.png" src="../../_images/f28b9af03323223c95652413a6de324bd52b5766938dc7a37dba829387d8c9a4.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="train-test-split">
-<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this headline">#</a></h2>
+<h2>Train Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this heading">#</a></h2>
 <p>Split the data to train (80%) and test (20%) to estimate the performance of machine learning algorithms when they are used to make predictions on data not used to train the model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1646,7 +1383,7 @@ y test data  (1475,)
 </div>
 </section>
 <section id="feature-engineering">
-<h2>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this headline">#</a></h2>
+<h2>Feature Engineering<a class="headerlink" href="#feature-engineering" title="Permalink to this heading">#</a></h2>
 <p>Performed after Train Test split to prevent information leakage from the test set.</p>
 <ul class="simple">
 <li><p>Convert categorical variables into a format that can be readily used by machine learning algorithms using One-Hot-Encoding.</p></li>
@@ -1654,7 +1391,7 @@ y test data  (1475,)
 <li><p>Scale input variables to improve the convergence of algorithms that do not possess the property of scale invariance.</p></li>
 </ul>
 <section id="one-hot-encoding">
-<h3>One-Hot-Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this headline">#</a></h3>
+<h3>One-Hot-Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Categorical Features</span>
@@ -1719,7 +1456,7 @@ X_test shape: (1475, 35)
 </div>
 </section>
 <section id="geospaital-features">
-<h3>Geospaital Features<a class="headerlink" href="#geospaital-features" title="Permalink to this headline">#</a></h3>
+<h3>Geospaital Features<a class="headerlink" href="#geospaital-features" title="Permalink to this heading">#</a></h3>
 <p>Transform Cartesian coordinates into polar coordinates.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1761,7 +1498,7 @@ X_test shape: (1475, 37)
 </section>
 </section>
 <section id="variable-importance-with-random-forest">
-<h2>Variable Importance with Random Forest<a class="headerlink" href="#variable-importance-with-random-forest" title="Permalink to this headline">#</a></h2>
+<h2>Variable Importance with Random Forest<a class="headerlink" href="#variable-importance-with-random-forest" title="Permalink to this heading">#</a></h2>
 <p>Using a simple random forest with 100 trees to get a quick overview of the top 5 relative permutation importance for each variable. <br>
 According to the random forest, <code class="docutils literal notranslate"><span class="pre">bedrooms</span></code> is the most important feature. This is expected because it has the highest correlation to the <code class="docutils literal notranslate"><span class="pre">price</span></code>.</p>
 <div class="cell docutils container">
@@ -1784,12 +1521,12 @@ According to the random forest, <code class="docutils literal notranslate"><span
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/inn_the_neighborhood_49_0.png" src="../../_images/inn_the_neighborhood_49_0.png" />
+<img alt="../../_images/839204afb9de905efd78676788df7563a5d5b4e8ae1f55cbe213af094114af2e.png" src="../../_images/839204afb9de905efd78676788df7563a5d5b4e8ae1f55cbe213af094114af2e.png" />
 </div>
 </div>
 </section>
 <section id="feature-selection">
-<h2>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this headline">#</a></h2>
+<h2>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">#</a></h2>
 <p>Recognize that many new features were generated during feature engineering. <br>
 Using Lasso Regularization to identify and select a subset of input variables that are most relevant to the target variable. <br>
 Non-important features are removed.</p>
@@ -1799,6 +1536,15 @@ Non-important features are removed.</p>
 <span class="n">sel_lasso</span> <span class="o">=</span> <span class="n">SelectFromModel</span><span class="p">(</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">C</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">2022</span><span class="p">))</span>
 <span class="n">sel_lasso</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 <span class="n">sel_lasso</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ True,  True,  True,  True,  True,  True,  True,  True,  True,
+        True, False, False, False,  True, False, False, False,  True,
+        True,  True,  True,  True, False, False,  True,  True,  True,
+        True, False,  True, False,  True,  True,  True,  True,  True,
+        True])
 </pre></div>
 </div>
 </div>
@@ -1840,7 +1586,7 @@ X_test shape: (1475, 27)
 </div>
 </section>
 <section id="model-selection">
-<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this headline">#</a></h2>
+<h2>Model Selection<a class="headerlink" href="#model-selection" title="Permalink to this heading">#</a></h2>
 <p>Explore different supervised regression models since the target variable is labeled and continuous. <br>
 Using k-folds cross validation to estimate and compare the performance of models on out-of-sample data. Identify, which model is worth improving upon. <br>
 LGBMRegressor - (Microsoft’s implementation of gradient boosted machines) - gives the best results out of models.</p>
@@ -2012,7 +1758,7 @@ To enable them in other operations, rebuild TensorFlow with the appropriate comp
 </div>
 </section>
 <section id="model-tuning">
-<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this headline">#</a></h2>
+<h2>Model Tuning<a class="headerlink" href="#model-tuning" title="Permalink to this heading">#</a></h2>
 <p>Using LGBMTuner from verstack - automated lightgbm models tuner with optuna (automated hyperparameter optimization framework). <br>
 Using Root Mean Squared Error as the metric for 500 trials.</p>
 <p>According to the tuned model:</p>
@@ -2076,10 +1822,10 @@ reg_lambda                       : 0.0723651402085118
 n_estimators                     : 344
 </pre></div>
 </div>
-<img alt="../../_images/inn_the_neighborhood_59_1.png" src="../../_images/inn_the_neighborhood_59_1.png" />
-<img alt="../../_images/inn_the_neighborhood_59_2.png" src="../../_images/inn_the_neighborhood_59_2.png" />
-<img alt="../../_images/inn_the_neighborhood_59_3.png" src="../../_images/inn_the_neighborhood_59_3.png" />
-<img alt="../../_images/inn_the_neighborhood_59_4.png" src="../../_images/inn_the_neighborhood_59_4.png" />
+<img alt="../../_images/b1ae2121acb3206fc70627776363d6590cc46ab0b6ce07be4ea664c87206ebd6.png" src="../../_images/b1ae2121acb3206fc70627776363d6590cc46ab0b6ce07be4ea664c87206ebd6.png" />
+<img alt="../../_images/7d7847a8fb21fc30b0d794d711c1a8f9fadafc7700f678ca60cf1d85f1bb1c4b.png" src="../../_images/7d7847a8fb21fc30b0d794d711c1a8f9fadafc7700f678ca60cf1d85f1bb1c4b.png" />
+<img alt="../../_images/478e9fd70400fe9f25020c21beed6d38339847b891228f775b8f458ad22e977b.png" src="../../_images/478e9fd70400fe9f25020c21beed6d38339847b891228f775b8f458ad22e977b.png" />
+<img alt="../../_images/34408117906653ef520fe24d8ae9ccc25288b73aa9f3d114937543022d7d8a3d.png" src="../../_images/34408117906653ef520fe24d8ae9ccc25288b73aa9f3d114937543022d7d8a3d.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     . Optuna hyperparameters optimization finished
      .. Best trial number:76    |     rmse:            51.64429482194801
  ---------------------------------------------------------------------------
@@ -2126,7 +1872,7 @@ Time elapsed for fit execution: 20 min 4.296 sec
 </div>
 </section>
 <section id="model-evaluation">
-<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this headline">#</a></h2>
+<h2>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Permalink to this heading">#</a></h2>
 <p>Measure model performance using Mean Squared Error, Mean Absolute Error, Root Mean Squared Error, and r2 Score.</p>
 <div class="math notranslate nohighlight">
 \[ MSE(y, \hat{y}) = \frac{1}{N_{samples}} \sum_{i=0}^{n_{samples} - 1} (y_i - \hat{y_i})^2 \]</div>
@@ -2199,7 +1945,7 @@ Nevertheless, the RMSE scores is greater than 25 indicating that the model fails
 </div>
 </section>
 <section id="outcome-summary">
-<h2>Outcome Summary<a class="headerlink" href="#outcome-summary" title="Permalink to this headline">#</a></h2>
+<h2>Outcome Summary<a class="headerlink" href="#outcome-summary" title="Permalink to this heading">#</a></h2>
 <p>Aimed to predict price, allowing renters to estimate how much they could earn renting out their living space. <br>
 Adopted Supervised Machine Learning approach to predict labeled continuous target variable <code class="docutils literal notranslate"><span class="pre">price</span></code> using details about each property rented, as well as the price charged per night. <br>
 After model selection and tuning, the best model:</p>
@@ -2219,7 +1965,7 @@ Interesting considering <code class="docutils literal notranslate"><span class="
 <p>Resulting with a <span class="math notranslate nohighlight">\(r^2\)</span> Score of ~0.61 and ~53.75 RMSE. Though, failing to reach target of estimating prices that are less than 25 dollars off of the actual price.</p>
 </section>
 <section id="next-steps">
-<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this headline">#</a></h2>
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Permalink to this heading">#</a></h2>
 <p>To improve the model and reach the target of estimating prices without being more than 25 dollars off:</p>
 <ul class="simple">
 <li><p>More data collection to increase training size.</p></li>
@@ -2242,7 +1988,7 @@ Interesting considering <code class="docutils literal notranslate"><span class="
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./projects/inn_the_neighborhood"
         },
         predefinedOutput: true
@@ -2250,50 +1996,138 @@ Interesting considering <code class="docutils literal notranslate"><span class="
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../doctor_segmentation/doctor_segmentation.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Segmenting customers of medical device manufacturer</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../doctor_segmentation/doctor_segmentation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Segmenting customers of medical device manufacturer</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../concrete_strength/concrete_strength.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../concrete_strength/concrete_strength.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Predict the strength of concrete</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Patrick Guo<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-brief">Project Brief</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-data">The Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-libraries">Import Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-data">Load the data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-size-and-structure">Data Size and Structure</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-statistics">Summary Statistics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#completeness-of-data">Completeness of Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning-summary">Data Cleaning Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis">Exploratory Data Analysis</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation">Correlation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#price">Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bedrooms">Bedrooms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bathrooms">Bathrooms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#minimum-nights">Minimum Nights</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#property-type">Property Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#room-type">Room Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#latitude-and-longitude">Latitude and Longitude</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train Test Split</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-engineering">Feature Engineering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-Hot-Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#geospaital-features">Geospaital Features</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable-importance-with-random-forest">Variable Importance with Random Forest</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection">Feature Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-selection">Model Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-tuning">Model Tuning</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">Model Evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outcome-summary">Outcome Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next steps</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Patrick Guo
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
