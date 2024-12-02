@@ -3,7 +3,7 @@
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://shpatrickguo.github.io/dsprojects/)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/shpatrickguo/dsprojects/HEAD)
 
-Portfolio of Data Science projects.
+[Portfolio of Data Science projects](https://shpatrickguo.github.io/dsprojects/)
 
 ## Usage
 
